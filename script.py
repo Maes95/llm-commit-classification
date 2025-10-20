@@ -31,22 +31,54 @@ llm = init_chat_model(
     extra_body={"provider": {"require_parameters": True, "only": ["meta"]}}
 )
 
-template_report = """
+# Load definitions from documentation file
+definitions_file = os.path.join("documentation", "definitions.md")
+with open(definitions_file, "r") as f:
+  definitions_content = f.read()
 
-BEGINNING
+template_report = """You are an expert software engineering analyst tasked with classifying git commits into specific categories.
 
+Below are the definitions and categories you must use for classification:
+
+{definitions}
+
+---
+
+Now, classify the following commit message into ONE of these categories:
+- Bug-Fixing Commit (BFC)
+- Bug-Preventing Commit (BPC)
+- Perfective Commit (PRC)
+- New Feature Commit (NFC)
+
+Commit message to classify:
+
+```
 {commit_message}
+```
 
-END
+Your response must include:
+1. The selected category (one of: BFC, BPC, PRC, or NFC)
+2. A paragraph explaining why you chose that category, based on the definitions provided above
+
+Format your response as:
+**Classification:** [Category Name]
+
+**Explanation:** [Your detailed explanation here]
 """
 
 with open(commit_file, "r") as f:
   commit_data = json.load(f)
-commit_message = commit_data["commit"]["message"]
+commit_message = commit_data["data"]["message"]
 
 # Format the prompt directly (avoids dependency on PromptTemplate across langchain versions)
-prompt_text = template_report.format(commit_message=commit_message)
+prompt_text = template_report.format(
+    definitions=definitions_content,
+    commit_message=commit_message
+)
 
 response = llm.invoke(prompt_text)
+classification_result = response.content
 
-print(response)
+# Print the classification result
+print(classification_result)
+print(f"\nUsage: {response.usage_metadata}", file=sys.stderr)

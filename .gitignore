@@ -2,3 +2,4 @@
 .env
 data/1000-linux-commits.jsonl
 notes/
+output/
