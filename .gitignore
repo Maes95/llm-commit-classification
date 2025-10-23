@@ -1,7 +1,7 @@
 .venv/
 .env
-data/1000-linux-commits.jsonl
-data/1000-linux-commits-with-zones.jsonl
+data/1000-linux-commits*
 notes/
 output/
 .vscode/
+data/*.csv
