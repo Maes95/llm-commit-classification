@@ -2,4 +2,8 @@ perceval
 python-dotenv
 openai
 langchain[openai]
+jupyter
+pandas
+matplotlib
+seaborn
 
