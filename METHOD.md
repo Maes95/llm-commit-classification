@@ -153,26 +153,30 @@ With the validated prompt from Phase 4, we proceed to annotate all 1,000 commits
 
 The validation sample (50 commits from Phase 4) is excluded from all subsequent analyses to maintain methodological rigor and prevent overfitting to the validation set.
 
-### Phase 6: Evaluation Against Ground Truth
+### Phase 6: Evaluation Metrics Computation
 
 The full dataset of 1,000 commits (excluding the 50-commit validation sample) has been previously annotated by expert software engineers, establishing a gold standard ground truth dataset of 950 commits. Each commit has been manually scored across all four dimensions (BFC, BPC, PRC, NFC) using the same 0-4 rubric provided to the LLMs.
 
-**Inter-Annotator Agreement Verification**: Before using the human annotations as ground truth, we verify their reliability by calculating inter-annotator agreement metrics.
+**Inter-Annotator Agreement Verification**: We first verify the reliability of ground truth annotations by calculating inter-annotator agreement metrics on commits that received multiple independent human annotations. This establishes the quality of the reference standard and provides an upper bound for expected LLM performance.
 
-> This work is partially done but not finished yet. We have three files with annotations for each annotator. The first was an individual annotation, in the second there was a discussion of the commits where there were disagreements, after which the annotation could be modified. In the third, a fourth person (Jesús) consulted the annotation to try to reach a decision. After these annotations, there were still disagreements in ~20 commits. The problem is that even if we agreed on the classification of the commits, it is not exactly the same for each annotator, since although an agreement was reached on some (for example, BFC=4), other values may not coincide (we all put BFC=3 but a different value in BPC=[0-2]).
+> **Note**: This work is partially complete. We have three annotation rounds: (1) individual annotations, (2) post-discussion annotations after resolving disagreements, and (3) consultation with a fourth annotator (Jesús) for remaining conflicts. Approximately 20 commits still have minor disagreements where annotators agree on primary dimensions (e.g., BFC=3-4) but differ on secondary dimensions (e.g., BPC scores vary 0-2).
 
-**Evaluation Metrics Computation**: LLM annotations are systematically compared against ground truth across all model-context combinations on the 950-commit evaluation set. For each dimension, we compute:
+**Systematic Metrics Computation**: For each model-context-dimension combination, we compute performance metrics by comparing LLM annotations against ground truth on the 950-commit evaluation set:
 
-1. **Binary classification metrics** at two thresholds (strict: score ≥3; permissive: score ≥2): precision, recall, F1-score, and accuracy
+1. **Binary classification metrics** at two thresholds (strict: score ≥3; lenient: score ≥2): precision, recall, F1-score, and accuracy
 2. **Score-level agreement**: Cohen's kappa (unweighted and quadratic-weighted), Mean Absolute Error (MAE), and Root Mean Squared Error (RMSE)
 3. **Correlation measures**: Pearson and Spearman correlations between LLM and ground truth scores
 4. **Percentage metrics**: Exact matches and within-1-point agreement rates
 
-**Statistical Significance Testing**: To compare model performance, we apply appropriate hypothesis tests: McNemar's test for binary classification comparisons, Wilcoxon signed-rank test for score-level comparisons between model pairs, and Friedman test with post-hoc Nemenyi tests for simultaneous comparison of all models. All tests use α = 0.05 with Bonferroni correction for multiple comparisons.
+This generates a comprehensive results dataset with metrics organized by model (10), context level (3), dimension (4), and metric type, facilitating multi-faceted performance analysis.
+
+**Statistical Significance Testing**: We apply hypothesis tests to determine whether observed performance differences are statistically significant: McNemar's test for binary classification comparisons, Wilcoxon signed-rank test for pairwise score-level comparisons, and Friedman test with post-hoc Nemenyi tests for multi-model comparisons. All tests use α = 0.05 with Bonferroni correction for multiple comparisons.
+
+Results are exported in structured CSV format containing all computed metrics, organized for subsequent analysis and visualization.
 
 ## Data Analysis
 
-The analysis phase employs comprehensive quantitative and qualitative methodologies to interpret evaluation results and extract meaningful insights about LLM performance:
+The analysis phase interprets the computed metrics to extract meaningful insights about LLM performance patterns, strengths, weaknesses, and practical implications:
 
 ### Quantitative Analysis
 
