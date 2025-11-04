@@ -35,7 +35,7 @@ The dataset undergoes preprocessing to structure commit information at three gra
 
 - **Level 1 (Minimal)**: Commit message text only from the `data.message` field
 - **Level 2 (Standard)**: Commit message plus file modification statistics (files added/modified/deleted, lines changed) extracted from the `data.files` array, including file paths and change counts
-- **Level 3 (Full)**: Complete context including commit message, full code diff reconstructed from file changes, author/committer metadata (`data.Author`, `data.Commit`), commit date (`data.CommitDate`), parent commit references (`data.parents`), signed-off-by information (`data.Signed-off-by`), and associated email thread discussions when available
+- **Level 3 (Full)**: Complete context including commit message, full code diff reconstructed from file changes and associated email thread discussions when available
 
 Code diffs are reconstructed by parsing the `files` array, which contains per-file change information including `added` and `removed` line counts, file paths, and action types (Modified, Added, Deleted). For commits with email references (extracted from `Link:` tags in commit messages using regex pattern `Link: https://lore.kernel.org/r/([^\s]+)`), we fetch HTML content from the Linux Kernel Mailing List archives (lore.kernel.org) using HTTP requests, convert to plain text using BeautifulSoup, and preserve threading structure by parsing `In-Reply-To` and `References` headers.
 
@@ -115,38 +115,55 @@ llm_config = {
 }
 ```
 
-### Phase 4: Annotation Execution
+### Phase 4: Prompt Validation and Refinement
 
-The annotation process iterates through all 1,000 commits using a batch processing framework that implements an **Iterative Refinement Process** [1] to ensure high-quality annotations. This methodology involves the following systematic steps:
+Before annotating the full dataset, we implement an **Iterative Refinement Process** [1] to validate and optimize the prompt configuration. This methodology uses a validation subset to ensure high-quality annotations before full-scale deployment:
 
-**Step 1 - Sample Data Dual Annotation**: Select a representative sample of data items (initially 50 commits stratified across different subsystems and change types). Annotate this sample data using the LLM and compare it against the existing human annotations for these commits. The human annotations already exist in the dataset and serve as the reference standard.
+**Step 1 - Validation Sample Selection**: Select a stratified validation sample of 50 commits from the full dataset, ensuring representation across different Linux Kernel subsystems (drivers, core kernel, filesystems, networking) and preliminary commit types. These commits are set aside exclusively for prompt refinement and are not used in the final evaluation to avoid data leakage.
 
-**Step 2 - Statistical Validation**: Perform rigorous statistical validation by calculating agreement coefficients (specifically Cohen's kappa) to quantitatively assess the alignment between the LLM's outputs and the existing human annotations. This provides an objective measure of annotation quality.
+**Step 2 - Initial LLM Annotation**: Apply the initial prompt (defined in Phase 2) to annotate the validation sample using each selected LLM model. Compare these LLM annotations against the existing human ground truth annotations for these 50 commits.
 
-**Step 3 - Criteria Assessment**: Check if the agreement coefficient meets a predefined criterion (Cohen's kappa > 0.9, indicating near-perfect agreement). If the agreement is acceptable, proceed to use the current prompt for the full dataset annotation; if not, continue to Step 4 for prompt refinement.
+**Step 3 - Statistical Validation**: Calculate agreement coefficients, specifically Cohen's kappa (per dimension), between LLM and human annotations on the validation sample. This quantitatively assesses the alignment between LLM outputs and expected results, providing an objective measure of annotation quality.
 
-**Step 4 - Prompt Refinement**: If the agreement is below the acceptable threshold, systematically refine the prompt to address any identified issues through error analysis. Refinement strategies may include:
+**Step 4 - Criteria Assessment**: Evaluate whether the agreement coefficient meets a predefined criterion (Cohen's kappa > 0.8 per dimension, indicating strong agreement). If the criterion is met for all dimensions, proceed to Phase 5 with the validated prompt. If not, continue to Step 5 for prompt refinement.
 
-- **Simplifying language**: Using clear and straightforward language to improve LLM comprehension of instructions
-- **Clarifying instructions**: Rewriting ambiguous parts of the prompt to eliminate multiple interpretations
-- **Providing examples**: Including concrete few-shot examples to guide the LLM towards the desired output format and reasoning style
-- **Adjusting level of detail**: Modifying the amount of context provided or the granularity of instructions based on observed error patterns
+**Step 5 - Error Analysis and Prompt Refinement**: When agreement falls below the threshold, perform detailed error analysis to identify systematic issues. Examine commits where LLM and human annotations diverge significantly (difference ≥2 points) to understand failure patterns. Systematically refine the prompt based on identified issues:
 
-**Step 5 - Iterative Repetition**: Repeat the entire process starting from Step 1 with the refined prompt, using a fresh sample or expanding the validation sample, until the statistical validation criteria are met. Document each iteration with the specific prompt version, kappa score achieved, and modifications made.
+- **Simplifying language**: Use clearer, more straightforward language to improve LLM comprehension
+- **Clarifying instructions**: Rewrite ambiguous sections to eliminate multiple interpretations
+- **Adding few-shot examples**: Include 2-3 concrete examples demonstrating correct annotation reasoning for each dimension
+- **Adjusting context emphasis**: Modify instructions to better balance commit message, code changes, and metadata
+- **Refining scoring rubric**: Add specific criteria or boundary cases to clarify score distinctions (e.g., when to assign 2 vs. 3)
 
-Once the prompt achieves the required agreement level, the validated prompt configuration is deployed for full-scale annotation of all 1,000 commits across all model-context combinations.
+**Step 6 - Iterative Repetition**: Return to Step 2 with the refined prompt and re-annotate the validation sample. Continue this cycle until achieving the target agreement level or reaching a maximum of 5 iterations. Document each iteration: prompt version, per-dimension kappa scores, specific modifications made, and rationale for changes.
 
-### Phase 5: Evaluation Against Ground Truth
+Once the prompt achieves satisfactory agreement on the validation sample, the validated prompt configuration is finalized for full-scale deployment.
 
-The experimental dataset of 1,000 commits has been previously annotated by software engineers, establishing a gold standard ground truth dataset. Each commit in the dataset has been manually scored across all four dimensions (BFC, BPC, PRC, NFC) using the same 0-4 rubric that will be provided to the LLMs. These human annotations serve as the reference standard for evaluating LLM performance.
+### Phase 5: Full Dataset Annotation
+
+With the validated prompt from Phase 4, we proceed to annotate all 1,000 commits across all model-context combinations:
+
+**Annotation Execution**: For each combination of model (10 models), context level (3 levels: minimal, standard, full), and commit (1,000 commits), we execute the LLM annotation process. This generates 30,000 total annotations (10 models × 3 context levels × 1,000 commits).
+
+**Quality Assurance**: After completion, perform sanity checks on the annotation dataset:
+- Verify all commits have annotations for all model-context combinations
+- Check JSON parsing success rate (target: >99%)
+- Validate score ranges (all scores 0-4)
+- Identify and flag any anomalous patterns (e.g., identical annotations across many commits suggesting model errors)
+
+The validation sample (50 commits from Phase 4) is excluded from all subsequent analyses to maintain methodological rigor and prevent overfitting to the validation set.
+
+### Phase 6: Evaluation Against Ground Truth
+
+The full dataset of 1,000 commits (excluding the 50-commit validation sample) has been previously annotated by expert software engineers, establishing a gold standard ground truth dataset of 950 commits. Each commit has been manually scored across all four dimensions (BFC, BPC, PRC, NFC) using the same 0-4 rubric provided to the LLMs.
 
 **Inter-Annotator Agreement Verification**: Before using the human annotations as ground truth, we verify their reliability by calculating inter-annotator agreement metrics.
 
 > This work is partially done but not finished yet. We have three files with annotations for each annotator. The first was an individual annotation, in the second there was a discussion of the commits where there were disagreements, after which the annotation could be modified. In the third, a fourth person (Jesús) consulted the annotation to try to reach a decision. After these annotations, there were still disagreements in ~20 commits. The problem is that even if we agreed on the classification of the commits, it is not exactly the same for each annotator, since although an agreement was reached on some (for example, BFC=4), other values may not coincide (we all put BFC=3 but a different value in BPC=[0-2]).
 
-**Evaluation Metrics Computation**: LLM annotations are systematically compared against the ground truth across all model-context combinations. For each dimension, we compute:
+**Evaluation Metrics Computation**: LLM annotations are systematically compared against ground truth across all model-context combinations on the 950-commit evaluation set. For each dimension, we compute:
 
-1. **Binary classification metrics** at two thresholds (strict: score ≥3; lenient: score ≥2): precision, recall, F1-score, and accuracy
+1. **Binary classification metrics** at two thresholds (strict: score ≥3; permissive: score ≥2): precision, recall, F1-score, and accuracy
 2. **Score-level agreement**: Cohen's kappa (unweighted and quadratic-weighted), Mean Absolute Error (MAE), and Root Mean Squared Error (RMSE)
 3. **Correlation measures**: Pearson and Spearman correlations between LLM and ground truth scores
 4. **Percentage metrics**: Exact matches and within-1-point agreement rates
@@ -163,7 +180,6 @@ The analysis phase employs comprehensive quantitative and qualitative methodolog
 - **Model comparison**: Identify which LLM models achieve the highest agreement with human annotations
 - **Context level impact**: Determine whether additional context (minimal vs. standard vs. full) significantly improves annotation accuracy
 - **Dimension difficulty**: Identify which commit categories (BFC, BPC, PRC, NFC) are most challenging for LLMs to annotate correctly
-
 
 **Score Distribution Analysis**: We characterize LLM annotation behavior by examining:
 - **Central tendency and spread**: Compare mean scores and standard deviations between LLM and human annotations per dimension
