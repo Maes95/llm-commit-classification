@@ -1,7 +1,7 @@
 # Methodology for Commit Annotation Using Large Language Models
 
 In this document, the methodology used to evaluate the ability of Large Language Models (LLMs) to annotate software commits from the Linux Kernel repository will be described. 
-The aim will be to link this study with the guidelines proposed by Baltes et al.[2].
+The aim will be to link this study with the guidelines proposed by Baltes et al.[2]: Guidelines for Empirical Studies in Software Engineering involving Large Language Models.
 Below, we detail the objectives, materials, procedures, and data analysis used in this experiment.
 
 ## Objective
@@ -15,7 +15,15 @@ The experimental results will provide insights into the viability of using LLMs 
 
 ## Materials
 
-The experimental dataset consists of 1,000 commits randomly sampled from the Linux Kernel repository, stored in JSONL (JSON Lines) format in the file `data/1000-linux-commits.jsonl`. Each commit record contains comprehensive metadata including commit hash, author information, commit date, commit message, list of modified files with their change statistics (additions/deletions), parent commit references, and signed-off-by information extracted using the Perceval tool. The annotation taxonomy is defined in `documentation/definitions.md`, which provides detailed definitions for the four commit dimensions based on software engineering principles and failure/fault theory. Each dimension represents a distinct aspect of commit purpose: BFC captures bug-fixing intent, BPC captures preventive maintenance, PRC captures quality improvements without behavioral changes, and NFC captures functionality additions.
+The experimental dataset consists of 1,000 commits randomly sampled from the Linux Kernel repository, stored in JSONL (JSON Lines) format in the file `data/1000-linux-commits.jsonl`. 
+>  In reality, nearly 5-10% are merge commits that we should discard.
+Each commit record contains comprehensive metadata including commit hash, author information, commit date, commit message, list of modified files with their change statistics (additions/deletions), parent commit references, and signed-off-by information extracted using the Perceval tool. 
+The annotation taxonomy is defined in `documentation/definitions.md`, which provides detailed definitions for the four commit dimensions based on software engineering principles and failure/fault theory. 
+Each dimension represents a distinct aspect of commit purpose: 
+- BFC captures bug-fixing intent
+- BPC captures preventive maintenance
+- PRC captures quality improvements without behavioral changes
+- NFC captures functionality additions
 
 For the LLM infrastructure, we utilize the LangChain library (Python) to interface with multiple language models through OpenRouter as the API gateway provider. The models selected for evaluation include: 
 
@@ -32,7 +40,9 @@ For the LLM infrastructure, we utilize the LangChain library (Python) to interfa
 
 > I have selected some of the most relevant "free" models I have found, but I am unable to define a selection criterion that makes sense
 
-These models represent diverse architectural approaches and training paradigms, enabling comprehensive performance comparison. The selection criteria prioritize models with proven reasoning capabilities, sufficient context window sizes (minimum 32K tokens) to accommodate complete commit information including extensive code diffs, and demonstrated proficiency in multi-aspect analysis tasks. 
+These models represent diverse architectural approaches and training paradigms, enabling comprehensive performance comparison. The selection criteria prioritize models with proven reasoning capabilities, sufficient context window sizes (minimum 32K tokens) to accommodate complete commit information including extensive code diffs, and demonstrated proficiency in multi-aspect analysis tasks.
+
+> Baltes et al. guidelines states that research should use open-source LLMs model as baselines. Definition: “[...] according to OSI, open-source AI means that one has access to everything needed to use the AI, which includes that it is possible to understand, modify, share, retrain, and recreate it.”
 
 ## Procedure
 
