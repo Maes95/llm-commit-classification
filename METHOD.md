@@ -26,7 +26,7 @@ The experimental results will provide insights into the viability of using LLMs 
 ## Materials
 
 The experimental dataset consists of 1,000 commits randomly sampled from the Linux Kernel repository, stored in JSONL (JSON Lines) format in the file `data/1000-linux-commits.jsonl`. 
->  In reality, nearly 5-10% are merge commits that we should discard.
+> **Note**: Actually, nearly 5-10% are merge commits that we should discard.
 Each commit record contains comprehensive metadata including commit hash, author information, commit date, commit message, list of modified files with their change statistics (additions/deletions), parent commit references, and signed-off-by information extracted using the Perceval tool. 
 The annotation taxonomy is defined in `documentation/definitions.md`, which provides detailed definitions for the four commit dimensions based on software engineering principles and failure/fault theory. 
 Each dimension represents a distinct aspect of commit purpose: 
@@ -48,11 +48,11 @@ For the LLM infrastructure, we utilize the LangChain library (Python) to interfa
 - mistralai/mistral-small-3.2-24b-instruct:free 
 - google/gemini-2.0-flash-exp:free 
 
-> I have selected some of the most relevant "free" models I have found, but I am unable to define a selection criterion that makes sense
+> **Note**: I have selected some of the most relevant "free" models I have found, but I am unable to define a selection criterion that makes sense
 
 These models represent diverse architectural approaches and training paradigms, enabling comprehensive performance comparison. The selection criteria prioritize models with proven reasoning capabilities, sufficient context window sizes (minimum 32K tokens) to accommodate complete commit information including extensive code diffs, and demonstrated proficiency in multi-aspect analysis tasks.
 
-> Baltes et al. guidelines states that research should use open-source LLMs model as baselines. Definition: “[...] according to OSI, open-source AI means that one has access to everything needed to use the AI, which includes that it is possible to understand, modify, share, retrain, and recreate it.”
+> **Note**: Baltes et al. guidelines states that research should use open-source LLMs model as baselines. Definition: “[...] according to OSI, open-source AI means that one has access to everything needed to use the AI, which includes that it is possible to understand, modify, share, retrain, and recreate it.”
 
 ## Procedure
 
@@ -154,7 +154,11 @@ Before annotating the full dataset, we implement an **Iterative Refinement Proce
 
 **Step 3 - Statistical Validation**: Calculate agreement coefficients, specifically Cohen's kappa (per dimension), between LLM and human annotations on the validation sample. This quantitatively assesses the alignment between LLM outputs and expected results, providing an objective measure of annotation quality.
 
-**Step 4 - Criteria Assessment**: Evaluate whether the agreement coefficient meets a predefined criterion (Cohen's kappa > 0.8 per dimension, indicating strong agreement). If the criterion is met for all dimensions, proceed to Phase 5 with the validated prompt. If not, continue to Step 5 for prompt refinement.
+**Step 4 - Criteria Assessment**: Evaluate whether the agreement coefficient meets a predefined criterion (Cohen's kappa > 0.5 per dimension, indicating strong agreement). If the criterion is met for all dimensions, proceed to Phase 5 with the validated prompt. If not, continue to Step 5 for prompt refinement.
+
+> **Note**: Following the guidelines by Baltes et al. [2] regarding human validation of LLM outputs:
+> "[...] If studies involve the annotation of software artifacts, and the goal is to automate the annotation process using LLM, researchers should follow systematic approaches to decide whether and how human annotators can be replaced. For example, Ahmed et al. suggest a method that involves using a jury of three LLMs with 3 to 4 few-shot examples rated by humans, where the model-to-model agreement on all samples is determined using Krippendorff’s Alpha. If the agreement is high (alpha > 0.5), a human rating can be replaced with an LLM-generated one. In cases of low model-to-model agreement (alpha ≤ 0.5), they then evaluate the prediction confidence of the model, selectively replacing annotations where the model confidence is high (≥ 0.8)” 
+>  I believe that Cohen's Kappa and a limit of 0.5 could be an option, as cited in the Guidelines, but we may want to raise that number to 0.7 or 0.8.
 
 **Step 5 - Error Analysis and Prompt Refinement**: When agreement falls below the threshold, perform detailed error analysis to identify systematic issues. Examine commits where LLM and human annotations diverge significantly (difference ≥2 points) to understand failure patterns. Systematically refine the prompt based on identified issues:
 
@@ -172,7 +176,7 @@ Once the prompt achieves satisfactory agreement on the validation sample, the va
 
 With the validated prompt from Phase 4, we proceed to annotate all 1,000 commits across all model-context combinations:
 
-**Annotation Execution**: For each combination of model (10 models), context level (3 levels: minimal, standard, full), and commit (1,000 commits), we execute the LLM annotation process. This generates 30,000 total annotations (10 models × 3 context levels × 1,000 commits).
+**Annotation Execution**: For each combination of model (10 models), context level (3 levels: minimal, standard, full), and commit (950 commits), we execute the LLM annotation process.
 
 **Quality Assurance**: After completion, perform sanity checks on the annotation dataset:
 - Verify all commits have annotations for all model-context combinations
@@ -184,7 +188,7 @@ The validation sample (50 commits from Phase 4) is excluded from all subsequent 
 
 ### Phase 6: Evaluation Metrics Computation
 
-The full dataset of 1,000 commits (excluding the 50-commit validation sample) has been previously annotated by expert software engineers, establishing a gold standard ground truth dataset of 950 commits. Each commit has been manually scored across all four dimensions (BFC, BPC, PRC, NFC) using the same 0-4 rubric provided to the LLMs.
+The full dataset of 1,000 commits (excluding the 50-commit validation sample) has been previously annotated by "expert" software engineers, establishing a gold standard ground truth dataset of 950 commits. Each commit has been manually scored across all four dimensions (BFC, BPC, PRC, NFC) using the same 0-4 rubric provided to the LLMs.
 
 **Inter-Annotator Agreement Verification**: We first verify the reliability of ground truth annotations by calculating inter-annotator agreement metrics on commits that received multiple independent human annotations. This establishes the quality of the reference standard and provides an upper bound for expected LLM performance.
 
@@ -228,7 +232,7 @@ The analysis phase interprets the computed metrics to extract meaningful insight
 
 **Cost-Effectiveness Optimization**: We analyze operational trade-offs:
 - **Token consumption**: Total and per-commit token usage across model-context combinations
-- **API cost estimation**: Calculate monetary costs based on November 2025 provider pricing
+- **API cost estimation**: Calculate monetary costs based on November-December 2025 provider pricing
 - **Accuracy-cost frontier**: Identify Pareto-optimal configurations balancing performance and expense
 
 ### Qualitative Analysis
