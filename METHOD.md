@@ -1,7 +1,17 @@
 # Methodology for Commit Annotation Using Large Language Models
 
 In this document, the methodology used to evaluate the ability of Large Language Models (LLMs) to annotate software commits from the Linux Kernel repository will be described. 
-The aim will be to link this study with the guidelines proposed by Baltes et al.[2]: Guidelines for Empirical Studies in Software Engineering involving Large Language Models.
+The aim will be to link this study with the guidelines proposed by Baltes et al.[2], "Guidelines for Empirical Studies in Software Engineering involving Large Language Models":
+
+- Declare LLM Usage and Role
+- Report Model Version, Configuration, and Customizations
+- Report Tool Architecture beyond Models
+- Report Prompts, their Development, and Interaction Logs
+- Use Human Validation for LLM Outputs
+- Use an Open LLM as a Baseline
+- Use Suitable Baselines, Benchmarks, and Metrics
+- Report Limitations and Mitigations
+
 Below, we detail the objectives, materials, procedures, and data analysis used in this experiment.
 
 ## Objective
@@ -27,7 +37,7 @@ Each dimension represents a distinct aspect of commit purpose:
 
 For the LLM infrastructure, we utilize the LangChain library (Python) to interface with multiple language models through OpenRouter as the API gateway provider. The models selected for evaluation include: 
 
-- Meta's Llama 4 Maverick 
+- meta-llama/llama-4-maverick:free
 - deepseek/deepseek-chat-v3.1:free 
 - meituan/longcat-flash-chat:free 
 - openai/gpt-oss-20b:free 
