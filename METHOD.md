@@ -144,6 +144,8 @@ llm_config = {
 }
 ```
 
+> **Note**: Guidelines: “[...] researchers may reduce the output variability by setting the temperature to a value close to 0 and setting a fixed seed value” 
+
 ### Phase 4: Prompt Validation and Refinement
 
 Before annotating the full dataset, we implement an **Iterative Refinement Process** [1] to validate and optimize the prompt configuration. This methodology uses a validation subset to ensure high-quality annotations before full-scale deployment:
@@ -200,6 +202,8 @@ The full dataset of 1,000 commits (excluding the 50-commit validation sample) ha
 2. **Score-level agreement**: Cohen's kappa (unweighted and quadratic-weighted), Mean Absolute Error (MAE), and Root Mean Squared Error (RMSE)
 3. **Correlation measures**: Pearson and Spearman correlations between LLM and ground truth scores
 4. **Percentage metrics**: Exact matches and within-1-point agreement rates
+
+> **Note**: Some of the metrics are already suggested in the guidelines: “[...] For classification tasks, classical machine learning metrics such as Precision, Recall, F1-score, and Accuracy are often reported.”
 
 This generates a comprehensive results dataset with metrics organized by model (10), context level (3), dimension (4), and metric type, facilitating multi-faceted performance analysis.
 
