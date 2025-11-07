@@ -1,8 +1,17 @@
 # Methodology for Commit Annotation Using Large Language Models
 
+In this document, the methodology used to evaluate the ability of Large Language Models (LLMs) to annotate software commits from the Linux Kernel repository will be described. 
+The aim will be to link this study with the guidelines proposed by Baltes et al.[2].
+Below, we detail the objectives, materials, procedures, and data analysis used in this experiment.
+
 ## Objective
 
-The primary objective of this experimental study is to evaluate the capability of Large Language Models (LLMs) to annotate software commits from the Linux Kernel repository across four distinct dimensions: Bug-Fixing Commits (BFC), Bug-Preventing Commits (BPC), Perfective Commits (PRC), and New Feature Commits (NFC). Unlike traditional single-label classification approaches, this research employs a multi-dimensional annotation scheme where each commit receives a score from 0 to 4 for each category, reflecting the degree to which the commit exhibits characteristics of that category. This approach acknowledges the reality that commits often serve multiple purposes simultaneously—for example, a commit might both fix a bug and improve code quality, or introduce a new feature while preventing potential future bugs. The study aims to assess whether LLMs can replicate expert human judgment in producing nuanced, multi-dimensional commit annotations that capture this complexity. We seek to determine the inter-rater reliability between LLM annotations and expert human annotations, measured through correlation coefficients and mean absolute error for each dimension. Furthermore, we aim to identify which contextual elements (commit message alone, commit message with diff, or commit message with full metadata including email discussions) contribute most significantly to annotation accuracy and consistency. The experimental results will provide insights into the viability of using LLMs for large-scale repository mining tasks requiring nuanced understanding of commit semantics, and will establish baseline performance metrics for future comparative studies in automated software evolution analysis.
+The primary objective of this experimental study is to evaluate the capability of Large Language Models (LLMs) to annotate software commits from the Linux Kernel repository across four distinct dimensions: Bug-Fixing Commits (BFC), Bug-Preventing Commits (BPC), Perfective Commits (PRC), and New Feature Commits (NFC). 
+Unlike traditional single-label classification approaches, this research employs a multi-dimensional annotation scheme where each commit receives a score from 0 to 4 for each category, reflecting the degree to which the commit exhibits characteristics of that category. 
+This approach acknowledges the reality that commits often serve multiple purposes simultaneously—for example, a commit might both fix a bug and improve code quality, or introduce a new feature while preventing potential future bugs. 
+The study aims to assess whether LLMs can replicate expert human judgment in producing nuanced, multi-dimensional commit annotations that capture this complexity. We seek to determine the inter-rater reliability between LLM annotations and expert human annotations, measured through correlation coefficients and mean absolute error for each dimension. 
+Furthermore, we aim to identify which contextual elements (commit message alone, commit message with diff, or commit message with full metadata including email discussions) contribute most significantly to annotation accuracy and consistency. 
+The experimental results will provide insights into the viability of using LLMs for large-scale repository mining tasks requiring nuanced understanding of commit semantics, and will establish baseline performance metrics for future comparative studies in automated software evolution analysis.
 
 ## Materials
 
@@ -213,3 +222,5 @@ The analysis phase interprets the computed metrics to extract meaningful insight
 ## Bibliography
 
 [1] V. De Martino, J. Castaño, F. Palomba, X. Franch and S. Martínez-Fernández, "A Framework for Using LLMs for Repository Mining Studies in Empirical Software Engineering," 2025 IEEE/ACM International Workshop on Methodological Issues with Empirical Studies in Software Engineering (WSESE), Ottawa, ON, Canada, 2025, pp. 6-11, doi: 10.1109/WSESE66602.2025.00008.
+
+[2] Baltes, S., Angermeir, F., Arora, C., Barón, M. M., Chen, C., Böhme, L., ... & Wagner, S. (2025). Guidelines for Empirical Studies in Software Engineering involving Large Language Models. arXiv preprint arXiv:2508.15503.
