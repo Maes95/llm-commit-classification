@@ -5,3 +5,4 @@ notes/
 output/
 .vscode/
 data/*.csv
+__pycache__/

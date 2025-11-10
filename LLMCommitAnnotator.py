@@ -1,5 +1,6 @@
 import os
 import json
+from datetime import datetime
 from langchain.chat_models import init_chat_model
 from typing import Dict, Any, Optional
 
@@ -23,8 +24,6 @@ class LLMCommitAnnotator:
         
         Args:
             model: The model identifier to use (e.g., "meta-llama/llama-4-maverick:free")
-            api_key: OpenRouter API key (if None, reads from environment)
-            base_url: OpenRouter base URL (if None, reads from environment)
             definitions_file: Path to the file containing category definitions
             temperature: LLM temperature for reproducibility (default: 0.0)
             max_tokens: Maximum tokens for LLM response (default: 3072)
@@ -81,34 +80,71 @@ class LLMCommitAnnotator:
         Returns:
             The formatted prompt string
         """
-        template = """You are an expert software engineering analyst tasked with classifying git commits into specific categories.
+        template = """[SYSTEM INSTRUCTION]
+You are an expert software engineering analyst specializing in commit annotation.
+Your task is to evaluate commits across multiple dimensions simultaneously.
 
-Below are the definitions and categories you must use for classification:
-
+[TAXONOMY DEFINITIONS]
+Below are the definitions and categories you must use for annotation:
 {definitions}
 
----
+[UNDERSTANDING ASSESSMENT]
+Before annotating, assess your comprehension of the commit using this rubric:
+0 = No comprehension - Cannot determine what the commit does
+1 = Minimal comprehension - Only vague understanding of general area
+2 = Partial comprehension - Understand some aspects but missing key details
+3 = Good comprehension - Understand the main changes and their purpose
+4 = Complete comprehension - Full understanding of all technical changes and context
 
-Now, classify the following commit message into ONE of these categories:
+[TASK INSTRUCTION]
+Annotate the following commit by assigning a score from 0 to 4 for EACH of the four categories:
 - Bug-Fixing Commit (BFC)
 - Bug-Preventing Commit (BPC)
 - Perfective Commit (PRC)
 - New Feature Commit (NFC)
 
-Commit message to classify:
+Scoring rubric:
+0 = Not applicable - The commit shows no characteristics of this category
+1 = Minimal - The commit shows very slight or tangential characteristics
+2 = Moderate - The commit partially exhibits characteristics of this category
+3 = Strong - The commit clearly exhibits characteristics of this category
+4 = Primary - This is a primary or dominant characteristic of the commit
 
-```
+Use chain-of-thought reasoning for each dimension:
+1. Identify evidence in the commit relevant to this dimension
+2. Evaluate the strength and significance of this evidence
+3. Assign an appropriate score based on the rubric
+
+[COMMIT CONTEXT]
 {commit_message}
-```
 
-Your response must include:
-1. The selected category (one of: BFC, BPC, PRC, or NFC)
-2. A paragraph explaining why you chose that category, based on the definitions provided above
+[OUTPUT FORMAT]
+Provide your annotation as a valid JSON object with the following structure:
+{{
+  "understanding": {{
+    "score": 0,
+    "description": "Clear description of what the commit does and its technical changes"
+  }},
+  "bfc": {{
+    "score": 0,
+    "reasoning": "Detailed explanation of BFC score"
+  }},
+  "bpc": {{
+    "score": 0,
+    "reasoning": "Detailed explanation of BPC score"
+  }},
+  "prc": {{
+    "score": 0,
+    "reasoning": "Detailed explanation of PRC score"
+  }},
+  "nfc": {{
+    "score": 0,
+    "reasoning": "Detailed explanation of NFC score"
+  }},
+  "summary": "Brief synthesis of the commit's primary purposes"
+}}
 
-Format your response as:
-**Classification:** [Category Name]
-
-**Explanation:** [Your detailed explanation here]
+CRITICAL: Your response must be ONLY the raw JSON object. Do not wrap it in markdown code blocks (```json or ```). Do not include any explanatory text before or after the JSON. Start your response with {{ and end with }}.
 """
         
         return template.format(
@@ -125,22 +161,50 @@ Format your response as:
             
         Returns:
             Dictionary containing:
-                - classification: The LLM's classification text
+                - commit_hash: The commit SHA hash
+                - timestamp: ISO format timestamp when annotation was generated
+                - understanding: Dict with score and description
+                - bfc: Dict with score and reasoning
+                - bpc: Dict with score and reasoning
+                - prc: Dict with score and reasoning
+                - nfc: Dict with score and reasoning
+                - summary: Brief synthesis of the commit's primary purposes
                 - usage_metadata: Token usage information
                 - model: Model used for annotation
+                - raw_response: Original LLM response text (for debugging)
         """
         commit_message = commit_data["data"]["message"]
+        commit_hash = commit_data["data"]["commit"]
         
         # Build prompt
         prompt_text = self._build_prompt(commit_message)
         
-        # Invoke LLM
+        # Invoke LLM and capture timestamp
+        timestamp = datetime.utcnow().isoformat() + "Z"
         response = self.llm.invoke(prompt_text)
         
+        # Parse JSON response
+        try:
+            annotation = json.loads(response.content)
+        except json.JSONDecodeError as e:
+            raise ValueError(
+                f"Failed to parse LLM response as JSON: {e}\n"
+                f"Raw response: {response.content}"
+            )
+        
+        # Return structured result with metadata
         return {
-            "classification": response.content,
+            "commit_hash": commit_hash,
+            "timestamp": timestamp,
+            "understanding": annotation.get("understanding"),
+            "bfc": annotation.get("bfc"),
+            "bpc": annotation.get("bpc"),
+            "prc": annotation.get("prc"),
+            "nfc": annotation.get("nfc"),
+            "summary": annotation.get("summary"),
             "usage_metadata": response.usage_metadata,
-            "model": self.model
+            "model": self.model,
+            "raw_response": response.content
         }
     
     def annotate_commit_from_file(self, commit_file: str) -> Dict[str, Any]:
