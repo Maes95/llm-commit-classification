@@ -47,6 +47,8 @@ For the LLM infrastructure, we utilize the LangChain library (Python) to interfa
 - tngtech/deepseek-r1t2-chimera:free 
 - mistralai/mistral-small-3.2-24b-instruct:free 
 - google/gemini-2.0-flash-exp:free 
+- nvidia/nemotron-nano-9b-v2:free
+- minimax/minimax-m2:free
 
 > **Note**: I have selected some of the most relevant "free" models I have found, but I am unable to define a selection criterion that makes sense
 
