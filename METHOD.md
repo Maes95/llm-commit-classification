@@ -103,9 +103,21 @@ Use chain-of-thought reasoning for each dimension:
 [COMMIT CONTEXT]
 {context_at_specified_granularity_level}
 
+[UNDERSTANDING ASSESSMENT]
+Before annotating, assess your comprehension of the commit using this rubric:
+0 = No comprehension - Cannot determine what the commit does
+1 = Minimal comprehension - Only vague understanding of general area
+2 = Partial comprehension - Understand some aspects but missing key details
+3 = Good comprehension - Understand the main changes and their purpose
+4 = Complete comprehension - Full understanding of all technical changes and context
+
 [OUTPUT FORMAT]
 Provide your annotation as a valid JSON object with the following structure:
 {
+  "understanding": {
+    "score": [0-4],
+    "description": "Clear description of what the commit does and its technical changes"
+  },
   "bfc": {
     "score": [0-4],
     "reasoning": "Detailed explanation of BFC score"
@@ -150,7 +162,7 @@ llm_config = {
 
 Before annotating the full dataset, we implement an **Iterative Refinement Process** [1] to validate and optimize the prompt configuration. This methodology uses a validation subset to ensure high-quality annotations before full-scale deployment:
 
-**Step 1 - Validation Sample Selection**: Select a stratified validation sample of 50 commits from the full dataset, ensuring representation across different Linux Kernel subsystems (drivers, core kernel, filesystems, networking) and preliminary commit types. These commits are set aside exclusively for prompt refinement and are not used in the final evaluation to avoid data leakage.
+**Step 1 - Validation Sample Selection**: Select a random sample of 50 commits from the full dataset using a fixed pseudorandom seed (e.g., `seed=42`) to ensure reproducibility. No stratification by subsystem or commit type is performed to avoid introducing implicit bias or manual selection heuristics at this early validation stage. These 50 commits are reserved exclusively for prompt refinement and are excluded from all subsequent evaluation analyses to prevent data leakage.
 
 **Step 2 - Initial LLM Annotation**: Apply the initial prompt (defined in Phase 2) to annotate the validation sample using each selected LLM model. Compare these LLM annotations against the existing human ground truth annotations for these 50 commits.
 
@@ -166,7 +178,6 @@ Before annotating the full dataset, we implement an **Iterative Refinement Proce
 
 - **Simplifying language**: Use clearer, more straightforward language to improve LLM comprehension
 - **Clarifying instructions**: Rewrite ambiguous sections to eliminate multiple interpretations
-- **Adding few-shot examples**: Include 2-3 concrete examples demonstrating correct annotation reasoning for each dimension
 - **Adjusting context emphasis**: Modify instructions to better balance commit message, code changes, and metadata
 - **Refining scoring rubric**: Add specific criteria or boundary cases to clarify score distinctions (e.g., when to assign 2 vs. 3)
 
@@ -178,7 +189,13 @@ Once the prompt achieves satisfactory agreement on the validation sample, the va
 
 With the validated prompt from Phase 4, we proceed to annotate all 1,000 commits across all model-context combinations:
 
-**Annotation Execution**: For each combination of model (10 models), context level (3 levels: minimal, standard, full), and commit (950 commits), we execute the LLM annotation process.
+**Annotation Execution**: For each combination of model (10 models), context level (3 levels: minimal, standard, full), and commit (950 commits), we execute the LLM annotation process. For each annotation request, we systematically capture:
+
+- **Execution time**: Wall-clock time (in seconds) from API request initiation to response completion, including network latency
+- **Token consumption**: Total tokens used (input tokens + output tokens) as reported by the API provider's usage metadata
+- **Timestamp**: ISO 8601 formatted timestamp of annotation completion for temporal analysis
+
+These measurements enable performance benchmarking, cost estimation, and identification of potential bottlenecks or anomalies in the annotation process.
 
 **Quality Assurance**: After completion, perform sanity checks on the annotation dataset:
 - Verify all commits have annotations for all model-context combinations
@@ -234,10 +251,12 @@ The analysis phase interprets the computed metrics to extract meaningful insight
 - **Principal Component Analysis**: Identify underlying factors that explain variance in multi-dimensional annotations
 - **Hierarchical clustering**: Group commits by their annotation profiles to discover natural commit categories
 
-**Cost-Effectiveness Optimization**: We analyze operational trade-offs:
-- **Token consumption**: Total and per-commit token usage across model-context combinations
-- **API cost estimation**: Calculate monetary costs based on November-December 2025 provider pricing
-- **Accuracy-cost frontier**: Identify Pareto-optimal configurations balancing performance and expense
+**Cost-Effectiveness Optimization**: We analyze operational trade-offs using the captured performance metrics:
+- **Token consumption**: Total and per-commit token usage across model-context combinations, analyzing input vs. output token distribution
+- **Execution time analysis**: Mean, median, and variance of annotation times per model-context combination to identify performance characteristics
+- **API cost estimation**: Calculate monetary costs based on November-December 2025 provider pricing and measured token consumption
+- **Throughput metrics**: Annotations per minute/hour accounting for actual measured latencies
+- **Accuracy-cost frontier**: Identify Pareto-optimal configurations balancing performance metrics (F1-score, MAE) against computational expense (tokens, time, cost)
 
 ### Qualitative Analysis
 
