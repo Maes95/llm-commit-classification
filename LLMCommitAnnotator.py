@@ -207,18 +207,3 @@ CRITICAL: Your response must be ONLY the raw JSON object. Do not wrap it in mark
             "raw_response": response.content,
             "prompt": prompt_text
         }
-    
-    def annotate_commit_from_file(self, commit_file: str) -> Dict[str, Any]:
-        """
-        Annotate a commit from a JSON file.
-        
-        Args:
-            commit_file: Path to JSON file containing commit data
-            
-        Returns:
-            Dictionary containing classification results and metadata
-        """
-        with open(commit_file, "r") as f:
-            commit_data = json.load(f)
-        
-        return self.annotate_commit(commit_data)

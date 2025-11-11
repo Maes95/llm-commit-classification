@@ -13,6 +13,17 @@ if len(sys.argv) < 2:
 
 commit_file = sys.argv[1]
 
+# Read commit data from file
+try:
+  with open(commit_file, "r") as f:
+    commit_data = json.load(f)
+except FileNotFoundError:
+  print(f"ERROR: Commit file not found: {commit_file}", file=sys.stderr)
+  sys.exit(1)
+except json.JSONDecodeError as e:
+  print(f"ERROR: Invalid JSON in commit file: {e}", file=sys.stderr)
+  sys.exit(1)
+
 # Initialize the annotator
 try:
   annotator = LLMCommitAnnotator(model="meta-llama/llama-4-maverick:free")
@@ -25,7 +36,7 @@ except FileNotFoundError as e:
 
 # Annotate the commit
 try:
-  result = annotator.annotate_commit_from_file(commit_file)
+  result = annotator.annotate_commit(commit_data)
   
   # Create output directory structure based on model name
   # Convert "meta-llama/llama-4-maverick:free" to "meta-llama_llama-4-maverick_free"
@@ -44,9 +55,6 @@ try:
   print(f"Model: {result['model']}")
   print(f"Usage: {result['usage_metadata']}", file=sys.stderr)
   
-except FileNotFoundError:
-  print(f"ERROR: Commit file not found: {commit_file}", file=sys.stderr)
-  sys.exit(1)
 except Exception as e:
   print(f"ERROR: Failed to annotate commit: {e}", file=sys.stderr)
   sys.exit(1)
