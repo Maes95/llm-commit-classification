@@ -1,0 +1,912 @@
+hash,annotator,understand,purpose,bfc,bpc,prc,nfc,specification,asc,obvious,safety,timing,memory,info,safety_exp,time,see_commit_clicked,lore_clicked,lore_founded,is_merge_commit,is_part_patchset,lore_found
+0704a8586f,Michel,4,Just change the way of sysfs files were created,0,0,4,0,2,0,,,,,,,281.6357035636902,True,True,,False,False,True
+c5e97ed154,Michel,4,Use another way to access a property avoiding casting ,0,0,4,0,0,0,,,,,,,26.72814154624939,True,True,,False,True,True
+4f9f531e15,Michel,4,Remove dead code,0,1,4,0,0,0,,,,,,,30.562408447265625,True,True,,False,False,True
+258030acc9,Michel,3,Just reduce the size of a variable to avoid struct size,0,0,4,0,0,0,,,,,,,178.53596305847168,True,True,,False,True,True
+5b2c5540b8,Michel,3,"Fixed that when the error code is returned, the actual error is returned and not an intermediate code (such as a retry).",4,1,0,0,0,0,2.0,0.0,,,,,876.5383830070496,True,True,,False,False,True
+6440a6c23f,Michel,2,I think I understand that the necessary flags are added to pass SRC and DEST of mac addresses to the xdsock command.,0,0,0,4,2,0,,,,,,,187.5948338508606,True,True,,False,True,True
+3044a4f271,Michel,4,Refactor a check to a function,0,0,4,0,0,0,,,,,,,474.9819073677063,True,True,,False,True,True
+8512559741,Michel,4,Functionality is extended to offer new drop reasons,0,0,0,4,2,0,,,,,,,443.18523025512695,True,True,,False,True,True
+727e60604f,Michel,4,Just remove a comment,0,0,4,0,0,0,,,,,,,8.00725769996643,True,True,,False,False,
+79dcd4e840,Michel,2,"An apparently configuration file is modified, but in a documentation folder. They look more like examples",0,0,0,0,0,0,,,,,,,219.503577709198,True,True,,False,True,True
+4d2a3c169b,Michel,4,Changes in comments,0,0,3,0,0,0,,,,,,,12.272774934768677,True,True,,False,False,
+18451db82e,Michel,4,"Add a new func, not used yet (probably used later in the patch set)",0,0,0,4,0,0,,,,,,,67.0929605960846,True,True,,False,True,True
+aecf89f2f8,Michel,4,Add support for new device,0,0,0,4,4,0,,,,,,,136.68341088294983,True,True,,False,True,True
+3b9cb4ba4b,Michel,4,Looks like a refactor to simplify code,0,0,4,0,0,0,,,,,,,65.50401639938354,True,True,,False,True,True
+f2fed022aa,Michel,4,Just a refactor to use swap instead of aux vars,0,0,4,0,0,0,,,,,,,158.2094178199768,True,True,,False,False,True
+9a10064f56,Michel,2,Commit dense. It appears that anonymous memory needs to be better managed to avoid performance issues. It seems that a test is provided to check that a regression exists.,3,3,1,0,0,0,0.0,3.0,,4.0,,"Probably it is from memory, but I don't have enough knowledge.",604.8871178627014,True,True,,False,True,True
+1eba86c096,Michel,3,It is a fix that prevents memory corruption.,4,4,0,0,0,0,0.0,4.0,,4.0,,Fix a memory leak/memory corruption,109.40452647209167,True,True,,False,True,True
+f4c6d22c6c,Michel,4,Just change a comment,0,0,4,0,0,0,,,,,,,77.57313799858093,True,True,,False,True,True
+016017a195,Michel,2,ifndef is used in an else branch to only run on certain architectures. Its only an error on compilation time,3,3,0,0,0,0,0.0,0.0,,,,,240.6061356067657,True,True,,False,False,False
+11c2bf4a20,Michel,4,Add a default case in switch-case to return a proper error,2,4,0,0,0,0,0.0,0.0,,,,,249.5794038772583,True,True,,False,True,True
+72de208f2b,Michel,4,Drop an unnecessary cast,0,0,4,0,0,0,,,,,,,81.45008182525635,True,True,,False,True,True
+0519f73adb,Michel,4,Just a refactor of a name,0,0,4,0,0,0,,,,,,,96.00688648223876,True,True,,False,True,True
+088c840599,Michel,3,Just avoid a warning,0,0,3,0,0,4,,,,,,,1239.644159078598,True,True,,False,True,True
+f346f32701,Michel,4,Change in the list of mantainers - No source code change,0,0,0,0,0,0,,,,,,,48.76009392738342,True,False,,False,False,False
+3ac5f2f257,Michel,4,Just add a description in a comment,0,0,4,0,0,0,,,,,,,33.317031383514404,True,False,,False,False,False
+e1553351d7,Michel,4,Remove unnecesary code,0,0,4,0,0,0,,,,,,,47.48182034492493,True,True,,False,False,False
+340a02535e,Michel,4,Just a move of certs,0,0,4,0,0,0,,,,,,,41.51904368400574,True,False,,False,False,False
+2fadc6ea4a,Michel,2,The commit remove 2 lines of a config file.  Its a part of a PATCHSET so it's just a part of a bigger change,0,0,3,0,0,0,,,,,,,186.09879851341248,True,True,,False,True,True
+9a9acdccdf,Michel,3,Call the apropiated function for error handler,4,2,0,0,0,0,2.0,0.0,,,,,298.45933532714844,True,True,,False,False,True
+3364c6ce23,Michel,3,Replace a cast to avoid a warning,0,0,4,0,0,4,,,,,,,118.75493907928468,True,True,,False,False,True
+805a3ebed5,Michel,4,Move code to better understanding,0,0,4,0,0,0,,,,,,,95.52250266075134,True,True,,False,True,True
+e973746882,Michel,1,"I barely undestand this change, but looks like that contemplate a border-line case",2,2,1,2,2,0,2.0,,,,,,272.7886803150177,True,True,,False,True,True
+9b51d9d866,Michel,3,A functions is replaced with one more accurate,0,0,4,0,0,0,,,,,,,113.65622854232788,True,True,,False,True,True
+1ac7fd8159,Michel,3,Change is about not losing information from errors,0,0,4,1,2,0,,,,,,,259.3180205821991,True,True,,False,True,True
+a8db854be2,Michel,3,A condition is changed to alert of an error correctly,0,0,4,0,0,0,,,,,,,142.2087938785553,True,True,,False,True,True
+84d46e1fc3,Michel,4,Remove unused code,0,0,4,0,0,0,,,,,,,46.06214499473572,True,True,,False,False,True
+dd4516aee3,Michel,4,Only test code changes,0,0,4,0,0,0,,,,,,,32.30087327957153,False,True,,False,True,True
+d11a327ed9,Michel,3,A regression seems to be reverted,4,0,0,0,0,0,2.0,2.0,,,,"I do not understand very well what is being fixed, so I do not know its possible impact.",137.79676222801208,True,True,,False,False,True
+aa814c51ab,Michel,2,"Update a Makefile, but not sure if it is a refactor o new func",0,0,1,3,0,0,,,,,,,84.6377592086792,True,True,,False,False,True
+8001fa240f,Michel,4,Remove dead code,0,0,4,0,0,0,,,,,,,57.62045073509216,True,True,,False,False,True
+d1ad2721b1,Michel,4,A file is added to a list of files that should give a warning.,0,0,4,0,0,0,,,,,,,130.2718050479889,True,True,,False,False,True
+1f2cfdd349,Michel,3,Fixes a code that introduce a regression,4,0,4,0,0,4,2.0,0.0,,,,,159.42747259140015,True,True,,False,True,True
+edb854a368,Michel,4,Fixes a bug that could cause memory to be wasted,0,0,4,0,0,0,,,,,,,161.69202136993408,True,True,,False,False,True
+bd2db32e7c,Michel,3,The call to free memory is moved to after it could be queried.,4,0,0,0,0,0,0.0,3.0,,4.0,,"I don't know what impact it will have, but if it is safety-related, it would be from memory.",140.4516942501068,True,True,,False,False,True
+71702c495b,Michel,3,A condition is added to prevent a function from being executed at startup.,4,0,0,0,0,0,2.0,2.0,,2.0,,"It is not clear to me if accessing the record that does not exist can be a problem, memory perhaps?",193.64270043373108,True,True,,False,False,True
+e6b0337513,Michel,3,It seems that an incorrect value was used in a variable and that prevented a correct reboot.,4,0,0,0,0,0,2.0,2.0,,,,,162.60092759132385,True,True,,False,False,True
+ffc58bc4af,Michel,4,Improved code readability,0,0,4,0,0,0,,,,,,,71.89646339416504,True,True,,False,False,True
+5bfa685e62,Michel,4,It was reading the wrong status by reading it directly from the hardware and not from the hardware virtualization.,4,0,0,0,0,0,4.0,2.0,,,,,173.85641980171204,True,True,,False,False,True
+837cf45df1,Michel,4,Fixed an error in a race condition,4,0,0,0,0,0,0.0,4.0,4.0,,,Race condition,9.874870300292969,True,True,,False,True,
+3a55f72924,Michel,2,"I don't quite understand it, but it looks like a fix for a possible infinite loop.",4,0,0,0,0,0,2.0,3.0,4.0,,,"I consider an infinite loop as a ""Timming and execution bug"".",205.7952845096588,True,True,,False,True,True
+e2b993302f,Michel,2,"A new condition is added which, among other things, tries to avoid a warning",3,3,0,0,0,4,4.0,0.0,,,,,139.3127052783966,True,True,,False,True,True
+7d547dcf97,Michel,4,Just add a manteiner,0,0,0,0,0,0,,,,,,,32.61993980407715,True,True,,False,False,True
+302e9edd54,Michel,4,"Traces are set to be triggered or not within the instance, not at a higher level.",2,1,3,0,4,0,0.0,0.0,,,,,264.70123505592346,True,True,,False,False,True
+316f710172,Michel,4,Add a missing free,4,2,2,0,0,0,0.0,3.0,,4.0,,"Not releasing memory (causing a memory leak) can result in critical errors in the application, which is why I consider it a Safety Related bug of the type ""Memory"".",56.92660737037659,True,True,,False,True,
+6c1f41afc1,Michel,2,Fixes an erroneous assumption,4,0,0,0,0,0,0.0,2.0,,,,,258.359144449234,True,True,,False,True,True
+e3d5ea2c01,Michel,4,An infinite loop is avoided,4,0,0,0,0,0,2.0,4.0,4.0,,,"An infinite loop can result in a deadlock in execution and is therefore a safety related bug of the type ""Timming and Execution"".",134.98066997528076,True,True,,False,True,True
+a3d3280378,Michel,3,Fixed a bug in which a variable that is null is dereferenced.,4,0,0,0,0,2,2.0,4.0,,4.0,,Attempts to access an area of memory representing null,1120.2872281074524,True,True,,False,True,True
+32f1b53fe8,Michel,4,Fixes a crash due to an uninitialised variable,4,0,0,0,0,0,2.0,4.0,4.0,,,"A hang in the application applies to a safety related error ""Timming and Execution"".",136.38208508491516,True,True,,False,True,True
+fe23b6bbea,Michel,4,A possible error is handled,4,4,4,0,0,0,0.0,0.0,,,,,88.04877543449402,True,True,,False,True,True
+0966d38583,Michel,1,"Looks like a fix, but doesn't explain how or what it fixes.",3,2,2,2,2,2,2.0,2.0,,,,,164.93180871009827,True,True,,False,True,True
+16b1941eac,Michel,4,A load condition is avoided by forcing a variable to always be null.,4,0,0,0,0,4,0.0,4.0,4.0,,,Race condition,193.7349464893341,True,True,,False,True,True
+d082a0255f,Michel,3,Add suport for new modes,0,0,0,4,2,0,,,,,,,46.42775297164917,True,True,,False,True,True
+507f788d05,Michel,4,Import latest version of a library,0,0,0,3,0,0,,,,,,,52.03227686882019,True,True,,False,True,True
+0a3a4b9d2b,Michel,4,The size of an array is increased,2,3,0,3,2,0,0.0,2.0,,,,,196.2058198451996,True,True,,False,True,True
+d6c47d21a0,Michel,4,Add support to new func,0,0,0,4,2,0,,,,,,,42.55227518081665,True,True,,False,True,True
+43caf1a682,Michel,4,The usage function has been changed to provide more complete information.,0,0,4,3,2,0,,,,,,,83.05037569999695,True,True,,False,True,True
+bad0eb76dc,Michel,4,Just a refactoring,0,0,4,0,0,0,,,,,,,23.55283617973328,False,True,,False,True,True
+03eb65224e,Michel,4,An irrelevant character is deleted,0,0,4,0,0,0,,,,,,,59.66929531097412,True,True,,False,True,True
+b1bbd3a57b,Michel,4,Just change docs,0,0,1,0,0,0,,,,,,,39.35801410675049,True,True,,False,False,True
+c95aa2bab9,Michel,4,Building problems are fixed,3,0,2,0,0,4,4.0,0.0,,,,,232.08289694786072,True,True,,False,False,False
+f3c2682bad,Michel,4,Expose a notifier for a driver,0,0,3,3,2,0,,,,,,,95.2155487537384,True,True,,False,True,True
+1038fd78a1,Michel,4,Add support for new func (belongs to a patchset),0,0,0,4,0,0,,,,,,,120.96961617469788,True,True,,False,True,True
+7a70d9a1cf,Michel,4,A hardware check is made before using an algorithm.,3,4,0,0,0,0,0.0,2.0,,,,,197.3252890110016,True,True,,False,False,True
+c90b6b50b4,Michel,4,An unused parameter is deleted,0,0,4,0,0,0,,,,,,,106.04184651374815,True,True,,False,True,True
+03a6b195e8,Michel,2,"The change aims to bring forward BIOS initialisation in specific cases. However, I don't know the purpose",2,2,2,1,2,0,2.0,0.0,,,,,119.64526891708374,True,True,,False,True,True
+e52432e164,Michel,4,Add a lenght check to avoid compiler warning,0,0,4,0,0,4,,,,,,,97.95449137687685,True,True,,False,False,True
+70868c6b8f,Michel,4,Fix a warn in docs,0,0,4,0,0,4,,,,,,,55.829334020614624,True,True,,False,False,True
+9ad1230533,Michel,4,It looks like a refactoring in which the inode is passed as a parameter instead of the file in several functions.,0,0,4,1,0,0,,,,,,,75.34945583343506,True,True,,False,False,True
+7b45b51e77,Michel,4,This is a change to a patchset that prepares for future functionality,0,0,4,3,2,0,,,,,,,65.83730936050415,True,True,,False,True,True
+854d8e3616,Michel,4,Remove not longer used check,0,0,4,0,0,0,,,,,,,74.09189295768738,True,True,,False,True,True
+2a791f4412,Michel,4,Remove a prefetch to increase performance,0,0,4,0,0,0,,,,,,,594.8560106754303,True,True,,False,True,True
+046545a661,Michel,3,Fixes a bug where an incorrect error was being reported about a memory access failure.,4,0,0,0,0,0,2.0,3.0,4.0,4.0,0.0,"In case it was a severe error, it is not clear to me whether it would be a memory error or a timing and execution error.",555.9798264503479,True,True,,False,True,True
+c951cd3b89,Michel,4,A stub is implemented for subsequent developments in the patchset.,0,0,4,3,2,0,,,,,,,105.3368318080902,True,True,,False,True,True
+0b046e12ae,Michel,4,A redundant condition is simplified,0,0,4,0,0,0,,,,,,,48.444220304489136,True,True,,False,True,True
+2e7e80f7e7,Michel,4,"Some methods are changed to receive the folio and not the page, as the property seems to be in the folio",0,0,4,0,2,0,,,,,,,187.18787360191345,True,True,,False,True,True
+30d024b505,Michel,4,Add declaration of var to avoid warning,0,0,4,0,0,2,,,,,,,34.91366219520569,False,True,,False,False,True
+09e7af76db,Michel,4,Try to prevent a possible error by checking the output of a function,3,4,3,0,0,0,2.0,2.0,,,,,207.93426871299744,True,True,,False,True,True
+fc5004e5d4,Michel,4,"An array that is read-only is detected, it is declared as a constant",0,0,4,0,0,0,,,,,,,58.904680013656616,True,True,,False,False,False
+8db41f733d,Michel,4,Make a decoder visible,0,0,0,4,2,0,,,,,,,71.75284910202026,True,True,,False,True,True
+f3116f2e52,Michel,3,A configuration file is changed in the documentation. It looks like a refactor,0,0,4,0,0,0,,,,,,,132.5163972377777,True,True,,False,False,False
+dca4f5fdbc,Michel,4,A line that calculates the size of a struct directly is changed by the use of a function to prevent possible errors.,3,4,4,0,0,0,0.0,3.0,,4.0,,It is mentioned that this can lead to heap overflow.,273.5686776638031,True,True,,False,False,True
+97558d170a,Michel,4,An arrayoutofbound error is avoided,4,3,0,0,0,0,2.0,4.0,,4.0,,"The fix tries to avoid accessing a memory space that does not correspond to it, avoiding a kernel panic when working with the driver.",215.4472153186798,True,False,,False,False,False
+d184cc910e,Michel,4,Drop an unsused import (include),0,0,4,0,0,0,,,,,,,35.41624617576599,False,True,,False,False,False
+efb6402c3c,Michel,4,The fix tries to avoid an overflow by adding/correcting some checks on the size of arrays.,4,2,0,0,0,0,,3.0,,4.0,,Possible overflow fixed,352.3843057155609,True,True,,False,False,True
+3cffb26fbb,Michel,4,An unnecessary assignment is removed,0,0,4,0,0,4,,,,,,,100.30476880073547,True,True,,False,False,True
+c8e98eaf2b,Michel,4,Add support for new platform,0,0,0,4,0,0,,,,,,,32.55034375190735,True,True,,False,True,True
+ed482dc8c7,Michel,4,An include is added implicitly to avoid building problems.,0,3,4,0,0,0,,,,,,,77.8206946849823,True,True,,False,False,True
+c297448760,Michel,4,Forcing the inclusion of an optional dependency is avoided.,0,0,4,0,0,0,,,,,,,103.47033095359802,True,True,,False,True,True
+20ea94bc53,Michel,4,Only changes in docs/config,0,0,0,3,4,0,,,,,,,22.09641814231873,False,True,,False,True,True
+9231bb1b25,Michel,4,Refactr to new terminology,0,0,4,0,0,0,,,,,,,35.92346215248108,True,True,,False,True,True
+9c818d8491,Michel,4,Only new logs are added,0,0,4,0,0,0,,,,,,,309.042555809021,True,True,,False,True,True
+886e09c77d,Michel,4,Just fix a typo in a log,0,0,4,0,0,0,,,,,,,51.57131314277649,True,True,,False,False,True
+aa0a20f521,Michel,0,"I'm afraid I barely understand the commit,",2,2,2,2,2,2,,,,,,,105.35546350479126,True,True,,False,True,True
+f4e526ff7e,Michel,4,Extract to method/refactor,0,0,4,0,0,0,,,,,,,41.78509688377381,True,True,,False,True,True
+76ee15ae1b,Michel,2,New registers to be covered are added,0,0,0,4,0,0,,,,,,,73.41766571998596,True,True,,False,False,True
+1c0bd03532,Michel,3,Added compatibility settings,0,0,0,4,2,0,,,,,,,67.06570386886597,True,True,,False,True,True
+b00e3e03cf,Michel,2,A configuration is moved from a component that is not used to a component that is used.,1,0,3,2,2,0,0.0,0.0,,,,,80.90341973304749,True,True,,False,True,True
+daeb1c2b50,Michel,4,Delete non-necessary colecction of interrupts,3,2,3,0,0,0,0.0,0.0,,,,,5781.301932573319,True,True,,False,True,True
+3255530ab1,Michel,4,Just a refactor,0,0,4,0,0,0,,,,,,,97.5170555114746,True,True,,False,True,True
+29f557d553,Michel,4,"Testing change, no main feature",0,0,3,0,0,0,,,,,,,60.70879244804382,True,True,,False,True,True
+dd2319c618,Michel,4,Preventive change (for null pointer defer),4,4,0,0,0,0,0.0,3.0,,4.0,,Possible memory bug,264.7317547798157,True,True,,False,True,True
+be78aa8a38,Michel,4,New code added to fulfill a specification,0,0,0,4,4,0,,,,,,,75.92948794364929,True,True,,False,True,True
+512865d83f,Michel,4,Expose version number,0,0,0,1,0,0,,,,,,,80.4931480884552,True,True,,False,True,True
+fa6fde350b,Michel,4,Testing change and only a refactor,0,0,3,0,0,0,,,,,,,76.47980952262878,True,True,,False,True,True
+0b94f2651f,Michel,3,Fix an error handling,4,2,0,0,0,0,0.0,3.0,,,,Not sure about the impact,150.79727339744568,True,True,,False,True,True
+4f3701fc59,Michel,4,New functionality added,0,0,0,4,2,0,,,,,,,55.13579821586609,True,True,,False,True,True
+f55fbb6afb,Michel,2,Reject invalid IPv4 routes,4,2,0,0,0,0,2.0,0.0,,,,,240.6242842674256,True,True,,False,True,True
+d09adf6100,Michel,4,Just refactoring,0,0,4,0,0,0,,,,,,,29.33568286895752,True,True,,False,True,True
+c575521462,Michel,4,Just adding tests,0,0,3,0,0,0,,,,,,,46.645421504974365,True,True,,False,False,False
+a4218aef7c,Michel,4,Just an optimization,0,0,4,0,0,0,,,,,,,55.75747299194336,True,True,,False,True,True
+696c390115,Michel,4,Just add tests,0,0,4,0,0,0,,,,,,,42.10644435882568,True,True,,False,False,False
+4ec25b49f4,Michel,4,Just add tests,0,0,4,0,0,0,,,,,,,28.28774762153625,True,True,,False,True,True
+e7b060460f,Michel,4,Allow the user to get timestamps,0,0,0,3,0,0,,,,,,,122.77006602287292,True,True,,False,True,True
+212ad7cb7d,Michel,3,Fix a bug introduced in anther fix related with memory,4,3,0,0,0,0,0.0,3.0,,4.0,,Probably related with a memory safety-related bug,549.0643591880798,True,True,,False,False,True
+039d5d4db4,Michel,4,Add new func,0,0,0,4,0,0,,,,,,,33.72885513305664,True,True,,False,True,True
+7e47607133,Michel,4,Fix a possible null pointer,4,3,0,0,0,0,0.0,4.0,,4.0,,Memory-related bug,81.4378137588501,True,True,,False,True,True
+ae962e5f63,Michel,4,Rename a variable to avoid confusion,4,3,3,0,0,0,0.0,3.0,,,,Don't know the effects,2055.3035731315613,False,True,,False,True,True
+39cdf080ce,Michel,4,Add new func,0,0,0,4,2,0,,,,,,,52.851794719696045,True,True,,False,True,True
+6a6f457ed5,Michel,3,Prevent a possible bug related with an array,4,4,0,0,0,0,0.0,3.0,,4.0,,Possible null pointer,162.63549160957336,True,True,,False,False,False
+a2ab95a313,Michel,4,Add support to new func,0,0,0,4,2,0,,,,,,,33.5550274848938,True,True,,False,True,True
+9536923d3f,Michel,4,Remove unsuden variable,0,0,4,0,0,0,,,,,,,39.4855580329895,True,True,,False,True,True
+b98d2d722f,Michel,4,Just update a string message,0,0,4,0,0,0,,,,,,,40.01420760154724,True,True,,False,True,True
+0c51e12e21,Michel,3,Invalidate unresolved neighbour ,4,0,0,0,0,0,0.0,3.0,,,4.0,Could result in dropped packages,100.94565153121948,True,True,,False,True,True
+d931686dc2,Michel,3,Add controller binding,0,0,0,3,0,0,,,,,,,62.86980962753296,True,True,,False,True,True
+6ee3c393ee,Michel,4,Demote error to warning,0,0,4,0,0,0,,,,,,,59.680274963378906,True,True,,False,True,True
+ac45520960,Michel,2,Redirect calls on NPI port,0,0,0,4,4,0,,,,,,,822.2877209186554,True,True,,False,True,True
+d31d37912e,Michel,4,Add new func (support for interrupts),0,0,0,4,2,0,,,,,,,935.5526993274688,True,True,,False,True,True
+9087c6ff8d,Michel,4,A code is moved to where it is really useful,1,0,3,0,0,0,2.0,1.0,,,,,200.2331700325012,True,True,,False,False,True
+9b392e0e0b,Michel,4,Fixed a print that gave an incorrect message.,0,0,4,0,0,0,,,,,,,70.98807501792908,True,True,,False,True,True
+e10ab8b394,Michel,4,The number of channels of a driver is increased.,0,0,0,4,2,0,,,,,,,67.51619839668274,True,True,,False,True,True
+0301bcd599,Michel,4,Change const to no-const,0,0,4,0,0,0,,,,,,,132.99478912353516,True,True,,False,True,True
+227f25972c,Michel,4,Add support to new func + refacoring to adapt it,0,0,4,4,0,0,,,,,,,72.3745470046997,True,True,,False,True,True
+9af41cc334,Michel,3,add echo support to GTP,3,2,0,0,0,0,4.0,2.0,,,4.0,"If its safety related, is exchange of info",364.9354338645935,True,True,,False,True,True
+d775155a86,Michel,4,Just a rename,0,0,4,0,0,0,,,,,,,75.45884919166565,True,True,,False,True,True
+d5f497b889,Michel,4,Change print,0,0,4,0,0,0,,,,,,,36.19941830635071,True,True,,False,False,True
+ec80906b0f,Michel,4,Fix a test,0,0,4,0,0,0,,,,,,,51.63198113441467,True,True,,False,True,True
+d0864ee4f8,Michel,4,Just move a whole file,0,0,4,0,0,0,,,,,,,71.19097590446472,True,True,,False,True,True
+bf172a01ea,Michel,4,Remove default/ad-hoc func,0,0,4,0,0,0,,,,,,,148.30278301239014,True,True,,False,True,True
+a8e6398ffe,Michel,4,Remove no more needed code,0,0,4,0,0,0,,,,,,,46.15822792053223,True,True,,False,False,True
+552b7cb0ee,Michel,4,Refactoring: move files + remove,0,0,4,0,0,0,,,,,,,90.1549961566925,True,True,,False,True,True
+367c9b0f1b,Michel,4,Looks like a fix to avoid memory leaks,4,3,0,0,0,0,0.0,4.0,,4.0,,Fix memory leaks,92.50973844528198,True,True,,False,True,True
+2485c12c98,Michel,2,"I think it tries to reset things using a previous parameter, but I'm not sure how it affects the system.",1,3,3,0,0,0,2.0,1.0,,,,,126.95015215873718,True,True,,False,True,True
+08a987a8a0,Michel,2,it seems that the change is intended to allow more information from the system to be made available.,0,1,4,3,0,0,,,,,,,73.07321214675903,False,True,,False,True,True
+2019bf7cd2,Michel,3,Add new case to a switch-case,0,0,0,4,2,0,,,,,,,54.21816849708557,True,True,,False,False,True
+72b3588e27,Michel,4,Remove redundant code,0,0,4,0,0,0,,,,,,,23.57438397407532,False,True,,False,True,True
+79af2404e5,Michel,2,"looks like a bug fix, but not sure about the implications",4,0,0,0,0,0,0.0,2.0,,,,,102.43463230133057,True,True,,False,True,True
+57ded5fc98,Michel,1,"Fix a warning. However, it is related to another fix and it does seem to fix something.",4,0,0,0,0,0,4.0,0.0,,,,,3.1502747535705566,True,True,,False,False,True
+c5e804ba38,Michel,4,Just change a helper to better print traces,0,0,4,0,0,0,,,,,,,72.95398902893066,True,True,,False,True,True
+972aa1a161,Michel,4,A refactor: use an already existing function instead the ad-hoc for this file,0,0,4,0,0,0,,,,,,,48.22889709472656,True,True,,False,True,True
+5b45b1c8b8,Michel,4,A change is reverted: cause a no read situation.,4,0,0,0,0,0,0.0,2.0,,,4.0,No read could be an exchange of information safety-bug?,233.81766486167908,True,True,,False,True,True
+203bcac9bf,Michel,4,The bandwidth is increased so that two or more screens can be connected and not fail.,4,0,0,0,0,0,4.0,0.0,,,,,90.51447248458862,True,True,,False,True,True
+f728eb3a50,Michel,4,A method (which is deleted) is replaced by a static method to avoid warnings.,0,0,4,0,0,0,,,,,,,93.2241153717041,True,True,,False,False,False
+26ffcbbef7,Michel,4,Changes to better track memory,0,0,4,0,0,0,,,,,,,65.12429594993591,True,True,,False,True,True
+719ca37972,Michel,4,Remove non-necesary flags,0,0,4,0,0,0,,,,,,,60.957432985305786,True,True,,False,False,True
+176c0b55d9,Michel,3,Additional checks are added that appear to prevent future bugs.,0,4,4,0,0,0,,,,,,,109.9265718460083,True,True,,False,True,True
+2703c16c75,Michel,4,Try to avoid race conditions in ports.,4,4,0,0,0,0,0.0,4.0,4.0,,,Avoid race condition on port estabilishes,946.9310240745544,True,True,,False,True,True
+6ddf5f165f,Michel,4,Add new fun ,0,0,1,4,0,0,,,,,,,73.95941686630249,True,True,,False,True,True
+3197706abd,Michel,4,Just rename a function,0,0,4,0,0,0,,,,,,,52.146196365356445,True,True,,False,True,True
+77c11720a4,Michel,4,Remove unused code,0,0,4,0,0,0,,,,,,,42.94128179550171,False,True,,False,False,False
+f792a3629f,Michel,4,Fix a memory leak,4,0,0,0,0,0,0.0,4.0,,4.0,,Memory leak,28.41505122184753,False,False,,False,False,False
+208cc9fe6f,Michel,4,A check is added,0,3,3,0,0,0,,,,,,,45.16101574897766,True,True,,False,False,True
+7dae459f5e,Michel,4,Fix a null pointer defer,4,0,0,0,0,0,2.0,4.0,4.0,,,Null pointer,67.7029914855957,True,True,,False,True,True
+3bea83b68d,Michel,4,Just a refactor,0,0,4,0,0,0,,,,,,,27.77558732032776,False,True,,False,True,True
+0c9f178778,Michel,4,Remove dead code,0,0,4,0,0,0,,,,,,,40.54304337501526,True,True,,False,True,True
+d49fc69293,Michel,4,"Fix a warning, just a comiler problem",0,0,4,0,0,0,,,,,,,47.25676655769348,True,True,,False,False,False
+a156f09c90,Michel,4,A check is moved that might not be correct because it was executed too early.,4,0,0,0,0,0,0.0,0.0,,,,,126.56825304031372,True,True,,False,False,False
+5d543f13e2,Michel,4,Fix a race condition + memory leak,4,0,0,0,0,0,0.0,4.0,4.0,4.0,,Fix a race condition + memory leak,113.6670696735382,True,True,,False,False,True
+602a4eda68,Michel,4,A link pointing to an empty repository is updated. Looks like doc change,0,0,4,0,0,0,,,,,,,80.94038152694702,True,True,,False,False,True
+eab25b4f93,Michel,4,Add support for externa charge detection,0,0,0,4,0,0,,,,,,,6.438270330429077,True,True,,False,False,True
+f059b46e6f,Michel,4,Add new driver,0,0,0,4,0,0,,,,,,,30.632813930511475,True,True,,False,True,True
+de85193cff,Michel,4,A function that cancelled a work that was not even initialised is deleted. ,4,3,0,0,0,0,0.0,4.0,4.0,,,probably related to Timming and Execution,176.32169222831726,True,True,,False,False,True
+d016fc7ab5,Michel,4,Refactor to user already created helper,0,0,4,0,0,0,,,,,,,58.37876296043396,True,True,,False,False,True
+10377bb293,Michel,4,Just add static keywords,0,0,4,0,0,0,,,,,,,34.04720902442932,True,True,,False,False,True
+8c70bd5802,Michel,4,Add ids,0,0,0,4,2,0,,,,,,,65.17256188392639,True,True,,False,False,True
+a45194b9de,Michel,4,Just update an email,0,0,3,0,0,0,,,,,,,31.59340691566468,False,True,,False,False,True
+7ea75dd386,Michel,4,Complete re-implementation,0,0,4,4,0,0,,,,,,,106.99675464630128,True,True,,False,True,True
+9d19d966b4,Michel,4,Just a rename,0,0,4,0,0,0,,,,,,,19.15474033355713,False,True,,False,False,True
+3d8d3504d2,Michel,4,Add platform support,0,0,0,4,2,0,,,,,,,40.80170917510986,True,True,,False,True,True
+a2e3fe5f24,Michel,4,Testing change,0,0,4,0,0,0,,,,,,,21.22560405731201,False,True,,False,True,True
+5b3dc949f5,Michel,4,Add missing func call. Fix error at handling,4,0,0,0,0,0,4.0,0.0,,,,,72.93732047080994,True,True,,False,False,True
+f1d0821bf3,Michel,4,Add support for new features,0,0,0,4,0,0,,,,,,,44.93932628631592,True,True,,False,True,True
+90b8c2c8f9,Michel,4,Let compiler remove not needed function in certain cases,0,0,4,0,0,0,,,,,,,71.96441531181335,True,True,,False,True,True
+914813cc52,Michel,4,Improve readability,0,0,4,0,0,0,,,,,,,31.414188861846924,True,True,,False,True,True
+42475735ad,Michel,4,Remove uneeded code,0,0,4,0,0,0,,,,,,,93.56130838394164,True,True,,False,True,True
+24873b8859,Michel,4,Refactor code,0,0,4,0,0,0,,,,,,,31.114367485046387,True,True,,False,True,True
+b57774ccf5,Michel,4,Just a refactor,0,0,4,0,0,0,,,,,,,43.61303496360779,True,True,,False,True,True
+ec868592f5,Michel,4,Remove redundant code,0,0,4,0,0,0,,,,,,,38.915552377700806,True,True,,False,True,True
+6e1e59c1ca,Michel,4,Remove not used code,0,0,4,0,0,0,,,,,,,33.43222522735596,True,True,,False,True,True
+905eebcf28,Michel,4,Remove unsued variable,0,0,4,0,0,0,,,,,,,38.1817102432251,True,True,,False,True,True
+97115f5f0f,Michel,4,Change return type of a func,0,0,4,0,0,0,,,,,,,41.97708773612976,True,True,,False,True,True
+a39a6b330b,Michel,4,Remove unnecesary code,0,0,4,0,0,0,,,,,,,19.97428154945373,False,True,,False,True,True
+362e54e48b,Michel,4,Improve printing/debugging,0,0,4,0,0,0,,,,,,,73.16214418411255,True,True,,False,True,True
+ad30d108a5,Michel,4,Remove non-necesary code,0,0,4,0,0,0,,,,,,,33.69029974937439,True,True,,False,True,True
+944d95f766,Michel,4,Remove non-necessary code,0,0,4,0,0,0,,,,,,,44.157829999923706,True,True,,False,True,True
+059ee82b64,Michel,4,Fix memmory alloc,4,0,0,0,0,0,0.0,3.0,,4.0,,Fix memmory alloc,60.83892321586609,True,True,,False,True,True
+2564aa7544,Michel,3,Looks like a part of a biggest change to add new func,0,0,0,4,0,0,,,,,,,47.72058081626892,True,True,,False,True,True
+6e87c8f074,Michel,4,Add suport to a display,0,0,0,4,0,0,,,,,,,24.192236185073853,False,True,,False,True,True
+80d691854f,Michel,4,Add support for a driver,0,0,0,4,0,0,,,,,,,28.252490997314453,True,True,,False,True,True
+c8bd296cca,Michel,4,Add fallback to avoid a fail,3,4,0,0,0,0,0.0,2.0,,,,,85.17963886260986,True,True,,False,False,True
+8f0588e80e,Michel,4,handle possible null,4,3,0,0,0,0,2.0,3.0,4.0,,,Possible null pointer?,80.08916115760803,True,True,,False,False,True
+ad5c5690de,Michel,4,Add new func,0,0,0,4,0,0,,,,,,,28.55971550941468,True,True,,False,True,True
+b5fa1d09f1,Michel,4,Just convert var into const,0,0,4,0,0,0,,,,,,,40.67361545562744,True,True,,False,False,False
+dfafa56029,Michel,4,Refactoring: Use a helper instead of ad-hoc function,0,0,4,0,0,0,,,,,,,98.01870942115784,True,True,,False,False,True
+a7663c89f4,Michel,4,Expor variables to fix a error,4,3,0,0,0,0,4.0,0.0,,,,,40.745869398117065,True,True,,False,False,True
+c86d18f4aa,Michel,4,Fix a memory leak,4,3,0,0,0,0,0.0,4.0,,4.0,,Memory leak,40.10104060173035,False,True,,False,False,True
+bb2aa78e9a,Michel,4,Just move code,0,0,4,0,0,0,,,,,,,42.68293833732605,True,True,,False,True,True
+f93e2a100e,Michel,4,Check added for possible wrong memory access,1,4,3,0,0,0,0.0,1.0,,4.0,,"Avoid possible wrong memory access, but is not really a bug fix",99.22699904441832,False,True,,False,False,True
+c3ad8d23bc,Michel,4,Add new func,0,0,0,4,0,0,,,,,,,29.662851333618164,False,True,,False,True,True
+48bff1053c,Michel,4,Improve random numbers generation,0,0,4,1,0,0,,,,,,,85.0792989730835,True,True,,False,False,True
+5a48b7433a,Michel,4,Changes docs,0,0,4,0,0,0,,,,,,,31.454413414001465,True,True,,False,False,True
+e5fc78252c,Michel,4,Add new func,0,0,0,4,0,0,,,,,,,47.77488613128662,True,True,,False,True,True
+862a876c3a,Michel,3,Move a sentence to fix a bug ,4,2,0,0,0,0,0.0,2.0,,,,,106.323228597641,True,True,,False,True,True
+ef1a0808a2,Michel,4,Just update a header,0,0,4,0,0,0,,,,,,,52.89484643936157,True,True,,False,False,False
+16ed828b87,Michel,4,Fix a resource leak,4,0,0,0,0,0,0.0,4.0,,4.0,,Memory leak,67.67015051841736,True,True,,False,False,True
+b087a381d7,Michel,4,Its a fix related to an incorrect memory free,4,0,0,0,0,0,0.0,3.0,,4.0,,Possible memory leak,111.58367967605592,True,True,,False,True,True
+5dc6ce767d,Michel,4,Changes on docs,0,0,4,0,0,0,,,,,,,26.226900815963745,True,True,,False,False,True
+8b1ac84dcf,Michel,4,change docs,0,0,4,0,0,0,,,,,,,32.18281292915344,True,True,,False,True,True
+7c8881b779,Michel,4,Fix a memory leak,4,0,0,0,0,0,0.0,4.0,,4.0,,Fix a memory leak,44.75332045555115,True,True,,False,False,True
+907862e9ae,Michel,4,Fix an infinity loop,4,0,0,0,0,0,0.0,4.0,4.0,,,Fix an infinity loop,46.55455231666565,True,True,,False,False,True
+5f24d5a579,Michel,1,Move code and replace a sentence to function to allow an specific arch to ... do something,1,2,3,1,0,0,0.0,0.0,,,,,854.628026008606,True,True,,False,False,True
+6e1ff1459e,Michel,4,Add support for separates components,0,0,0,4,0,0,,,,,,,40.61198210716248,True,True,,False,True,True
+0adc2ab0e8,Michel,3,Keep IO flags in case of spliting. Maybe this avoid possible errors?,0,3,3,0,0,0,,,,,,,125.95865726470949,True,True,,False,True,True
+fa1ef24ae2,Michel,4,Change text and change a warn print to info print,0,0,4,0,0,0,,,,,,,111.40127182006836,True,True,,False,True,True
+3e5a8e8494,Michel,3,The change avoid possible reset timeouts issues,0,4,3,0,0,0,,,,,,,128.7396388053894,True,True,,False,False,True
+570a4bf744,Michel,4,Add a check to avoid a 0 value,4,0,0,0,0,0,0.0,0.0,,,,,38.44954705238342,False,False,,False,False,False
+a7ecbe92b9,Michel,4,Move a lock to avoid a race condition,4,0,0,0,0,0,0.0,4.0,4.0,,,Move a lock to avoid a race condition,94.0118646621704,True,True,,False,True,True
+93a8417088,Michel,3,Fix a bug related to acounter just by adding a get before the set,4,0,0,0,0,0,2.0,0.0,,,,,120.30570363998412,True,True,,False,True,True
+c223929418,Michel,4,The commit fixes a bug so that only existing registries are deleted.,4,0,0,0,0,0,2.0,0.0,,,,,140.82517099380493,True,True,,False,False,True
+4df002d908,Michel,4,Remove config when its not necessary,0,0,4,0,0,0,,,,,,,62.30649876594544,True,True,,False,True,True
+fb036ad7db,Michel,4,Increase memory  provided on a script,0,0,4,0,0,0,,,,,,,44.824034214019775,False,True,,False,True,True
+4e5bc0a9a1,Michel,3,Looks like a part of a bigger change,0,0,3,3,0,0,,,,,,,64.33263802528381,True,True,,False,True,True
+e24ccaaf7e,Michel,4,Remove old doc,0,0,4,0,0,0,,,,,,,31.13979148864746,True,True,,False,True,True
+f624506f98,Michel,4,Remove dead code,0,0,4,0,0,0,,,,,,,36.045679330825806,True,True,,False,True,True
+9aeb7f99a1,Michel,3,Fixed a lock issue and improved error messages.,4,3,3,0,0,0,0.0,4.0,4.0,,,Fix locks,495.1770713329315,True,True,,False,True,True
+e2efb6359e,Michel,4,removes the useless WBINVDs,0,0,4,0,0,0,,,,,,,127.52401375770567,True,True,,False,True,True
+aeb8441203,Michel,4,Avoid literal cast to void* with absolute_pointer() macro,1,0,3,0,0,0,0.0,0.0,,,,,127.45238447189332,True,True,,False,True,True
+5a0893088a,Michel,4,Remove dead code,0,0,4,0,0,0,,,,,,,33.15793037414551,True,True,,False,False,True
+f5c0b4f304,Michel,4,Refactor code,0,0,4,0,0,0,,,,,,,60.14097309112549,True,True,,False,True,True
+327c348988,Michel,4,Improve logger,0,0,4,0,0,0,,,,,,,42.50832486152649,True,True,,False,True,True
+fcdc03f78d,Michel,4,Just cleanup file,0,0,4,0,0,0,,,,,,,61.72917795181274,True,True,,False,False,False
+710c8d6c02,Michel,4,Set const as static,0,0,4,0,0,0,,,,,,,51.20427513122559,True,True,,False,False,True
+a59f7a7f76,Michel,4,Change testing code,0,0,4,0,0,0,,,,,,,44.674320936203,True,True,,False,True,True
+03f16cd020,Michel,4,Add new config option,0,0,3,4,0,0,,,,,,,210.77773451805115,True,True,,False,True,True
+d6d0c7f681,Michel,4,Add new option,0,0,0,4,0,0,,,,,,,39.81062865257263,True,True,,False,True,True
+ddaefa209c,Michel,4,Chip parameter becomes mandatory,0,4,3,0,0,0,,,,,,,89.97551679611206,True,True,,False,True,True
+d9edc4bc67,Michel,3,A new implementation is added that seems to prevent problems ,1,3,0,3,0,0,0.0,0.0,,,,,116.7728853225708,True,True,,False,True,True
+0c9ee5ba75,Michel,4,Add static modifier to a method to avoid a warning,0,0,4,0,0,0,,,,,,,36.10061860084534,True,True,,False,False,True
+bfb5711e24,Michel,4,Use a more accureate func,0,0,4,0,0,0,,,,,,,52.16256761550903,True,True,,False,False,True
+116c3f4a78,Michel,4,Increase brightness,0,0,0,3,0,0,,,,,,,51.128700971603394,True,True,,False,False,True
+6eaf08770e,Michel,4,Just add a warning in certain cases,0,0,4,0,0,0,,,,,,,43.60280752182007,True,True,,False,True,True
+002752af7b,Michel,4,Change error handler,1,0,4,0,0,0,2.0,0.0,,,,,100.6165509223938,True,True,,False,True,True
+f6e109a0af,Michel,4,Change comments,0,0,4,0,0,0,,,,,,,33.203165769577026,True,True,,False,False,True
+590a8e564c,Michel,4,Fixed a bug where the same information could be sent twice.,4,3,0,0,0,0,0.0,4.0,,,4.0,repetition of information,467.5569906234741,True,True,,False,False,False
+a5e9e202fe,Michel,4,Add property to doc,0,0,4,3,0,0,,,,,,,34.19662618637085,True,True,,False,True,True
+8551ed70dd,Michel,4,Change mantainers file,0,0,1,0,0,0,,,,,,,33.15313529968262,True,True,,False,False,False
+831f87424d,Michel,4,Refactor code,0,0,4,0,0,0,,,,,,,39.33648729324341,True,True,,False,True,True
+63c34cb4c6,Michel,4,Add new helper,0,0,0,4,0,0,,,,,,,60.81187200546265,True,True,,False,False,False
+f51debc256,Michel,4,Translate file,0,0,4,0,0,0,,,,,,,44.74649429321289,True,True,,False,True,True
+5a5866c28b,Michel,4,Changes at doc,0,0,4,0,0,0,,,,,,,37.35872030258179,True,True,,False,True,True
+89c30dd221,Michel,4,Changes at doc,0,0,4,0,0,0,,,,,,,28.770069360733032,True,True,,False,False,True
+7cb29b1c99,Michel,4,Changes at testing,0,0,4,0,0,0,,,,,,,35.14332127571106,True,True,,False,False,False
+4dc84c06a3,Michel,4,Extend functionality,0,0,1,4,4,0,,,,,,,48.356648206710815,True,True,,False,True,True
+c6c1f11b69,Michel,4,Just an improvement/refactor,0,3,4,0,0,0,,,,,,,78.54988241195679,False,True,,False,False,False
+0bd5ab511e,Michel,4,Improve code/refactor,0,0,4,0,0,4,,,,,,,43.55312085151672,True,True,,False,True,True
+6fd1d51cfa,Michel,4,New socket option added,0,0,3,4,0,0,,,,,,,56.74823617935181,True,True,,False,False,True
+fd3040b939,Michel,4,Add new driver support,0,0,0,4,2,0,,,,,,,31.751857042312626,True,True,,False,False,True
+7b8b82224c,Michel,4,Remove no-necessary code,1,0,4,0,0,0,0.0,0.0,,,,,47.70751714706421,True,True,,False,False,True
+1397af5bfd,Michel,4,Remove no-necessary code / refactor,0,0,4,0,0,0,,,,,,,28.57589745521545,False,True,,False,True,True
+3128ea0169,Michel,4,Increase a variable to accept rx frames,1,0,2,3,0,0,0.0,2.0,,,,,71.2102918624878,True,True,,False,True,True
+abba345311,Michel,3,Move config. I don't know the impact of the change,3,3,2,0,0,0,0.0,0.0,,,,,89.62388300895691,True,True,,False,False,True
+d1ddc536df,Michel,3,Allow overide a device ,0,1,0,3,0,0,,,,,,,72.77728247642517,True,True,,False,True,True
+e950329880,Michel,4,Silence a warning,0,0,3,0,0,0,,,,,,,36.03328990936279,True,True,,False,True,True
+9b80ccda23,Michel,4,Looks like a regression fix related to a lock,4,0,0,0,0,0,0.0,3.0,4.0,,,It's related to a lock,79.93485832214355,True,True,,False,False,True
+0255571a16,Michel,4,Change the access to de CPU using a lib,0,0,4,0,0,0,,,,,,,56.71928143501282,True,True,,False,True,True
+12aeaaba08,Michel,4,Update doc,0,0,4,0,0,0,,,,,,,36.55277752876282,True,True,,False,False,False
+d8fc085509,Michel,4,Copy a useful data to logger,0,0,4,0,0,0,,,,,,,92.2547414302826,True,True,,False,True,True
+081e8432ad,Michel,4,Remove doc,0,0,3,0,0,0,,,,,,,8121.319671630859,True,True,,False,False,True
+f2701e0ffd,Michel,4,Change doc,0,0,4,0,0,0,,,,,,,26.090314865112305,True,True,,False,True,True
+cc2f2df48a,Michel,4,Change doc,0,0,4,0,0,0,,,,,,,25.57765293121338,True,True,,False,True,True
+4194442daf,Michel,4,Change variables to const,0,1,4,0,0,0,,,,,,,36.84363508224487,True,True,,False,True,True
+16a54d4ee7,Michel,4,Change print function,0,0,4,0,0,0,,,,,,,38.41055154800415,True,True,,False,False,False
+5c190e5394,Michel,3,Looks like a refactor,0,0,4,0,0,0,,,,,,,213.0228977203369,True,True,,False,False,False
+e9b67ec2d3,Michel,4,Refactor imports,0,0,4,0,0,0,,,,,,,49.07418203353882,True,True,,False,True,True
+618f5df1f6,Michel,4,Change a warn,0,0,4,0,0,0,,,,,,,40.475563287734985,True,True,,False,False,True
+a90b8fc9ca,Michel,3,Looks like a fix based on a specification,3,0,2,2,4,0,2.0,0.0,,,,,137.40480184555054,True,True,,False,True,True
+b76ecff831,Michel,4,Add a warning,0,0,4,0,0,0,,,,,,,35.14650130271912,True,True,,False,True,True
+fb197474ed,Michel,4,Add new config + remove deprecate done,0,0,4,4,0,0,,,,,,,46.80720043182373,True,True,,False,True,True
+a772105cfa,Michel,4,Update declaraion order to fit a specification,0,0,4,0,4,0,,,,,,,49.94842076301575,True,True,,False,True,True
+0f12a22f37,Michel,4,"Add a necessary flush, maybe to avoid posible errors",3,4,2,2,0,0,0.0,2.0,,,,,74.33828687667847,True,True,,False,True,True
+60f6fe665e,Michel,2,Add sanity check?,1,3,2,2,0,0,0.0,0.0,,,,,545.355635881424,True,True,,False,False,False
+72907bff3b,Michel,3,Adds new support,0,0,0,4,0,0,,,,,,,180.40978169441223,True,True,,False,True,True
+09570c5010,Michel,4,Code is refactored in anticipation of further changes.,0,1,4,0,0,0,,,,,,,63.11932110786438,True,True,,False,True,True
+50a7d025ca,Michel,4,A refactor,0,0,4,0,0,0,,,,,,,45.86596202850342,True,True,,False,True,True
+f716113aac,Michel,4,Add validation,1,3,3,0,0,0,0.0,0.0,,,,,56.38260221481323,True,True,,False,True,True
+17edb8e1e3,Michel,4,Only changes in comments,0,0,4,0,0,0,,,,,,,35.255671977996826,True,True,,False,True,True
+6a47a16dce,Michel,4,Just a refactor for return values of some functions,0,0,4,0,0,0,,,,,,,57.76943278312683,True,True,,False,False,True
+e20b77c14b,Michel,3,Domain names are changed to the current ones,0,0,4,0,4,0,,,,,,,68.20100736618042,True,True,,False,True,True
+fb4f4f4256,Michel,4,Fix a memory leak,4,0,0,0,0,0,0.0,4.0,,4.0,,Memory leak,32.840407609939575,False,False,,False,False,False
+6f3c9dbb65,Michel,4,Fix null pointer,4,0,0,0,0,0,2.0,0.0,,,,,118.7341694831848,False,True,,False,False,True
+65b462fc7e,Michel,3,Enable access to registers,0,0,1,3,0,0,,,,,,,139.31640696525574,True,True,,False,True,True
+8da1170a16,Michel,4,Add support for ip block,0,0,0,4,0,0,,,,,,,35.35242438316345,False,True,,False,True,True
+cae5c1ab05,Michel,4,Remove redundant code,0,0,4,0,0,0,,,,,,,30.10133385658264,True,True,,False,True,True
+2fc092d4c7,Michel,2,"It's a fix, but i don't undestand the propose exactly",4,0,0,0,0,0,0.0,2.0,,,,,87.33459067344666,True,True,,False,False,True
+0ef882074e,Michel,4,New func,0,0,0,4,0,0,,,,,,,48.83682274818421,True,True,,False,True,True
+9995c1d096,Michel,3,Add variable to keep a state,1,3,3,1,0,0,0.0,0.0,,,,,623.954484462738,True,True,,False,True,True
+80890c5ea0,Michel,4,Users are allowed to switch databases if there are no records.,0,0,3,3,0,0,,,,,,,66.28090953826904,True,True,,False,False,True
+1e029397d1,Michel,4,Refactoring,0,0,4,0,0,0,,,,,,,42.0250678062439,True,True,,False,False,True
+5099478e43,Michel,4,Change config to avoid compatibility issues,0,4,1,0,0,0,,,,,,,57.370901107788086,True,True,,False,True,True
+82806744fd,Michel,4,Fix a bug related to max mapping size,4,0,0,0,0,0,0.0,4.0,,4.0,,Could lead a memory error on system boot up,141.33203411102295,True,True,,False,False,True
+e730558adf,Michel,3,Fix an inconsitency,4,0,0,0,0,0,0.0,3.0,,,4.0,As is related to files cound be Exchange of Info,151.47786402702332,True,True,,False,True,True
+537f8ffbdf,Michel,4,Update/refactor,0,0,4,1,0,0,,,,,,,41.161033153533936,True,True,,False,False,True
+73ab99aad5,Michel,3,Changes in config file,0,0,3,1,0,0,,,,,,,77.49139165878296,True,True,,False,False,True
+42da167bbd,Michel,4,Rename some keys/names in config files,0,0,4,0,0,0,,,,,,,75.69618058204651,True,True,,False,False,True
+24a3db53ec,Michel,2,Update on clock drivers to avoid warnings,1,1,3,0,0,0,0.0,0.0,,,,,168.04442071914673,True,True,,False,True,True
+23347c90e2,Michel,2,Update on clock drivers to avoid warnings (similar to the last one?),1,1,3,0,0,0,0.0,0.0,,,,,135.56547093391418,True,True,,False,True,True
+1ed914e341,Michel,4,Enable new functionality,0,0,0,4,0,0,,,,,,,41.33935356140137,True,True,,False,True,True
+05f333b746,Michel,4,Add new functionality,0,0,0,4,0,0,,,,,,,27.94820547103882,False,True,,False,True,True
+7cbeeb0553,Michel,4,Update type of a property to avoid warnings,0,0,4,0,0,0,,,,,,,3.301356792449951,True,True,,False,False,True
+d3a20dcbca,Michel,4,Update doc,0,0,4,0,0,0,,,,,,,26.99521422386169,True,True,,False,False,False
+1dcf37365e,Michel,4,Change in doc,0,0,4,0,0,0,,,,,,,26.171907663345337,True,True,,False,True,True
+7058e68c2f,Michel,4,Remove dead code,0,0,4,0,0,0,,,,,,,30.95513868331909,True,True,,False,True,True
+322842ea3c,Michel,4,Add missing free,4,0,0,0,0,0,0.0,4.0,,4.0,,memory leak,111.79888582229614,True,True,,False,True,True
+75c96ccea2,Michel,4,Fix comment,0,0,4,0,0,0,,,,,,,29.37694954872132,True,True,,False,False,True
+b9f3973ab3,Michel,3,Add new func,0,0,0,4,0,0,,,,,,,38.52869367599487,True,True,,False,True,True
+34886e796c,Michel,4,"Its a refactoring, but also try to prevent bugs",0,4,4,0,0,0,,,,,,,26.281463384628296,False,False,,False,False,False
+cf8f4462e5,Michel,4,Use alternatives for those defined in a header file,0,0,4,0,0,0,,,,,,,47.70453715324402,True,True,,False,False,True
+cb55f27ac9,Michel,4,A refactor,0,0,4,0,0,0,,,,,,,53.81497240066528,True,True,,False,True,True
+99bd995655,Michel,4,New func,0,0,0,4,0,0,,,,,,,28.91443991661072,False,True,,False,True,True
+e945c653c8,Michel,4,Refactor: try to avoid confusion and remove unused flags,0,0,4,0,0,0,,,,,,,78.95767831802368,True,True,,False,False,True
+4e05a4b329,Michel,4,Add check to detect posible failures,1,4,0,0,0,0,0.0,0.0,,,,,73.36432647705078,True,True,,False,True,True
+a3b774342f,Michel,4,Check is value is too large to avoid negative shift,2,4,0,0,0,0,0.0,0.0,,,,,68.00250911712646,True,True,,False,False,True
+e200904b27,Michel,4,Remove redundat code,0,0,4,0,0,0,,,,,,,50.46659278869629,True,True,,False,True,True
+df22168207,Michel,4,Simplify code,0,0,4,0,0,0,,,,,,,185.1000201702118,True,True,,False,True,True
+84c9829d16,Michel,4,Add a new clock,0,0,0,4,0,0,,,,,,,27.878542184829712,True,True,,False,True,True
+801179b670,Michel,4,Drop no-longer necesary code,0,0,4,0,0,0,,,,,,,38.28997802734375,True,True,,False,True,True
+609cc5e1a8,Michel,4,Migrate from one api to newest,0,0,3,3,0,0,,,,,,,65.95582628250122,True,True,,False,True,True
+50cfde3349,Michel,4,Change doc,0,0,3,0,0,0,,,,,,,25.591293334960938,True,True,,False,True,True
+3b49ae380c,Michel,4,Fix a check,4,0,0,0,0,0,4.0,0.0,,,,,61.36158990859985,True,True,,False,True,True
+ee74fdf0ca,Michel,4,Refactoring,0,0,4,0,0,0,,,,,,,42.70308995246887,True,True,,False,False,False
+287f1ee38a,Michel,4,Code refactor to reduce code size,0,0,4,0,0,0,,,,,,,44.915221214294434,True,True,,False,True,True
+ce0091a0e0,Michel,4,Fix warnings (no fix bugs),0,0,4,0,0,0,,,,,,,62.128180503845215,True,True,,False,False,False
+82cd4bacff,Michel,3,"Fix handling by changing a return value, avoiding 0s",3,3,1,0,0,0,0.0,2.0,,,,,613.4598882198334,True,True,,False,True,True
+d3345fecf9,Michel,4,Add new flag,0,0,3,4,0,0,,,,,,,97.7546112537384,True,True,,False,True,True
+607c04a044,Michel,4,Switch to new property but keep compaibility with the old one,0,0,4,3,0,0,,,,,,,63.755101680755615,True,True,,False,True,True
+bd53e442e8,Michel,4,Add support to an architecture,0,0,0,4,0,0,,,,,,,38.98714900016785,True,True,,False,True,True
+1300eec9e5,Michel,4,Fix an undefined referece,4,0,0,0,0,0,2.0,2.0,,,,,59.89135456085205,True,True,,False,False,False
+da4363457f,Michel,4,Just avoid warnings,1,0,3,0,0,0,0.0,0.0,,,,,72.07863163948059,True,True,,False,False,True
+c2ca36e82f,Michel,4,Remove unnecesary lock,0,0,4,0,0,0,,,,,,,31.349320650100708,True,True,,False,False,True
+aabfe05a82,Michel,4,Add new support,0,0,0,4,0,0,,,,,,,40.54922199249268,True,True,,False,True,True
+d3b43eb505,Michel,4,Add check for possible null and return,0,4,0,0,0,0,,,,,,,49.32153534889221,True,True,,False,False,True
+690b2549b1,Michel,4,FIx to prevent memory corruption,3,4,0,0,0,0,0.0,3.0,,4.0,,"Maybe memory related fix? Not sure, looks like a BPC",72.99445414543152,False,True,,False,True,True
+546a5d6122,Michel,4,Add a limit of the number of retries,0,3,0,0,0,0,,,,,,,33.48767137527466,False,False,,False,False,False
+a0ccc717c4,Michel,4,Adds a check to validate that firmware don't report more instances than supported by the driver,0,4,0,0,0,0,,,,,,,71.56362318992615,True,True,,False,False,True
+4dd9989164,Michel,4,Remove not-needed return,0,0,4,0,0,0,,,,,,,32.12853479385376,True,True,,False,False,True
+d6f8168e43,Michel,4,Add explicit cast to avoid a warning,1,3,4,0,0,0,0.0,0.0,,,,,59.85395479202271,True,True,,False,False,True
+54739cc6b4,Michel,4,Rename variables,0,0,4,0,0,0,,,,,,,52.25517320632935,True,True,,False,True,True
+403d50341c,Michel,2,Consider destination offsets,1,3,0,0,0,0,0.0,0.0,,,,,135.8483383655548,True,True,,False,False,True
+67fda6c2df,Michel,4,Simplify code,0,0,4,0,0,0,,,,,,,35.38978600502014,True,True,,False,True,True
+0b465150b3,Michel,4,Move code,0,0,4,0,0,0,,,,,,,36.65141749382019,True,False,,False,False,False
+95b8f316ae,Michel,4,Only change comments,0,0,4,0,0,0,,,,,,,26.829152822494507,True,True,,False,True,True
+a8d412ec98,Michel,4,Remove redundant code,0,0,4,0,0,0,,,,,,,29.27456426620484,False,True,,False,False,True
+d9ad805083,Michel,4,Remove unnecesary code,0,0,4,0,0,0,,,,,,,28.0481390953064,False,True,,False,True,True
+8ef6e1ba71,Michel,4,Refactor code,0,0,4,0,0,0,,,,,,,270.0132052898407,True,True,,False,True,True
+4088ca3edc,Michel,4,Update headers,0,0,4,0,0,0,,,,,,,35.98647618293762,True,True,,False,False,True
+67ec2c75f3,Michel,4,Use swap instead of temp variable,0,0,4,0,0,4,,,,,,,51.82030487060547,True,True,,False,False,True
+b92d8a6e93,Michel,4,Remove not needed check,0,0,4,0,0,0,,,,,,,58.26809215545654,True,True,,False,False,True
+424140d31b,Michel,4,Extend a prevention,0,4,0,0,0,0,,,,,,,45.69032692909241,True,True,,False,True,True
+249369e931,Michel,4,Replace print bc warning,0,0,4,0,0,0,,,,,,,33.43688726425171,True,True,,False,False,True
+bc4c94994f,Michel,3,Looks like a refactor,0,0,4,0,0,0,,,,,,,56.41534447669983,True,True,,False,True,True
+f9b0593dd4,Michel,4,Change doc,0,0,4,0,0,0,,,,,,,32.08062815666199,True,True,,False,True,True
+5a709a46e4,Michel,4,Remove unnecessary lock,0,0,4,0,0,0,,,,,,,39.10257601737976,True,True,,False,True,True
+bc055a50a8,Michel,4,Change in doc,0,0,4,0,0,0,,,,,,,36.78033709526062,True,True,,False,False,True
+f4d1f2142a,Michel,4,Looks like a refactor,0,0,4,0,0,0,,,,,,,46.90530276298523,True,True,,False,True,True
+01c3f0387c,Michel,4,Make some pointers consts,0,0,4,0,0,0,,,,,,,53.43617057800293,True,True,,False,True,True
+2ba75d3119,Michel,4,A refactor,0,0,4,0,0,0,,,,,,,56.9504771232605,True,True,,False,True,True
+829ec038c9,Michel,4,Transition from old implementation to new ... it's part o a patch set,0,0,3,3,0,0,,,,,,,75.89262294769287,True,True,,False,True,True
+e8c81d649a,Michel,4,Change in doc,0,0,4,0,0,0,,,,,,,27.806127309799194,True,True,,False,True,True
+dcf23cca93,Michel,4,use other function to check instead of a negation,0,0,4,0,0,0,,,,,,,53.528055906295776,True,True,,False,True,True
+a570e68fab,Michel,4,Drop unused code,0,0,4,0,0,0,,,,,,,34.114391803741455,True,True,,False,True,True
+647df0d41b,Michel,4,Change to a more accurate formating to avoid a warning,0,3,3,0,0,0,,,,,,,101.70899224281312,True,True,,False,False,False
+216d1a8013,Michel,4,Just update mantainerinfo,0,0,4,0,0,0,,,,,,,27.77283763885498,False,True,,False,True,True
+f38b3c6a78,Michel,4,Change indent,0,0,4,0,0,0,,,,,,,33.153132915496826,True,True,,False,True,True
+ec906102e5,Michel,4,Fix a tests,1,0,3,0,0,0,0.0,0.0,,,,,51.523632526397705,True,True,,False,False,False
+9b7fd1670a,Michel,3,Fixed a bug where speeds higher than 1G are not published.,4,0,1,0,0,0,4.0,0.0,,,,,314.7767722606659,True,True,,False,False,True
+b653db7735,Michel,4,Add initialitation to folio->private for preventing posible bugs,0,4,0,0,0,0,,,,,,,72.22957110404968,True,True,,False,False,False
+0e597e2aff,Michel,4,Disable/rmeove interrupt,0,3,3,0,0,0,,,,,,,314.01244616508484,True,True,,False,False,True
+9577fc5fdc,Michel,4,Fix how a error was returned,3,0,3,0,0,0,0.0,0.0,,,,,77.72299146652222,True,True,,False,True,True
+2307a0e1ca,Michel,4,Add new func,0,0,0,4,0,0,,,,,,,31.4671094417572,True,True,,False,True,True
+a7786cbae4,Michel,4,Fix spurious event generation,4,0,0,0,0,0,0.0,2.0,,,,,80.32767009735107,True,True,,False,False,True
+c5e58c4545,Michel,4,Ad missing free,4,0,0,0,0,0,0.0,4.0,,4.0,,Free memory related,66.3705472946167,True,True,,False,False,True
+a382f8fee4,Michel,4,Change debbuger ops,0,0,4,0,0,0,,,,,,,50.91726016998291,True,True,,False,False,False
+32346491dd,Michel,0,"Looks like a release commit, result of a merge??",0,0,0,3,0,0,,,,,,,40.39217972755432,False,True,,False,False,False
+15e67227c4,Michel,2,Lookslike new func,0,0,1,3,0,0,,,,,,,58.68589735031128,True,True,,False,True,True
+d147553b64,Michel,1,"Possible fix, but i dont undestanding well",1,3,2,1,0,0,0.0,0.0,,,,,91.20705127716064,True,True,,False,True,True
+6cc2714e85,Michel,4,Make a fix using the properly constant,4,2,1,0,0,0,0.0,0.0,,,,,79.23059058189392,True,True,,False,True,True
+add61d3c31,Michel,4,Fix a bug by increases a max limit,4,0,0,0,0,0,0.0,0.0,,,,,96.84730768203735,True,True,,False,False,True
+1968f2be5c,Michel,4,Add support for new controller,0,0,0,4,0,0,,,,,,,36.60135245323181,True,True,,False,True,True
+6961b5e028,Michel,4,Fix a bug by setting a default value,4,0,0,0,0,0,4.0,0.0,,,,,63.97877025604248,True,True,,False,False,True
+8ebcc62c73,Michel,4,Fix data races addint READ_ONCE(),4,0,0,0,0,0,0.0,4.0,4.0,,,Fix race condition,101.38562321662904,True,True,,False,True,True
+d8fa2fd791,Michel,4,Add missing states of logger,4,0,0,0,0,0,4.0,0.0,,,,,54.29148530960083,True,True,,False,False,False
+b354eaeec8,Michel,4,Fix rate limit,4,2,0,3,4,0,0.0,0.0,,,,,107.14045405387878,True,True,,False,False,True
+ef61b6ea15,Michel,4,Move code to avoid an early wakeup,0,4,0,0,0,0,,,,,,,87.43263053894043,True,True,,False,False,False
+fc04dafd26,Michel,4,Replace helpers with the new ones,0,0,3,3,0,0,,,,,,,69.42002820968628,True,True,,False,False,False
+b2d71f275d,Michel,4,Just update names,0,0,4,0,0,0,,,,,,,54.362030267715454,True,True,,False,True,True
+b02180e899,Michel,3,Replace some functions to more accurate ones,0,0,4,0,0,0,,,,,,,83.52176356315613,True,True,,False,True,True
+96fed779d3,Michel,4,Update doc,0,0,3,3,0,0,,,,,,,43.63207745552063,True,True,,False,True,True
+44e36d7552,Michel,4,Use new name format for consistency,0,0,4,0,0,0,,,,,,,58.38886046409607,True,True,,False,False,True
+bcdf998ea3,Michel,4,Add new mux option,0,0,0,4,0,0,,,,,,,41.87290668487549,True,True,,False,False,True
+d955cf3df3,Michel,4,Change doc and mantainers,0,0,4,0,0,0,,,,,,,29.37269926071167,True,True,,False,False,True
+b888886a45,Michel,4,Add new node ,0,0,0,4,0,0,,,,,,,36.15428948402405,True,True,,False,True,True
+9794c30841,Michel,4,Changes in doc,0,0,4,0,0,0,,,,,,,29.315194129943848,True,True,,False,True,True
+e60414644c,Michel,4,Fix an overlap problem,4,0,0,0,0,0,0.0,3.0,,4.0,,Maybe related to memory??,75.69848537445068,True,True,,False,False,True
+05b90d2404,Michel,4,Change doc,0,0,4,0,0,0,,,,,,,23.07686853408813,True,True,,False,True,True
+f67be8b7ee,Michel,4,New func: new helpers,0,0,0,4,0,0,,,,,,,36.693767786026,True,True,,False,True,True
+6598b91b5a,Michel,4,Performance improvement,0,0,4,0,0,0,,,,,,,5386.780962467194,True,True,,False,False,True
+5c8dca9740,Michel,4,Drop unused declarations,0,0,4,0,0,0,,,,,,,41.163294315338135,True,True,,False,True,True
+ddf2a6093c,Michel,4,Use lib to shift,0,0,4,0,0,0,,,,,,,59.18014526367188,True,True,,False,True,True
+8a85007c83,Michel,4,Add new func,0,0,0,4,0,0,,,,,,,34.60102438926697,True,True,,False,True,True
+f3ac888fc5,Michel,4,Add support to new scale in micro-Wt,0,0,0,4,0,0,,,,,,,63.85991454124451,True,True,,False,True,True
+8f5a9371e6,Michel,4,Fix comments and typo,0,0,4,0,0,0,,,,,,,36.25543236732483,True,True,,False,False,True
+59915143e8,Michel,4,Move code to a single file,0,0,4,0,0,0,,,,,,,44.06573414802551,True,True,,False,False,False
+5d7943d99d,Michel,3,"Propagate locking state. Don't know the exact propose, maybe BPC?",0,3,0,0,0,0,,,,,,,102.0228705406189,True,True,,False,True,True
+f110ed8498,Michel,3,Looks like a refactor,0,0,4,0,0,0,,,,,,,61.97124719619751,True,True,,False,False,False
+cbd2574854,Michel,2,Looks like a fix in the order of the checks,3,2,1,0,0,0,0.0,2.0,,,,,139.38585710525513,True,True,,False,True,True
+4ccc6db090,Michel,4,Just a refactor,0,0,4,0,0,0,,,,,,,51.57565546035767,True,True,,False,False,True
+133e2d3e81,Michel,2,The change allow to un-share a time namespace,0,0,0,4,0,0,,,,,,,82.61740636825562,True,True,,False,True,True
+932be3e95b,Michel,3,Try to properly structure memory by increase the size of some variables.,3,3,3,0,0,0,0.0,1.0,,2.0,,"I'm not sure about this, I don't know it the change saves memory, avoid a possible bug related to memory ..",162.36787056922913,True,True,,False,False,False
+7460ade1fc,Michel,3,Make sure that running task are added to a list ,1,3,0,0,0,0,0.0,0.0,,,,,140.06902074813843,True,True,,False,True,True
+635dcd1684,Michel,4,Looks like a test-related change,0,0,4,1,0,0,,,,,,,61.49227786064148,True,True,,False,True,True
+4d8f52ac5f,Michel,4,add some checks on return value,4,1,0,0,0,0,2.0,0.0,,,,,83.33013367652893,True,True,,False,True,True
+069fc464f1,Michel,4,Simplify code,0,0,4,0,0,0,,,,,,,43.11554789543152,True,True,,False,True,True
+f3e90c1ca9,Michel,4,Remove non-necessary code,0,0,4,0,0,0,,,,,,,59.7661247253418,True,True,,False,False,False
+2e0aee8f0a,Michel,4,Change long -> int,0,0,4,0,0,0,,,,,,,38.44260239601135,True,True,,False,False,False
+260b5c694b,Michel,4,Remove mantainer,0,0,4,0,0,0,,,,,,,44.13379001617432,True,True,,False,False,True
+9a7a1be6b6,Michel,4,Change a check for possible detecting bugs,0,4,0,0,0,0,,,,,,,39.65544605255127,True,True,,False,True,True
+92f78f81ac,Michel,4,Add a check to avoid an overflow on FIFO,0,4,0,0,0,0,,,,,,,103.58107805252077,True,True,,False,True,True
+fd8b330ce1,Michel,4,Remove duplicate code,0,0,4,0,0,0,,,,,,,25.864564657211304,True,True,,False,False,False
+ccb9bc1dfa,Michel,4,Add support for new func,0,0,0,4,0,0,,,,,,,39.81803011894226,True,True,,False,False,True
+7e193a42c3,Michel,3,Fix not properly supported for certain cases,4,0,0,0,0,0,2.0,0.0,,,,,226.3754408359528,True,True,,False,False,True
+b3fd0a86da,Michel,4,Change debugger,0,0,4,0,0,0,,,,,,,67.0744800567627,True,True,,False,True,True
+ea5872dd6b,Michel,3,Add a flag when a namescpace is created,0,3,0,1,0,0,,,,,,,4792.433436632156,True,True,,False,True,False
+43da2f0762,Michel,4,Add new driver,0,0,0,4,0,0,,,,,,,56.013636350631714,True,True,,False,False,True
+22dd7a58b2,Michel,4,Remove deprecated code,0,0,4,0,0,0,,,,,,,35.64925026893616,True,True,,False,True,True
+8094029330,Michel,4,Cleanup on error. Not sure how to classify it,1,3,1,0,0,0,0.0,0.0,,,,,192.8663625717163,True,True,,False,True,True
+1ee6c5abeb,Michel,4,Avoid to enforce specific trigger,1,3,0,0,0,0,0.0,0.0,,,,,253.0780680179596,True,True,,False,True,True
+cc2609eda6,Michel,4,Update warnings,0,1,3,0,0,0,,,,,,,71.00183153152466,True,True,,False,False,True
+d4893978f9,Michel,4,Rename for readability,0,0,4,0,0,0,,,,,,,44.04981207847595,True,True,,False,True,True
+da92e03c7f,Michel,4,Fixes to avoid warnings ,0,0,4,0,0,0,,,,,,,75.43316674232483,True,True,,False,False,False
+616c4a83b6,Michel,4,Fix a comment,0,0,4,0,0,0,,,,,,,29.50178909301757,True,True,,False,True,True
+23cc6d8c37,Michel,4,Change var type,0,3,1,0,0,0,,,,,,,75.32866978645325,True,True,,False,True,True
+9b6bf4d612,Michel,4,Set var to null,0,4,0,0,0,0,,,,,,,72.36004495620728,True,True,,False,True,True
+bd363ee533,Michel,3,This commit include a possible lost change relayed to set the properly value to sta.mlo.,0,2,2,0,0,0,,,,,,,117.0807168483734,True,True,,False,False,False
+bceb8b8ded,Michel,4,Remove dead code,0,0,4,0,0,0,,,,,,,26.54156827926636,False,True,,False,False,True
+3470079687,Michel,2,Remove a limitation and remve an error,4,0,0,0,0,0,2.0,0.0,,,,,325.7972226142884,True,True,,False,True,True
+a683dc5c14,Michel,4,Change relative path to absolute path,0,1,4,0,0,0,,,,,,,63.50934791564941,True,True,,False,False,True
+cc1049ccee,Michel,4,Fix a regression on max speed limit,3,0,0,0,0,0,2.0,3.0,4.0,,,Maybe related to timming and executiong as it limmits the max speed??,138.3979136943817,True,True,,False,False,True
+3fe012f482,Michel,4,Change in doc,0,0,4,0,0,0,,,,,,,40.705183029174805,True,True,,False,True,True
+9ae551ded5,Michel,4,Replace code,0,0,4,0,0,0,,,,,,,61.40254616737366,True,True,,False,False,True
+9ed11999f9,Michel,4,Add mantainer,0,0,4,0,0,0,,,,,,,30.71711659431457,True,True,,False,False,False
+f9599127dd,Michel,4,Drop unsued var,0,0,4,0,0,0,,,,,,,34.328245401382446,True,True,,False,True,True
+9f22f95951,Michel,3,Add a fix by implementing the proper power line control,3,2,0,2,0,0,2.0,0.0,,,,,284.32181549072266,True,True,,False,True,True
+c4d987de9c,Michel,4,Use a new implementation,0,0,3,1,0,0,,,,,,,93.65832424163818,True,True,,False,False,False
+91776af1d8,Michel,4,Just move code ,0,0,4,0,0,4,,,,,,,96.82729291915894,True,True,,False,False,True
+3cf0507625,Michel,1,"Looks like an optimization, but not sure",0,0,3,0,0,0,,,,,,,144.07065725326538,True,True,,False,True,True
+d57716702d,Michel,4,Only add new code (headers),0,0,0,4,0,0,,,,,,,51.913851499557495,True,True,,False,False,False
+aa303964bc,Michel,2,Change de implementation to meet specification,1,0,0,3,4,0,0.0,0.0,,,,,206.25328254699707,True,True,,False,True,True
+526e6ca5d1,Michel,4,Remove repeated code,0,0,4,0,0,0,,,,,,,42.78005313873291,True,True,,False,True,True
+ac78fa502a,Michel,4,Add null check,0,4,0,0,0,0,,,,,,,67.69990134239197,False,True,,False,True,True
+cff35798fa,Michel,2,Looks like a bug fix,4,0,0,0,0,0,0.0,2.0,,,,,54.55712127685547,True,True,,False,False,True
+0d8928a94b,Michel,4,Fix compilation bug,4,0,0,0,0,0,4.0,0.0,,,,,53.64682698249817,True,True,,False,True,True
+fba6767c2d,Michel,4,Add new func (support),0,0,0,4,0,0,,,,,,,43.91928625106812,True,True,,False,True,True
+26093ce14b,Michel,4,Remove not longer necessary code,0,0,0,4,0,0,,,,,,,97.05002617836,True,True,,False,False,False
+00fa7f031d,Michel,4,Change to prepare new func,0,0,0,4,0,0,,,,,,,44.23262572288513,True,True,,False,True,True
+5877b7ddbc,Michel,4,"Swap variable names. Probably to avoid a bug, but not sure",0,3,0,0,0,0,,,,,,,111.27617812156676,True,True,,False,False,True
+bac4b41d91,Michel,4,Code refactor,0,0,4,0,0,0,,,,,,,64.51116108894348,True,True,,False,True,True
+9dd4545f65,Michel,4,Fix a typo,0,0,4,0,0,0,,,,,,,28.217509031295776,True,True,,False,False,False
+319568d75f,Michel,2,Dont know if add new support or just prevent some problems in certain cases,0,3,0,3,0,0,,,,,,,78.55940580368042,True,True,,False,True,True
+8b3120dfc1,Michel,4,Code refactor,0,0,4,0,0,0,,,,,,,35.87946581840515,True,True,,False,False,True
+d64a29af12,Michel,4,Add check,0,4,0,0,0,0,,,,,,,31.435178995132446,True,True,,False,True,True
+f0e34d2625,Michel,4,Remove duplicated code,0,0,4,0,0,0,,,,,,,28.352156400680546,False,True,,False,True,True
+747c7cf159,Michel,4,Fix scale max and min values ,0,4,0,0,2,0,,,,,,,63.25114870071411,True,True,,False,True,True
+7cbb6681d7,Michel,2,"Looks like add new feature (label), but not sure",0,0,0,3,0,0,,,,,,,188.10711431503296,True,True,,False,True,True
+3e1865ba38,Michel,4,Remove non-necessary code,0,0,4,0,0,0,,,,,,,31.443793058395386,False,True,,False,True,True
+1c796caff0,Michel,4,Change variable names,0,0,4,0,0,0,,,,,,,31.43590760231018,True,True,,False,True,True
+e5933cf487,Michel,4,Optimize compilation,0,0,4,0,0,0,,,,,,,44.24440407752991,True,True,,False,True,True
+5fd6c4f0a6,Michel,4,Add support to enumerate new client,0,0,0,4,0,0,,,,,,,44.1114284992218,True,True,,False,True,True
+21cdd6a0e8,Michel,4,Fix teh returned value on errors,4,0,0,0,0,0,4.0,0.0,,,,,58.10651683807373,True,True,,False,False,True
+40758e493f,Michel,4,Add support to new feature,0,0,0,4,0,0,,,,,,,24.73778820037841,False,True,,False,True,True
+1b0a54b3e8,Michel,4,Refactor code,0,0,4,0,0,0,,,,,,,36.32906866073608,True,True,,False,False,True
+c1da5a7bef,Michel,4,Change to optimize,0,0,4,0,0,0,,,,,,,113.38336968421936,True,True,,False,False,True
+ee9aded6d3,Michel,4,Rename variables to fit specification,0,0,4,0,0,4,,,,,,,48.995967626571655,True,True,,False,True,True
+77072b0f4b,Michel,4,Refactor code,0,0,4,0,0,0,,,,,,,36.28635263442993,False,True,,False,True,True
+8af028c2b2,Michel,4,Refactor code (macro to function),0,0,4,0,0,4,,,,,,,64.01081728935242,True,True,,False,True,True
+b7bc1c9e5b,Michel,4,Change in doc,0,0,4,0,0,0,,,,,,,40.49277758598328,True,True,,False,True,True
+38d4a385a3,Michel,4,"Add new helper on tests, its really a new func???",0,0,3,3,0,0,,,,,,,47.85664296150208,True,True,,False,True,True
+90b13cdde1,Michel,4,Changes in test code,0,0,4,0,0,0,,,,,,,3551.707935333252,True,True,,False,True,True
+ebca1b8056,Michel,4,Changes in tests,0,0,4,0,0,0,,,,,,,31.900755405426025,True,True,,False,True,True
+ec1d7e6ab9,Michel,4,Remove unused code,0,0,4,0,0,0,,,,,,,46.276848793029785,True,True,,False,True,True
+1bd9dfec9f,Michel,4,Fix a regression,4,0,0,0,0,0,2.0,0.0,,,,,50.28324890136719,False,False,,False,False,False
+30b6ab45f8,Michel,4,Refactor to call func,0,0,4,0,0,0,,,,,,,56.66039276123047,True,True,,False,True,True
+5a420ed964,Michel,4,"Replace code, refactor",0,0,4,0,0,0,,,,,,,50.82514405250549,False,True,,False,True,True
+619064afa9,Michel,4,Move code to improve readability,0,0,4,0,0,0,,,,,,,157.63831043243408,True,True,,False,True,True
+879e5ac7b2,Michel,4,Add new func,0,0,0,4,0,0,,,,,,,32.75252628326416,True,True,,False,True,True
+4d352eb91a,Michel,4,Add new property,0,0,0,4,0,0,,,,,,,30.561192512512207,True,True,,False,True,True
+65d012e415,Michel,4,Move variable,0,0,4,0,0,0,,,,,,,47.38925647735596,True,True,,False,True,True
+044034efbe,Michel,4,Set value to 1 as 0 is not contemplated,4,0,0,0,2,0,4.0,0.0,,,,,91.0863573551178,True,True,,False,True,True
+b127315d9a,Michel,4,Add controller,0,0,0,4,0,0,,,,,,,30.29007124900818,True,True,,False,True,True
+60b3c27fb9,Michel,4,Rename to improve readability,0,0,4,0,0,0,,,,,,,31.6088502407074,True,True,,False,True,True
+997b99e3b3,Michel,4,Looks like a refactor,0,0,4,0,0,0,,,,,,,68.66804933547974,True,True,,False,True,True
+7dc65e3c0e,Michel,4,Fix a cast to avoid a warning,0,0,4,0,0,0,,,,,,,45.12284111976624,True,True,,False,False,True
+7a7b0b4865,Michel,4,A refactor,0,0,4,0,0,0,,,,,,,29.08148765563965,True,True,,False,True,True
+37be3f9d69,Michel,4,Turn down session before a re-login,0,3,1,0,0,0,,,,,,,106.5396649837494,True,True,,False,True,True
+4b9f8ce4d5,Michel,4,Refactor (rename),0,0,4,0,0,0,,,,,,,24.031164407730103,False,True,,False,True,True
+e1c6a7ec14,Michel,4,Remove non-necessary lock,0,1,4,0,0,0,,,,,,,47.98358988761902,True,True,,False,True,True
+eed9f513bf,Michel,4,Remove duplicated code,0,0,4,0,0,0,,,,,,,27.51477074623108,True,True,,False,True,True
+d13bc4d84a,Michel,4,Remove non-used driver,0,0,4,0,0,0,,,,,,,43.291144609451294,True,True,,False,False,True
+9db056e950,Michel,4,Fix typos,0,0,4,0,0,0,,,,,,,35.759347438812256,True,True,,False,False,True
+442ec1e5bb,Michel,4,Change in doc,0,0,4,0,0,0,,,,,,,30.47183513641357,True,True,,False,False,True
+85c73bf726,Michel,4,Refactor to make API consistent,0,0,4,0,0,0,,,,,,,164.7399787902832,True,True,,False,True,True
+c01147d929,Michel,4,Replace macro with function for typecheck,0,3,3,0,0,0,,,,,,,75.1308343410492,True,True,,False,True,True
+f2c5092190,Michel,4,Memory improve,0,0,4,0,0,0,,,,,,,72.98451113700867,True,True,,False,False,True
+753df96be5,Michel,4,Remove redundant check,0,0,4,0,0,0,,,,,,,28.04120945930481,True,True,,False,True,True
+c2bc16817a,Michel,4,Refactoring to future patches,0,0,4,0,0,0,,,,,,,48.299168825149536,True,True,,False,True,True
+2397f780e1,Michel,4,Refactor,0,0,4,0,0,0,,,,,,,29.806973695755005,True,True,,False,True,True
+b98c359f1d,Michel,4,Refactor,0,0,4,0,0,0,,,,,,,77.31235885620117,True,True,,False,True,True
+797efbc523,Michel,4,Add support to know guest machines,0,0,0,4,0,0,,,,,,,62.18261075019837,True,True,,False,True,True
+3809db6430,Michel,4,Block buffer resize to avoid possible bugs,0,4,0,0,0,0,,,,,,,69.32544207572937,True,True,,False,True,True
+3233b978af,Michel,4,Add new func,0,0,0,4,0,0,,,,,,,30.427472352981567,True,True,,False,True,True
+b661a848a5,Michel,4,Fix typo,0,0,4,0,0,0,,,,,,,19.570215940475464,False,True,,False,False,True
+1724cc38e7,Michel,4,Rename variable,0,0,4,0,0,0,,,,,,,24.854904890060425,True,True,,False,True,True
+18489174e4,Michel,4,Add new func,0,0,0,4,0,0,,,,,,,39.60784316062927,True,True,,False,False,True
+4665770407,Michel,4,Add support for new options,0,0,0,4,0,0,,,,,,,33.20850682258606,True,True,,False,True,True
+9a34161a0b,Michel,4,Add legacy naming support,0,0,4,1,0,0,,,,,,,44.095279932022095,True,True,,False,True,True
+4fb35936a3,Michel,4,Enable build support,0,0,0,4,0,0,,,,,,,31.334101915359497,True,True,,False,True,True
+34b1a65ec1,Michel,4,Change in mainteiners,0,0,3,0,0,0,,,,,,,26.998805046081543,True,True,,False,False,True
+ba3ea04a25,Michel,3,Looks like a refactor,0,0,4,0,0,0,,,,,,,72.72867941856384,True,True,,False,True,True
+4d26ba671e,Michel,4,Remove redundant checks,0,0,4,0,0,0,,,,,,,52.367634534835815,True,True,,False,True,True
+2ac05f8f2e,Michel,4,Add test,0,0,3,0,0,0,,,,,,,31.188637256622314,True,True,,False,True,True
+901a30cf5f,Michel,4,Fix typo,0,0,4,0,0,0,,,,,,,21.905998706817627,False,True,,False,False,True
+034921cdea,Michel,4,Refactor,0,0,4,0,0,0,,,,,,,36.5504801273346,True,True,,False,True,True
+233eb8d689,Michel,4,Fix typo,0,0,4,0,0,0,,,,,,,19.50745415687561,False,True,,False,False,True
+b771aadc6e,Michel,4,Improve readabilitky,0,0,4,0,0,0,,,,,,,44.01562929153442,True,True,,False,True,True
+9ec9b79a2b,Michel,4,Improve readability,0,0,4,0,0,0,,,,,,,32.56796336174011,True,True,,False,True,True
+2b947cf9e3,Michel,4,Don't know how categorize it. New func or improve info?,0,0,3,3,0,0,,,,,,,63.61487984657288,True,True,,False,True,True
+eb47b59afb,Michel,4,Remove redundant variable,0,0,4,0,0,0,,,,,,,53.905786752700806,True,True,,False,True,True
+9b60b67519,Michel,4,Change in comments,0,0,4,0,0,0,,,,,,,37.17925596237183,True,True,,False,False,False
+d2403ee73d,Michel,4,Simplify code,0,0,4,0,0,0,,,,,,,36.684470653533936,True,True,,False,True,True
+25097de7b2,Michel,4,Add support to new controller,0,0,0,4,0,0,,,,,,,27.64177894592285,False,True,,False,False,False
+e79368b15d,Michel,4,Change in docs,0,0,4,0,0,0,,,,,,,23.7601478099823,True,True,,False,False,True
+75448ff73f,Michel,4,Changes in docs,0,0,4,0,0,0,,,,,,,27.10432934761048,True,True,,False,True,True
+7e97cfed99,Michel,4,Fix a memory leak,4,0,0,0,0,0,0.0,4.0,,4.0,,is a memory related bug,80.48474264144897,True,True,,False,True,True
+13a4223df8,Michel,4,Fix duplicated word in comment,0,0,4,0,0,0,,,,,,,37.17207980155945,True,True,,False,False,False
+3f64510e3d,Michel,3,Fix a bug related to timers,4,3,0,0,4,0,0.0,1.0,4.0,,,"I think is not safety-related, but i dont undestand the bug well. Maybe a timming and execution??",142.79902386665344,True,True,,False,True,True
+0209b5830b,Michel,3,Add checks yo avoid a bug,4,0,0,0,0,0,0.0,0.0,,,,,91.34346580505373,True,True,,False,True,True
+6fb271f1bc,Michel,4,Fix a IO hang,4,0,0,0,0,0,0.0,3.0,,,4.0,Related with i/O,2247.4073848724365,True,True,,False,False,True
+e75d5ae8ab,Michel,4,Add new options,0,0,0,4,0,0,,,,,,,49.44680166244507,True,True,,False,True,True
+560f7736b9,Michel,2,"Looks like a fix, but i dont really understand what it fixes",4,0,0,0,0,0,0.0,0.0,,,,,118.22705054283142,True,True,,False,True,True
+7fe05e125d,Michel,4,Fix warn,3,0,1,0,0,0,0.0,0.0,,,,,57.89854311943054,True,True,,False,True,True
+1b6345d416,Michel,3,Fix a bug related to handle specific case,4,0,0,0,0,0,0.0,0.0,,,,,1202.871462583542,True,True,,False,False,False
+085292c3d7,Michel,4,Revert a change that introduce a bug,4,0,0,0,0,0,0.0,3.0,4.0,,,The bug produces a hang,71.69824552536011,True,True,,False,False,True
+bf54d97a83,Michel,4,Add support to mono streams,0,0,0,4,0,0,,,,,,,74.26199555397034,True,True,,False,True,True
+21234e3a84,Michel,4,Move free(),4,0,0,0,0,0,0.0,4.0,,4.0,,Its related to free/release memory,67.90526294708252,True,True,,False,True,True
+a5a923038d,Michel,4,Fix an issue by properly revert changes,4,0,0,0,0,0,2.0,0.0,,,,,91.50262093544006,True,True,,False,True,True
+550842cc60,Michel,4,Fix a bug related with unitializaed resources,4,0,0,0,0,0,0.0,3.0,4.0,,,Trigger a kernel crash,77.62321329116821,True,True,,False,False,True
+cee7db1b02,Michel,4,Change in docs,0,0,4,0,0,0,,,,,,,16.196236610412598,False,False,,False,False,False
+7498a457ec,Michel,3,Fix on how packets lenght not-muitply of 4 are procesed,4,0,0,0,0,0,0.0,0.0,,,,,124.7156093120575,True,True,,False,False,True
+617a0d9fe6,Michel,4,Remove unused code,0,0,4,0,0,0,,,,,,,33.765761613845825,True,True,,False,True,True
+21457f4a91,Michel,4,Remove not longer needed code,0,0,4,0,0,0,,,,,,,27.093528985977173,False,True,,False,True,True
+672d6ca758,Michel,2,Add a check to specific MUX,3,3,0,1,0,0,0.0,0.0,,,,,199.1182148456573,True,True,,False,True,True
+3fe3fd5f30,Michel,4,Add a macro to asses that the correct number of VA bits is used,4,0,0,0,0,0,0.0,0.0,,,,,72.16671180725098,True,True,,False,False,True
+6124cec530,Michel,4,Fix a bug that dont allow gpio37 to trigger interrupts,4,0,0,0,0,0,0.0,0.0,,,,,74.1103196144104,True,True,,False,True,True
+4d40ceef47,Michel,4,Add driver support,0,0,0,4,0,0,,,,,,,25.08291339874268,True,True,,False,False,True
+c7e31e36d8,Michel,4,Changes in docs,0,0,4,0,0,0,,,,,,,29.40364646911621,True,False,,False,False,False
+d873697ef2,Michel,4,Fix a regression bug related with queues,4,0,0,0,0,0,0.0,3.0,,,4.0,Related to exchange of info,75.22635531425476,True,True,,False,False,True
+c9da02bfb1,Michel,4,Fix an incorrect swap,4,0,0,0,0,0,0.0,0.0,,,,,44.14483976364136,True,True,,False,False,True
+b7dc37fcf6,Michel,4,Remove dead code,0,0,4,0,0,0,,,,,,,21.25254893302917,True,False,,False,False,False
+330f5a3005,Michel,4,Add chinese translation to docs,0,0,4,0,0,0,,,,,,,35.96622562408447,True,True,,False,True,True
+43cf36974d,Michel,4,Add new func,0,0,0,4,0,0,,,,,,,33.61357879638672,False,True,,False,True,True
+44b5554d98,Michel,4,Change methods to use new API,0,0,3,4,0,0,,,,,,,51.95443558692932,True,True,,False,True,True
+6344e66970,Michel,4,Constify variables,0,0,4,0,0,0,,,,,,,50.91653037071228,True,True,,False,True,True
+272ac15003,Michel,4,Remove not used code,0,0,4,0,0,0,,,,,,,31.690328121185303,True,True,,False,True,True
+1644dfe727,Michel,4,Remove code,0,0,4,0,0,0,,,,,,,64.78980779647827,True,True,,False,True,True
+fea62d370d,Michel,3,"Looks like a refactor, but not sure",0,0,3,1,0,0,,,,,,,101.38267374038696,True,True,,False,True,True
+4f03dcc6b9,Michel,4,Add a sanity check that could prevent bugs,1,4,0,0,0,0,0.0,0.0,,,,,112.07834482192992,True,True,,False,True,True
+de9d555cb8,Michel,4,Add a check before unregister a port,0,4,0,0,0,0,,,,,,,60.80305218696594,True,True,,False,False,True
+04e551d66d,Michel,4,Add new support for mrouter ports,0,0,0,4,0,0,,,,,,,42.807360887527466,True,True,,False,True,True
+949cd0b5c2,Michel,4,The commit includes new functionality + some refactor,0,0,4,4,0,0,,,,,,,68.46833634376526,True,True,,False,True,True
+a8a0b1f707,Michel,4,Write new set_policy,0,0,0,4,0,0,,,,,,,83.76859474182129,True,True,,False,True,True
+8b1b4730b0,Michel,4,Looks like a correction in the unitialization,4,3,0,0,0,0,2.0,0.0,,,,,102.89040923118591,True,True,,False,True,True
+03fdb11da9,Michel,4,Fix types to prevent possible bugs,0,4,0,0,0,4,,,,,,,957.1154036521912,True,True,,False,False,True
+75554fe00f,Michel,4,Change return type from bool to int. No impact in functionality,0,1,4,0,0,0,,,,,,,57.38232755661011,True,True,,False,False,True
+c4d2497032,Michel,4,Remove non-necesary code,0,0,4,0,0,0,,,,,,,35.58985757827759,True,True,,False,True,True
+db45c76bad,Michel,4,New func: new driver config,0,0,0,4,0,0,,,,,,,61.21244287490845,True,True,,False,True,True
+fab6f4904e,Michel,4,Refactoring,0,0,4,0,0,0,,,,,,,30.752662420272827,True,True,,False,True,True
+a373f38cd1,Michel,4,Fix a bug related to get firmware info,4,0,0,0,0,0,4.0,0.0,,,,,61.27992129325867,True,True,,False,True,True
+ac41c2b642,Michel,4,Looks like a change to prevent possible bug on shutdown,0,3,0,0,0,0,,,,,,,73.6238386631012,True,True,,False,False,True
+b8a71b9536,Michel,4,Fix comments,0,0,4,0,0,0,,,,,,,21.745163679122925,True,True,,False,False,True
+957f60273a,Michel,4,"Seems like new func, but only changes in doc/config files",0,0,3,3,0,0,,,,,,,50.92618417739868,True,True,,False,True,True
+c1631dbc00,Michel,3,Move a check to another function to avoid a bug?,1,3,0,0,0,0,0.0,0.0,,,,,48.607168674468994,False,False,,False,False,False
+0e3f72931f,Michel,4,Change call to kmalloc for kvmalloc,4,0,0,0,0,0,4.0,4.0,,4.0,,Memory allocation bug,105.18521475791933,True,True,,False,False,True
+14b9397240,Michel,4,Add support to get related timming parameters from firmware,0,0,0,4,0,0,,,,,,,59.42040252685547,True,True,,False,False,False
+984fed5686,Michel,4,Refactoring,0,0,4,0,0,0,,,,,,,40.852588176727295,True,True,,False,True,True
+947934e389,Michel,4,Fix a bug related to call to the wrong function,4,0,0,0,0,0,2.0,0.0,,,,,268.3551983833313,True,True,,False,False,True
+04e0456f77,Michel,4,Remove redundant code,0,0,4,0,0,0,,,,,,,31.45136857032776,False,True,,False,False,True
+470308d9d2,Michel,4,Refactoring: Naming change,0,0,4,0,0,0,,,,,,,321.8314955234528,True,True,,False,True,True
+a2ed70d0ec,Michel,3,Fix possible race-condition,3,3,0,0,0,0,0.0,4.0,4.0,,,Race condition,97.20062375068665,True,True,,False,True,True
+de40c281fe,Michel,4,Refactoring: no functional change,0,0,4,0,0,0,,,,,,,179.4877429008484,True,True,,False,True,True
+0f9fa5f58c,Michel,3,Add new entry,0,0,0,3,0,0,,,,,,,43.69289517402649,True,True,,False,False,True
+61a9fa154d,Michel,4,Improve consistency by returning a more acurate return code ,0,1,3,0,0,0,,,,,,,68.13175344467163,True,True,,False,False,True
+1645e7b966,Michel,4,Refactoring: only renaming,0,0,4,0,0,0,,,,,,,53.32369017601013,True,True,,False,True,True
+5bd8d53f6f,Michel,4,Looks like add new func to help debugging,0,0,3,3,0,0,,,,,,,86.18630623817444,True,True,,False,True,True
+9f92c20279,Michel,2,Looks like a bug-fix,3,0,0,0,0,0,0.0,0.0,,,,,75.59950828552246,True,True,,False,True,True
+6215a7c8f5,Michel,4,Add m ew PCI ID,0,0,0,4,0,0,,,,,,,34.9001042842865,True,True,,False,False,True
+29a051bd46,Michel,3,Refactoring,0,0,4,0,0,0,,,,,,,171.2294466495514,True,True,,False,True,True
+c1e48e36c1,Michel,4,Make functions static,0,0,4,0,0,0,,,,,,,41.36640501022339,False,True,,False,False,False
+fd0fcdf33d,Michel,4,Drop unused import,0,0,4,0,0,4,,,,,,,53.59680461883545,True,True,,False,True,True
+fa374ddba2,Michel,4,Refactoring,0,0,4,0,0,0,,,,,,,50.80506467819214,True,True,,False,True,True
+b13fa27a4b,Michel,4,Refactoring: Code simplification,0,0,4,0,0,0,,,,,,,37.28273677825928,True,True,,False,True,True
+30b1a0797e,Michel,4,Looks like a refactoring with no functional changes,0,1,4,0,0,0,,,,,,,110.01302719116212,True,True,,False,False,True
+0285042fed,Michel,4,Code refactoring for preparing future changes,0,0,4,0,0,0,,,,,,,156.44075274467468,True,True,,False,True,True
+c8d18e4402,Michel,4,"Not a fx, just print a possible error",0,3,3,0,0,0,,,,,,,102.16445803642272,True,True,,False,False,False
+8450813136,Michel,4,Only changes in docs,0,0,4,0,0,0,,,,,,,174.0229103565216,True,True,,False,True,True
+cd4e5f30f5,Michel,4,New func,0,0,0,4,0,0,,,,,,,35.60681748390198,True,True,,False,False,True
+ab9d8032db,Michel,4,Add new support,0,0,0,4,0,0,,,,,,,66.63257622718811,True,True,,False,True,True
+a4c82270f0,Michel,2,I understand that the change corrects corrections to the scheme.,3,3,1,0,0,0,2.0,0.0,,,,,235.40890765190125,True,True,,False,True,True
+3a52471206,Michel,3,Define new memory region ,0,0,0,3,0,0,,,,,,,50.66016221046448,True,True,,False,True,True
+1c33f8508b,Michel,2,It seems to solve a problem resulting from a warning ,3,3,1,0,0,4,4.0,0.0,,,,,234.55255818367004,True,True,,False,False,True
+73b4476562,Michel,2,"Looks like add a new string, don't know the reason",0,1,0,3,0,0,,,,,,,69.10338187217712,True,True,,False,False,False
+8f40baded4,Michel,4,"Change naming, no functional change",0,0,4,0,0,0,,,,,,,41.19528031349182,True,True,,False,True,True
+6ccaaf59c3,Michel,4,Constify,0,0,4,0,0,0,,,,,,,23.565922021865845,True,True,,False,True,True
+bf2e1ae417,Michel,4,Constify,0,0,4,0,0,0,,,,,,,19.306296825408936,False,True,,False,True,True
+d1f68ba069,Michel,4,Rename and remove redundant code,0,0,4,0,0,0,,,,,,,109.3665292263031,True,True,,False,False,False
+28793b194e,Michel,4,Refactoring,0,0,4,0,0,0,,,,,,,55.63679838180542,True,True,,False,False,False
+12a824dc67,Michel,3,Looks like an optimization commit,0,0,4,0,0,0,,,,,,,56.38277506828308,True,True,,False,False,True
+3883001838,Michel,4,Refactoring: move code,0,0,4,0,0,0,,,,,,,38.94848728179932,True,True,,False,True,True
+e63b81aef2,Michel,4,Refactoring: simplify the code using helpers,0,0,4,0,0,0,,,,,,,92.28296780586244,True,True,,False,True,True
+74333c7d87,Michel,4,Add an assert  to check we have write lock,4,0,0,0,0,0,0.0,4.0,4.0,,,Related to locks,91.56597328186037,True,True,,False,False,False
+426d15ad11,Michel,4,The change avoids to start a unnecesary thread,0,1,4,0,0,0,,,,,,,78.88976955413818,True,True,,False,False,True
+50f094a558,Michel,4,Add an extra check to ensure that we don't increase iversion counter for ea_inodes,0,3,0,0,0,0,,,,,,,101.34458017349245,True,True,,False,True,True
+2327337b88,Michel,4,Remove unnecesary call,0,0,4,0,0,0,,,,,,,47.154632568359375,True,True,,False,False,True
+bce1b56c73,Michel,4,Revert a previous commit. Fix a infinite loop,4,0,0,0,0,0,2.0,4.0,4.0,,,Inifinite loop,83.9020004272461,True,True,,False,False,True
+be2b2f6b62,Michel,4,Change return type from int to void as return value is not used,0,0,4,0,0,0,,,,,,,48.32882857322693,True,True,,False,True,True
+6dd3be6923,Michel,4,Change in comments,0,0,4,0,0,0,,,,,,,46.58736085891724,True,True,,False,False,True
+23e085b2de,Michel,4,"Improve secutiry, not sure about how categorize it",1,3,1,0,0,0,0.0,1.0,,,,,55.537858963012695,True,True,,False,False,False
+7392d87a9f,Michel,4,Its a change to prepare future changes,0,0,3,1,0,0,,,,,,,47.81133008003235,True,True,,False,False,False
+cacdb14b1c,Michel,4,Add a lock to fix a posible race condition,4,0,0,0,0,0,0.0,4.0,4.0,,,Race condition,67.47089576721191,True,True,,False,True,True
+bfc618fcc3,Michel,3,Looks like a bug-fixing commit on how de chip-select has to be read,4,0,0,0,0,0,0.0,3.0,,,4.0,"As is a read, could be an exchange of info bug",189.1107556819916,True,True,,False,True,True
+0414441259,Michel,4,Fix typo in docs,0,0,4,0,0,0,,,,,,,23.31903600692749,True,True,,False,False,True
+130fc180a4,Michel,3,"Looks like a memory free, but no related to a bug ...",2,1,0,0,0,0,0.0,1.0,,4.0,,"If its a bug fix, its safety related to memory",93.51526999473572,True,True,,False,True,True
+10a872375d,Michel,4,Changes in docs,0,0,4,0,0,0,,,,,,,28.494279623031616,True,True,,False,True,True
+00aaca3d07,Michel,4,Doc change,0,0,4,0,0,0,,,,,,,29.283772945404053,True,True,,False,True,True
+6d9b32fb3e,Michel,4,Refactor: Simplify the code,0,0,4,0,0,0,,,,,,,407.5375075340271,True,True,,False,True,True
+63198aaa91,Michel,4,Remove non-necesary para to log,0,0,4,0,0,0,,,,,,,70.26214933395386,True,True,,False,True,True
+7f8170686d,Michel,4,Refactor ,0,0,4,0,0,0,,,,,,,44.83983159065247,True,True,,False,True,True
+ba05b39d26,Michel,4,Add a check to avoid write the buf in certain cases,0,3,0,0,0,0,,,,,,,78.23413515090942,True,True,,False,False,True
+0c7833b9e8,Michel,4,Remove unnecesary include,0,0,4,0,0,0,,,,,,,26.97093939781189,True,True,,False,True,True
+77b2d26805,Michel,4,Refactor to increase unification and robustness,0,3,4,0,0,0,,,,,,,54.30295300483704,True,True,,False,False,True
+7bd7ad3c31,Michel,4,Fix a regression on bps rate mapping,4,0,0,0,0,0,0.0,0.0,,,,,27.41641330718994,False,False,,False,False,False
+25eb948601,Michel,4,Drop redudant comment,0,0,4,0,0,0,,,,,,,29.626318216323853,False,True,,False,True,True
+7e271f42a5,Michel,4,Fix a potential memory leak,4,0,0,0,0,0,0.0,4.0,,4.0,,Fix memory leak,85.66064214706421,True,True,,False,True,True
+6a0abf8ff9,Michel,3,Variables are removed from a configuration file that appear to be no longer needed.,0,0,4,0,0,0,,,,,,,179.62036061286926,True,True,,False,True,True
+5192e395c5,Michel,4,Change strlcpy with strscpy,0,0,4,0,0,0,,,,,,,71.83799624443054,True,True,,False,False,True
+1f4d8ae231,Michel,4,Add new handler,0,0,0,4,0,0,,,,,,,146.36476373672485,False,True,,False,False,True
+d6501ecfb6,Michel,4,Fix print format,1,0,3,0,0,0,0.0,0.0,,,,,33.24900698661804,True,True,,False,True,True
+7fa6c0fe8b,Michel,4,Fix a function that return a valid value when fails,4,0,0,0,0,0,2.0,0.0,,,,,59.13278651237488,True,True,,False,True,True
+0263256791,Michel,4,Add tracepoints,0,1,4,0,0,0,,,,,,,50.01573944091797,True,True,,False,False,False
+f0b6d3cc29,Michel,4,Increase timeout,1,3,3,0,0,0,0.0,0.0,,,,,30.67864227294922,False,False,,False,False,False
+700f7e2909,Michel,4,Delete redundant word,0,0,4,0,0,0,,,,,,,26.542179107666016,False,True,,False,False,True
+d61876a285,Michel,4,Refactoring: Simplify code,0,0,4,0,0,0,,,,,,,134.81307554244995,False,True,,False,True,True
+99df7a2810,Michel,4,Block untrusted device tree changes,0,4,0,0,0,0,,,,,,,298.76595854759216,True,True,,False,True,True
+0a5bfb824a,Michel,3,Fix a decrement to avoid hangs,4,0,0,0,0,0,0.0,1.0,4.0,,,"As the fix avoids hangs, could be safety-related",484.1564948558808,True,True,,False,False,True
+7c10dd0a88,Michel,4,Add new support ,0,0,0,4,0,0,,,,,,,117.14170289039612,True,True,,False,True,True
+d4940b84da,Michel,4,Remove unused function,0,0,4,0,0,0,,,,,,,28.331811904907227,False,True,,False,True,True
+10a2199caf,Michel,4,Move code to avoid kernel crash,4,0,0,0,0,0,0.0,3.0,4.0,,,Probably a timming and execution because of kernel crash,80.49504256248474,True,True,,False,True,True
+8c8e5b6ae4,Michel,4,Fix comment,0,0,4,0,0,0,,,,,,,26.069374322891235,True,True,,False,False,False
+dc09fe1c5e,Michel,4,Add new support,0,0,0,4,0,0,,,,,,,118.42108535766602,True,True,,False,True,True
+e1a863cddb,Michel,4,Chaneg comment,0,0,4,0,0,0,,,,,,,23.906519651412964,True,True,,False,False,True
+33024536ba,Michel,3,Looks like that the commit combines refactor (optimization) + new func (algorithm),0,0,4,4,0,0,,,,,,,296.81644892692566,True,True,,False,True,True
+577be05c89,Michel,2,Fix a failure counting for THP,4,0,0,0,0,0,0.0,0.0,,,,,154.03411078453064,True,True,,False,True,True
+49fd9b6df5,Michel,4,Fix comments,0,0,4,0,0,0,,,,,,,30.598196268081665,False,True,,False,True,True
+a3a9c39704,Michel,4,Remove some calls,0,0,4,0,0,0,,,,,,,50.066468715667725,True,True,,False,True,True
+528ef2d996,Michel,4,Define new macro to reuse later,0,0,3,1,0,0,,,,,,,55.75025224685669,True,True,,False,True,True
+131a79b474,Michel,3,Fix an existing race condition,4,0,0,0,0,0,0.0,4.0,4.0,,,Race condition,100.33933115005492,True,True,,False,True,True
+d80afefb17,Michel,3,Fix IO accounting bug,4,0,0,0,0,0,0.0,0.0,,,,,398.73340010643005,True,False,,False,True,True
+a17b984115,Michel,4,Drop reset_resume callback to avoid bugs related to supsend and resume,4,0,0,0,0,0,0.0,0.0,,,,,127.4013135433197,True,True,,False,True,True
+7984b43542,Michel,3,Enable new InterTouch,0,0,0,4,0,0,,,,,,,45.0088586807251,True,True,,False,False,True
+1a8339c6bd,Michel,4,Add new compatible string,0,0,0,4,0,0,,,,,,,689.7661802768707,True,True,,False,True,True
+34b88934e6,Michel,3,Refactoring,0,0,4,0,0,0,,,,,,,45.75212073326111,True,True,,False,True,True
+569c746b8a,Michel,4,Add new helper to refactor,0,0,4,0,0,0,,,,,,,51.49071502685547,True,True,,False,True,True
+a522b7ad8e,Michel,2,Set hotplugable to false when is a io maser CPU,1,3,0,0,0,0,0.0,0.0,,,,,443.2140290737152,True,True,,False,False,True
+1299a129a9,Michel,4,switch output_pgtable_bits_defines() and local_flush_tlb_all() to flush TLB earlier,4,1,0,0,0,0,0.0,0.0,,,,,1398.4589581489563,True,True,,False,False,True
+9847f21225,Michel,4,Fix page fault (potential memory corruption),4,0,0,0,0,0,0.0,3.0,,4.0,,Avoid memory corruption,447.5793144702912,True,True,,False,False,True
+27aeb91559,Michel,4,Refactoring,0,0,4,0,0,0,,,,,,,43.24623465538025,True,True,,False,True,True
+8007935305,Michel,4,Fix a timeout,4,0,0,0,0,0,0.0,3.0,4.0,,,Related with a timeout,56.2874116897583,True,True,,False,False,True
+365e1ececb,Michel,4,Fix a race condition,4,0,0,0,0,0,4.0,4.0,4.0,,,Fix a race condition,51.88242030143738,True,True,,False,True,True
+72e560cb8c,Michel,3,Make tcp_cdg_release() more resilent,3,3,0,0,0,0,0.0,3.0,,4.0,,Looks like its related to memory,17.863037586212158,False,True,,False,True,True
+b808a7eb30,Michel,4,Move code to increae comptbuf properly,3,3,0,0,0,0,0.0,3.0,4.0,,,Prevent a hang,87.32910633087158,True,True,,False,True,True
+e5da651985,Michel,4,Fix SDMA engine by control resume/suspend state,4,0,0,0,0,0,0.0,0.0,,,,,97.77560448646544,True,True,,False,False,True
+cdbb816b5b,Michel,4,Remove unnecesary checks,0,0,4,0,0,0,,,,,,,40.66963529586792,True,True,,False,True,True
+a4cb3651a1,Michel,3,Fix an interrupt ,3,1,0,0,0,0,0.0,3.0,4.0,,,Maybe its related to timming and execution,126.9043333530426,True,True,,False,False,True
+0ebdc51787,Michel,4,Add new compatibility,0,0,0,4,0,0,,,,,,,26.698619842529297,False,True,,False,True,True
+8262499426,Michel,4,Add legacy compatibility,0,1,0,3,0,0,,,,,,,53.22176241874695,True,True,,False,True,True
+4919d3eb2e,Michel,4,"Fix event handler registration ordering, avoiding null pointers",4,0,0,0,0,0,0.0,4.0,4.0,,,Avoid null pointer,82.65661978721619,True,True,,False,True,True
+46307fd6e2,Michel,2,Los like its a re-organization of the code to make sure that not other free the root_cgrp,4,0,0,0,0,0,0.0,3.0,4.0,0.0,,Maybe related with lock?,137.43760776519775,False,True,,False,False,True
+e688ba3e27,Michel,4,Fix a parameter type,4,0,0,0,0,4,0.0,0.0,,,,,89.32732129096985,True,True,,False,False,True
+abe3c63144,Michel,4,Use flags to fix a bug related to a sleep/memory allocation,3,3,0,0,0,4,0.0,0.0,,,,,166.38368034362793,True,True,,False,True,True
+faab292951,Michel,4,Add new setting,0,0,0,4,0,0,,,,,,,44.19006323814392,True,True,,False,True,True
+466c1e6d05,Michel,4,Fix some error handling ,4,0,0,0,0,0,0.0,4.0,,4.0,,Memory related/Memory leak,54.18165254592896,False,False,,False,False,False
+cc767e7c69,Michel,3,Fix unsupportted zerocopy sendmsg,4,0,0,0,0,0,0.0,0.0,,,,,84.51227021217346,True,True,,False,True,True
+35cc9d622e,Michel,4,Add new reproducer,0,0,0,4,0,0,,,,,,,27.183716773986816,False,True,,False,True,True
+b1a09b6368,Michel,4,Add missing unregister to avoid a bug.,4,0,0,0,0,0,0.0,3.0,,4.0,,Not unregister could lead a memory leak,79.09356760978699,False,True,,False,False,True
+593c5ba288,Michel,4,Just update maintainers,0,0,4,0,0,0,,,,,,,26.83202815055847,False,True,,False,False,True
+cf0d7e7f45,Michel,4,Fix memcpy() run-time warning,3,0,0,0,0,0,2.0,3.0,,4.0,,Memory related,65.49159455299377,False,True,,False,False,True
+038efb6348,Michel,3,Fix a bug related to dest file in clone,4,0,0,0,0,0,0.0,0.0,,,,,89.83340048789978,True,True,,False,True,True
+21ce2c121f,Michel,4,Fix a double registration of notifiers,4,0,0,0,0,0,0.0,0.0,,,,,4120.523757696152,False,True,,False,False,True
+872ad758f9,Michel,4,Fix how a value es readed ,4,0,0,0,0,0,2.0,0.0,,,,,113.97280073165894,True,True,,False,True,True
+40e4eb324c,Michel,4,Fix a bug by changing significant bit to unsigned,4,0,0,0,0,4,0.0,0.0,,,,,102.0908579826355,True,True,,False,False,True
+d6dd2fe711,Michel,4,Fix a memory leak,4,0,0,0,0,0,0.0,4.0,,4.0,,Fix a memory leak,43.45658802986145,True,True,,False,False,True
+5614dc3a47,Michel,4,Fix a memory free by re-writing a function,4,0,0,0,0,0,0.0,4.0,,4.0,,Fix a memory leak,78.95816373825073,True,True,,False,True,True
+89b3554782,Michel,4,Fix a bug by sset unsuported param,4,0,0,0,0,0,0.0,0.0,,,,,78.68081665039062,True,True,,False,False,True
+1c075b192f,Michel,4,Fix a bug by explicily cast the type,4,0,0,0,0,0,0.0,0.0,,,,,125.535142660141,True,True,,False,False,True
+632d069852,Michel,4,"Update some values, not related to a bug. Maybe consider it as specification change??",0,0,3,1,4,0,,,,,,,10.915744304656982,True,True,,False,True,True
+8cbd4725ff,Michel,4,Add new support,0,0,0,4,0,0,,,,,,,40.83311176300049,True,True,,False,False,True
+64ac0befe7,Michel,4,Add a cast on WARN_ON,0,4,0,0,0,0,,,,,,,38.76854085922241,True,False,,False,False,False
+4e0c19fcb8,Michel,2,Looks like a bug fix that properly disconect something,4,0,0,0,0,0,0.0,0.0,,,,,196.15029311180115,True,True,,False,False,True
+58e0be1ef6,Michel,3,Fix memcopy due to a warning,3,3,0,0,0,0,4.0,0.0,,,,,112.47810411453248,True,True,,False,False,True
+ad72c3c3f6,Michel,4,Remove BUG_ON(),3,0,1,0,0,0,0.0,0.0,,,,,66.02440476417542,True,True,,False,False,True
+f31e3c204d,Michel,4,Fix a memory leak,4,0,0,0,0,0,0.0,4.0,,4.0,,Fix a memory leak,39.0870680809021,False,True,,False,True,True
+463be3cb35,Michel,3,Looks like a I/O fix,4,0,0,0,0,0,4.0,3.0,,,4.0,"As fix a I/O bug, could be an EoI bug",85.88645720481873,True,True,,False,False,True
+849c19d149,Michel,3,Disable I2S1,0,3,0,0,0,0,,,,,,,46.39942646026611,True,True,,False,False,True
+4f57332d6a,Michel,2,Fix probing active SFs,4,0,0,0,0,0,0.0,0.0,,,,,131.5771450996399,True,True,,False,True,True
+534bd70374,Michel,4,"Remove \n. I think  it's not really a bug, just make a test fail, but no real func changed",1,0,3,0,0,0,4.0,0.0,,,,,117.87867665290833,True,True,,False,True,True
+0a068f4a71,Michel,4,Fix comment,0,0,4,0,0,0,,,,,,,23.475730657577515,True,True,,False,False,True
+836e49e103,Michel,4,Fix mem copy to skip spin lock copy,4,0,0,0,0,0,0.0,3.0,,4.0,,Fix incorrect memory copy,114.97841596603394,True,True,,False,True,True
+f9b62f9843,Michel,4,Addextra check of attribute lenght,0,4,0,0,0,0,,,,,,,46.97364974021912,True,True,,False,True,True
+7651d6b250,Michel,4,Change call to obtain old behavour,1,1,3,0,0,0,0.0,0.0,,,,,64.25270056724548,True,True,,False,True,True
+2b7d07f7ac,Michel,4,Fix error handling,4,0,0,0,0,0,0.0,3.0,,4.0,,"Maybe is its memory related: if driver register fails, needs to be unregister to avoid a leak",578.1755936145782,True,True,,False,True,True
+994b7ac169,Michel,4,Remove a line from a txt,0,0,4,0,0,0,,,,,,,51.98188996315002,True,True,,False,True,True
+3b1611f252,Michel,4,Add new IDs for new platforms,0,0,0,4,0,0,,,,,,,51.65142607688904,True,True,,False,True,True
+a014f0ecdd,Michel,2,Drop panel endpoints,2,3,1,0,0,0,0.0,0.0,,,,,64.09204053878784,True,True,,False,False,True
+04c439b367,Michel,4,Doc change,0,0,4,1,0,0,,,,,,,2639.3361325263977,True,True,,False,False,True
+b1d003f1b7,Michel,4,Add new USB detection,0,0,0,4,0,0,,,,,,,47.77958035469055,True,True,,False,True,True
+31354121bf,Michel,4,Add new property,0,0,0,4,0,0,,,,,,,33.715211629867554,True,True,,False,True,True
+dd0be8278a,Michel,3,Looks like a fix or BPC,1,3,0,0,0,0,0.0,0.0,,,,,70.68601298332214,True,True,,False,True,True
+8bad51c689,Michel,3,Enable new func,0,0,0,4,0,0,,,,,,,32.73191428184509,True,True,,False,True,True
+d9dcb63677,Michel,4,Remove unsued include,0,0,4,0,0,0,,,,,,,26.794121265411377,True,True,,False,True,True
+6b2748ada2,Michel,4,New Yaml por interrupt controller,0,0,0,4,4,0,,,,,,,58.00593018531799,True,True,,False,True,True
+2d4daa549c,Michel,4,Remove not needed field,0,0,4,0,0,0,,,,,,,46.83486580848694,True,True,,False,True,True
+35eee9a363,Michel,4,Changes in tests,0,3,3,0,0,0,,,,,,,38.46201229095459,True,True,,False,False,False
+dc3f4dee81,Michel,4,Avoid error report,0,0,4,0,0,0,,,,,,,45.74224281311035,True,True,,False,False,True
+e92a216d16,Michel,3,Fix a name release,4,0,0,0,0,0,0.0,4.0,4.0,4.0,,"Its related to name release, but also related to locks ...",79.35776543617249,True,True,,False,True,True
+9a938eba8d,Michel,4,Simplify code,0,0,4,0,0,0,,,,,,,51.97335934638977,True,True,,False,True,True
+cf260db405,Michel,4,Improve code readability,0,0,4,0,0,0,,,,,,,26.234566926956177,False,True,,False,True,True
+dff4ac75ee,Michel,4,Just move code,0,0,4,0,0,0,,,,,,,33.694621086120605,True,True,,False,True,True
+f30ff35f62,Michel,3,Looks like an optimization,0,0,4,0,0,0,,,,,,,59.80526685714722,True,True,,False,True,True
+1fe5ebc4e1,Michel,4,Move code,0,0,4,0,0,0,,,,,,,33.94625210762024,True,True,,False,True,True
+26df39a9e5,Michel,4,Fix uninitialized variable,4,0,0,0,0,0,4.0,3.0,4.0,,,Possible null pointer??,57.82564973831177,True,True,,False,False,True
+c65234b283,Michel,4,Fix memory leak,4,0,0,0,0,4,2.0,4.0,,4.0,,Memory leak,44.85329079627991,True,True,,False,True,True
+e0d8259355,Michel,4,Increase a sleep to better notify users,0,1,4,0,0,0,,,,,,,55.91229939460754,True,True,,False,True,True
+610b17b05c,Michel,4,Fix a comment,0,0,4,0,0,4,,,,,,,65.49380016326904,True,True,,False,False,False
+cd50f9b247,Michel,4,Some renames to improve readability,0,0,4,0,0,0,,,,,,,45.20169425010681,True,True,,False,True,True
+c7c16c5b19,Michel,3,Looks like avoid a fail by unbind driver,1,4,0,0,0,0,0.0,0.0,,,,,177.60369658470154,True,True,,False,True,True
+450deb93df,Michel,4,Prepare for future changes,0,0,4,1,0,0,,,,,,,38.501312494277954,True,True,,False,True,True
+8b3a9ad862,Michel,3,Fix bug related to FIFO flush,4,0,0,0,0,0,0.0,0.0,,,,,81.39551258087158,True,True,,False,True,True
+d4bfba1e75,Michel,4,Looks like a refactor,0,0,4,0,0,0,,,,,,,65.34415411949158,True,True,,False,True,True
+4efb98e963,Michel,4,Simplify code,0,0,4,0,0,0,,,,,,,31.44922399520874,True,True,,False,True,True
+b43d0c0a42,Michel,4,Make const static,0,0,4,0,0,0,,,,,,,33.75022292137146,True,True,,False,False,True
+1634602627,Michel,4,Only change doc,0,0,3,2,0,0,,,,,,,47.67549204826355,True,True,,False,True,True
+ebe62df7c5,Michel,4,Refactor,0,0,4,0,0,0,,,,,,,29.17811131477356,True,True,,False,True,True
+c5f81301d0,Michel,4,New helper / refactor,0,0,4,0,0,0,,,,,,,34.90067195892334,True,True,,False,True,True
+e5f969dd93,Michel,4,Add new interface to handle hardware timeouts,0,3,0,3,0,0,,,,,,,48.78579545021057,True,True,,False,True,True
+dedc215003,Michel,4,Add new decode,0,0,0,4,0,0,,,,,,,37.12438130378723,True,True,,False,True,True
+fd3d91ab1c,Michel,4,Fix a bug related to race conditions,4,0,0,0,0,0,0.0,4.0,4.0,,,Race condition,55.0820107460022,True,True,,False,True,True
+36c6f1fb2e,Michel,4,Add an optional prepare_streaming,0,3,0,0,0,0,,,,,,,77.02238965034485,True,True,,False,False,True
+f33b56d370,Michel,4,FIx max frame rate,4,0,0,0,0,0,0.0,0.0,,,,,62.552974224090576,True,True,,False,False,True
+bdf240188b,Michel,2,"Add new flag, looks like its needed to fix something",4,0,0,0,0,0,0.0,0.0,,,,,93.2223629951477,True,True,,False,True,True
+59a811faa7,Michel,4,Rename struct,0,0,4,0,0,0,,,,,,,24.65765595436096,False,True,,False,True,True
+2c1eafc40e,Michel,4,Refactor related to consistency,0,0,4,0,0,0,,,,,,,45.64491271972656,True,True,,False,True,True
+e1e7bc481d,Michel,4,Change debuger,0,0,4,0,0,0,,,,,,,42.20897364616394,True,True,,False,True,True
+dd51d3a33c,Michel,4,Fix detection of hdmi_enable,4,0,0,0,4,0,0.0,0.0,,,,,72.97931289672852,False,True,,False,True,True
+ad3aa7c31e,Michel,4,Fix a bug related to incorrect release of resources,4,3,0,0,0,0,0.0,2.0,4.0,,,Maybe related to bad pointer??,150.85150980949402,True,True,,False,True,True
+f28d42663e,Michel,4,Looks like an optimization,0,0,4,0,0,0,,,,,,,123.3360378742218,True,True,,False,True,True
+d24e7855ef,Michel,4,Increase timeout from 5s to 60s,0,3,0,0,0,0,,,,,,,25.231700658798218,False,False,,False,False,False
+c24538f538,Michel,4,Remove unused code,0,0,4,0,0,0,,,,,,,23.52427649497986,False,False,,False,False,False
+6407cf5332,Michel,3,Stop using a function that could cause bugs,0,4,0,0,0,0,,,,,,,89.98767757415771,True,True,,False,True,True
+2c763f37d0,Michel,3,Skip execution in certain cases,0,3,1,0,0,0,,,,,,,74.69282245635986,True,True,,False,False,True
+edc6938f7b,Michel,0,"Remove a line, dont know exactly why",0,0,3,0,0,0,,,,,,,56.80708432197571,True,True,,False,False,False
+c4d66f7db6,Michel,4,"Send high bits properly, but these bits are not used (always zero)",0,3,0,0,0,0,,,,,,,70.94335579872131,True,True,,False,False,False
+a01befa0a2,Michel,4,Use init instead of copy to avoid garbage,0,3,3,0,0,0,,,,,,,57.7900390625,True,True,,False,True,True
+c9e6aeb588,Michel,4,Fix a loop,4,0,0,0,0,0,4.0,3.0,4.0,,,A buggy loop could hang execution,82.28792595863342,True,True,,False,True,True
+2d3bc87543,Michel,4,Remove sanity check not longer needed,0,0,4,0,0,0,,,,,,,48.68085336685181,True,True,,False,False,False
+bf29274d77,Michel,4,Check if PSR is enable,0,4,0,0,0,0,,,,,,,66.57432532310486,True,True,,False,True,True
+0b55f6bc46,Michel,3,"Looks like a refactor, but maybe also prevent posible bugs",0,3,3,0,0,0,,,,,,,77.22616362571716,True,True,,False,True,True
+f9cdf41306,Michel,3,Fix the logic related to select port,4,0,0,0,0,0,0.0,0.0,,,,,75.23144316673279,True,True,,False,True,True
+7ba63521a1,Michel,4,Add suspend/resume support for a driver,0,0,0,4,0,0,,,,,,,37.84799027442932,True,True,,False,False,True
+afb8d5f431,Michel,4,Make a struct immutable,0,3,3,0,4,0,,,,,,,92.6271266937256,True,True,,False,False,True
+c4168db7c8,Michel,4,Changes headers,0,0,4,0,0,0,,,,,,,24.762211799621586,True,True,,False,False,False
+6c98ac4212,Michel,3,Fix handling,3,0,0,0,0,0,0.0,0.0,,,,,37.59315800666809,True,True,,False,True,True
+51cd31ae20,Michel,4,Looks like a refactor,0,0,4,0,0,0,,,,,,,36.18836402893066,True,True,,False,True,True
+0542aac494,Michel,4,Changes in docs,0,0,4,0,0,0,,,,,,,43.02453374862671,True,True,,False,True,True
+cd044ff918,Michel,4,Add new tree bindings,0,0,0,4,0,0,,,,,,,31.25402283668518,True,True,,False,True,True
+1844c79c4d,Michel,4,Refactoring: replace deprecated macros,0,0,4,0,0,0,,,,,,,82.54091882705688,True,True,,False,True,True
+0ca18d09c7,Michel,4,Add check to return value,1,3,0,0,0,0,4.0,0.0,,,,,43.73271465301514,True,True,,False,True,True
+ed823991c6,Michel,4,Add new clock,0,0,0,4,0,0,,,,,,,30.789295434951782,True,True,,False,False,True
+bedcf9d1dc,Michel,4,Rename variable,0,0,4,0,0,0,,,,,,,30.97577476501465,True,True,,False,True,True
+92039e8c08,Michel,4,Add a flag to ensure a function can succeed,0,4,0,0,0,0,,,,,,,65.40899109840393,True,True,,False,False,True
+91592b5c0c,Michel,4,Refactoring: move code,0,0,4,0,0,0,,,,,,,35.55340385437012,True,True,,False,True,True
+15e15d64bd,Michel,4,New feature,0,0,0,4,0,0,,,,,,,34.00874066352844,True,True,,False,True,True
+b24cb2d169,Michel,4,Properly handle CMD_ERROR_EVENT,0,3,0,1,0,0,,,,,,,24.951078176498413,False,False,,False,False,False
+cb04b5ef85,Michel,4,Fix an incorrect clear,4,0,0,0,0,0,0.0,0.0,,,,,61.4272689819336,True,True,,False,True,True
+79cac25e51,Michel,4,Constify arrays,0,0,4,0,0,0,,,,,,,24.94134497642517,False,True,,False,True,True
+b6a709cb51,Michel,4,Add new definitions,0,0,0,4,0,0,,,,,,,52.93201398849487,True,True,,False,True,True
+5cb76899fb,Michel,4,Simplify interface,0,0,4,0,0,0,,,,,,,44.10405588150024,True,True,,False,False,True
+1fc4fa2ac9,Michel,2,Fix congestion management,4,0,0,0,0,0,0.0,0.0,,,,,64.39871954917908,True,True,,False,True,True
+d6c2964db3,Michel,4,Add new func,0,0,0,4,0,0,,,,,,,48.21521878242493,True,True,,False,True,True
+1f74399fd1,Michel,4,Remove unsued fields,0,0,4,0,0,0,,,,,,,26.66871333122253,False,True,,False,True,True
+a49c3ab7d7,Michel,4,Add new value to a configfile/doc,0,0,1,3,0,0,,,,,,,87.45722484588623,True,True,,False,True,True
+0dc33c6583,Michel,4,Remove key copy for optimization,0,0,4,0,0,0,,,,,,,57.39116311073303,True,True,,False,False,True
+7b0ac469e3,Michel,4,Increase chip recognition,3,1,0,0,0,0,4.0,0.0,,,,,55.71546649932861,True,True,,False,True,True
+5cf2c75b5b,Michel,4,Refactoring: move code,0,0,4,0,0,0,,,,,,,32.77876853942871,True,True,,False,True,True
+23dca7a900,Michel,4,Add new parameter to function,0,0,0,4,0,0,,,,,,,33.12354850769043,True,True,,False,True,True
+e004ea1059,Michel,4,Refactoring,0,0,4,0,0,0,,,,,,,19948.21196746826,True,True,,False,True,True
+b61699d2cd,Michel,4,Refactoring: rework,0,0,4,0,0,0,,,,,,,31.66855478286743,True,True,,False,True,True
+d8ca113724,Michel,4,Add new driver support,0,0,0,4,0,0,,,,,,,32.477991342544556,True,True,,False,True,True
+3dd9c8b5f0,Michel,4,Replace call to spinlocks (not longer needed the old one),0,1,4,0,0,0,,,,,,,68.8249044418335,True,True,,False,True,True
+1ab586f517,Michel,4,Change call to the recommended one,0,0,4,0,4,0,,,,,,,43.175960540771484,True,True,,False,False,True
+e47877c7aa,Michel,4,Remove a restriction to extend the context that can be used,0,1,0,3,0,0,,,,,,,72.57621049880981,False,True,,False,True,True
+ebddb14049,Michel,4,refactoring: Move code,0,0,4,0,0,0,,,,,,,60.73910093307495,True,True,,False,True,True
+3084097c36,Michel,4,Remove mount (part of other changes),0,0,4,1,0,0,,,,,,,48.85011649131775,True,True,,False,True,True
+1280d4b76f,Michel,4,"Replace adhoc function to another that already exist, reducing code repetition",0,0,4,0,0,0,,,,,,,75.70548057556152,True,True,,False,False,True
+f074732d59,Michel,4,Change page to folio,0,0,2,3,0,0,,,,,,,61.79783296585083,True,True,,False,True,True
+2274c3b281,Michel,4,Refactor to use a more-efficent method,0,0,4,0,0,0,,,,,,,78.7667646408081,True,True,,False,False,True
+e137b81d30,Michel,4,Remove unsued variable,0,0,4,0,0,0,,,,,,,19.81710433959961,False,True,,False,False,True
+7ac7bfe746,Michel,4,Fix spelling typo,0,0,4,0,0,0,,,,,,,16.814719915390015,False,True,,False,False,True
+25fd735a4c,Michel,4,Refactoring: replace functions to improve readability,0,0,4,0,0,0,,,,,,,58.962602853775024,True,True,,False,True,True
+d23417a5bf,Michel,4,Fix a memory leak,4,0,0,0,0,0,0.0,4.0,,4.0,,memory leak,43.50950622558594,False,True,,False,True,True
+bea75b3389,Michel,4,Add NOP function,0,0,0,3,0,0,,,,,,,68.98320865631104,True,True,,False,True,True
+95b39792c6,Michel,4,Use local macro instead of number of GPIOs,0,3,3,0,0,0,,,,,,,60.29765033721924,True,True,,False,True,True
+ce3a0a29fb,Michel,4,Refactoring: use a helper,0,0,4,0,0,0,,,,,,,37.10273265838623,True,True,,False,False,True
+2baad24963,Michel,4,Change warn to debug,0,0,4,0,0,0,,,,,,,35.58514714241028,True,True,,False,False,True
+1cec8bbc17,Michel,4,Changes in tests,0,0,4,0,0,0,,,,,,,32.576656341552734,True,True,,False,True,True
+0fa32dad1e,Michel,4,Refactoring: just a rename,0,0,4,0,0,0,,,,,,,27.58278179168701,False,True,,False,True,True
+228f324dc7,Michel,4,Changes in tests,0,0,4,0,0,0,,,,,,,89.21474575996399,True,True,,False,True,True
+b93d2ec34e,Michel,4,Doc update,0,0,4,0,0,0,,,,,,,29.569501876831055,True,True,,False,True,True
+3256412fc5,Michel,4,Add support to get clock freq,0,0,0,4,0,0,,,,,,,33.38609790802002,True,True,,False,False,False
+ab3593eeef,Michel,4,Replace a function to let know a Type-C device which is its parent,0,1,3,2,0,0,,,,,,,171.38330030441284,True,True,,False,True,True
+f0052d7a1e,Michel,4,Add new options,0,0,0,4,0,0,,,,,,,35.508111238479614,True,True,,False,True,True
+1a048cde49,Michel,4,Replace a call to a driver specific function,0,0,4,0,0,0,,,,,,,39.908523082733154,True,True,,False,True,True
+17580de3e2,Michel,4,Refactoring: move code to simplify it,0,0,4,0,0,0,,,,,,,38.07238960266113,True,True,,False,True,True
+fbfc4ca465,Michel,4,Replace a macro to a variable to future changes,0,0,4,0,0,0,,,,,,,85.11069941520691,True,True,,False,True,True
+81188dd195,Michel,4,Allow to specify de default driver,0,0,0,3,0,0,,,,,,,40.099671840667725,True,True,,False,True,True
+7198cf0f1c,Michel,4,Refactoring: simplify code,0,0,4,0,0,0,,,,,,,54.8974723815918,True,True,,False,True,True
+ed81d3de8e,Michel,4,Change in doc,0,0,4,0,0,0,,,,,,,25.084568738937378,True,True,,False,False,True
+4b2b4370a8,Michel,4,Refactoring: simplify code,0,0,4,0,0,0,,,,,,,65.75209617614746,True,True,,False,True,True
+3de8dd69fa,Michel,4,Refactoring: simplify code,0,0,4,0,0,0,,,,,,,12.751742839813232,False,True,,False,True,True
+1140f96cd4,Michel,4,Changes in docs,0,0,4,0,0,0,,,,,,,27.121180772781372,True,True,,False,False,True
+a63de89bee,Michel,4,"Add new case to switch, reduce print level",0,0,4,0,0,0,,,,,,,45.873581409454346,True,True,,False,True,True
+5f8981d699,Michel,4,Fix prints,1,0,3,0,0,0,0.0,0.0,,,,,42.524254322052,True,True,,False,True,True
+d4ad017d63,Michel,4,usemore accurate function to do a check,0,1,3,0,0,0,,,,,,,98.33978295326233,True,True,,False,False,True
+9d895e4684,Michel,4,Add tracepoints fields,0,0,0,4,0,0,,,,,,,40.337969064712524,True,True,,False,False,False
+0b8ff0ba27,Michel,4,Refactoring: simplify code,0,0,4,0,0,0,,,,,,,33.2441143989563,True,True,,False,True,True
+7b7c22ccdf,Michel,4,Update maintainers,0,0,4,0,0,0,,,,,,,22.732184171676636,True,True,,False,False,True
+5f334d88c2,Michel,3,Update print functions,0,0,4,0,0,0,,,,,,,75.40264201164246,True,True,,False,True,True
+97236ad5a6,Michel,4,Fix a race condition,4,0,0,0,0,0,0.0,4.0,4.0,,,Race condition,52.10831332206726,False,True,,False,False,False
+571650b3a3,Michel,3,Fix a bug related to init function,4,0,0,0,0,0,0.0,0.0,,,,,56.29569911956787,True,True,,False,True,True
+3ffa9f713c,Michel,4,Add error handling,4,0,0,0,0,0,4.0,0.0,,,,,60.18263339996338,True,True,,False,True,True
+9102b78b6f,Michel,4,Update copyright,0,0,4,0,0,0,,,,,,,21.598647356033325,True,True,,False,False,True
+de3d098dd1,Michel,4,Add module check,0,3,0,1,0,0,,,,,,,41.253323554992676,True,True,,False,True,True
+6076dc349b,Michel,4,Refactoring,0,0,4,0,0,0,,,,,,,16.974398612976074,False,True,,False,True,True
+73ad6a9dd5,Michel,4,Add sanity checks,0,4,0,0,0,0,,,,,,,26.1901113986969,True,True,,False,True,True
+0f60740652,Michel,4,Add new driver support,0,0,0,4,0,0,,,,,,,25.9013032913208,True,True,,False,True,True
+0537692bbe,Michel,4,Drop unnecesary debug message,0,0,4,0,0,0,,,,,,,23.515804767608643,False,True,,False,True,True
+4967a7803c,Michel,4,Fix typo,0,0,4,0,0,0,,,,,,,17.718873023986816,False,True,,False,False,True
+e59b3c730b,Michel,4,Use apropiate header,0,3,1,0,0,0,,,,,,,43.697591066360474,True,True,,False,False,True
+435beb4110,Michel,4,Change in manteiners,0,0,4,0,0,0,,,,,,,29.563310384750366,True,True,,False,False,True
+1b0c84a32e,Michel,4,Fix unaligment I/O read of capabilities,4,0,0,0,0,0,2.0,3.0,,,4.0,"As is related to I/O, maybe is EoI",1160.3811864852905,False,True,,False,False,True
+913c4a3e19,Michel,4,Refactoring: simplify code,0,0,4,0,0,0,,,,,,,45.89851236343384,True,True,,False,True,True
+d0871b5a22,Michel,4,Refactoring: simplify code,0,0,4,0,0,0,,,,,,,44.410916805267334,True,True,,False,False,True
+51e76a232f,Michel,4,Fix memory leak,3,0,0,0,0,0,0.0,4.0,,4.0,,Memory leak,40.36371922492981,False,True,,False,True,True
+1b929c02af,Michel,0,No info,2,2,2,2,2,2,2.0,2.0,,,,,38.06189012527466,True,True,,False,False,False
+562f5bc48a,Michel,4,Remove duplicated comment,0,0,4,0,0,0,,,,,,,32.577775955200195,True,True,,False,False,True
+98047313cd,Michel,3,"Fix ranged used by adding ""last"" variable initialized",4,1,0,0,0,0,4.0,0.0,,,,,103.61850929260254,True,True,,False,False,False
+ad75bd85b1,Michel,2,Skip probing when theis is not separate probe address,4,0,0,0,0,0,2.0,0.0,,,,,86.09517884254456,True,True,,False,False,True
+65ea840afd,Michel,4,Add a check and propery return value,1,4,1,0,0,0,0.0,0.0,,,,,53.2124810218811,True,True,,False,False,True
+029d6586dc,Michel,4,Add new support node,0,0,0,4,0,0,,,,,,,22.59799313545227,True,True,,False,True,True
+ee3e3ac05c,Michel,4,Add extensible rseq,0,0,0,4,0,0,,,,,,,20.28598141670227,False,True,,False,True,True
+99387b0160,Michel,4,Avoid unnecesary freq update,0,0,4,0,0,0,,,,,,,48.287729263305664,True,True,,False,True,True
+b148c8b9b9,Michel,4,Add new tests,0,0,4,0,0,0,,,,,,,40.779987812042236,True,True,,False,True,True
+d13da2f4c8,Michel,4,Change node name,0,0,4,0,0,0,,,,,,,36.34914445877075,True,True,,False,False,True
+a189b2ee93,Michel,4,Add static inline to a function to avoid an error,4,0,0,0,0,0,0.0,0.0,,,,,72.82535576820374,True,True,,False,False,True
+f98c5ec251,Michel,4,Add a check to prevent posible bugs,0,4,0,0,0,0,,,,,,,63.01301574707031,True,True,,False,True,True
+2dd9032beb,Michel,4,Refactoring: simplify code,0,0,4,0,0,0,,,,,,,39.38166880607605,True,True,,False,False,False
+079c4c0c6c,Michel,3,"Replace intel W/R. I think its a refactoring, but don't know exaclty",0,0,3,0,0,0,,,,,,,74.30947422981262,True,True,,False,True,True
+a0c5149088,Michel,3,Avoid direct use of uncore,0,3,1,0,0,0,,,,,,,45.03352904319763,True,True,,False,True,True
+192bb40f03,Michel,4,Avoid a race condition bug,4,0,0,0,0,0,0.0,4.0,4.0,,,Race condition,62.19733548164368,False,True,,False,False,True
+71feb6f901,Michel,4,Fix a regression bug,4,0,0,0,0,0,0.0,0.0,,,,,55.749884843826294,True,True,,False,False,True
+b02ba9ed7c,Michel,4,Refactoring: better naming,0,0,4,0,0,0,,,,,,,43.04977750778198,True,True,,False,True,True
+868695e43b,Michel,4,Add new clock and reset entries,0,0,0,4,2,0,,,,,,,52.727258920669556,True,True,,False,True,True
+7afc1f6977,Michel,4,Add device tree bindings,0,0,0,4,4,0,,,,,,,39.57830595970154,True,True,,False,True,True
+ac686cbc6f,Michel,3,"Add a new feature, but also looks like a refactor",0,0,3,4,0,0,,,,,,,75.77175688743591,True,True,,False,True,True
+255d7a9581,Michel,4,Refactoring,0,0,4,0,0,0,,,,,,,32.11777949333191,True,True,,False,False,True

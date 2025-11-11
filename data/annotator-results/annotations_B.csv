@@ -1,0 +1,1004 @@
+hash,annotator,understand,purpose,bfc,bpc,prc,nfc,specification,asc,obvious,safety,timing,memory,info,safety_exp,time,see_commit_clicked,lore_clicked,lore_founded,is_merge_commit,is_part_patchset,lore_found
+0704a8586f,Abhishek,4,Updates the way sysfs files are created.,0,3,4,0,0,0,,,0.0,0.0,0.0,,56.24983882904053,False,True,,False,False,True
+c5e97ed154,Abhishek,4,Avoid unnecessary type casts.,0,4,4,0,0,0,,,0.0,4.0,0.0,,17.19937300682068,False,True,,False,True,
+4f9f531e15,Abhishek,4,"Makes a change in the qed code of the Linux kernel. Also, removes some dead code.",0,4,4,0,0,0,,,0.0,0.0,0.0,,43.3049259185791,False,True,,False,False,
+258030acc9,Abhishek,4,Optimizes the memory layout of the dsa_switch structure in the DSA  subsystem of the Linux kernel. ,0,4,4,0,0,0,,,0.0,2.0,0.0,,17.6618812084198,True,True,,False,True,
+5b2c5540b8,Abhishek,4,Addresses inconsistencies in the return codes provided by tcp_bpf_recvmsg_parser().,4,0,0,0,0,0,4.0,3.0,0.0,0.0,4.0,"The issue involves the exchange of information between the kernel and applications regarding the state of network operations, specifically through error codes.",15.321545124053957,False,True,,False,True,
+6440a6c23f,Abhishek,4,Introduces new feature to set destination and source MAC addresses for Tx-only operations in xdpsock.,0,0,0,4,2,0,,,,,,,56.63985300064087,False,True,,False,True,
+3044a4f271,Abhishek,4,Inconsistent checks for the CAN-FD mode across different parts of the driver.,0,4,4,0,0,0,,,,,,,17.075546741485596,False,True,,False,True,
+8512559741,Abhishek,4,Updates the tcp_v4_rcv() function within the network subsystem.,0,4,4,3,0,0,,,,,,,24.112571001052856,False,True,,False,True,
+727e60604f,Abhishek,4,Minor cleanup within the Btrfs file system code in the Linux kernel.,0,0,4,0,0,0,,,,,,,18.903828144073486,False,True,,False,True,
+79dcd4e840,Abhishek,4,Introduces a new feature by adding the capability to specify multiple pin configurations within a single pinctrl group.,0,0,0,4,4,0,,,0.0,0.0,0.0,,9.99718713760376,False,True,,False,True,
+4d2a3c169b,Abhishek,4,Commit fixes a typo error.,0,0,4,0,0,0,,,0.0,0.0,0.0,,187.31994009017944,False,True,,False,False,True
+18451db82e,Abhishek,4,This commit modifies the RDMA core to change how the UDP source port is calculated.,0,4,0,3,4,0,,,0.0,0.0,0.0,,38.729341983795166,False,True,,False,True,True
+aecf89f2f8,Abhishek,4,This commit adds support for the LEDs and buttons on the Asus RTN-10U router.,0,0,4,4,4,0,,,0.0,0.0,0.0,,202.14089679718015,False,True,,False,True,True
+3b9cb4ba4b,Abhishek,4,"Refactors the rcutorture module in the Linux kernel to use the kthread_run_on_cpu() helper function instead of the combination of kthread_create_on_node(), kthread_bind(), and wake_up_process(). ",0,4,4,0,0,0,,,0.0,0.0,0.0,,18.43644690513611,False,True,,False,True,
+f2fed022aa,Abhishek,4,Refines the code  for swapping values with the standard swap() macro from include/linux/minmax.h. ,0,3,4,0,0,0,,,0.0,0.0,0.0,,8.614819049835205,False,True,,False,True,
+9a10064f56,Abhishek,4,"Introduce new feature to the Linux kernel, specifically for managing private anonymous VMAs.",0,4,0,4,4,0,,,0.0,0.0,0.0,,15.826563119888306,False,True,,False,False,
+1eba86c096,Abhishek,4,This commit directly addresses issues related to memory corruption and refcount problems.,4,0,0,0,4,0,4.0,4.0,0.0,4.0,0.0,"This commit directly deals with memory management issues, particularly related to how memory pages are handled in the kernel.",22.53296899795532,False,True,,False,False,
+f4c6d22c6c,Abhishek,4,This commit removes a comment that was mistakenly added during a patch series reordering.,0,0,4,0,0,0,,,0.0,0.0,0.0,,229.07412028312683,False,True,,False,True,True
+016017a195,Abhishek,4,This commit is a technical adjustment to accommodate architectural differences and ensure broader compatibility of the TTM module.,4,0,0,0,0,0,4.0,0.0,,,,,29.684245109558105,False,True,,False,False,
+11c2bf4a20,Abhishek,4,This commit fixes an issue where invalid read sizes were not properly handled,4,0,0,0,0,0,4.0,0.0,,,,,147.7440378665924,False,True,,False,False,False
+72de208f2b,Abhishek,4,"The commit improves the code by eliminating unnecessary casting, which enhances readability and maintainability.",0,0,4,0,0,0,,,,,,,232.946918964386,False,True,,False,True,True
+0519f73adb,Abhishek,4,This commit renames  a function..,0,0,4,0,0,0,,,,,,,18.895899772644043,False,True,,False,True,True
+088c840599,Abhishek,4,This commit addresses a type-casting issue.,4,0,0,0,0,0,4.0,4.0,0.0,4.0,0.0,"The issue relates to memory address space conversions, which directly pertains to how memory is accessed and managed.",166.3911168575287,False,True,,False,True,True
+f346f32701,Abhishek,4,This commit adds Helge Deller as a new maintainer for the framebuffer device.,0,4,0,0,0,0,,,,,,,186.078439950943,False,True,,False,False,True
+3ac5f2f257,Abhishek,4,This commit updates the kernel documentation for the function smb311_update_preauth_hash().,0,0,4,0,0,0,,,,,,,44.14911794662475,False,True,,False,True,True
+e1553351d7,Abhishek,4,This commit removes redundant VPRINTK() calls and the function ata_scsi_dump_cdb() from the libata subsystem.,0,0,4,0,0,0,,,,,,,11.141359806060793,False,True,,False,False,
+340a02535e,Abhishek,4,This commit involves reorganizing the Linux kernel build scripts by moving the extract-cert script from the scripts/ directory to the certs/ directory. ,0,0,4,0,0,0,,,,,,,84.14929413795471,False,True,,False,True,True
+2fadc6ea4a,Abhishek,4,This commit  sorts the CONFIG_SURFACE_PLATFORMS configuration entry in the same order.,0,0,4,0,0,0,,,0.0,0.0,0.0,,179.05873203277588,False,True,,False,True,True
+9a9acdccdf,Abhishek,4,"This commit addresses a specific resource leak during the probe process, which is a bug in the error handling code.",4,0,0,0,0,0,4.0,0.0,,,,,174.80018281936646,False,True,,False,False,False
+3364c6ce23,Abhishek,4,This commit addresses a compiler warning related to array bounds in the ARM64 architecture code involving atomic operations.,4,0,0,0,0,0,4.0,4.0,0.0,4.0,0.0,Misaligned type sizes and incorrect type casting in atomic operations can lead to improper memory accesses.,163.70529007911682,False,True,,False,True,True
+805a3ebed5,Abhishek,4,Code refactoring,0,3,4,0,0,0,,,,,,nan,71.67601680755615,False,True,,False,True,
+e973746882,Abhishek,4,Fixes a misreporting issue in virtualized CPU features.,4,0,0,0,0,0,4.0,0.0,,,,,7.64706015586853,False,True,,False,False,
+9b51d9d866,Abhishek,4,Optimizes the use of CPU mask operations in the kernel by replacing instances of cpumask_next_* functions with cpumask_first_* where appropriate.,0,4,4,4,0,0,,,,,,,13.699172973632812,False,True,,False,True,
+1ac7fd8159,Abhishek,4,This commit fixes the issue where important performance information might be lost due to the lack of support for the new LBR format V7. Also it refactors the code.,4,0,4,0,0,0,2.0,0.0,,,,nan,160.03095722198486,False,True,,False,True,
+a8db854be2,Abhishek,4,This commit addresses a bug where error information was not being passed correctly from the AF through the PF to the VF.,4,0,0,0,0,0,4.0,4.0,0.0,0.0,4.0,This commit directly involves the exchange of error information between system components .,314.99642515182495,False,True,,False,True,True
+84d46e1fc3,Abhishek,4,Improves the code quality by removing unused parts.,0,0,3,0,0,0,,,,,,,10.115931034088137,False,True,,False,False,
+dd4516aee3,Abhishek,4,Improves the structure and clarity of the testing code.,0,0,4,0,0,0,,,,,,,23.99665093421936,False,True,,False,True,
+d11a327ed9,Abhishek,4,"Fixes an over-application of a previous workaround, refining its scope to only include systems.",4,0,0,0,0,0,2.0,0.0,,,,,7.132000923156738,False,True,,False,False,
+aa814c51ab,Abhishek,4,Improves the build process by updating the Makefile to support new tooling.,0,4,4,0,0,0,,,,,,,7.995910882949829,False,True,,False,True,
+8001fa240f,Abhishek,4,Enhances the maintainability and readability of the code by removing redundant operations and dead code.,0,0,4,0,0,0,,,,,,,7.930840015411377,False,True,,False,False,
+d1ad2721b1,Abhishek,4,Improves the integrity and relevance of the build system's header file checks by ensuring that only appropriate headers are include.,0,4,4,0,0,0,,,,,,,23.120598077774048,False,True,,False,True,
+1f2cfdd349,Abhishek,4,Removes the incorrect __user attribute from the buffer argument to resolve warnings .,4,0,0,0,0,0,4.0,0.0,,,,,8.04953122138977,False,True,,False,True,
+edb854a368,Abhishek,4,Fixes an issue where the initial allocation for the budget map might not align with the actual hardware requirements.,4,0,0,0,0,0,4.0,4.0,0.0,4.0,0.0,"The issue directly involves the allocation of memory resources that do not align with the actual needs, potentially leading to unnecessary memory consumption.",13.8368182182312,False,True,,False,True,
+bd2db32e7c,Abhishek,4,This commit fixes a critical use-after-free bug.,4,0,0,0,0,0,4.0,4.0,0.0,4.0,0.0,The use-after-free issue directly involves improper management of memory.,138.65440201759338,False,True,,False,True,True
+71702c495b,Abhishek,4,Fixes a bug where the HDMI driver incorrectly attempted to manipulate SCDC settings on unsupported Raspberry Pi models.,4,0,0,0,0,0,4.0,0.0,,,,,20.282963037490845,False,True,,False,False,
+e6b0337513,Abhishek,4,Addresses a boot loop issue on the odroid device.,4,0,0,0,0,0,4.0,0.0,,,,,469.37049198150635,False,True,,False,True,True
+ffc58bc4af,Abhishek,4,Code refactoring,0,0,4,0,0,0,,,,,,,79.93866491317749,False,True,,False,False,True
+5bfa685e62,Abhishek,4,Resolves an issue where the virtual GIC did not accurately report the pending state of hardware interrupts.,4,0,0,0,0,0,4.0,0.0,0.0,0.0,0.0,I am not sure whether it is safety or not. ,103.00880789756775,False,True,,False,False,
+837cf45df1,Abhishek,4,Fixes a race condition.,4,0,0,0,0,0,4.0,4.0,4.0,0.0,0.0,The issue directly involves the timing and order of execution concerning network option processing and locking mechanisms.,233.98701310157776,False,True,,False,True,True
+3a55f72924,Abhishek,4,Fixes a critical issue where the interaction between tsc_always_catchup mode and KVM_HC_CLOCK_PAIRING could lead to an infinite loop.,4,0,0,0,0,0,4.0,4.0,4.0,0.0,0.0,Infinite loop comes under timing and execution.,298.6491320133209,False,True,,False,True,True
+e2b993302f,Abhishek,4,Fix issue related to unnecessary checks during framebuffer initialization.,4,0,0,0,0,0,4.0,0.0,,,,,351.69632625579834,False,True,,False,True,True
+7d547dcf97,Abhishek,4,Add Roman Gushchin as a co-maintainer,0,0,0,0,0,0,,,,,,,189.3863210678101,False,True,,False,True,True
+302e9edd54,Abhishek,4,Fixes a user experience and functionality bug where triggers did not behave as expected within specific instances.,4,0,0,0,0,0,4.0,0.0,,,,,166.36424088478088,False,True,,False,True,True
+316f710172,Abhishek,4,Resolves a memory management issue.,4,0,0,0,0,0,4.0,4.0,0.0,4.0,0.0,"The issue directly involves the management of dynamically allocated memory, ensuring it is freed properly to avoid leaks.",110.75460505485536,False,True,,False,True,True
+6c1f41afc1,Abhishek,4,Fixes issue related to improper network routing or interface handling.,2,4,0,0,0,0,0.0,0.0,,,,nan,254.6370837688446,False,True,,False,True,True
+e3d5ea2c01,Abhishek,4,Fixes infinite loop issue. ,4,0,0,0,0,0,4.0,4.0,,,,Infinite loop comes under timing and execution.,145.04984617233276,False,True,,False,True,True
+a3d3280378,Abhishek,4,Fixes a specific boot-time crash caused by an uninitialized pointer dereference.,4,0,0,0,0,0,4.0,4.0,2.0,4.0,0.0, Bug directly involves memory initialization and management.,314.2075481414795,False,True,,False,True,True
+32f1b53fe8,Abhishek,4,Related to locks.,4,3,0,0,0,0,4.0,4.0,4.0,,0.0,The issue directly involves the execution flow of the test tool,95.24908399581908,False,True,,False,True,True
+fe23b6bbea,Abhishek,4,FIxes improper error handling and potential NULL pointer dereference.,4,3,0,0,0,0,4.0,4.0,0.0,4.0,0.0, Improper error handling and potential NULL pointer dereference could lead unsafe conditions.,142.0189929008484,False,False,,False,False,False
+0966d38583,Abhishek,4,Fixes an issue with the calculation of jump ranges.,4,0,0,0,0,0,4.0,4.0,4.0,0.0,0.0,"The bug directly affects the execution flow of the program by potentially causing incorrect jumps, which is a timing and execution issue.",201.9514331817627,False,True,,False,True,True
+16b1941eac,Abhishek,4,Fixes a race condition. ,4,0,0,0,0,0,4.0,4.0,4.0,0.0,0.0,The issue involves the timing between checking and using a driver pointer.,692.6484072208405,True,True,,False,True,True
+d082a0255f,Abhishek,4,It adds a new feature.,0,0,0,4,4,0,,,0.0,0.0,0.0,,128.11024689674375,False,True,,False,True,True
+507f788d05,Abhishek,4,update to an existing function.,0,0,0,4,4,0,,,0.0,0.0,0.0,,160.5538558959961,False,True,,False,True,True
+0a3a4b9d2b,Abhishek,4,Increases the size of the array.,4,0,0,0,0,0,0.0,4.0,4.0,0.0,0.0,This commit indirectly addresses issues that could affect the timing and execution reliability by ensuring that mct_tick values are handled correctly for all CPUs.,162.7128868103027,False,True,,False,True,True
+d6c47d21a0,Abhishek,4,Add support for the new SOC.,0,4,4,4,0,0,,,,,,,228.8460259437561,False,True,,False,True,True
+43caf1a682,Abhishek,4,Improves the maintainability and clarity of kernel documentation,0,0,4,0,0,0,,,,,,,385.1228039264679,False,True,,False,True,True
+bad0eb76dc,Abhishek,4,Refactoring,0,0,4,0,0,0,,,,,,,26.576327800750732,False,True,,False,True,True
+03eb65224e,Abhishek,4,Improving the code and documentation.,0,0,4,0,0,0,,,,,,,56.50474810600281,False,True,,False,True,True
+b1bbd3a57b,Abhishek,4,Documentation update.,0,0,4,0,0,0,,,,,,,44.7523992061615,False,True,,False,False,True
+c95aa2bab9,Abhishek,4,Addresses and resolves configuration errors and build issues that were occurring due to missing dependencies.,4,0,0,0,0,0,4.0,0.0,,,,,92.2424612045288,False,True,,False,False,False
+f3c2682bad,Abhishek,4,Improves the functionality of the kernel by adding a new notifier.,0,0,4,4,0,0,,,,,,,116.20554900169373,False,True,,False,True,True
+1038fd78a1,Abhishek,4,Introduces the infrastructure required to support  KPP template instances.,0,4,4,4,0,0,,,0.0,0.0,0.0,,270.27366304397583,False,True,,False,True,True
+7a70d9a1cf,Abhishek,4,It resolves an issue where the driver would inappropriately load on non-Xilinx platforms,4,4,4,4,0,0,4.0,0.0,,,,,426.3852701187134,False,True,,False,False,True
+c90b6b50b4,Abhishek,4,Code cleaning,0,0,4,0,0,0,,,,,,,244.55078291893005,False,True,,False,True,True
+03a6b195e8,Abhishek,3,Enhances the efficiency of the RAID5 module.,2,4,0,0,0,0,0.0,0.0,,,,,166.83293914794922,False,True,,False,True,True
+e52432e164,Abhishek,4,Addresses a compiler warning.,3,4,0,0,0,0,0.0,4.0,0.0,4.0,0.0,The commit specifically addresses issues related to memory handling that could lead to buffer overflow errors.,149.95157504081726,False,True,,False,True,True
+70868c6b8f,Abhishek,4,Documentation update,0,0,4,0,0,0,,,,,,,64.0586519241333,False,True,,False,False,True
+9ad1230533,Abhishek,4,Improves the functionality,0,0,4,0,0,0,,,,,,,441.6815321445465,False,True,,False,True,True
+7b45b51e77,Abhishek,4,Enhances the architecture of the workqueue system.,0,0,4,4,0,0,,,,,,,10.959726095199583,False,True,,False,True,True
+854d8e3616,Abhishek,4,code cleanup.,0,0,4,0,0,0,,,,,,,61.21935486793518,False,True,,False,True,True
+2a791f4412,Abhishek,4,Removes redundant prefetch operations,0,0,4,0,0,0,,,,,,,195.41661310195923,False,True,,False,True,True
+046545a661,Abhishek,4,Fixes bug related to memory error.,4,0,0,0,0,0,4.0,4.0,0.0,4.0,0.0,The issue directly involves memory management errors and their handling.,95.88494110107422,False,True,,False,True,True
+c951cd3b89,Abhishek,4,Update in the interface of the DAMON tool.,0,0,4,4,0,0,,,,,,,110.17693328857422,False,True,,False,True,True
+0b046e12ae,Abhishek,4, Optimizes the function by removing unnecessary checks,0,0,4,0,0,0,,,,,,,59.50668406486511,False,True,,False,True,True
+2e7e80f7e7,Abhishek,4,Refines the function.,0,0,4,0,0,0,,,,,,,53.38140416145325,False,True,,False,True,True
+30d024b505,Abhishek,4,It fixes a specific issue related to compiler warnings caused by the missing forward declaration.,4,0,0,0,0,0,4.0,0.0,,,,,61.63043403625488,False,True,,False,False,True
+09e7af76db,Abhishek,4,It addresses a specific issue where the failure of the clock enable operation was not being handled.,4,0,0,0,0,0,4.0,4.0,4.0,0.0,0.0,It might relate to clock enable operations.,118.87908124923706,False,True,,False,True,True
+fc5004e5d4,Abhishek,4,This commit improves the code quality,0,0,4,0,0,0,0.0,4.0,0.0,0.0,0.0,"By adjusting how memory is allocated for the range array ), the commit indirectly addresses memory management efficiency.",24.93001675605774,False,True,,False,False,
+8db41f733d,Abhishek,4,It enhances the modularity of the vcodec decoder module,0,0,4,0,0,0,,,,,,,57.94785404205322,False,True,,False,True,True
+f3116f2e52,Abhishek,4,Improves the representation of the tree structure.,0,3,4,0,0,0,,,0.0,0.0,0.0,,322.4855809211731,False,True,,False,False,False
+dca4f5fdbc,Abhishek,4,"Improves the code quality by using a more reliable, built-in helper function.",3,0,4,0,0,0,0.0,4.0,0.0,4.0,0.0, improvement in memory allocation practices,173.53793692588806,False,True,,False,False,True
+97558d170a,Abhishek,4,Fixes  out-of-bounds memory access .,4,0,0,0,0,0,4.0,4.0,0.0,4.0,0.0,"The bug involves improper memory access, specifically accessing an array out of its bounds.",94.15054297447205,False,False,,False,False,False
+d184cc910e,Abhishek,4,Code cleaning. ,0,0,4,0,0,0,,,,,,,40.86128211021423,False,True,,False,False,False
+efb6402c3c,Abhishek,4,It introduces a new upper limit of 1MB for period bytes to fix the. memory overflow.,4,0,0,0,0,0,4.0,4.0,,,,Improper calculation of memory allocation size,183.38221907615664,False,True,,False,True,True
+3cffb26fbb,Abhishek,4,Code cleaning.,0,0,4,0,0,0,,,,,,,60.385255098342896,False,True,,False,False,True
+c8e98eaf2b,Abhishek,4, Enhances the driver by adding a new configuration option.,2,3,4,3,0,0,0.0,0.0,,,,,250.9951369762421,False,True,,False,True,True
+ed482dc8c7,Abhishek,4,Fixes a specific build failure issue in the driver due to a missing direct header inclusion.,4,0,0,0,0,0,4.0,0.0,,,,,242.21228122711184,False,True,,False,False,False
+c297448760,Abhishek,4,Removes unnecessary dependencies. ,0,0,4,0,0,0,,,,,,,63.48239088058472,False,True,,False,True,True
+20ea94bc53,Abhishek,4,Improves functionality of the codec's device tree configuration,0,0,4,4,4,0,,,,,,,90.23940992355348,False,True,,False,True,True
+9231bb1b25,Abhishek,4,Improves readability of the code.,0,0,4,0,0,0,,,,,,,89.56526207923889,False,True,,False,True,True
+9c818d8491,Abhishek,4,Improves functionality by adding more logging information. ,0,0,4,0,0,0,,,,,,,85.90308094024658,False,True,,False,True,True
+886e09c77d,Abhishek,4,Typo error,0,0,4,0,0,0,,,,,,,68.24638175964355,False,True,,False,False,True
+aa0a20f521,Abhishek,4, It fixes a specific issue related to the unintended use of a register.,3,4,0,0,0,0,4.0,4.0,4.0,0.0,0.0,"If R9 is clobbered, it could affect the timing and execution flow.",157.57636404037476,False,True,,False,True,True
+f4e526ff7e,Abhishek,4,code refactoring,0,3,4,0,0,0,,,,,,,280.66270685195923,False,True,,False,True,True
+76ee15ae1b,Abhishek,4,Add new feature for the hardware support.,0,4,3,4,4,0,,,,,,,143.3421449661255,False,True,,False,True,True
+1c0bd03532,Abhishek,4,I think it improves the compatibility of device tree but not sure.,0,3,3,3,0,0,,,,,,,226.5387020111084,False,True,,False,True,True
+b00e3e03cf,Abhishek,4,It corrects the configuration of LDO4.,0,4,3,0,0,0,,,,,,,151.44560408592224,False,True,,False,True,True
+daeb1c2b50,Abhishek,3,"It corrects the misconfiguration in the device tree.
+Not able to understand if its a bug or not. ",2,0,2,0,0,0,0.0,2.0,2.0,0.0,0.0,Incorrect interrupt configuration can affect the timing and handling but not sure.,178.38978695869446,False,False,,False,False,False
+3255530ab1,Abhishek,4,Code cleaning,0,0,4,0,0,0,,,0.0,0.0,0.0,,355.69434118270874,False,True,,False,True,True
+29f557d553,Abhishek,4,It updates a function to test new features.,0,3,4,4,0,0,,,0.0,0.0,0.0,,115.43105602264404,False,True,,False,True,True
+dd2319c618,Abhishek,4,Adds warning for  possible NULL pointer dereferences to prevent future bugs.,0,4,0,3,0,0,,,0.0,0.0,0.0,,148.18064713478088,False,True,,False,True,True
+be78aa8a38,Abhishek,4,Enhances the function.,0,3,3,3,0,0,,,0.0,0.0,0.0,,241.41065287590027,False,True,,False,True,True
+512865d83f,Abhishek,4,It updates the version to a new one.,1,4,3,3,0,0,0.0,0.0,,,,,75.05907893180847,False,True,,False,True,True
+fa6fde350b,Abhishek,4,It replaces CHECK with ASSERT for the testing.,0,4,4,0,0,0,,,,,,,153.26976203918457,False,True,,False,True,True
+0b94f2651f,Abhishek,4, It fixes a significant error handling issue in the Bluetooth HCI layer,4,0,0,0,0,0,0.0,3.0,0.0,4.0,0.0,It fixes the memory associated with Bluetooth devices in the HCI layer but i am not sure.,179.64753198623657,False,True,,False,True,True
+4f3701fc59,Abhishek,4,Adds new functionality to the qca8k.,0,3,4,4,0,0,,,,,,,152.14846062660217,False,True,,False,True,True
+f55fbb6afb,Abhishek,4,It fixes the route configuration process in the IPv4 protocol stack.,4,0,0,0,4,0,4.0,0.0,,,,,337.3037407398224,False,True,,False,True,True
+d09adf6100,Abhishek,4,I feel it improves code by using new standard helper function.,0,3,4,4,0,0,,,,,,,352.2792139053345,False,True,,False,True,True
+c575521462,Abhishek,4,It adds more test cases.,0,4,3,3,0,0,,,,,,,76.0183470249176,False,True,,False,False,False
+a4218aef7c,Abhishek,4,Optimizes the memory management in the dpaa2-eth driver,0,3,0,0,0,0,,,,,,,362.5432770252228,False,True,,False,True,True
+696c390115,Abhishek,4,It adds new test cases in bpf.,0,4,3,0,0,0,,,0.0,0.0,0.0,,301.5166051387787,False,True,,False,False,False
+4ec25b49f4,Abhishek,4,Improves test by changing namespace.,2,4,3,0,0,0,0.0,0.0,,,,,186.281179189682,False,True,,False,True,True
+e7b060460f,Abhishek,4,It resolves the issue where ping6 did not support packet timestamping despite the user's ability to request this feature.,4,0,0,3,0,0,0.0,0.0,,,,,1342.6671810150146,False,True,,False,False,True
+212ad7cb7d,Abhishek,4, It enhances the handling of peer deletion in the driver.,4,0,0,0,0,0,,4.0,0.0,4.0,0.0,The commit addresses a specific memory management issue related to the cleanup of network peer structures.,567.2559039592743,False,True,,False,True,True
+039d5d4db4,Abhishek,4,Introduces new feature,0,0,4,4,0,0,,,,,,,362.2472059726715,False,True,,False,True,True
+7e47607133,Abhishek,4,Fixes null pointer dereferences.,4,0,0,0,0,0,4.0,4.0,0.0,4.0,0.0,Involves memory management,14.12267017364502,False,True,,False,True,True
+ae962e5f63,Abhishek,4,It handles variable shadowing which prevent future bugs. I am not sure is this bfc or not.,2,4,4,0,0,0,0.0,0.0,,,,,137.50943779945374,False,True,,False,True,True
+39cdf080ce,Abhishek,4,Improves  functionality related to DFS.,0,4,4,4,0,0,,,,,,,127.018718957901,False,True,,False,True,True
+6a6f457ed5,Abhishek,4,Prevents future bug: NULL pointer  dereference.,0,4,0,0,0,0,,,,,,,71.7638909816742,False,True,,False,True,True
+a2ab95a313,Abhishek,4,Improves the functionality of the lan743x driver,0,3,3,4,0,0,,,,,,,77.13782238960266,False,True,,False,True,True
+9536923d3f,Abhishek,4,Remove unused pointer: code cleanup,0,0,4,0,0,0,,,,,,,44.016207218170166,False,True,,False,True,True
+b98d2d722f,Abhishek,4,Updates the terminology.,0,0,4,0,0,0,,,,,,,184.80154299736023,False,True,,False,True,True
+0c51e12e21,Abhishek,3,It fixes issue related to IPv4 networking stack.,4,0,0,0,0,0,4.0,4.0,0.0,0.0,4.0,Can be loss of information via packets but not sure.,81.31774687767029,False,True,,False,True,
+d931686dc2,Abhishek,4,Enhances the structure of dt-binding.,0,0,4,0,0,0,,,,,,,214.6998550891876,False,True,,False,True,True
+6ee3c393ee,Abhishek,4,Demotes error to the warning. It is basically improving system logging.,0,0,4,0,0,0,,,,,,,84.31878900527954,False,True,,False,True,True
+ac45520960,Abhishek,4,Improves system logging by changing error to warning.,0,0,4,0,0,0,,,0.0,0.0,0.0,,3.66252064704895,False,True,,False,True,
+d31d37912e,Abhishek,4,It is not a BFC. It adds a support for ptp interrupts to prevent future bugs. ,0,4,3,3,0,0,,,0.0,0.0,0.0,,175.39726614952087,False,True,,False,True,True
+9087c6ff8d,Abhishek,4,Fix is about optimization which will prevent future bugs.,0,4,3,0,0,0,,,0.0,0.0,0.0,,317.98608684539795,False,True,,False,True,True
+9b392e0e0b,Abhishek,4,Addresses the issue of dereferencing a potentially null pointer.,4,0,0,0,0,0,0.0,3.0,0.0,2.0,0.0,Deferencing null pointer can be consider under memory bug but i am not sure.,144.041109085083,False,True,,False,True,True
+e10ab8b394,Abhishek,4,Improves the functionality of the driver.,0,4,4,3,0,0,,,,,,,165.7044129371643,False,True,,False,True,True
+0301bcd599,Abhishek,4,It resolves compilation errors by proper type handling.,4,0,0,0,0,0,4.0,0.0,,,,,136.7718789577484,False,True,,False,True,True
+227f25972c,Abhishek,4,Updates 'iwlwifi' driver to be compatible with new firmware requirements,0,4,3,0,0,0,,,,,,,102.04645609855652,False,True,,False,False,False
+9af41cc334,Abhishek,4,It addresses a compliance issue where the GTP module failed to respond to echo requests,3,1,0,0,0,0,0.0,4.0,0.0,0.0,4.0, Improves the exchange of protocol-specific control messages,266.8226490020752,False,True,,False,True,True
+d775155a86,Abhishek,4,Function rename,0,0,4,0,0,0,,,,,,,61.257641077041626,False,True,,False,True,True
+d5f497b889,Abhishek,4,Code refactoring,0,0,4,0,0,0,,,,,,,33.20708894729614,False,True,,False,True,True
+ec80906b0f,Abhishek,4,Improper exit codes and faulty condition checks.,4,4,4,0,0,0,4.0,0.0,,,,,150.60509777069092,False,False,,False,False,False
+d0864ee4f8,Abhishek,4,code refactoring,0,0,4,0,0,0,,,,,,,276.8400671482086,False,True,,False,True,True
+bf172a01ea,Abhishek,4,Code refactoring: improves code quality,0,0,4,0,0,0,,,,,,,67.55838799476624,False,True,,False,True,True
+a8e6398ffe,Abhishek,4,Code refactoring,0,0,4,0,0,0,,,,,,,39.7002968788147,False,True,,False,False,True
+552b7cb0ee,Abhishek,4,"It is code refactoring, more about optimizing the code",0,4,4,0,0,0,,,,,,,131.317636013031,False,True,,False,True,True
+367c9b0f1b,Abhishek,4,Fixes issue related to memory management.,4,0,0,0,0,0,0.0,4.0,0.0,4.0,0.0,The commit directly addresses issues related to memory leaks and proper memory context management.,119.11592292785645,False,True,,False,False,True
+2485c12c98,Abhishek,4,It prevents future bugs by correctly restoring SDMA IDs.,0,4,3,0,0,0,0.0,0.0,,,,,195.6604528427124,False,True,,False,True,True
+08a987a8a0,Abhishek,4,Iproves the functionality of the CRIU process by adding detailed discovery of SVM ranges.,0,4,3,4,0,0,,,,,,,262.53995299339294,False,True,,False,True,True
+2019bf7cd2,Abhishek,4,updates amdgpu driver. BPC,0,4,3,0,0,0,,,,,,,97.1594738960266,False,True,,False,False,True
+72b3588e27,Abhishek,4,code cleaning/ refactoring,0,3,4,0,0,0,,,,,,,34.62752103805542,False,True,,False,True,True
+79af2404e5,Abhishek,4,Fixes a bug associated with delayed vblank handling in PSR2.,4,0,0,0,0,0,4.0,0.0,,,,,168.74590492248535,False,True,,False,True,True
+57ded5fc98,Abhishek,4,Fixes  issue of accessing hardware without holding the necessary RPM wakelock during the PXP unbind process,4,0,0,0,0,0,4.0,0.0,,,,,173.46655893325806,False,True,,False,True,True
+c5e804ba38,Abhishek,4,This commit does not fix a bug but improves the method of reporting and logging errors during the device probing process.,0,4,4,0,0,0,,,,,,,79.99729514122009,False,True,,False,True,True
+972aa1a161,Abhishek,4,Code improvement/refactoring. It is bpc,0,4,4,0,0,0,,,,,,,122.20973205566406,False,True,,False,True,True
+5b45b1c8b8,Abhishek,4,Fixes an issue caused by a previous change that resulted in underflow scenarios.,4,0,0,0,0,0,4.0,0.0,,,,,205.27388286590576,False,True,,False,True,True
+203bcac9bf,Abhishek,4,Fixes issue related to insufficient DRAM bandwidth settings.,4,0,0,0,0,0,0.0,0.0,,,,,74.62313771247864,False,True,,False,True,True
+f728eb3a50,Abhishek,4,Improves code and removes unused code.,0,3,4,0,0,0,,,,,,,83.29549717903137,False,True,,False,False,False
+26ffcbbef7,Abhishek,4,Enhances memory tracking.  BPC,0,4,3,0,0,0,,,,,,,7351.575579881668,False,True,,False,True,True
+719ca37972,Abhishek,4,Fixes  a configuration error by removing incorrect interrupt flags cells from the MDSS nodes.,4,3,4,0,0,0,4.0,0.0,,,,,90.57356595993042,False,True,,False,False,True
+176c0b55d9,Abhishek,4, Enhances the driver’s functionality and performance.,0,4,4,0,0,0,,,,,,,905.239155292511,False,True,,False,True,True
+2703c16c75,Abhishek,4,This commit helps prevent potential conflicts and errors in port management across multiple endpoints.,0,4,4,0,0,0,,,,,,,499.7973599433899,False,True,,False,True,True
+6ddf5f165f,Abhishek,4,Introduces new feature,0,4,4,4,0,0,,,,,,,428.8291509151459,False,True,,False,True,True
+3197706abd,Abhishek,4,Rename function name.,0,0,4,0,0,0,,,,,,,53.818400144577026,False,True,,False,True,True
+77c11720a4,Abhishek,4,Code cleaning. ,0,0,4,0,0,0,,,,,,,59.41486072540283,False,True,,False,False,False
+f792a3629f,Abhishek,4,Fixes a memory leak,4,0,0,0,0,0,4.0,4.0,0.0,4.0,0.0,Addresses a memory leak.,93.05475497245789,False,True,,False,True,True
+208cc9fe6f,Abhishek,4,Fixes incorrect address type  used for boundary checks.,4,0,0,0,0,0,4.0,4.0,0.0,4.0,0.0,The bug directly involves memory addressing for DMA operations.,349.2773988246918,False,True,,False,True,True
+7dae459f5e,Abhishek,4,Fixes a NULL pointer dereference bug.,4,0,0,0,0,0,4.0,4.0,0.0,0.0,4.0,Incorrect handling of information,14.226781845092772,False,True,,False,False,
+3bea83b68d,Abhishek,4,Code refactoring,0,0,4,0,0,0,,,,,,,46.11905288696289,False,True,,False,True,True
+0c9f178778,Abhishek,4,"Code refactoring, code cleanup",0,0,4,0,0,0,,,,,,,32.91629219055176,False,False,,False,False,False
+d49fc69293,Abhishek,4,Fixes issue related unsupported compiler flag.,3,4,0,0,0,0,0.0,0.0,,,,,187.8526999950409,False,True,,False,False,False
+a156f09c90,Abhishek,4,Sorts the amode31 exception table.,4,0,0,0,0,0,4.0,4.0,4.0,0.0,0.0,This bug directly relates to the timing of when the exception table is sorted.,138.9263939857483,False,True,,False,False,False
+5d543f13e2,Abhishek,4,Resolves bug related to the counting of mapped file pages. It fixes a race condition and also issue related to memory.,4,0,0,0,0,0,4.0,2.0,4.0,4.0,0.0,Race condition and memory also,111.84128189086914,False,True,,False,True,
+602a4eda68,Abhishek,4,Documentation update,0,0,4,0,0,0,,,,,,,30.894256830215458,False,True,,False,False,False
+eab25b4f93,Abhishek,4,Introduces new functionality.,0,0,4,4,4,0,,,,,,,71.99597811698914,False,True,,False,True,True
+f059b46e6f,Abhishek,4,It is not a BFC rather it  introduces a new driver for the uPI uG3105 battery monitor.,0,4,4,4,0,0,,,,,,,114.20696997642516,False,True,,False,True,True
+de85193cff,Abhishek,4,It fixes a specific issue where the driver could attempt to cancel a non-initialized delayed work item.,4,0,0,0,0,0,4.0,2.0,2.0,0.0,0.0,Can be timing and execution but not sure.,104.90634489059448,False,True,,False,False,True
+d016fc7ab5,Abhishek,4,code refactoring,0,0,4,0,0,0,,,,,,,38.71508979797363,False,True,,False,False,True
+10377bb293,Abhishek,4,Improves the code.,0,4,4,0,0,0,,,,,,,108.5776710510254,False,True,,False,False,True
+8c70bd5802,Abhishek,4,It BPC as it updates the intel-lpss driver.,0,4,0,4,0,0,,,0.0,0.0,0.0,,185.3920860290527,False,True,,False,False,True
+a45194b9de,Abhishek,4,Documentation update.,0,0,4,0,0,0,,,0.0,0.0,0.0,,44.92432999610901,False,True,,False,False,True
+7ea75dd386,Abhishek,4,Converts text foramt to json. More of code maintainability.,0,3,4,0,0,0,,,0.0,0.0,0.0,,123.01697087287904,False,True,,False,False,True
+9d19d966b4,Abhishek,4,Spelling correction/Rename,0,0,4,0,0,0,,,0.0,0.0,0.0,,75.85561513900757,False,True,,False,True,True
+3d8d3504d2,Abhishek,4,Driver update,0,4,0,4,4,0,,,0.0,0.0,0.0,,230.12681698799133,False,True,,False,True,True
+a2e3fe5f24,Abhishek,4,code refactoring,0,0,4,0,0,0,,,0.0,0.0,0.0,,39.224303007125854,False,True,,False,True,True
+5b3dc949f5,Abhishek,4,Fixes an error handling bug by ensuring proper cleanup with ida_simple_remove().,4,0,3,0,0,0,2.0,0.0,,,,,185.75384497642517,False,True,,False,True,True
+f1d0821bf3,Abhishek,4,Adds new functionality,0,0,0,4,4,0,,,,,,,186.73792099952695,False,True,,False,False,False
+90b8c2c8f9,Abhishek,4,Code refactoring,0,3,4,0,0,0,,,,,,,75.3934109210968,False,True,,False,True,True
+914813cc52,Abhishek,4,"Code refactoring, improves code readability",0,0,4,0,0,0,,,,,,,79.11610984802246,False,True,,False,True,True
+42475735ad,Abhishek,4,Code cleaning,0,0,4,0,0,0,,,,,,,32.994431018829346,False,True,,False,True,True
+24873b8859,Abhishek,4,Code refactoring,0,0,4,0,0,0,,,,,,,35.6605429649353,False,True,,False,False,True
+b57774ccf5,Abhishek,4,"Code refactoring, Code cleaning",0,0,4,0,0,0,,,,,,,42.789252042770386,False,True,,False,True,True
+ec868592f5,Abhishek,4,"Code refactoring, remove redundant code.",0,0,4,0,0,0,,,,,,,38.72734379768371,False,True,,False,True,True
+6e1e59c1ca,Abhishek,4,"Code refactoring, code cleanup",0,0,4,0,0,0,,,,,,,51.232847929000854,False,True,,False,True,True
+905eebcf28,Abhishek,4,"Code refactoring, code cleanup",0,0,4,0,0,0,,,,,,,21.982763051986694,False,True,,False,True,True
+97115f5f0f,Abhishek,4,Changes data type to bool.,0,4,3,0,0,0,,,,,,,46.38943266868591,False,True,,False,True,True
+a39a6b330b,Abhishek,4,"Code refactoring, code cleanup",0,0,4,0,0,0,,,,,,,19.01690697669983,False,True,,False,True,True
+362e54e48b,Abhishek,4,Updates fbtft_init_display() function.,0,4,4,0,0,0,,,,,,,165.89199900627136,False,True,,False,True,True
+ad30d108a5,Abhishek,4,"Code refactoring, code cleanup",0,4,4,0,0,0,,,,,,,30.235802173614506,False,True,,False,True,True
+944d95f766,Abhishek,4,Code cleaning,0,0,4,0,0,0,,,,,,,38.65527892112732,False,True,,False,True,True
+059ee82b64,Abhishek,4,Commit addresses an issue with the allocation strategy in unx_lookup_cred(),4,0,0,0,0,0,4.0,4.0,0.0,4.0,0.0,The commit addresses an issue with memory allocation,88.54620409011841,False,True,,False,True,True
+2564aa7544,Abhishek,4,More about code improvement and adding new feature,0,0,4,4,4,0,,,0.0,0.0,0.0,,113.4373550415039,False,True,,False,True,True
+6e87c8f074,Abhishek,4,adds new feature,0,0,0,4,0,0,,,0.0,0.0,0.0,,71.77596497535706,False,True,,False,False,False
+80d691854f,Abhishek,4,Introduces a new feature by adding support for the SCP,0,0,0,4,0,0,,,0.0,0.0,0.0,,83.62155795097351,False,True,,False,True,True
+c8bd296cca,Abhishek,4,Fixes an issue where the __cbc-aes-neonbs algorithm would fail to register on boot due to missing fallback algorithms.,4,0,0,0,0,0,4.0,0.0,,,,,82.80077505111694,False,True,,False,True,True
+8f0588e80e,Abhishek,4,Commit fixes a specific bug related to improper error handling of the nvmem_device_find function's return value.,4,0,0,0,0,0,4.0,0.0,,,,,92.11258697509766,False,True,,False,False,True
+ad5c5690de,Abhishek,4,Introduces new helper function which comes under new feature,0,0,0,4,0,0,,,,,,,70.43960094451904,False,True,,False,True,True
+b5fa1d09f1,Abhishek,4,Fixes a compilation issue caused by the MAC adddress to be constant,4,0,0,0,0,0,4.0,0.0,,,,,145.19179797172546,False,True,,False,False,False
+dfafa56029,Abhishek,4,Code refactoring,0,0,4,0,0,0,,,,,,,62.50699281692505,False,True,,False,True,True
+a7663c89f4,Abhishek,4,Addresses a specific build error by ensuring that necessary symbols are exported.,4,0,0,0,0,0,4.0,0.0,,,,,68.10880327224731,False,True,,False,True,True
+c86d18f4aa,Abhishek,4,Addresses a specific memory leak issue ,4,0,0,0,0,0,4.0,4.0,0.0,4.0,0.0,"Memory leak, which is a type of memory bug",97.73986506462096,False,True,,False,True,True
+bb2aa78e9a,Abhishek,4,code refactoring,0,0,4,0,0,0,,,,,,,107.8870038986206,False,True,,False,True,True
+f93e2a100e,Abhishek,4,It is a BPC as it prevents potential wrong memory access in future.,0,4,0,0,0,0,,,,,,,206.24319791793823,False,True,,False,False,True
+c3ad8d23bc,Abhishek,4,Introduce new feature as a function.,0,0,0,4,0,0,,,,,,,73.8523850440979,False,True,,False,True,True
+48bff1053c,Abhishek,4,"Refines the initialization process of /dev/urandom, making it more reliable and robust across different architectures.",0,4,4,0,0,0,,,,,,nan,39.954972982406616,False,True,,False,False,
+5a48b7433a,Abhishek,4,"Grammar and spelling issues, Code refactoring",0,0,4,0,0,0,,,,,,,52.23194313049317,False,True,,False,False,True
+e5fc78252c,Abhishek,4,New feature,0,0,4,4,0,0,,,,,,,123.55815196037292,False,True,,False,True,True
+862a876c3a,Abhishek,4,Fixes a specific issue with the DSC slice reset calculation,4,0,0,0,0,0,4.0,0.0,,,,,36.019484996795654,False,True,,False,True,True
+ef1a0808a2,Abhishek,4,"Code improvement, refactoring",0,0,4,0,0,0,,,,,,,57.959524154663086,False,True,,False,False,False
+16ed828b87,Abhishek,4, Fixes resource leak by adding the missing iounmap() call,4,0,0,0,0,0,4.0,3.0,0.0,4.0,0.0,Fixes Memory leak issue,118.03966689109802,False,True,,False,True,True
+b087a381d7,Abhishek,4,Fixes issue related to improper resource release.,4,0,0,0,0,0,4.0,4.0,0.0,4.0,0.0,Fixes memory leak issue but not sure,85.1145761013031,False,True,,False,True,True
+5dc6ce767d,Abhishek,4,Introduces a new feature by adding support for the Renesas RZ/V2L SoC,0,0,0,4,4,0,,,,,,,76.63515973091125,False,True,,False,True,True
+8b1ac84dcf,Abhishek,4,Fixes documentation error.,0,0,4,0,0,0,,,,,,,122.552747964859,False,True,,False,True,True
+7c8881b779,Abhishek,4,Fixes memory leak issue by ensuring that allocated memory is freed in the event of an error.,4,0,0,0,0,0,0.0,3.0,0.0,4.0,0.0,memory leak can be considered here a memory bug.,37.415509939193726,False,True,,False,True,True
+907862e9ae,Abhishek,4,Fixes infinite loop error,4,0,0,0,0,0,4.0,4.0,4.0,0.0,0.0,Infinite loop comes under timing and execution bug.,81.58046793937683,False,False,,False,False,False
+5f24d5a579,Abhishek,4,"Improves the code by ensuring uniform handling of ""high"" userspace addresses across different functions and architectures.",0,4,4,0,0,0,4.0,0.0,,,,nan,67.85121583938599,False,True,,False,False,
+6e1ff1459e,Abhishek,4,Introduces new feature,0,0,4,4,0,0,,,,,,,48.10957908630371,False,True,,False,True,True
+0adc2ab0e8,Abhishek,4,The commit prevents potential issues related to IO splitting by ensuring consistent io_flags.,0,4,0,0,0,0,,,0.0,0.0,0.0,,110.73365688323976,False,True,,False,True,True
+fa1ef24ae2,Abhishek,4,Code refactoring: replaces warning with information message.,0,0,4,0,0,0,,,0.0,0.0,0.0,,65.59359526634216,False,True,,False,True,True
+3e5a8e8494,Abhishek,4," By resetting the GCC_SDCC_BCR register before each initialization, commit prevents future bugs.",1,4,0,0,0,0,0.0,0.0,,,,,120.05626106262208,False,True,,False,True,True
+570a4bf744,Abhishek,4,Fixes bug where the MR computation could result in a zero value during READ replies.,4,0,0,0,0,0,4.0,0.0,,,,,141.41038489341736,False,True,,False,False,False
+a7ecbe92b9,Abhishek,4,Fixes  concurrency bug by ensuring proper locking around accesses to card->local_node and card->bm_retries,4,0,0,0,0,0,4.0,4.0,4.0,0.0,0.0,Race condition,157.80595207214355,False,True,,False,True,True
+93a8417088,Abhishek,4,Fixes an issue with the hardware counters in the Ocelot switch driver ,4,0,0,0,0,0,4.0,3.0,2.0,0.0,0.0,Not sure but hit counters can be considered under Timing and Execution bug.,238.1931629180908,False,True,,False,True,True
+c223929418,Abhishek,4,This fix  ensures that only registered groups are removed. It is clearly BPC but i am not sure whether it should be considered as BFC as well.,3,4,0,0,0,0,0.0,0.0,,,,,161.6064829826355,False,True,,False,True,True
+4df002d908,Abhishek,4,Code improvement/ refactoring: removing an unnecessary dependency.,0,0,4,0,0,0,,,,,,,80.28491497039795,False,True,,False,True,True
+fb036ad7db,Abhishek,4,Increases the allocated memory.,0,4,0,0,0,0,,,,,,,79.83010506629944,False,True,,False,True,True
+4e5bc0a9a1,Abhishek,4,Introduces a new feature that allows io_uring to store and return two additional 64-bit values with each CQE32.,0,0,4,4,0,0,,,,,,,117.0911111831665,False,True,,False,True,True
+e24ccaaf7e,Abhishek,4,Documentation update,0,0,4,0,0,0,,,,,,,50.7439181804657,False,True,,False,True,True
+f624506f98,Abhishek,4,Improves code structure,0,3,4,0,0,0,,,,,,,86.52743601799011,False,True,,False,True,True
+9aeb7f99a1,Abhishek,4,"Fixes issues where accesses to RCU-protected pointers were not properly annotated, causing sparse warnings.",3,3,0,0,0,0,0.0,2.0,2.0,0.0,0.0,It can prevent race conditions but am not sure.,300.020947933197,False,True,,False,True,True
+e2efb6359e,Abhishek,4,Removes unnecessary WBINVD instruction in virtual environments.,0,4,4,0,0,0,,,,,,,89.05118918418884,False,True,,False,True,True
+aeb8441203,Abhishek,4,Wraps literal addresses in absolute_pointer(). It fixes the warning but i am not sure whether it is BFC or not.,2,4,4,0,0,0,0.0,0.0,,,,,163.36160707473755,False,True,,False,True,True
+5a0893088a,Abhishek,4,Code cleaning/refactoring,0,0,4,0,0,0,,,,,,,36.9121310710907,False,True,,False,False,True
+f5c0b4f304,Abhishek,4,Code refactoring,0,0,4,0,0,0,,,,,,,65.61483407020569,False,True,,False,False,True
+327c348988,Abhishek,4,Improves the kernel's logging capabilities by providing more detailed information about the system's physical address space,0,0,4,0,0,0,,,,,,,264.4612600803375,False,True,,False,True,True
+fcdc03f78d,Abhishek,4,Code cleanup,0,0,4,0,0,0,,,,,,,26.579586029052734,False,True,,False,False,False
+710c8d6c02,Abhishek,4,It fixes sparse warning by declaring non-global as static.,0,4,3,0,0,0,,,,,,,214.2353229522705,False,True,,False,False,True
+a59f7a7f76,Abhishek,4,Modifies the Makefile configuration.,0,0,4,0,0,0,,,,,,,2865.395396232605,False,True,,False,True,True
+03f16cd020,Abhishek,4,Introduces new configuration option  to the kernel build system. ,0,4,4,0,0,0,,,,,,,321.8078501224518,False,True,,False,False,False
+d6d0c7f681,Abhishek,4, Adds a new feature bit for PerfMonV2,0,0,0,4,0,0,,,,,,,85.92542505264282,False,True,,False,True,True
+ddaefa209c,Abhishek,4,Prevents future bugs related to incorrect driver conversions and incomplete registrations.,0,4,0,0,0,0,,,,,,,264.5353410243988,False,True,,False,True,True
+d9edc4bc67,Abhishek,4,Commit fixes an issue where the previous implementation could not guarantee the bad block marker would always be located in the data chunk for large OOB NANDs,4,2,0,0,0,0,0.0,0.0,,,,,277.1222870349884,False,True,,False,True,True
+0c9ee5ba75,Abhishek,4,Fixes a compiler warning,3,0,3,0,0,0,4.0,0.0,,,,,89.89237809181213,False,True,,False,False,True
+bfb5711e24,Abhishek,4,Code refactoring.,0,0,4,0,0,0,,,,,,,41.15466284751892,False,True,,False,False,True
+116c3f4a78,Abhishek,4,Fixes an issue: maximum brightness for the Dream Cheeky device was not set correctly,4,0,0,0,0,0,0.0,0.0,,,,,68.10201406478882,False,True,,False,True,True
+6eaf08770e,Abhishek,4, Introduces a warning when a sleep duration greater than 10 milliseconds is detected. ,0,4,0,0,0,0,,,,,,,315.41556310653687,False,True,,False,True,True
+002752af7b,Abhishek,4,Improves the code by simplifying error handling.,0,4,4,0,0,0,,,,,,,116.7104389667511,False,True,,False,True,True
+f6e109a0af,Abhishek,4,Documentation update,0,0,4,0,0,0,,,,,,,52.94794797897339,False,True,,False,True,True
+590a8e564c,Abhishek,4, Commit prevents potential data corruption on the CEC bus,3,0,0,0,0,0,4.0,4.0,4.0,0.0,4.0,I think it comes under both Timing and Execution bug and Exchange of Information bug. Not sure,227.5508179664612,False,True,,False,False,False
+a5e9e202fe,Abhishek,4,Adds a power-domains property to the device tree bindings.,0,4,4,0,0,0,,,,,,,176.41622304916382,False,True,,False,True,True
+8551ed70dd,Abhishek,4,Improves the MAINTAINERS file by ensuring it accurately reflects the current state of the codebase and includes all relevant files.,0,4,4,0,0,0,,,,,,,100.910001039505,False,True,,False,False,False
+831f87424d,Abhishek,4,Code improvement,0,4,4,0,0,0,,,,,,,46.3305606842041,False,True,,False,True,True
+63c34cb4c6,Abhishek,4,Introduces a helper function.,0,4,4,0,0,0,,,,,,,87.51967167854309,False,True,,False,False,False
+f51debc256,Abhishek,4,Documentation update,0,0,4,0,0,0,,,,,,,48.92495393753052,False,True,,False,True,True
+5a5866c28b,Abhishek,4,Version / Documentation update,0,0,0,0,0,0,,,,,,,362.90743494033813,False,True,,False,True,True
+89c30dd221,Abhishek,4,Documentation update,0,0,4,0,0,0,,,,,,,114.92754077911376,False,True,,False,False,False
+7cb29b1c99,Abhishek,4,Add test cases to prevent future bugs.,0,4,0,0,0,0,,,,,,,89.82507085800171,False,True,,False,False,False
+4dc84c06a3,Abhishek,4,New feature,0,0,0,4,4,0,,,,,,,79.4394199848175,False,True,,False,True,True
+c6c1f11b69,Abhishek,4,"Fixes an issue where different error conditions returned the same error code, making it difficult to diagnose and handle specific errors correctly.",0,4,4,0,0,0,,,,,,,114.74354696273804,False,True,,False,True,True
+0bd5ab511e,Abhishek,4,Code improvement/readability,0,0,4,0,0,0,,,,,,,62.941133975982666,False,True,,False,False,False
+6fd1d51cfa,Abhishek,4,New feature,0,0,0,4,4,0,,,,,,,74.38676524162292,False,True,,False,True,True
+fd3040b939,Abhishek,4,New feature: By adding support for the Sunplus SP7021 SoC in the form of an Ethernet driver.,0,0,0,4,4,0,,,,,,,185.49014520645144,False,True,,False,True,True
+7b8b82224c,Abhishek,4,Fixes warning by removing unnecessary code.,0,0,4,0,0,0,,,,,,,248.38295984268188,False,True,,False,False,True
+1397af5bfd,Abhishek,4,code cleaning,0,0,4,0,0,0,,,,,,,49.742465019226074,False,True,,False,True,True
+3128ea0169,Abhishek,4,"Fixes an issue where the driver was incorrectly dropping frames with non-standard VHT MCS10-11 rates, even though the hardware can handle them correctly. There is not major code change but i think it BFC.",4,0,0,0,0,0,2.0,3.0,0.0,0.0,4.0,Improves the exchange of information between devices but not sure,38.92454123497009,False,True,,False,True,
+abba345311,Abhishek,4,"Fixes issue by ensuring the correct antenna configuration. It seems more of a BPC but can be considered BFC also, not sure",3,4,0,0,0,0,0.0,0.0,,,,,204.60379791259768,False,True,,False,True,True
+d1ddc536df,Abhishek,4,Adds a new feature.,0,4,0,4,4,0,,,,,,,103.99384069442748,False,True,,False,True,True
+e950329880,Abhishek,4,Fixes array-bounds warning.,3,4,0,0,0,0,4.0,4.0,0.0,4.0,0.0,"Potential array bounds warning , which is related to memory access.",260.21566104888916,False,True,,False,True,True
+9b80ccda23,Abhishek,4,"Fixes a race condition bug caused by the removal of the rcu_read_lock() in bond_ethtool_get_ts_info(). Also, dereferencing of invalid pointers.",4,4,0,0,0,0,4.0,4.0,4.0,4.0,0.0,Race condition and dereferencing of invalid pointers.,159.8201220035553,False,True,,False,False,False
+0255571a16,Abhishek,4,Code refactoring,0,4,4,0,0,0,,,,,,,146.43791604042053,False,True,,False,True,True
+12aeaaba08,Abhishek,4,Documentation update,0,0,4,0,0,0,,,,,,,30.594861030578613,False,True,,False,True,True
+d8fc085509,Abhishek,4,Code improvement,0,0,4,0,0,0,,,,,,,43.41963529586792,False,True,,False,True,True
+081e8432ad,Abhishek,4,Documentation update,0,0,4,0,0,0,,,,,,,38.76969504356384,False,True,,False,False,True
+f2701e0ffd,Abhishek,4,Documentation Update,0,0,4,0,0,0,,,,,,,33.9512140750885,False,True,,False,False,False
+cc2f2df48a,Abhishek,4,Introduces a new feature by adding audio support to the Device Tree bindings for the it66121 HDMI bridge.,0,0,0,4,4,0,,,,,,,246.05529689788816,False,True,,False,True,True
+4194442daf,Abhishek,4,It makes the pointer constant.,0,4,4,0,0,0,,,,,,,166.12433385849,False,True,,False,True,True
+16a54d4ee7,Abhishek,4,Incorrect formatting in sysfs show functions,0,3,4,0,0,0,,,,,,,98.91459894180298,False,True,,False,False,False
+5c190e5394,Abhishek,4,Code improvement,0,3,4,0,0,0,,,,,,,75.6544771194458,False,True,,False,False,False
+e9b67ec2d3,Abhishek,4,code refactoring,0,0,4,0,0,0,,,,,,,51.002861976623535,False,True,,False,True,True
+618f5df1f6,Abhishek,4,The commit addresses the issue of excessive warnings caused by benign unclaimed register accesses.,0,3,4,0,0,0,,,,,,,128.24043202400208,False,True,,False,False,True
+a90b8fc9ca,Abhishek,4, Fixes a compliance issue with the HDMI specification by ensuring GCP is only enabled for Deep Color when supported by the sink.,3,0,0,0,0,0,0.0,4.0,0.0,0.0,4.0,Ensures proper transmission of GCP thus improving the exchange of information. Not sure,222.53615593910217,False,True,,False,True,True
+b76ecff831,Abhishek,4,Adds warning and updated comments,0,3,4,0,0,0,,,,,,,105.9869351387024,False,True,,False,True,True
+fb197474ed,Abhishek,4,Code update/refactoring,0,0,4,0,0,0,,,,,,,38.168070793151855,False,True,,False,True,True
+a772105cfa,Abhishek,4,Updates the structure of LTTPR and UHBR. It is more of BPC,1,4,0,0,0,0,0.0,0.0,,,,,188.30477499961853,False,True,,False,True,True
+0f12a22f37,Abhishek,4,Fixes an issue where stale PTEs could cause incorrect memory mappings by ensuring the TLB is flushed after each mapping update.,4,0,0,0,0,0,4.0,4.0,0.0,4.0,0.0,Directly addresses memory management by ensuring correct updates to the TLB and preventing stale PTEs in the cache.,135.77584099769592,False,True,,False,True,True
+60f6fe665e,Abhishek,4,Introduces sanity checks and changing the clock table basis. It seems to be a BPC,3,4,0,0,0,0,0.0,0.0,,,,,113.15199208259584,False,True,,False,False,False
+72907bff3b,Abhishek,4,Adds new feature,0,0,0,4,4,0,,,,,,,145.0043559074402,False,True,,False,True,True
+09570c5010,Abhishek,4,Code improvement/refactoring. Easy to understand,0,0,4,0,0,0,,,,,,,250.7530872821808,False,True,,False,True,True
+50a7d025ca,Abhishek,4,Adds a handler for creating RAS poison creation handler.,0,4,0,0,0,0,,,,,,,107.01503276824953,False,True,,False,True,True
+f716113aac,Abhishek,4,Adds validation checks for table signatures and checksums.,0,4,4,0,0,0,,,,,,,321.7613501548767,False,True,,False,True,True
+17edb8e1e3,Abhishek,4,Documentation update,0,0,4,0,0,0,,,,,,,17661.933080911636,False,True,,False,True,True
+6a47a16dce,Abhishek,4,Code improvement/refactoring,0,4,0,0,0,0,,,,,,,105.12971520423888,False,True,,False,False,True
+e20b77c14b,Abhishek,4,Improves naming convention.,0,0,4,0,0,0,,,,,,,175.25812196731567,False,True,,False,True,True
+fb4f4f4256,Abhishek,4,Fixes memory leak issue,4,0,0,0,0,0,4.0,4.0,0.0,4.0,0.0,Memory leak bug,65076.12947201729,False,True,,False,True,True
+6f3c9dbb65,Abhishek,4,Fixes null pointer issue.,4,0,0,0,0,0,0.0,0.0,,,,,68.2761778831482,False,True,,False,True,True
+65b462fc7e,Abhishek,4,New feature by enabling GENERIC0_INT for gfx/compute pipes,0,0,0,4,0,0,,,,,,,61.01239919662475,False,True,,False,True,True
+8da1170a16,Abhishek,4,New feature,0,0,0,4,0,0,,,,,,,71.55470180511475,False,True,,False,True,True
+cae5c1ab05,Abhishek,4,Remove redundant code/code cleaning,0,4,4,0,0,0,,,,,,,66.93213105201721,False,True,,False,True,True
+2fc092d4c7,Abhishek,4,"Fixes bug related to the incorrect handling of the ""me"" field in the map_queue packet.",4,0,0,0,0,0,4.0,3.0,4.0,0.0,0.0,It involves scheduling  of GFX,183.88121700286865,False,True,,False,False,True
+0ef882074e,Abhishek,4,New feature,0,0,0,4,0,0,,,,,,,57.54176616668701,False,True,,False,True,True
+9995c1d096,Abhishek,4,Fixes a logic bug in the BE state transitions for the PAUSE_RELEASE operation.,4,0,0,0,0,0,0.0,0.0,,,,,108.66470217704772,False,True,,False,True,True
+80890c5ea0,Abhishek,4,Improves driver configuration. code refactoring,0,0,4,0,0,0,,,,,,,103.47943305969238,False,True,,False,False,False
+1e029397d1,Abhishek,4,code refactoring,0,0,4,0,0,0,,,,,,,37.76392984390259,False,True,,False,True,True
+5099478e43,Abhishek,4,Changes the configuration mechanism to improve compatibility.,0,4,4,0,0,0,,,,,,,69.83560609817505,False,True,,False,False,False
+82806744fd,Abhishek,4,Fixes bug related to the maximum mapping size calculation in the swiotlb module.,4,0,0,0,0,0,0.0,4.0,0.0,4.0,0.0,Addresses an issue related to memory mapping and alignment,273.0198531150818,False,True,,False,True,True
+e730558adf,Abhishek,4,Corrects the logic for handling filesystem events,3,0,3,0,0,0,0.0,4.0,0.0,0.0,2.0,Exchange of event notification information between parent and child nodes in the filesystem can be considered as exchange of information but not sure,214.42064213752747,False,True,,False,True,True
+537f8ffbdf,Abhishek,4,Code refactoring,0,0,4,0,0,0,,,,,,,29.218019008636475,False,True,,False,False,True
+73ab99aad5,Abhishek,4,Changes configuration,0,0,4,0,0,0,,,,,,,167.31372594833374,False,True,,False,True,True
+42da167bbd,Abhishek,4,Changes the naming conventions,2,0,4,0,0,0,0.0,0.0,,,,,86.61670708656311,False,True,,False,False,True
+24a3db53ec,Abhishek,4,Updates binding conventions,0,4,4,0,0,0,,,,,,,493.76627016067505,False,True,,False,True,True
+23347c90e2,Abhishek,4,Improves code quality and Updates binding conventions,0,4,4,0,0,0,,,,,,,26.39165091514587,False,True,,False,True,True
+1ed914e341,Abhishek,4,New feature,0,0,0,4,0,0,,,,,,,55.97102379798889,False,True,,False,True,True
+05f333b746,Abhishek,4,Introduces a new feature by adding support for the ethqos Ethernet controller on the SM8150 SoC.,0,0,0,4,0,0,,,,,,,52.4397988319397,False,True,,False,False,False
+7cbeeb0553,Abhishek,4,Updates the CAN node property and addresses a warning.,2,4,0,0,0,0,0.0,0.0,,,,,83.38656711578369,False,True,,False,False,True
+d3a20dcbca,Abhishek,4,Documentation update,0,0,4,0,0,0,,,,,,,43.14974808692932,False,True,,False,False,False
+1dcf37365e,Abhishek,4,Updates the format of the bindings,0,4,4,0,0,0,,,,,,,61.858442068099976,False,True,,False,True,True
+7058e68c2f,Abhishek,4,Code cleaning,0,0,4,0,0,0,,,,,,,28.90153694152832,False,True,,False,True,True
+322842ea3c,Abhishek,4,Fixes a bug where a missing swap_free() could lead to swap entry leaks when arch_unmap_one() fails.,4,0,0,0,0,0,4.0,4.0,0.0,4.0,0.0,"Deals with memory management issues, specifically related to swap entry handling.",217.1816020011902,False,True,,False,True,True
+75c96ccea2,Abhishek,4,Spelling change,0,0,4,0,0,0,,,,,,,76.20013999938965,False,True,,False,False,True
+b9f3973ab3,Abhishek,4,New feature,0,0,0,4,0,0,,,,,,,45.62296104431152,False,True,,False,True,True
+34886e796c,Abhishek,4,code refactoring,0,0,4,0,0,0,,,,,,,49.37277293205261,False,True,,False,True,True
+cf8f4462e5,Abhishek,4,code refactoring,0,0,4,0,0,0,,,,,,,30.92197895050049,False,True,,False,True,True
+cb55f27ac9,Abhishek,4,code cleaning / refactoring,0,0,4,0,0,0,,,,,,,49.9765350818634,False,True,,False,False,True
+99bd995655,Abhishek,4,New feature,0,0,3,4,0,0,,,,,,,105.1746952533722,False,True,,False,True,True
+e945c653c8,Abhishek,4,code refactoring and documentation of the flags,0,3,4,0,0,0,,,,,,,75.1088240146637,False,True,,False,True,True
+4e05a4b329,Abhishek,4,Adds checks for the return value of rxe_get() in the tasklets to detect future bugs.,0,4,0,0,0,0,,,,,,,91.42316603660583,False,True,,False,True,True
+a3b774342f,Abhishek,4,Adds validation for the sectors_per_clusters field in the NTFS BOOT sector to ensure it is within a valid range to prevent future bugs.,0,4,0,0,0,0,,,,,,,95.9849762916565,False,True,,False,True,True
+e200904b27,Abhishek,4,"Code refactoring, removes redundant code.",0,0,4,0,0,0,,,,,,,198.0975561141968,False,True,,False,True,True
+df22168207,Abhishek,4,Code readability and refactoring,0,0,4,0,0,0,,,,,,,189.68724989891052,False,True,,False,True,True
+84c9829d16,Abhishek,4,New feature,0,0,0,4,0,0,,,,,,,61.93953895568848,False,True,,False,True,True
+801179b670,Abhishek,4,Code refactoring by removing .is_enabled.,0,0,4,0,0,0,,,,,,,61.373751163482666,False,True,,False,True,True
+609cc5e1a8,Abhishek,4,Code improvement by replacing the old api with new.,0,4,4,0,0,0,,,,,,,55.91675400733948,False,True,,False,True,True
+50cfde3349,Abhishek,4,Documentation update: replaces the original text author with the current Rockchip clock maintainer.,0,0,4,0,0,0,,,,,,,149.6217520236969,False,True,,False,False,False
+3b49ae380c,Abhishek,4,Commit fixes the error check for the return value of platform_get_irq() in the ipaq-micro driver to correctly handle negative values.,4,0,0,0,0,0,4.0,0.0,,,,,75.17827486991882,False,True,,False,True,True
+ee74fdf0ca,Abhishek,4,"Code refactoring, code understandability",0,0,4,0,0,0,,,,,,,66.9412989616394,False,True,,False,False,False
+287f1ee38a,Abhishek,4,Improves code quality by reducing its size.,0,0,4,0,0,0,,,,,,,74.18062901496887,False,True,,False,True,True
+ce0091a0e0,Abhishek,4,Fixes warning and improves the code quality by ensuring all symbols are correctly declared and placed.,0,4,4,0,0,0,,,,,,,83.13573980331421,False,True,,False,False,False
+82cd4bacff,Abhishek,4, Fixes a bug related to the incorrect handling of transaction IDs,4,0,0,0,0,0,2.0,1.0,2.0,2.0,2.0,,240.96593403816223,False,True,,False,True,True
+d3345fecf9,Abhishek,4,New feature by adding the requires_cpu flag to handle uncore events correctly.,0,4,0,4,0,0,,,,,,,68.08475804328918,False,True,,False,True,True
+607c04a044,Abhishek,4,Updates the MMP DMA driver to use the generic dma-channels property instead of the deprecated #dma-channels. This will prevent future bugs.,0,4,4,0,0,0,,,,,,,74.59287905693054,False,True,,False,True,True
+bd53e442e8,Abhishek,4,New feature  by adding minimal regset support to the m68k architecture.,0,0,0,4,0,0,,,,,,,107.7186176776886,False,True,,False,True,True
+1300eec9e5,Abhishek,4,Commit fixes a bug related to undefined references.,4,0,0,0,0,0,4.0,0.0,,,,,77.84167575836182,False,True,,False,True,True
+da4363457f,Abhishek,4, Commit fixes a bug related to compilation warnings,4,3,0,0,0,0,0.0,0.0,,,,,379.3979871273041,False,True,,False,True,True
+c2ca36e82f,Abhishek,4,code cleanup,0,0,0,0,0,0,,,,,,,34.4317421913147,False,True,,False,False,True
+aabfe05a82,Abhishek,4,New functionality by adding support for the PCA85073A RTC,0,0,0,4,0,0,,,,,,,234.96413278579712,False,True,,False,True,True
+d3b43eb505,Abhishek,4,Adds a check for the return value of platform_get_resource() in the mt6397 RTC driver to prevent future bugs.,0,4,0,0,0,0,,,,,,,88.52845907211304,False,True,,False,True,True
+690b2549b1,Abhishek,4,Adds a check to cap the data->block[0] value in the ismt_access() function to prevent memory corruption,0,4,0,0,0,0,,,,,,,69.79589009284973,False,True,,False,True,True
+546a5d6122,Abhishek,4,Limits the retrying request to 256 times to prevent future bugs.,0,4,0,0,0,0,,,,,,,207.5255131721497,False,True,,False,False,True
+a0ccc717c4,Abhishek,4,Enhances the AMDGPU driver by adding validation checks to prevent future bugs.,0,4,0,0,0,0,,,,,,,77823.50442099571,False,True,,False,False,True
+4dd9989164,Abhishek,4,Code improvement,0,0,4,0,0,0,,,,,,,51.09579420089722,False,True,,False,False,True
+d6f8168e43,Abhishek,4,Fixes a build error caused by a type mismatch in the printf format specifier,4,0,0,0,0,0,4.0,0.0,,,,,84.44687390327454,False,True,,False,False,True
+54739cc6b4,Abhishek,4,Code quality improvement,0,0,4,0,0,0,,,,,,,60.070292949676514,False,True,,False,True,True
+403d50341c,Abhishek,4,Fixes issue in the bio_copy_data_iter function to correctly handle bio_vec offsets when copying data thus preventing future bugs.,0,4,0,0,0,0,,,,,,,110.46168398857117,False,True,,False,True,True
+67fda6c2df,Abhishek,4,Code refactoring / improvement,0,0,4,0,0,0,,,,,,,39.25775098800659,False,True,,False,True,True
+0b465150b3,Abhishek,4,Code refactoring,0,0,4,0,0,0,,,,,,,34.688316822052,False,True,,False,True,True
+95b8f316ae,Abhishek,4,Comments improvement,0,0,4,0,0,0,,,,,,,47.24559473991394,False,True,,False,True,True
+a8d412ec98,Abhishek,4,Removed redundant code,0,0,4,0,0,0,,,,,,,43.14693284034729,False,True,,False,False,True
+d9ad805083,Abhishek,4,Code improvement by removing unnecessary code.,0,0,4,0,0,0,,,,,,,61.53607392311096,False,True,,False,True,True
+8ef6e1ba71,Abhishek,4,Enhances the readability and maintainability of the code,0,0,4,0,0,0,,,,,,,130.61361503601074,False,True,,False,True,True
+4088ca3edc,Abhishek,4,"Remove unused header, code quality improvement.",0,0,4,0,0,0,,,,,,,85.78929901123047,False,True,,False,True,True
+67ec2c75f3,Abhishek,4,Code quality improvement,0,0,4,0,0,0,,,,,,,44.00694513320923,False,True,,False,False,True
+b92d8a6e93,Abhishek,4,Code quality improvement by removing unnecessary checks,0,0,4,0,0,0,,,,,,,50.38796091079712,False,True,,False,True,True
+424140d31b,Abhishek,4,Commit ensures both U1 and U2 states are prevented according to the tier policy.,0,4,0,0,0,0,,,,,,,285.70243668556213,False,True,,False,True,True
+249369e931,Abhishek,4,Improves the code quality,0,3,4,0,0,0,,,,,,,44.67829871177673,False,True,,False,False,True
+bc4c94994f,Abhishek,4,Improves the code quality,0,0,4,0,0,0,,,,,,,261.35637402534485,False,True,,False,True,True
+f9b0593dd4,Abhishek,4,"Converts the mixel,mipi-dsi-phy device tree binding to JSON schema format and adds necessary properties",0,4,4,0,0,0,,,,,,,156.60886907577515,False,True,,False,True,True
+5a709a46e4,Abhishek,4,Code optimization,0,0,4,0,0,0,,,,,,,118.21095871925354,False,True,,False,True,True
+bc055a50a8,Abhishek,4,Documentation update,0,0,4,0,0,0,,,,,,,80.8779559135437,False,True,,False,True,True
+f4d1f2142a,Abhishek,4,Enhances the code by aligning it with existing coding standards,0,0,4,0,0,0,,,,,,,282.5076467990875,False,True,,False,True,True
+01c3f0387c,Abhishek,4,Makes the pointers const thus preventing future bugs.,0,4,4,0,0,0,,,,,,,123.15025997161864,False,True,,False,True,True
+2ba75d3119,Abhishek,4,Code refactoring,0,0,4,0,0,0,,,,,,,27.21452522277832,False,True,,False,True,True
+829ec038c9,Abhishek,4,Code refactoring,0,0,4,0,0,0,,,,,,,31.13467812538147,False,True,,False,True,True
+e8c81d649a,Abhishek,4,Documentation update,0,0,4,0,0,0,,,,,,,42.35031485557556,False,True,,False,True,True
+dcf23cca93,Abhishek,4,Code quality improvement,0,0,4,0,0,0,,,,,,,46.998754262924194,False,True,,False,True,True
+a570e68fab,Abhishek,4,Code cleanup,0,0,4,0,0,0,,,,,,,23.030736207962036,False,True,,False,True,True
+647df0d41b,Abhishek,4, Commit fixes a warning related to incorrect format specifiers.,3,4,0,0,0,0,0.0,0.0,,,,,164.15240001678467,False,True,,False,False,False
+216d1a8013,Abhishek,4,Updates email id.,0,0,4,0,0,0,,,,,,,30.601306200027462,False,True,,False,True,True
+f38b3c6a78,Abhishek,4,Code cleaning,0,0,4,0,0,0,,,,,,,24.56522226333618,False,True,,False,True,True
+ec906102e5,Abhishek,4,Fixes a bug in the test suite where the CSV output linter test fails on the s390 architecture due to a different number of fields.,4,0,3,0,0,0,4.0,0.0,,,,,107.77151584625244,False,True,,False,False,False
+9b7fd1670a,Abhishek,4,Fixes an issue in the Aquantia PHY driver where higher speeds than 1G are advertised even when restricted to 1G or lower.,4,0,0,0,0,0,0.0,0.0,,,,,138.1190369129181,False,True,,False,True,True
+b653db7735,Abhishek,4,Prevents future issues related to uninitialized page->private fields.,0,4,3,0,0,0,,,,,,,348.83881998062134,False,True,,False,False,False
+0e597e2aff,Abhishek,4,Disables the RX error interrupt,0,4,0,0,0,0,,,,,,,70.62851285934448,False,True,,False,True,True
+9577fc5fdc,Abhishek,4,Code quality improvement,0,0,4,0,0,0,,,,,,,40.88345909118652,False,True,,False,True,True
+2307a0e1ca,Abhishek,4,New feature,0,0,4,0,0,0,,,,,,,258.8086647987366,False,True,,False,True,True
+a7786cbae4,Abhishek,4,Fixes a bug where spurious events are generated due to the Slimbus mux put operation unconditionally reporting a change in value.,4,0,0,0,0,0,0.0,4.0,0.0,0.0,4.0,"Ensures that events are generated correctly based on actual changes, preventing incorrect information exchange through spurious events.",676.606351852417,False,True,,False,True,True
+c5e58c4545,Abhishek,4, Fixes the probe error handling in the CS46XX driver,4,0,0,0,0,0,0.0,4.0,4.0,0.0,0.0,Ensures resources are released correctly during probe errors,139.60734009742737,False,True,,False,True,True
+a382f8fee4,Abhishek,4,The commit helps prevent future bugs where the system crashes due to non-critical bugs.,3,4,0,0,0,0,4.0,3.0,4.0,0.0,0.0,Addresses a safety-related issue by preventing unnecessary system crashes and ensuring stability but not sure.,86.67346000671387,False,True,,False,False,False
+15e67227c4,Abhishek,4,Code quality improvement,0,0,4,0,0,0,,,,,,,46.94058609008789,False,True,,False,True,True
+d147553b64,Abhishek,4,Code quality improvement,0,0,4,0,0,0,,,,,,,30.31727385520935,False,True,,False,True,True
+6cc2714e85,Abhishek,4,"Commit fixes a bug where an incorrect constant is used in a size comparison, potentially leading to incorrect behavior.",2,4,0,0,0,0,0.0,0.0,,,,,194.7198338508606,False,True,,False,True,True
+add61d3c31,Abhishek,4,"Fixes a bug where 36 bpp linebuffers cause issues on various DCE versions, particularly DCE-11.2.",4,0,0,0,0,0,0.0,0.0,,,,,130.545423746109,False,True,,False,True,True
+1968f2be5c,Abhishek,4,New feature,0,0,0,4,4,0,,,,,,,69.75518107414246,False,True,,False,True,True
+6961b5e028,Abhishek,4,Fixes naming collision issue in the NVMe driver when multipath is enabled and the namespace is shared.,4,0,0,0,0,0,0.0,0.0,,,,,166.94785404205322,False,True,,False,True,True
+8ebcc62c73,Abhishek,4,Fixes data races around the sysctl_igmp_qrv variable,4,0,0,0,0,0,0.0,4.0,4.0,0.0,0.0,Data race condition bug.,133.6397030353546,False,True,,False,True,True
+d8fa2fd791,Abhishek,4,Fixes missing state logs in the IAVF driver by adding strings for missing states to the iavf_state_str array,4,0,0,0,0,0,0.0,0.0,,,,,185.6078588962555,False,True,,False,False,False
+b354eaeec8,Abhishek,4,Commit fixes a bug where the egress ratelimit configuration for CN10K was incorrect due to changes in the register format and burst size support.,4,0,0,0,0,0,0.0,0.0,,,,,101.48621964454652,False,True,,False,False,False
+ef61b6ea15,Abhishek,4,This commit ensures that event mask is always set during suspension thus preventing future bugs.,0,4,0,0,0,0,,,,,,,102.22965621948242,False,True,,False,False,False
+fc04dafd26,Abhishek,4,Code improvement,0,0,4,0,0,0,,,,,,,27.290910005569454,False,True,,False,False,False
+b2d71f275d,Abhishek,4,Code and definition improvement.,0,0,4,0,0,0,,,,,,,45.7628870010376,False,True,,False,True,True
+b02180e899,Abhishek,4,Code refactoring,0,4,4,0,0,0,,,,,,,120.69388270378111,False,True,,False,True,True
+96fed779d3,Abhishek,4,New feature for the Renesas RZ/G2L Interrupt Controller,0,0,0,4,4,0,,,,,,,76.95421743392944,False,True,,False,True,True
+44e36d7552,Abhishek,4,Code quality improvement,0,0,4,0,0,0,,,,,,,77.9775812625885,False,True,,False,False,False
+bcdf998ea3,Abhishek,4,Introduces a new feature by adding an alternate pinmux option for the DCMI pins.,0,0,0,4,4,0,,,,,,,62.76111912727356,False,True,,False,True,True
+d955cf3df3,Abhishek,4,Improves the directory structure by logically grouping related bindings together. Improving code quality.,0,0,4,0,0,0,,,,,,,77.1869649887085,False,True,,False,False,True
+b888886a45,Abhishek,4,Adds new feature by adding a node for the pinctrl controller.,0,0,0,4,4,0,,,,,,,58.45563888549805,False,True,,False,True,True
+9794c30841,Abhishek,4,Adds new feature by adding support for the DH electronics.,0,0,0,4,4,0,,,,,,,81.95369791984558,False,True,,False,True,True
+e60414644c,Abhishek,4,Code quality Improvement.,0,0,4,0,0,0,,,,,,,38.004772901535034,False,True,,False,True,True
+05b90d2404,Abhishek,4,Documentation update,0,0,4,0,0,0,,,,,,,41.32837891578674,False,True,,False,False,False
+f67be8b7ee,Abhishek,4,Introduces new helper function.,0,0,4,4,0,0,,,,,,,107.86771869659424,False,True,,False,True,True
+6598b91b5a,Abhishek,4,Code optimization,0,0,4,0,0,0,,,,,,,67.50371670722961,False,True,,False,True,True
+5c8dca9740,Abhishek,4,Code quality improvement and readability.,0,0,4,0,0,0,,,,,,,68.36080622673035,False,True,,False,True,True
+ddf2a6093c,Abhishek,4,Code readability improvement.,0,0,4,0,0,0,,,,,,,31.4360830783844,False,True,,False,True,True
+8a85007c83,Abhishek,4,Adds a new function.,0,0,0,4,0,0,,,,,,,68.22746682167053,False,True,,False,True,True
+f3ac888fc5,Abhishek,4,Introduces new functionality by adding support for power values in micro-Watts in SCMI v3.1.,0,0,0,4,4,0,,,,,,,79.27567172050476,False,True,,False,True,True
+8f5a9371e6,Abhishek,4,Comment update.,0,0,4,0,0,0,,,,,,,39.66033983230591,False,True,,False,True,True
+59915143e8,Abhishek,4,Code refactoring,0,0,4,0,0,0,,,,,,,50.13784408569336,False,True,,False,False,False
+5d7943d99d,Abhishek,4,This commit propagates the locking state and by doing this it prevents future bugs,0,4,0,0,0,0,,,,,,,124.22852778434752,False,True,,False,False,False
+f110ed8498,Abhishek,4,Code improvement and refactoring.,0,0,4,0,0,0,,,,,,,43.61676001548767,False,True,,False,False,False
+cbd2574854,Abhishek,4,Commit ensures that multishot accept operations are dropped during CQE overflow thus preventing future bugs.,0,4,0,0,0,0,,,,,,,117.73191714286804,False,True,,False,True,True
+4ccc6db090,Abhishek,4,Code improvement and refactoring.,0,0,4,0,0,0,,,,,,,38.20460295677185,False,True,,False,False,False
+133e2d3e81,Abhishek,4,Adds new functionality by allowing time namespace switching during a vfork+exec sequence.,0,0,0,4,4,0,,,,,,,306.455384016037,False,True,,False,True,True
+932be3e95b,Abhishek,4,Fixes a bug related to structure alignment in packed structures with mixed bit-field and non-bit-field members.,4,0,0,0,0,0,0.0,4.0,0.0,4.0,0.0,Addresses a safety-related issue by ensuring correct memory operations .,135.8650140762329,False,True,,False,False,False
+7460ade1fc,Abhishek,4,Ensures that all running tasks are added to the holdout list thus preventing future bugs.,0,4,0,0,0,0,,,,,,,189.54150319099423,False,True,,False,True,True
+635dcd1684,Abhishek,4,Updates the test infrastructure to use the kunit_test_suite() macro and improving integration with kunit_tool.,0,0,4,4,4,0,,,,,,,93.9247100353241,False,True,,False,True,True
+4d8f52ac5f,Abhishek,4,Fixes issue related to incorrect handling of the return value from system().,4,0,0,0,0,0,4.0,3.0,0.0,0.0,4.0,Commit ensures correct exchange of error information between parent and child processes by correctly handling the return value.,160.63508296012878,False,True,,False,True,True
+069fc464f1,Abhishek,4,Code refactoring / improvement,0,0,4,0,0,0,,,,,,,35.79646015167236,False,True,,False,True,True
+f3e90c1ca9,Abhishek,4,Code cleanup and improvement.,0,0,4,0,0,0,,,,,,,41.58529305458069,False,True,,False,False,False
+2e0aee8f0a,Abhishek,4,Changes the type of ata_port::fastdrain_cnt from unsigned long to unsigned int. ,0,4,4,0,0,0,,,,,,,74.69214200973511,False,True,,False,False,False
+260b5c694b,Abhishek,4,Code cleanup,0,0,4,0,0,0,,,,,,,32.690600872039795,False,True,,False,False,True
+9a7a1be6b6,Abhishek,4,Code improvement,0,4,4,0,0,0,,,,,,,277.95093512535095,False,True,,False,True,True
+92f78f81ac,Abhishek,4,Adds a runtime check to verify that the number of IPA commands sent in a single transaction does not exceed the size of the TLV FIFO on the command channel. By doing this it prevents future bugs.,0,4,0,0,0,0,,,,,,,107.35665893554688,False,True,,False,True,True
+fd8b330ce1,Abhishek,4, Fixes a build issue by removing duplicate definition of the tcp_wmem_schedule function.,4,0,0,0,0,0,4.0,0.0,,,,,132.06029319763184,False,True,,False,False,False
+ccb9bc1dfa,Abhishek,4,Adds a new feature by adding support for the ethtool --identify command.,0,0,0,4,0,0,,,,,,,100.9725649356842,False,True,,False,True,True
+7e193a42c3,Abhishek,4,Fixes a bug where devices with fixed bit rates were not correctly supported,4,0,0,0,0,0,0.0,0.0,,,,,184.51199197769165,False,True,,False,True,True
+b3fd0a86da,Abhishek,4,Changes instances of BUG_ON to WARN_ON to prevent future bugs.,0,4,0,0,0,0,,,,,,,99.91942310333252,False,True,,False,True,True
+ea5872dd6b,Abhishek,4,Introduces a flag to indicate if the E-switch vport ACL namespace has been created in the mlx5 driver,0,4,3,0,0,0,,,,,,,96.75349307060242,False,True,,False,True,True
+43da2f0762,Abhishek,4,Adds a new feature,0,0,0,4,4,0,,,,,,,99.18074893951416,False,True,,False,True,True
+22dd7a58b2,Abhishek,4,Code cleanup,0,0,4,0,0,0,,,,,,,26.041760206222538,False,True,,False,True,True
+8094029330,Abhishek,4,Commit ensures cleanup of legacy kprobe events when an error occurs. I am not sure whether it should be BFC or BPC. ,3,3,0,0,0,0,0.0,0.0,,,,,226.00218987464905,False,True,,False,True,True
+1ee6c5abeb,Abhishek,4,Commit fixes a bug by ensuring ath10k driver does not enforce a specific interrupt trigger type,4,0,0,0,0,0,0.0,0.0,,,,,175.79603600502014,False,True,,False,True,True
+cc2609eda6,Abhishek,4,Addresses checkpatch warnings thus preventing future bugs.,0,4,0,0,0,0,,,,,,,89.49651908874512,False,True,,False,False,True
+d4893978f9,Abhishek,4,"Renaming, code quality improvement",0,0,4,0,0,0,,,,,,,40.13112187385559,False,True,,False,True,True
+da92e03c7f,Abhishek,4,Fixes warning.,0,4,0,0,0,0,,,,,,,32.486682176589966,False,True,,False,False,False
+616c4a83b6,Abhishek,4,Comment update.,0,0,4,0,0,0,,,,,,,35.85721015930176,False,True,,False,True,True
+23cc6d8c37,Abhishek,4,Prevents future bugs by making key_idx a signed integer.,0,4,0,0,0,0,,,,,,,136.3593909740448,False,True,,False,True,True
+9b6bf4d612,Abhishek,4,Commit sets the BSS pointer to NULL in case of error thus preventing future bugs.,0,4,0,0,0,0,,,,,,,153.4108579158783,False,True,,False,True,True
+bd363ee533,Abhishek,4,Commit sets sta.mlo correctly in the mac80211 subsystem.,0,4,0,0,0,0,,,,,,,426.9988191127777,False,True,,False,True,True
+bceb8b8ded,Abhishek,4,"Code cleaning, refactoring",0,0,4,0,0,0,,,,,,,36.1694769859314,False,True,,False,True,True
+3470079687,Abhishek,4,Allows changing the MTU of the stmmac driver interface while the interface is up.,0,4,0,0,0,0,,,,,,,936.0315401554108,False,True,,False,True,True
+a683dc5c14,Abhishek,4,Code optimization,0,4,4,0,0,0,,,,,,,82.19490098953247,False,True,,False,False,True
+cc1049ccee,Abhishek,4,Fixes a bug where CPU/DSA ports were incorrectly initialized with a speed of 10Mbps due to unset mac_capabilities.,4,0,0,0,0,0,0.0,4.0,4.0,0.0,0.0,Addresses a timing issue by ensuring mac_capabilities are set before they are needed for speed settings.,386.4619839191437,False,True,,False,True,True
+3fe012f482,Abhishek,4,Updates the device tree binding specification new adding new feature.,0,0,0,4,4,0,,,,,,,106.22146677970886,False,True,,False,True,True
+9ae551ded5,Abhishek,4,"Code improvement, code readability",0,3,4,0,0,0,,,,,,,391.6343948841095,False,True,,False,True,True
+9ed11999f9,Abhishek,4,adding a new maintainer.,0,0,4,0,0,0,,,,,,,69.7352499961853,False,True,,False,False,False
+f9599127dd,Abhishek,4,Code improvement,0,0,4,0,0,0,,,,,,,28.814414739608765,False,True,,False,True,True
+9f22f95951,Abhishek,4,Commit fixes a bug where the power line control is not correctly implemented.,4,0,0,0,0,0,4.0,0.0,,,,,258.68687891960144,False,True,,False,True,True
+c4d987de9c,Abhishek,4,Code optimization,0,3,4,0,0,0,,,,,,,31.758255004882812,False,True,,False,False,False
+91776af1d8,Abhishek,4,Code Improvement and readability.,0,0,4,0,0,0,,,,,,,57.070297956466675,False,True,,False,True,True
+3cf0507625,Abhishek,4,Code refactoring,0,3,4,0,0,0,,,,,,,422.8871784210205,False,True,,False,True,True
+d57716702d,Abhishek,4,Adds support for new hardware features.,0,0,3,4,0,0,,,,,,,606.7877328395844,False,True,,False,False,False
+aa303964bc,Abhishek,4,Updates the implementation to meet new specification requirements.,0,4,4,0,0,0,,,,,,,74.57671189308167,False,True,,False,True,True
+526e6ca5d1,Abhishek,4,Code cleaning,0,0,4,0,0,0,,,,,,,25.335516929626465,False,True,,False,True,True
+ac78fa502a,Abhishek,4,Adds a null check to the dc_submit_i2c_oem function to handle cases where the ddc parameter could be null.,0,4,0,0,0,0,,,,,,,101.38089203834534,False,True,,False,True,True
+cff35798fa,Abhishek,4,Fixes a bug related to incorrect CU mask handling.,0,4,0,0,0,0,,,,,,,46.03308582305908,False,True,,False,False,True
+0d8928a94b,Abhishek,4,Fixes a compilation bug where the __umoddi3 function is undefined during 32-bit compilation of the amdgpu driver.,4,0,0,0,0,0,4.0,0.0,,,,,125.23105573654176,False,True,,False,True,True
+fba6767c2d,Abhishek,4,Adds new functionality.,0,3,0,4,4,0,,,,,,,120.56789088249208,False,True,,False,True,True
+26093ce14b,Abhishek,4,Code optimization,0,3,4,0,0,0,,,,,,,98.36148381233215,False,True,,False,False,False
+00fa7f031d,Abhishek,4,Adds new feature,0,0,0,4,4,0,,,,,,,79.46025395393372,False,True,,False,True,True
+5877b7ddbc,Abhishek,4,Commit  prevents future bugs related to communication mismatches between the driver and the trusted OS.,0,4,0,0,0,0,,,,,,,120.38025093078612,False,True,,False,False,True
+bac4b41d91,Abhishek,4,"Code optimization, refactoring",0,0,0,0,0,0,,,,,,,27.741252183914185,False,True,,False,True,True
+9dd4545f65,Abhishek,4,Typo error in comment,0,0,4,0,0,0,,,,,,,30.18663501739502,False,True,,False,False,False
+319568d75f,Abhishek,0,Improves the handling of DRR cases and utilizes firmware for manual trigger programming.,0,4,4,0,0,0,,,,,,,135.0973198413849,False,True,,False,True,True
+8b3120dfc1,Abhishek,4,Code optimization,0,0,4,0,0,0,,,,,,,69.36449098587036,False,True,,False,True,True
+d64a29af12,Abhishek,4,Adds validity check.,0,4,0,0,0,0,,,,,,,130.98158407211304,False,True,,False,True,True
+f0e34d2625,Abhishek,4,Code optimization ,0,0,4,0,0,0,,,,,,,162.50167775154114,False,True,,False,True,True
+747c7cf159,Abhishek,4,Fixes a bug where the scale macro values did not correctly match the BMA400's sensitivity.,3,1,0,0,0,0,0.0,0.0,,,,,162.43964076042175,False,True,,False,True,True
+7cbb6681d7,Abhishek,4,Adds new feature,0,0,0,4,4,0,,,,,,,82.80994200706482,False,True,,False,True,True
+3e1865ba38,Abhishek,4,Code cleaning,0,0,4,0,0,0,,,,,,,27.99263286590576,False,True,,False,True,True
+1c796caff0,Abhishek,4,Documentation update,0,0,4,0,0,0,,,,,,,27.731700897216797,False,True,,False,True,True
+e5933cf487,Abhishek,4,Code refactoring,0,0,4,0,0,0,,,,,,,101.05452513694765,False,True,,False,True,True
+5fd6c4f0a6,Abhishek,4,Adds new feature,0,0,0,4,4,0,,,,,,,73.35921931266785,False,True,,False,True,True
+21cdd6a0e8,Abhishek,4,Fixes a bug by correcting the return values,4,0,0,0,0,0,0.0,0.0,,,,,159.69839525222778,False,True,,False,False,True
+40758e493f,Abhishek,4,Adds new feature by adding support for a reset GPIO line in the onboard USB hub driver.,0,3,0,4,4,0,,,,,,,26.494628190994263,False,True,,False,True,True
+1b0a54b3e8,Abhishek,4,Code refactoring,0,0,4,0,0,0,,,,,,,29.591766119003296,False,True,,False,False,True
+c1da5a7bef,Abhishek,4,Code optimization,0,0,4,0,0,0,,,,,,,12.420499801635742,False,True,,False,False,True
+ee9aded6d3,Abhishek,4,"Renaming, code improvement",0,0,4,0,0,0,,,,,,,32.03361511230469,False,True,,False,True,True
+77072b0f4b,Abhishek,4,Code refactoring and optimization,0,0,4,0,0,0,,,,,,,80.92942476272583,False,True,,False,True,True
+8af028c2b2,Abhishek,4,Code refactoring and optimization,0,0,4,0,0,0,,,,,,,15.234202146530151,False,True,,False,True,True
+b7bc1c9e5b,Abhishek,4,Code refactoring,0,0,4,0,0,0,,,,,,,37.908645153045654,False,True,,False,True,True
+38d4a385a3,Abhishek,4,Introduces new helper function and code optimization.,0,0,4,4,0,0,,,,,,,104.64910292625429,False,True,,False,True,True
+90b13cdde1,Abhishek,4,Code optimization,0,3,4,0,0,0,,,,,,,253.54870676994324,False,True,,False,True,True
+ebca1b8056,Abhishek,4,Code refactoring,0,0,4,0,0,0,,,,,,,50.70695877075195,False,True,,False,True,True
+ec1d7e6ab9,Abhishek,4,Code quality improvement and code cleaning,0,0,4,0,0,0,,,,,,,48.35656499862671,False,True,,False,True,True
+1bd9dfec9f,Abhishek,4,"Fixes a bug that was introduced by a previous commit, which broke x2AVIC support.",4,0,0,0,0,0,4.0,0.0,,,,,80.82472395896912,False,True,,False,True,True
+30b6ab45f8,Abhishek,4,Code refactoring,0,0,4,0,0,0,,,,,,,41.23855710029602,False,True,,False,True,True
+5a420ed964,Abhishek,4,Code refactoring,0,0,4,0,0,0,,,,,,,28.388563871383667,False,True,,False,True,True
+619064afa9,Abhishek,4,Code refactoring,0,0,4,0,0,0,,,,,,,41.76160216331482,False,True,,False,True,True
+879e5ac7b2,Abhishek,4,Adds new feature,0,0,0,4,0,0,,,,,,,43.32109880447388,False,True,,False,True,True
+4d352eb91a,Abhishek,4,Adds new feature,0,0,0,4,0,0,,,,,,,38.15654921531677,False,True,,False,True,True
+65d012e415,Abhishek,4,"code cleaning, refactoring",0,0,4,0,0,0,,,,,,,32.804410219192505,False,True,,False,True,True
+044034efbe,Abhishek,4,Fixes a bug where an incorrect value was set for a register.,4,0,0,0,0,0,4.0,0.0,,,,,72.86064386367798,False,True,,False,True,True
+b127315d9a,Abhishek,4,Adds new feature that adds support for the Apple ADMAC on Apple Silicon SoCs.,0,0,0,4,0,0,,,,,,,55.96150612831116,False,True,,False,True,True
+60b3c27fb9,Abhishek,4,"Rename, code improvement",0,0,4,0,0,0,,,,,,,22.104029178619385,False,True,,False,False,False
+997b99e3b3,Abhishek,4,Code refactoring,0,3,4,0,0,0,,,,,,,80.53163695335388,False,True,,False,True,True
+7dc65e3c0e,Abhishek,4,Code quality improvement,0,0,4,0,0,0,,,,,,,45.39023113250733,False,True,,False,True,True
+7a7b0b4865,Abhishek,4,Code refactoring,0,0,4,0,0,0,,,,,,,41.216843128204346,False,True,,False,True,True
+37be3f9d69,Abhishek,4,Ensures that old sessions are torn down before triggering a relogin,0,4,0,0,0,0,,,,,,,82.4265820980072,False,True,,False,True,True
+4b9f8ce4d5,Abhishek,4,Rename,0,0,4,0,0,0,,,,,,,28.98609399795532,False,True,,False,True,True
+e1c6a7ec14,Abhishek,4,Code quality improvement removing unnecessary locking.,0,0,4,0,0,0,,,,,,,54.74592804908752,False,True,,False,True,True
+eed9f513bf,Abhishek,4,Code refactoring,0,0,4,0,0,0,,,,,,,21.96347284317017,False,True,,False,True,True
+d13bc4d84a,Abhishek,4,Code quality improvement by removing unused driver,0,0,4,0,0,0,,,,,,,105.56121134757996,False,True,,False,True,True
+9db056e950,Abhishek,4,Spelling mistakes,0,0,4,0,0,0,,,,,,,40.09099578857422,False,True,,False,True,True
+442ec1e5bb,Abhishek,4,Documentation update,0,0,4,0,0,0,,,,,,,25.22310471534729,False,True,,False,True,True
+85c73bf726,Abhishek,4,"Enhances the code by making the API consistent with other buffer-related APIs, improving code readability.",0,0,4,0,0,0,,,,,,,82.50660395622253,False,True,,False,True,True
+c01147d929,Abhishek,4,Code refactoring,0,0,4,0,0,0,,,,,,,28.04939103126526,False,True,,False,True,True
+f2c5092190,Abhishek,4,Code improvement,0,0,4,0,0,0,,,,,,,38.337356090545654,False,True,,False,False,True
+753df96be5,Abhishek,4,"Removes redundant code, code readability",0,0,4,0,0,0,,,,,,,48.53055691719055,False,True,,False,True,True
+c2bc16817a,Abhishek,4,Code refactoring,0,0,4,0,0,0,,,,,,,61.14009475708008,False,True,,False,True,True
+2397f780e1,Abhishek,4,Code optimization,0,0,4,0,0,0,,,,,,,49.43196320533752,False,True,,False,True,True
+b98c359f1d,Abhishek,4,"Code optimization, refactoring",0,0,0,0,0,0,,,,,,,32.826289892196655,False,True,,False,True,True
+797efbc523,Abhishek,4,Adds new feature by adding guest_cpu tracking to hypervisor threads.,0,0,0,4,0,0,,,,,,,49.422948122024536,False,True,,False,True,True
+3809db6430,Abhishek,4,It prevents future bugs by ensuring that existing functions operate correctly under certain conditions.,0,4,0,0,0,0,,,,,,,122.7073211669922,False,True,,False,True,True
+3233b978af,Abhishek,4,Adds new functionality by adding a library to support CS_DSP ALSA controls.,0,0,0,4,0,0,,,,,,,53.98828220367432,False,True,,False,True,True
+b661a848a5,Abhishek,4,Typo error and spelling mistakes,0,0,4,0,0,0,,,,,,,37.22698497772217,False,True,,False,False,True
+1724cc38e7,Abhishek,4,Code quality improvement and readability,0,0,4,0,0,0,,,,,,,28.12295293807983,False,True,,False,True,True
+18489174e4,Abhishek,4,Adds a new feature by adding support for the RT711 SDCA sound card on the MTL platform.,0,0,0,4,0,0,,,,,,,62.70077681541443,False,True,,False,False,True
+4665770407,Abhishek,4,New feature,0,0,0,4,0,0,,,,,,,7490.924470901489,False,True,,False,True,True
+9a34161a0b,Abhishek,4,"Code refactoring, readability",0,0,4,0,0,0,,,,,,,112.19506096839903,False,True,,False,True,True
+4fb35936a3,Abhishek,4,Introduces new functionality by enabling the build support for RPL Platform ACP drivers.,0,0,0,4,0,0,,,,,,,63.9732301235199,False,True,,False,False,False
+34b1a65ec1,Abhishek,4,Corrects an entry in the MAINTAINERS file that was incorrectly added.,0,4,0,0,0,0,,,,,,,158.58648228645325,False,True,,False,False,False
+ba3ea04a25,Abhishek,4,Improves code readability.,0,0,4,0,0,0,,,,,,,55.44642496109009,False,True,,False,True,True
+4d26ba671e,Abhishek,4,Improves the code quality by removing redundant checks,0,0,4,0,0,0,,,,,,,61.443965911865234,False,True,,False,True,True
+2ac05f8f2e,Abhishek,4,Adds a new self test,0,4,4,0,0,0,,,,,,,79.99527907371521,False,True,,False,False,False
+901a30cf5f,Abhishek,4,Comment typo,0,0,4,0,0,0,,,,,,,24.961015939712524,False,True,,False,False,True
+034921cdea,Abhishek,4,Code refactoring,0,0,4,0,0,0,,,,,,,57.654430866241455,False,True,,False,True,True
+233eb8d689,Abhishek,4,"Spelling, typo error",0,0,4,0,0,0,,,,,,,31.68138313293457,False,True,,False,False,True
+b771aadc6e,Abhishek,4,Code readability,0,0,4,0,0,0,,,,,,,56.02790188789368,False,True,,False,True,True
+9ec9b79a2b,Abhishek,4,Code readability,0,0,4,0,0,0,,,,,,,23.477876901626587,False,True,,False,True,True
+2b947cf9e3,Abhishek,4,Enhances code by adding more information,0,0,4,0,0,0,,,,,,,122.4911139011383,False,True,,False,True,True
+eb47b59afb,Abhishek,4,Improves code quality,0,0,4,0,0,0,,,,,,,57.34517788887024,False,True,,False,True,True
+9b60b67519,Abhishek,4, Marks the driver as broken,0,4,0,0,0,0,,,,,,,74.96283531188965,False,True,,False,False,False
+d2403ee73d,Abhishek,4,Code readability,0,0,4,0,0,0,,,,,,,68.64843964576721,False,True,,False,True,True
+25097de7b2,Abhishek,4,Adds a new feature,0,0,0,4,0,0,,,,,,,54.707470178604126,False,True,,False,False,False
+e79368b15d,Abhishek,4,Prevents future bug by correcting the property name and adding the missing constraint to the device tree bindings.,0,4,0,0,0,0,,,,,,,171.29213976860046,False,True,,False,False,False
+75448ff73f,Abhishek,4,Update definition and code improvement,0,0,4,0,0,0,,,,,,,49.11799502372742,False,True,,False,True,True
+7e97cfed99,Abhishek,4,Fixes bug related to memory leaks in the vsock_connect() function.,4,0,0,0,0,0,4.0,4.0,0.0,4.0,0.0,"Fixes a memory leak, which is directly related to memory management.",385.5992329120636,False,True,,False,True,True
+13a4223df8,Abhishek,4,Remove duplicate 'is' in comment,0,0,4,0,0,0,,,,,,,68.5504367351532,False,True,,False,False,False
+3f64510e3d,Abhishek,4,Fixes a bug related to interrupt configurations.,4,0,0,0,0,0,4.0,0.0,,,,,102.72495102882384,False,True,,False,True,True
+0209b5830b,Abhishek,4,Fixes bug related to the incorrect passing of 64-bit arguments in SBI PMU calls for RV32.,4,0,0,0,0,0,4.0,0.0,,,,,65.7602891921997,False,True,,False,True,True
+6fb271f1bc,Abhishek,4, Fixes a bug where the admin queue is not restarted.,4,0,0,0,0,0,4.0,0.0,,,,,67.31884121894836,False,True,,False,False,True
+e75d5ae8ab,Abhishek,4,Add new features by adding support for different BAR configurations.,0,0,3,4,0,0,,,,,,,65.5849437713623,False,True,,False,True,True
+560f7736b9,Abhishek,4,Fixes bug related to handling very fragmented cases.,4,0,0,0,0,0,4.0,0.0,,,,,119.33694005012512,False,True,,False,True,True
+7fe05e125d,Abhishek,4,Fixes a bug where a WARN_ON check for the vsi->vf pointer was missed.,4,0,0,0,0,0,4.0,0.0,,,,,85.87373185157776,False,True,,False,True,True
+1b6345d416,Abhishek,4,Fixes bug related to the incorrect handling of the NFT_SET_CONCAT flag and field_count in nf_tables.,4,0,0,0,0,0,4.0,0.0,,,,,78.87940716743469,False,True,,False,True,True
+085292c3d7,Abhishek,4,Fixes a bug caused by previous commit.,4,0,0,0,0,0,4.0,0.0,,,,,78.57592010498047,False,True,,False,False,True
+bf54d97a83,Abhishek,4,New feature,0,0,4,4,0,0,,,,,,,1291.3069460391998,False,True,,False,True,True
+21234e3a84,Abhishek,4,Fixes a use-after-free bug in the mlx5e_fs_init() function.,4,0,0,0,0,0,4.0,3.0,0.0,4.0,0.0,Commit ensures that resources are freed in the correct order to prevent use-after-free errors.,136.78782987594604,False,True,,False,True,True
+a5a923038d,Abhishek,4,Fixes a bug where changes are not properly reverted.,4,0,0,0,0,0,4.0,3.0,0.0,4.0,0.0,The issue involves memory allocation and proper handling of failures during vc_resize().,172.76176714897156,False,True,,False,True,True
+550842cc60,Abhishek,4,Fixes bug where uninitialized resources lead to crashes during the shutdown process.,4,0,0,0,0,0,4.0,4.0,0.0,4.0,0.0,The issue involves the improper handling of resource cleanup.,77.69632411003113,False,True,,False,True,True
+cee7db1b02,Abhishek,4,Introduces a check to prevent future bugs.,0,4,0,0,0,0,,,,,,,141.59717106819153,False,True,,False,True,True
+7498a457ec,Abhishek,4,Fixes bug related to handling packet lengths and checksum management,4,0,0,0,0,0,4.0,0.0,0.0,0.0,0.0,,379.0517520904541,False,True,,False,True,True
+617a0d9fe6,Abhishek,4,Code optimization,0,0,4,0,0,0,,,,,,,47.64728283882141,False,True,,False,True,True
+21457f4a91,Abhishek,4,Code optimization and cleaning,0,0,4,0,0,0,,,,,,,33.84958481788635,False,True,,False,True,True
+672d6ca758,Abhishek,4,"Fixes bug where the MUX loses track of link rates after power down, leading to unstable high link rates.",4,0,0,0,0,0,4.0,0.0,,,,,252.75966811180115,False,True,,False,True,True
+3fe3fd5f30,Abhishek,4,Fixes bug where the resume path did not correctly handle the number of VA bits,4,0,0,0,0,0,4.0,0.0,,,,,78.49542498588562,False,True,,False,True,True
+6124cec530,Abhishek,4,Fixes bug where gpio37 could not trigger interrupts due to a duplicated wake IRQ number.,4,0,0,0,0,0,4.0,0.0,,,,,78.69441509246826,False,True,,False,True,True
+4d40ceef47,Abhishek,4,New feature  by adding support for a new PCI Device ID.,0,0,0,4,0,0,,,,,,,71.40824341773987,False,True,,False,True,True
+c7e31e36d8,Abhishek,4,Prevent future bugs by ensuring that only documented properties are used in the DT bindings.,0,4,3,0,0,0,,,,,,,65.0987377166748,False,True,,False,False,True
+d873697ef2,Abhishek,4,Fixes a regression bug which led to invalid queue mappings.,4,0,0,0,0,0,4.0,3.0,4.0,0.0,0.0,Invalid queue mappings for packets but not sure.,237.6644880771637,False,True,,False,True,True
+c9da02bfb1,Abhishek,4,Fixes a bug where the masks were swapped.,4,0,0,0,0,0,2.0,0.0,,,,,115.4016580581665,False,True,,False,True,True
+b7dc37fcf6,Abhishek,4,Code cleaning and improvement,0,0,4,0,0,0,,,,,,,31.86165714263916,False,True,,False,True,True
+330f5a3005,Abhishek,4,Code improvement (translation),0,0,4,0,0,0,,,,,,,35.06837296485901,False,True,,False,True,True
+43cf36974d,Abhishek,4,Introduces New Functionality,0,0,3,4,0,0,,,,,,,13982.775802850723,False,True,,False,True,True
+44b5554d98,Abhishek,4,Code optimization and readability,0,0,4,0,0,0,,,,,,,48.589606285095215,False,True,,False,True,True
+6344e66970,Abhishek,4,Code optimization,0,0,4,0,0,0,,,,,,,47.17840886116028,False,True,,False,True,True
+272ac15003,Abhishek,4,Code cleanup / improvement,0,0,4,0,0,0,,,,,,,36.70464110374451,False,True,,False,True,True
+1644dfe727,Abhishek,4,Code optimization by removing unnecessary operations,0,0,4,0,0,0,,,,,,,57.09033489227295,False,True,,False,True,True
+fea62d370d,Abhishek,4,New feature,0,3,0,4,0,0,,,,,,,64.53512406349182,False,True,,False,True,True
+4f03dcc6b9,Abhishek,4,Introduces a restriction preventing DSA master interfaces from joining other upper interfaces thus preventing future bugs,0,4,0,3,0,0,,,,,,,86.503901720047,False,True,,False,True,True
+de9d555cb8,Abhishek,4,Prevent future bugs ensuring that for every type_set() call on a devlink port.,0,4,0,0,0,0,,,,,,,77.26946902275085,False,True,,False,False,True
+04e551d66d,Abhishek,4,New feature,0,0,0,4,4,0,,,,,,,45.390389919281006,False,True,,False,True,True
+949cd0b5c2,Abhishek,4,New feature,0,4,0,4,0,0,,,,,,,67.58305788040161,False,True,,False,True,True
+a8a0b1f707,Abhishek,4,Code refactoring,0,0,4,0,0,0,,,,,,,24.21049189567566,False,True,,False,True,True
+8b1b4730b0,Abhishek,4,Commit ensures proper initialization and correction of BA CAM content,0,4,0,0,0,0,,,,,,,64.7995719909668,False,True,,False,True,True
+03fdb11da9,Abhishek,4,Prevent future bug by correcting the types to __le32.,0,4,0,0,0,0,,,,,,,91.60221695899963,False,True,,False,True,True
+75554fe00f,Abhishek,4,Corrects the return type,0,4,4,0,0,0,,,,,,,118.36618304252625,False,True,,False,True,True
+c4d2497032,Abhishek,4,Removes unnecessary functions,0,0,4,0,0,0,,,,,,,59.73892307281494,False,True,,False,True,True
+db45c76bad,Abhishek,4,New feature / functionality,0,0,0,0,0,0,,,,,,,53.19058108329773,False,True,,False,True,True
+fab6f4904e,Abhishek,4,Code cleanup,0,0,4,0,0,0,,,,,,,29.375675916671753,False,True,,False,True,True
+a373f38cd1,Abhishek,4,"Fixes a bug where the driver attempts an unsupported operation, resulting in console error messages.",4,0,0,0,0,0,4.0,4.0,0.0,0.0,4.0,Commit addresses an exchange of information bug by removing a call that fails to retrieve TIM information from the firmware.,138.45591926574707,False,True,,False,True,True
+ac41c2b642,Abhishek,4,Prevent future bugs by ensuring that WCN6750 stops DMA operations before the SMMU shuts down.,0,4,0,0,0,0,,,,,,,80.81479382514954,False,True,,False,True,True
+b8a71b9536,Abhishek,4,Spelling error,0,0,4,0,0,0,,,,,,,25.681689262390137,False,True,,False,False,True
+957f60273a,Abhishek,4,New feature by adding the necessary bindings to support WoW on the WCN6750 chipset.,0,0,0,4,4,0,,,,,,,53.15292716026306,False,True,,False,True,True
+c1631dbc00,Abhishek,4,Fixes a bug where the hci_read_buffer_size_sync function incorrectly used an LE-specific operation,4,0,0,0,0,0,4.0,0.0,,,,,111.58662796020508,False,True,,False,False,True
+0e3f72931f,Abhishek,4,Fixes bug where kmalloc fails to allocate large memory regions.,4,0,0,0,0,0,4.0,4.0,0.0,4.0,0.0,Addresses a memory allocation bug by using kvmalloc instead of kmalloc for large packets.,111.06078791618349,False,True,,False,True,True
+14b9397240,Abhishek,4,New feature,0,0,0,4,4,0,,,,,,,58.234503984451294,False,True,,False,False,False
+984fed5686,Abhishek,4,Code refactoring,0,0,4,0,0,0,,,,,,,23.507635354995728,False,True,,False,False,False
+947934e389,Abhishek,4,Replaces the test of .enable with .is_enabled() and removes an unnecessary variable.,4,0,0,0,0,0,4.0,0.0,,,,,73.23708891868591,False,True,,False,False,True
+04e0456f77,Abhishek,4,Code refactoring and removing redundancies,0,0,4,0,0,0,,,,,,,109.7498333454132,True,True,,False,False,True
+470308d9d2,Abhishek,4,Code refactoring,0,0,4,0,0,0,,,,,,,35.45208764076233,False,True,,False,True,True
+a2ed70d0ec,Abhishek,4,Commit resolves a bug related to  race condition.,4,0,0,0,0,0,4.0,4.0,4.0,0.0,0.0,Timing-related race conditions where devices are registered and then unregistered inappropriately.,173.20126008987427,False,True,,False,True,True
+de40c281fe,Abhishek,4,Code quality improvement and refactoring.,0,0,4,0,0,0,,,,,,,68.04476523399353,False,True,,False,True,True
+0f9fa5f58c,Abhishek,4,"Introduces support for a new eDP panel, which can be considered as a new feature.",0,0,0,4,0,0,,,,,,,56.59223008155823,False,True,,False,True,True
+61a9fa154d,Abhishek,4,Commit explicitly assigns an error return code.,0,4,0,0,0,0,,,,,,,79.91073083877563,False,True,,False,False,True
+1645e7b966,Abhishek,4,Code improvement by renaming struct,0,0,4,0,0,0,,,,,,,38.19071578979492,False,True,,False,True,True
+5bd8d53f6f,Abhishek,4,New feature,0,0,4,4,0,0,,,,,,,37.75680088996887,False,True,,False,True,True
+9f92c20279,Abhishek,4,Prevents future bug by removing unnecessary code and also corrects the HDMI ODM combine policy.,0,4,0,0,0,0,,,,,,,194.41758394241333,False,True,,False,True,True
+6215a7c8f5,Abhishek,4,Introduces a new feature by adding support for a new PCI ID.,0,0,4,4,0,0,,,,,,,82.65230965614319,False,True,,False,True,True
+29a051bd46,Abhishek,4,Code refactoring,0,0,4,0,0,0,,,,,,,39.85002017021179,False,True,,False,True,True
+c1e48e36c1,Abhishek,4,Makes the function static,1,4,4,0,0,0,0.0,0.0,,,,,60.64782691001892,False,True,,False,False,False
+fd0fcdf33d,Abhishek,4,Code cleanup,0,0,4,0,0,0,,,,,,,31.59277319908142,False,True,,False,True,True
+fa374ddba2,Abhishek,4,Code optimization,0,4,4,0,0,0,,,,,,,79.62908983230591,False,True,,False,True,True
+b13fa27a4b,Abhishek,4,Code readability or simplification,0,0,4,0,0,0,,,,,,,27.912098169326782,False,True,,False,True,True
+30b1a0797e,Abhishek,4,Use of helper function for accessing.,0,4,4,0,0,0,,,,,,,80.4344801902771,False,True,,False,False,True
+0285042fed,Abhishek,4,Code refactoring,0,3,4,0,0,0,,,,,,,71.91805481910706,False,True,,False,True,True
+c8d18e4402,Abhishek,4,Adds an error message thus improving code quality and readability.,0,1,4,0,0,0,,,,,,,96.23517608642578,False,True,,False,False,False
+8450813136,Abhishek,4,Commit separates the bindings and improves code readability.,0,4,4,0,0,0,,,,,,,120.19338488578796,False,True,,False,False,False
+cd4e5f30f5,Abhishek,4,New feature,0,0,0,4,4,0,,,,,,,458.168004989624,False,True,,False,False,True
+ab9d8032db,Abhishek,4,New feature,0,0,0,4,4,0,,,,,,,38.26895999908447,False,True,,False,True,True
+a4c82270f0,Abhishek,4,Fixes schema validation errors in the device tree. It can be considered as BFC but it is more likely a BPC.,3,4,0,0,0,0,0.0,0.0,,,,,174.20397210121155,False,True,,False,True,True
+3a52471206,Abhishek,4,New feature,0,0,0,4,4,0,,,,,,,57.50534772872925,False,True,,False,True,True
+1c33f8508b,Abhishek,4,This commit addresses dmesg warnings. I am not sure whether it is BFC or BPC but mostly it looks like BPC.,3,4,0,0,0,0,0.0,0.0,,,,,125.81367111206056,False,True,,False,False,True
+73b4476562,Abhishek,4,Adds a compatible string to the device tree,0,3,3,2,0,0,,,,,,,82.91608309745789,False,True,,False,False,False
+8f40baded4,Abhishek,4,Code style improvements: naming,0,0,4,0,0,0,,,,,,,56.46377515792847,False,True,,False,True,True
+6ccaaf59c3,Abhishek,4,Code quality improvement.,0,2,4,0,0,0,,,,,,,67.24655508995056,False,True,,False,True,True
+bf2e1ae417,Abhishek,4,Code quality improvement.,0,1,4,0,0,0,,,,,,,16.788691997528076,False,True,,False,True,True
+d1f68ba069,Abhishek,4,Renaming,0,0,4,0,0,0,,,,,,,31.33553194999695,False,True,,False,False,False
+28793b194e,Abhishek,4,Code refactoring,0,0,4,0,0,0,,,,,,,44.32660913467407,False,True,,False,False,False
+12a824dc67,Abhishek,4,Code optimization,0,3,4,0,0,0,,,,,,,88.65516090393066,False,True,,False,True,True
+3883001838,Abhishek,4,Code refactoring,0,0,4,0,0,0,,,,,,,27.98395085334778,False,True,,False,True,True
+e63b81aef2,Abhishek,4,Code refactoring,0,0,4,0,0,0,,,,,,,47.2182559967041,False,True,,False,True,True
+74333c7d87,Abhishek,4,Fixes bugs related to improper locking by ensuring that a write lock is held when modifying the extent map tree.,4,0,0,0,0,0,4.0,4.0,4.0,0.0,0.0,Enforces proper locking mechanisms and preventing potential race conditions and data corruption.,210.31897687911987,False,True,,False,True,True
+426d15ad11,Abhishek,4,Commit avoids unnecessary thread execution.,0,4,4,3,0,0,,,,,,,103.728759765625,False,True,,False,False,True
+50f094a558,Abhishek,4,Commit ensures that iversion is not incremented for ea_inodes.,0,4,0,0,0,0,,,,,,,89.37075567245483,False,True,,False,True,True
+2327337b88,Abhishek,4,Code optimization,0,4,4,0,0,0,,,,,,,64.34806799888611,False,True,,False,True,True
+bce1b56c73,Abhishek,4,Fixes bug caused by previous commit which caused CPU stalls and potential infinite loops.,4,0,0,0,0,0,4.0,4.0,4.0,0.0,0.0, CPU stalls and potential infinite loops.,121.31923413276672,False,True,,False,False,False
+be2b2f6b62,Abhishek,4,Code readability and simplification,0,0,4,0,0,0,,,,,,,93.40643095970154,False,True,,False,True,True
+6dd3be6923,Abhishek,4,"Code redundancy, remove words",0,0,4,0,0,0,,,,,,,36.826343059539795,False,True,,False,True,True
+23e085b2de,Abhishek,4,Enhances access control.,0,4,4,0,0,0,,,,,,,138.8806381225586,False,True,,False,False,False
+7392d87a9f,Abhishek,4,Code optimization,0,0,4,0,0,0,,,,,,,229.3555498123169,False,True,,False,False,False
+cacdb14b1c,Abhishek,4,Fixes a use-after-free bug,4,0,0,0,0,0,4.0,4.0,4.0,0.0,0.0,Race condition,135.61168098449707,False,True,,False,True,True
+bfc618fcc3,Abhishek,4,Fixes bug related to reading the chip-select line from the wrong device tree node.,4,0,0,0,0,0,4.0,4.0,0.0,0.0,4.0,Reading configuration information  from the correct device tree node.,240.85100483894348,False,True,,False,True,True
+0414441259,Abhishek,4,Documentation update,0,0,4,0,0,0,,,,,,,55.22780394554138,False,True,,False,False,False
+130fc180a4,Abhishek,4,"Commit ensures that resources are properly freed, preventing memory leaks",0,4,0,0,0,0,,,,,,,147.7385292053223,False,True,,False,False,False
+10a872375d,Abhishek,4,Remove redundant description,0,0,4,0,0,0,,,,,,,42.09338617324829,False,True,,False,False,False
+00aaca3d07,Abhishek,4,Documentation update (description),0,4,4,0,0,0,,,,,,,87.49595308303833,False,True,,False,False,False
+6d9b32fb3e,Abhishek,4,Code simplification and readability,0,0,4,0,0,0,,,,,,,29.70716905593872,False,True,,False,True,True
+63198aaa91,Abhishek,4,Code quality improvement,0,0,4,0,0,0,,,,,,,31.48336386680603,False,True,,False,True,True
+7f8170686d,Abhishek,4,Documentation / definition update,0,0,4,0,0,0,,,,,,,38.31679105758667,False,True,,False,True,True
+ba05b39d26,Abhishek,4,Commit ensures that the buffer is not modified during write operations thus preventing future bugs.,0,4,0,0,0,0,0.0,0.0,0.0,4.0,0.0,,463.98300981521606,False,True,,False,True,True
+0c7833b9e8,Abhishek,4,Code cleaning,0,0,4,0,0,0,,,,,,,2720.2798838615417,False,True,,False,True,True
+77b2d26805,Abhishek,4,Updates a function,0,4,4,0,0,0,,,,,,,83.62807703018188,False,True,,False,True,True
+7bd7ad3c31,Abhishek,4,Fixes bug related to incorrect  baud rate.,4,0,0,0,0,0,4.0,0.0,,,,,87.28334307670593,False,True,,False,True,True
+25eb948601,Abhishek,4,Remove redundant comments,0,0,4,0,0,0,,,,,,,33.76769781112671,False,True,,False,True,True
+7e271f42a5,Abhishek,4,Fixes bug related to potential memory leak.,4,0,0,0,0,0,4.0,4.0,0.0,4.0,0.0,Memory leak,67.45991778373718,False,True,,False,True,True
+6a0abf8ff9,Abhishek,4,Documentation update,0,0,4,0,0,0,,,,,,,1053.0002009868622,False,True,,False,True,True
+5192e395c5,Abhishek,4,Code optimization: replaces strlcpy with strscpy.,0,0,4,0,0,0,,,,,,,86.4433970451355,False,True,,False,False,True
+1f4d8ae231,Abhishek,4,New feature,0,0,0,4,0,0,,,,,,,49.83762097358704,False,True,,False,True,True
+d6501ecfb6,Abhishek,4,Fix bug related to incorrect print formatting,4,0,0,0,0,0,2.0,0.0,,,,,79.00193405151367,False,True,,False,True,True
+7fa6c0fe8b,Abhishek,4,Commit prevent future bugs by ensuring that an invalid block ID is not set.,0,4,0,0,0,0,,,,,,,83.00986695289612,False,True,,False,True,True
+0263256791,Abhishek,4,Code optimization,0,4,4,0,0,0,,,,,,,64.0605640411377,False,True,,False,False,False
+f0b6d3cc29,Abhishek,4,Fixes bug related to delay during the reset process.,4,0,0,0,0,0,4.0,4.0,4.0,0.0,0.0,Delay during the reset process,108.70979571342468,False,True,,False,True,True
+700f7e2909,Abhishek,4,Delete redundant words,0,0,4,0,0,0,,,,,,,29.009857177734375,False,True,,False,False,True
+d61876a285,Abhishek,4,Code simplification,0,0,4,0,0,0,,,,,,,30.05491614341736,False,True,,False,True,True
+99df7a2810,Abhishek,4,Blocks untrusted changes to the device tree ,0,4,0,0,0,0,,,,,,,77.17308902740479,False,True,,False,True,True
+0a5bfb824a,Abhishek,4,Fixes bug related to incorrect initialization of the decrementer expiry value.,4,0,0,0,0,0,4.0,2.0,2.0,0.0,0.0,Can be timing and execution but not sure.,361.6029899120331,False,True,,False,False,False
+7c10dd0a88,Abhishek,4,New feature,0,0,0,4,0,0,,,,,,,81.13516902923584,False,True,,False,True,True
+d4940b84da,Abhishek,4,Code cleaning,0,0,4,0,0,0,,,,,,,23.185810804367065,False,True,,False,True,True
+10a2199caf,Abhishek,4,Fixes a kernel crash issue in the imx-rngc driver by moving the IRQ handler registration.,4,0,0,0,0,0,4.0,4.0,4.0,0.0,0.0,"Bug involves the timing and sequence of IRQ handler registration, can be considered as Timing and Execution but not sure.",235.4691951274872,False,True,,False,True,True
+8c8e5b6ae4,Abhishek,4,Delete repeated word,0,0,4,0,0,0,,,,,,,46.386009216308594,False,True,,False,False,False
+dc09fe1c5e,Abhishek,4,New feature  by adding support for the new DART PTE format,0,4,3,4,0,0,,,,,,,167.6083390712738,False,True,,False,True,True
+e1a863cddb,Abhishek,4,Documentation update,0,0,4,0,0,0,,,,,,,113.65772414207458,False,True,,False,False,True
+33024536ba,Abhishek,4,Code optimization and adds new algorithm,0,0,4,4,0,0,,,,,,,5777.4631559848785,False,True,,False,True,True
+577be05c89,Abhishek,4,Fixes bugs related to the failure counting and handling of unsupported THP and hugetlbfs page migrations.,4,0,0,0,0,0,4.0,0.0,,,,,416.20191407203674,False,True,,False,True,True
+49fd9b6df5,Abhishek,4,Improves code comments,0,0,4,0,0,0,,,,,,,63.48207187652588,False,True,,False,True,True
+a3a9c39704,Abhishek,4,Removes redundant functions,0,0,4,0,0,0,,,,,,,47.864375829696655,False,True,,False,True,True
+528ef2d996,Abhishek,4,Code optimization,0,0,4,0,0,0,,,,,,,51.34899711608887,False,True,,False,True,True
+131a79b474,Abhishek,4,Fixes bugs related to race conditions and incorrect vma lock handling in the hugetlb code,4,0,0,0,0,0,4.0,4.0,4.0,4.0,0.0,Race condition and potential memory management issues,142.75230407714844,False,True,,False,True,True
+d80afefb17,Abhishek,4,Fixes bug related to incorrect IO accounting,4,0,0,0,0,0,4.0,0.0,,,,,112.76097297668456,False,True,,False,True,True
+a17b984115,Abhishek,4,Fixes bug where the controller functionality breaks after suspend and resume.,4,0,0,0,0,0,4.0,4.0,4.0,0.0,0.0,Bug is related to the timing and execution of USB operations during system suspend and resume cycles.,150.2863109111786,False,True,,False,True,True
+7984b43542,Abhishek,4,New feature by enabling InterTouch for the touchpad on the ThinkPad P1 G3.,0,0,4,4,0,0,,,,,,,55.75822591781616,False,True,,False,False,True
+1a8339c6bd,Abhishek,4,New feature,0,0,0,4,4,0,,,,,,,58.12100982666016,False,True,,False,False,False
+34b88934e6,Abhishek,4,Code refactoring / optimization,0,0,4,0,0,0,,,,,,,38.18512988090515,False,True,,False,True,True
+569c746b8a,Abhishek,4,Code optimization,0,0,4,0,0,0,,,,,,,52.52760410308838,False,True,,False,True,True
+a522b7ad8e,Abhishek,4,Corrects system behavior,0,4,0,0,0,0,,,,,,,90.35544919967651,False,True,,False,True,True
+1299a129a9,Abhishek,4,Moves the TLB flush earlier.,4,0,0,0,0,0,4.0,4.0,4.0,0.0,0.0, Timing of TLB flushes during initialization,141.42559003829956,False,True,,False,False,True
+9847f21225,Abhishek,4,Fixes bug that causes a page fault and potential memory corruption,4,0,0,0,0,0,4.0,4.0,0.0,4.0,0.0,Memory-related bug where out-of-bounds access could cause a page fault or memory corruption.,171.5763041973114,False,True,,False,False,True
+27aeb91559,Abhishek,4,Code refactoring,0,0,4,0,0,0,,,,,,,1196.0792446136477,False,True,,False,True,True
+8007935305,Abhishek,4, Fixes bug where timeout is not updated correctly,4,0,0,0,0,0,4.0,4.0,4.0,0.0,0.0,Timeout setting is not correctly applied.,107.47225284576416,False,True,,False,False,False
+365e1ececb,Abhishek,4,Fixes bug related to race condition,4,0,0,0,0,0,4.0,4.0,4.0,0.0,0.0,Race condition,122.031476020813,False,True,,False,True,True
+72e560cb8c,Abhishek,4,Fixes bug related memory corruption or crashes.,4,0,0,0,0,0,4.0,4.0,0.0,4.0,0.0,Memory corruption,150.01608204841614,False,True,,False,True,True
+b808a7eb30,Abhishek,4,Addresses a potential P-State hang issue,0,4,0,0,0,0,,,,,,,283.8216679096222,False,True,,False,True,True
+e5da651985,Abhishek,4,Fixes bug related to SDMA engine resume process under SRIOV.,4,0,0,0,0,0,4.0,0.0,,,,,100.42448163032532,False,True,,False,False,True
+cdbb816b5b,Abhishek,4,Improves the code by removing an unnecessary check,0,0,4,0,0,0,,,,,,,118.53914213180542,False,True,,False,True,True
+a4cb3651a1,Abhishek,4,Fixes bug where interrupts could be lost due to incorrect handling in the interrupt exit code,4,0,0,0,0,0,4.0,4.0,4.0,0.0,0.0,Commit addresses an execution issue where the timing and sequence of interrupt handling can lead to lost interrupts.,1492.5191671848297,False,True,,False,True,True
+0ebdc51787,Abhishek,4,New feature,0,0,0,4,0,0,,,,,,,85.84222722053528,False,True,,False,True,True
+8262499426,Abhishek,4,Adds a compatible string to avoid validation issues.,0,4,0,0,0,0,,,,,,,71.47907090187073,False,True,,False,True,True
+4919d3eb2e,Abhishek,4,Fixes bug where the incorrect initialization order leads to a NULL pointer dereference,4,0,0,0,0,0,4.0,4.0,4.0,0.0,0.0,Addresses a timing issue where the order of function calls leads to a NULL pointer dereference.,293.6524999141693,False,True,,False,True,True
+46307fd6e2,Abhishek,4,Fixes bug introduced by an incorrect locking order that could lead to potential race conditions or deadlocks.,4,0,0,0,0,0,4.0,4.0,4.0,0.0,0.0,Incorrect locking order could lead to race conditions or deadlocks.,143.44897294044495,False,True,,False,True,True
+e688ba3e27,Abhishek,4,Fixes bug related to a type mismatch causing a CFI failure.,4,0,0,0,0,0,4.0,0.0,,,,,119.09374022483826,False,True,,False,True,True
+abe3c63144,Abhishek,4,Commit ensures that the correct GFP flag thus preventing future bugs but am not sure. It can be BFC,0,4,0,0,0,0,,,,,,,265.9820408821106,False,True,,False,True,True
+faab292951,Abhishek,4,Adds new feature,0,0,4,4,0,0,,,,,,,148.28394269943237,False,True,,False,True,True
+466c1e6d05,Abhishek,4,Fixes bug where resources were not properly released in the error handling paths.,4,0,0,0,0,0,4.0,4.0,0.0,4.0,0.0,"Addresses memory-related issues by ensuring resources are properly released, preventing memory leaks.",176.21672320365906,False,True,,False,True,True
+cc767e7c69,Abhishek,4,Fixes bug where unsupported zerocopy sendmsg requests were not failing as they should,4,0,0,0,0,0,4.0,0.0,,,,,106.53428101539612,False,True,,False,True,True
+35cc9d622e,Abhishek,4,New feature,0,0,0,4,0,0,,,,,,,60.16367173194885,False,True,,False,True,True
+b1a09b6368,Abhishek,4,Fixes bug where the CAN device is not unregistered in the error path,4,0,0,0,0,0,4.0,4.0,0.0,4.0,0.0,Memory-related issue by ensuring resources are properly released in the error path,92.16256189346312,False,True,,False,True,True
+593c5ba288,Abhishek,4,Update maintainer,0,0,4,0,0,0,,,,,,,31.610772132873535,False,True,,False,False,False
+cf0d7e7f45,Abhishek,4,Commit fixes functional issues and runtime warnings.,4,0,0,0,0,0,4.0,4.0,0.0,4.0,0.0,Memory-related issues by ensuring correct buffer sizes and avoiding false positive overflow warnings.,171.67978477478027,False,True,,False,True,True
+038efb6348,Abhishek,4,Fixes bug where zero-length CLONE operations could incorrectly set the inode's size to zero.,4,0,0,0,0,0,4.0,0.0,,,,,83.85511803627014,False,True,,False,True,True
+21ce2c121f,Abhishek,4,Fixes  bug related to double registration of notifiers.,4,0,0,0,0,0,4.0,0.0,,,,,71.06085300445557,False,True,,False,True,True
+872ad758f9,Abhishek,4,Fixes  bug related to FDMA operations when the MTU is changed.,4,0,0,0,0,0,4.0,0.0,,,,,81.90539407730103,False,True,,False,True,True
+40e4eb324c,Abhishek,4,Fixes bug related to undefined behavior in bit shifting.,4,0,0,0,0,0,4.0,0.0,,,,,57.62083578109741,False,True,,False,True,True
+d6dd2fe711,Abhishek,4,Fixes bug  related to memory leak.,4,0,0,0,0,0,4.0,4.0,0.0,4.0,0.0,memory leak,62.832639932632446,False,True,,False,True,True
+5614dc3a47,Abhishek,4,Fixes bug related to a memory leak,4,0,0,0,0,0,4.0,4.0,0.0,4.0,0.0,memory leak,75.71367287635803,False,True,,False,True,True
+89b3554782,Abhishek,4,Fixes a bug that prevents GDM from starting.,4,0,0,0,0,0,4.0,0.0,,,,,99.62929892539978,False,True,,False,True,True
+1c075b192f,Abhishek,4,"Fixes bug related to uninitialized value handling in TIPC.
+
+",4,0,0,0,0,0,4.0,0.0,,,,,79.69999480247498,False,True,,False,True,True
+632d069852,Abhishek,4,Code optimization,0,0,4,0,0,0,,,,,,,43.223779916763306,False,True,,False,True,True
+8cbd4725ff,Abhishek,4,New feature,0,0,0,4,0,0,,,,,,,47.05692481994629,False,True,,False,True,True
+64ac0befe7,Abhishek,4,Prevents future bugs by casting the upper bound to long.,0,4,0,0,0,0,,,,,,,89.08852291107178,False,True,,False,True,True
+4e0c19fcb8,Abhishek,4,Bug related to memory leak,4,0,0,0,0,0,4.0,4.0,0.0,4.0,0.0,Memory leak,62.435678243637085,False,True,,False,False,True
+58e0be1ef6,Abhishek,4, Fixes bug related to incorrect memory copying that causes compiler warnings.,4,3,0,0,0,0,4.0,4.0,0.0,4.0,0.0,Memory copying to avoid overflows.,129.68283987045288,False,True,,False,True,True
+ad72c3c3f6,Abhishek,4,Fixes a misleading use of snd_BUG_ON() which caused unnecessary bug reports.,1,4,0,0,0,0,4.0,0.0,,,,,4117.8354749679565,False,True,,False,True,True
+f31e3c204d,Abhishek,4,Memory leak,4,0,0,0,0,0,4.0,4.0,0.0,4.0,0.0,Memory leak,88.87923383712769,False,True,,False,True,True
+463be3cb35,Abhishek,4,Fixes bug related to I/O errors in HS400 mode due to a disabled pull-down.,4,0,0,0,0,0,4.0,4.0,4.0,0.0,0.0,Affects the timing of eMMC operations in HS400 mode but not sure.,113.03654980659483,False,True,,False,False,True
+849c19d149,Abhishek,4,Prevents future bugs by disabling I2S1.,0,4,0,0,0,0,,,,,,,85.88703417778015,False,True,,False,True,True
+4f57332d6a,Abhishek,4,Fixes bug related to handling of SF devices during the driver probe phase.,4,0,0,0,0,0,4.0,4.0,4.0,0.0,0.0,Correct timing of SF probing during the driver probe phase.,99.00335001945496,False,True,,False,True,True
+534bd70374,Abhishek,4,Removes the \n character,0,4,4,0,0,0,,,,,,,71.70984411239624,False,True,,False,True,True
+0a068f4a71,Abhishek,4,Comments update,0,4,4,0,0,0,,,,,,,45.4109160900116,False,True,,False,True,True
+836e49e103,Abhishek,4,Incorrect initialization of spin lock fields in BPF map values.,4,0,0,0,0,0,4.0,4.0,0.0,4.0,0.0,Involves the correct initialization of memory (spin lock field),94.44350385665894,False,True,,False,True,True
+f9b62f9843,Abhishek,4,Prevents future out-of-bounds write issues.,0,4,0,0,0,0,,,,,,,86.51450800895691,False,True,,False,True,True
+7651d6b250,Abhishek,4,Code optimization,0,0,4,0,0,0,,,,,,,287.16919708251953,False,True,,False,True,True
+2b7d07f7ac,Abhishek,4,Fixes bug related to improper error handling and resource cleanup,4,0,0,0,0,0,4.0,4.0,0.0,4.0,0.0,Resource cleanup which can lead to memory-related problems but not sure.,57.10767197608948,False,True,,False,True,True
+994b7ac169,Abhishek,4,Code improvement,0,0,4,0,0,0,,,,,,,161.83081698417664,False,True,,False,True,True
+3b1611f252,Abhishek,4,New feature,0,0,0,4,4,0,,,,,,,67.52399897575378,False,True,,False,True,True
+a014f0ecdd,Abhishek,4,Removes the unit address  to correct the validation error.,4,0,0,0,0,0,4.0,0.0,,,,,88.85054683685303,False,True,,False,False,True
+04c439b367,Abhishek,4,Documentation update,0,3,4,0,0,0,,,,,,,241.70747303962708,False,True,,False,False,False
+b1d003f1b7,Abhishek,4,New feature,0,0,0,4,0,0,,,,,,,69.92306613922119,False,True,,False,True,True
+31354121bf,Abhishek,4,New feature,0,0,0,4,4,0,,,,,,,949.6216189861298,False,True,,False,True,True
+dd0be8278a,Abhishek,4,Updates the interrupts,0,4,0,0,0,0,,,,,,,112.90248799324036,False,True,,False,True,True
+8bad51c689,Abhishek,4,New feature,0,0,0,4,4,0,,,,,,,54.51426982879639,False,True,,False,True,True
+d9dcb63677,Abhishek,4,Code cleanup,0,0,4,0,0,0,,,,,,,70.89039897918701,False,True,,False,True,True
+6b2748ada2,Abhishek,4,New feature by introducing a new YAML binding.,0,0,0,4,4,0,,,,,,,78.3630838394165,False,True,,False,True,True
+2d4daa549c,Abhishek,4,Code cleanup,0,0,4,0,0,0,,,,,,,23.17948293685913,False,True,,False,True,True
+35eee9a363,Abhishek,4,Improves the quality of the self-tests,0,4,4,0,0,0,,,,,,,109.55125904083252,False,True,,False,False,False
+dc3f4dee81,Abhishek,4,Code improvement,0,0,0,0,0,0,,,,,,,209.8080711364746,False,True,,False,True,True
+e92a216d16,Abhishek,4,Prevents future memory leak bug.,0,4,0,0,0,0,,,,,,,99.8814342021942,False,True,,False,True,True
+9a938eba8d,Abhishek,4,Improves the code by removing redundant fields,0,0,4,0,0,0,,,,,,,59.90422797203064,False,True,,False,True,True
+cf260db405,Abhishek,4,Code readability,0,0,4,0,0,0,,,,,,,97.06708192825316,False,True,,False,True,True
+dff4ac75ee,Abhishek,4,Code relocation,0,4,0,0,0,0,,,,,,,67.0546522140503,False,True,,False,True,True
+f30ff35f62,Abhishek,4,Code optimization,0,0,4,0,0,0,,,,,,,38.96710705757141,False,True,,False,True,True
+1fe5ebc4e1,Abhishek,4,Code relocation or optimization,0,0,4,0,0,0,,,,,,,41.44467830657959,False,True,,False,True,True
+26df39a9e5,Abhishek,4,Fixes a compile error due to an uninitialized variable,4,0,0,0,0,0,4.0,0.0,,,,,40.74841809272766,False,True,,False,False,True
+c65234b283,Abhishek,4,Addresses a memory leak,4,0,0,0,0,0,4.0,4.0,0.0,4.0,0.0,Memory leak,50.26906085014343,False,True,,False,True,True
+e0d8259355,Abhishek,4,Code quality improvement and readability,0,0,4,0,0,0,,,,,,,67.00535893440247,False,True,,False,False,True
+610b17b05c,Abhishek,4,Code documentation,0,0,4,0,0,0,,,,,,,58.14427709579468,False,True,,False,False,False
+cd50f9b247,Abhishek,4,Code readability,0,0,4,0,0,0,,,,,,,83.10666012763977,False,True,,False,True,True
+c7c16c5b19,Abhishek,4,Corrects the behavior of the driver in handling reset failures.,0,4,0,0,0,0,,,,,,,81.96316003799438,False,True,,False,True,True
+450deb93df,Abhishek,4,Improves code structure,0,0,4,0,0,0,,,,,,,55.15291905403137,False,True,,False,True,True
+8b3a9ad862,Abhishek,4,Fixes bug by correctly flushing FIFOs.,4,0,0,0,0,0,4.0,2.0,2.0,0.0,0.0,,525.7194700241089,False,True,,False,True,True
+d4bfba1e75,Abhishek,4,Code readability,0,0,4,0,0,0,,,,,,,60.609055042266846,False,True,,False,True,True
+4efb98e963,Abhishek,4,Code readability,0,0,4,0,0,0,,,,,,,79.29792380332947,False,True,,False,True,True
+b43d0c0a42,Abhishek,4,Code readability and quality,0,0,4,0,0,0,,,,,,,72.25359177589417,False,True,,False,False,True
+1634602627,Abhishek,4,Documentation,0,0,4,0,0,0,,,,,,,63.3454692363739,False,True,,False,True,True
+ebe62df7c5,Abhishek,4,Improves code structure,0,4,4,0,0,0,,,,,,,66.50765490531921,False,True,,False,True,True
+c5f81301d0,Abhishek,4,Code structure and introduces new helper function,0,4,4,0,0,0,,,,,,,88.91131210327148,False,True,,False,True,True
+e5f969dd93,Abhishek,4,Adds a standardized timeout function interface thus preventing future bugs.,0,4,0,0,0,0,,,,,,,220.9213759899139,False,True,,False,True,True
+dedc215003,Abhishek,4,New feature or funcionality,0,0,0,4,0,0,,,,,,,70.49251198768616,False,True,,False,True,True
+fd3d91ab1c,Abhishek,4,Fixes bug related to use-after-free due to race conditions in the reference count synchronization process.,4,0,0,0,0,0,4.0,4.0,4.0,4.0,0.0,Race condition and use-after-free,278.80517983436584,False,True,,False,True,True
+36c6f1fb2e,Abhishek,4,Prevents future bug related to resource allocation.,0,4,0,0,0,0,,,,,,,413.3846547603607,False,True,,False,True,True
+f33b56d370,Abhishek,4,Fixes a bug where the maximum frame rate was incorrectly reported as 60 fps for all modes,4,0,0,0,0,0,4.0,4.0,0.0,0.0,4.0,Exchange of information between the driver and user by ensuring the correct frame rate is reported for each mode.,145.59167313575745,False,True,,False,True,True
+bdf240188b,Abhishek,4,Commit adds the V4L2_CTRL_FLAG_MODIFY_LAYOUT flag to the flip controls.,4,0,0,0,0,0,4.0,4.0,0.0,0.0,4.0,Exchange of information by ensuring the driver correctly indicates when the image layout is modified by flip controls.,212.4951708316803,False,True,,False,True,True
+59a811faa7,Abhishek,4,Code optimization,0,0,4,0,0,0,,,,,,,26.44046306610107,False,True,,False,True,True
+2c1eafc40e,Abhishek,4,Code quality improvement,0,0,4,0,0,0,,,,,,,81.16878914833069,False,True,,False,True,True
+e1e7bc481d,Abhishek,4,Code readability,0,0,4,0,0,0,,,,,,,971.8926830291748,False,True,,False,True,True
+dd51d3a33c,Abhishek,4,Fixes the detection of the hdmi_enable_4kp60 parameter ,4,0,0,0,0,0,4.0,0.0,,,,,10348.089103937147,False,True,,False,True,True
+ad3aa7c31e,Abhishek,4,Ensures  proper synchronization and protection of the context list,0,4,0,0,0,0,,,,,,,220.46970891952515,False,True,,False,True,True
+f28d42663e,Abhishek,4,Code optimization,0,0,4,0,0,0,,,,,,,57.64581489562988,False,True,,False,True,True
+d24e7855ef,Abhishek,4,Extends the GPU reset timeout from 5 seconds to 60 seconds in the drm/i915/gt driver,0,4,0,0,0,0,,,,,,,102.32851219177246,False,True,,False,True,True
+c24538f538,Abhishek,4,Code cleaning,0,0,4,0,0,0,,,,,,,25.65160226821899,False,True,,False,False,False
+6407cf5332,Abhishek,4,Commit replaces kthread_stop() with the kthread_work(er) API for preventing future bugs.,0,4,0,0,0,0,,,,,,,81.20486402511597,False,True,,False,True,True
+2c763f37d0,Abhishek,4,Commit skips the programming of gfxhub_v3_0_3 system aperture registers under SRIOV.,0,4,0,0,0,0,,,,,,,136.29000186920166,False,True,,False,True,True
+edc6938f7b,Abhishek,4,Code improvement,0,0,4,0,0,0,,,,,,,37.66341781616211,False,True,,False,False,False
+c4d66f7db6,Abhishek,4,It ensures that high bits are currently sent to prevent future bugs.,0,4,0,0,0,0,,,,,,,132.1193709373474,False,True,,False,False,False
+a01befa0a2,Abhishek,4,This commit is to use drm_mode_init() which guarantees that there is no stack garbage in the list head thus preventing future bugs.,0,4,0,0,0,0,,,,,,,123.94565510749815,False,True,,False,True,True
+c9e6aeb588,Abhishek,4,Commit ensures that local variables are reset on each iteration of the prefetch calculation loop thus allowing loop to exit properly.,4,0,0,0,0,0,4.0,4.0,4.0,0.0,0.0,Exiting loop correctly can be considered as Timing and execution bug.,222.27715706825256,False,True,,False,True,True
+2d3bc87543,Abhishek,4,Code cleanup by removing redundant fields and checks,0,0,4,0,0,0,,,,,,,111.05701804161072,False,True,,False,False,False
+bf29274d77,Abhishek,4,Commit check if PSR  is enabled before entering MALL thus preventing future bugs,0,4,0,0,0,0,,,,,,,93.90222907066344,False,True,,False,True,True
+0b55f6bc46,Abhishek,4,Corrects the handling of the bits_per_pixel value for DSC,0,4,0,0,0,0,,,,,,,181.0184061527252,False,True,,False,True,True
+f9cdf41306,Abhishek,4,Corrects the logic for selecting the appropriate port for sending VBT packets,0,4,0,0,0,0,,,,,,,91.41468214988708,False,True,,False,True,True
+7ba63521a1,Abhishek,4,Adds support for suspend and resume operations,0,4,0,0,0,0,,,,,,,223.13158297538757,False,True,,False,True,True
+afb8d5f431,Abhishek,4,It addresses warning by making irq chip immutable.,3,4,0,0,0,0,0.0,0.0,,,,,1203.6874690055847,False,True,,False,True,True
+c4168db7c8,Abhishek,4,Code improvement and readability,0,4,4,0,0,0,,,,,,,71.41957902908325,False,True,,False,False,False
+6c98ac4212,Abhishek,4,Fixes the handling of inverted MFSEL bits,4,0,0,0,0,0,0.0,0.0,,,,,106.20017385482788,False,True,,False,True,True
+92039e8c08,Abhishek,4,Adds the CLK_OPS_PARENT_ENABLE flag to the pixel and byte clock.,0,4,0,0,0,0,,,,,,,95.11364102363586,False,True,,False,True,True
+bedcf9d1dc,Abhishek,4,Rename,0,0,4,0,0,0,,,,,,,25.96519708633423,False,True,,False,True,True
+ed823991c6,Abhishek,4,New feature,0,0,4,4,0,0,,,,,,,49.02209210395813,False,True,,False,False,True
+0ca18d09c7,Abhishek,4,Commit adds a check for the return value of mmc_add_host() to prevent future bugs.,0,4,0,0,0,0,,,,,,,126.90384411811829,False,True,,False,True,True
+1844c79c4d,Abhishek,4,Code update to use new macros,0,4,4,0,0,0,,,,,,,59.17200684547424,False,True,,False,True,True
+51cd31ae20,Abhishek,4,Code readability,0,0,4,0,0,0,,,,,,,33.74270415306091,False,True,,False,True,True
+0542aac494,Abhishek,4,Code readability,0,0,4,0,0,0,,,,,,,37.791670083999634,False,True,,False,True,True
+cd044ff918,Abhishek,4,New feature,0,0,0,4,4,0,,,,,,,37.92789006233215,False,True,,False,True,True
+255d7a9581,Abhishek,4,Code improvement and simplification,0,0,4,0,0,0,,,,,,,63.90219306945801,False,True,,False,True,True
+ac686cbc6f,Abhishek,4,New feature,0,0,0,4,4,0,,,,,,,35.64777898788452,False,True,,False,True,True
+7afc1f6977,Abhishek,4,New feature,0,0,0,4,4,0,,,,,,,36.39932107925415,False,True,,False,True,True
+868695e43b,Abhishek,4,New feature,0,0,0,4,4,0,,,,,,,37.99221467971802,False,True,,False,True,True
+1280d4b76f,Abhishek,4,Code refactoring and improvement,0,0,4,0,0,0,,,,,,,36.59073615074158,False,True,,False,False,True
+91592b5c0c,Abhishek,4,Code refactoring,0,0,4,0,0,0,,,0.0,0.0,0.0,,31.072929859161377,False,True,,False,True,True
+15e15d64bd,Abhishek,4,New feature,0,0,4,4,0,0,,,0.0,0.0,0.0,,71.02204203605652,False,True,,False,False,True
+b24cb2d169,Abhishek,4,Handles the CMD_ERROR_EVENT,0,4,0,4,0,0,,,0.0,0.0,0.0,,73.9551329612732,False,True,,False,True,True
+cb04b5ef85,Abhishek,4,Fixes a bug where the DTIM period was incorrectly cleared after being set.,4,0,0,0,0,0,4.0,4.0,0.0,0.0,4.0,DTIM period is related to how information is exchanged,98.58747386932373,False,True,,False,True,True
+79cac25e51,Abhishek,4,Makes the array constant,0,4,4,0,0,0,,,,,,,62.47737383842468,False,True,,False,True,True
+b6a709cb51,Abhishek,4,Adds new definitions for PCS ,0,0,4,3,0,0,,,,,,,90.26570796966553,False,True,,False,True,True
+5cb76899fb,Abhishek,4,Code simplification,0,0,4,0,0,0,,,,,,,459.7336480617523,False,True,,False,True,True
+1fc4fa2ac9,Abhishek,4,"Fixes bug in the congestion management of rxrpc, addressing a bug where a zero cwnd could prevent data transmission.",4,0,0,0,0,0,4.0,4.0,4.0,0.0,4.0,"It is related to timing and execution of data transmission by properly managing the cwnd and ssthresh. Also, I feel it comes under Exchange of information.",302.34090280532837,False,True,,False,True,True
+d6c2964db3,Abhishek,4,New feature,0,0,0,4,0,0,,,,,,,64.07127666473389,False,True,,False,True,True
+1f74399fd1,Abhishek,4,Code cleanup,0,0,4,0,0,0,,,,,,,16.196923971176147,False,False,,False,False,False
+a49c3ab7d7,Abhishek,4,New feature,0,0,0,4,4,0,,,,,,,74.05333089828491,False,True,,False,True,True
+0dc33c6583,Abhishek,4,Avoids unnecessary copying of encryption keys.,0,4,4,0,0,0,,,,,,,110.07799196243286,False,True,,False,True,True
+7b0ac469e3,Abhishek,4,"Fixes a bug where chip cuts greater than E were not recognized and were printed as ""unknown"".",4,0,0,0,0,0,4.0,0.0,,,,,129.79959177970886,False,True,,False,True,True
+5cf2c75b5b,Abhishek,4,Code refactoring,0,0,4,0,0,0,,,,,,,170.31228804588318,False,True,,False,True,True
+23dca7a900,Abhishek,4,Introduces a new parameter to the function,0,0,0,4,0,0,,,,,,,76.0041880607605,True,True,,False,True,True
+e004ea1059,Abhishek,4,Code readability,0,0,4,0,0,0,,,,,,,46.304967164993286,False,True,,False,True,True
+b61699d2cd,Abhishek,4,Code readability and simplification,0,0,4,0,0,0,,,,,,,52.71649479866028,False,True,,False,True,True
+d8ca113724,Abhishek,4,New feature,0,0,0,4,0,0,,,,,,,55.18253779411316,False,True,,False,True,True
+3dd9c8b5f0,Abhishek,4,Code quality improvement by removing unused spinlocks.,0,0,4,0,0,0,,,,,,,51.20854377746582,False,True,,False,False,False
+1ab586f517,Abhishek,4,Use the recommended sysfs_emit() function,0,4,4,0,0,0,,,,,,,256.02048110961914,False,True,,False,True,True
+e47877c7aa,Abhishek,4,Improve the functionality,0,4,0,0,0,0,,,,,,,87.0605890750885,False,True,,False,True,True
+ebddb14049,Abhishek,4,Code refactoring,0,0,4,0,0,0,,,,,,,29.833801984786987,False,True,,False,True,True
+3084097c36,Abhishek,4,Code improvement by removing error-prone mount and unmount operations,0,4,4,0,0,0,,,,,,,76.18054294586182,False,True,,False,False,True
+f074732d59,Abhishek,4,Code cleanup by removing unused functions,0,0,4,0,0,0,,,,,,,58.67447090148926,False,True,,False,True,True
+2274c3b281,Abhishek,4,Code cleanup,0,0,4,0,0,0,,,,,,,29.43290090560913,False,True,,False,False,False
+e137b81d30,Abhishek,4,Code cleanup by removing unused variable,0,0,4,0,0,0,,,,,,,26.97676110267639,False,True,,False,False,False
+7ac7bfe746,Abhishek,4,Spelling error,0,0,4,0,0,0,,,,,,,23.833457231521606,False,True,,False,False,False
+25fd735a4c,Abhishek,4,Code refactoring and improvement,0,0,4,0,0,0,,,,,,,22.40011692047119,False,True,,False,False,False
+d23417a5bf,Abhishek,4,Fixes memory leak,4,0,0,0,0,0,4.0,4.0,0.0,4.0,0.0,Memory leak,74.6052451133728,False,True,,False,True,True
+bea75b3389,Abhishek,4,Adds new functionality by introducing NOP padding,0,0,0,4,0,0,,,,,,,56.62818098068237,False,True,,False,True,True
+ad75bd85b1,Abhishek,4,Commit modifies the probe logic to skip probing when there is no separate probe address,4,0,0,0,0,0,4.0,0.0,,,,,279.76397013664246,False,True,,False,False,True
+65ea840afd,Abhishek,4,Commit corrects the return value check to properly handle error pointers.,4,0,0,0,0,0,4.0,0.0,,,,,122.06140613555908,False,True,,False,True,True
+029d6586dc,Abhishek,4,New feature,0,0,0,4,4,0,,,,,,,38.599056005477905,False,True,,False,True,True
+ee3e3ac05c,Abhishek,4,New feature,0,0,0,4,4,0,,,,,,,53.38111591339111,False,True,,False,True,True
+99387b0160,Abhishek,4,Improves the efficiency of frequency QoS updates,0,4,4,0,0,0,,,,,,,82.97417521476746,False,True,,False,True,True
+b148c8b9b9,Abhishek,4,Add test cases,0,4,4,0,0,0,,,,,,,152.40732598304749,False,True,,False,True,True
+d13da2f4c8,Abhishek,4,Documentation,0,0,4,0,0,0,,,,,,,56.66223907470703,False,True,,False,True,True
+a189b2ee93,Abhishek,4,Fixes  linker error caused by multiple definitions of fb_modesetting_disabled().,4,0,0,0,0,0,4.0,0.0,,,,,96.05636024475098,False,True,,False,False,True
+f98c5ec251,Abhishek,4,Commit ensures proper cleanup of allocated resources and preventing potential null pointer dereference thus preventing future bugs.,0,4,0,0,0,0,,,,,,,203.18653273582458,False,True,,False,True,True
+2dd9032beb,Abhishek,4,Code simplification,0,0,4,0,0,0,,,,,,,50.65180587768555,False,True,,False,False,False
+079c4c0c6c,Abhishek,4,Code quality improvement / refactoring,0,0,4,0,0,0,,,,,,,63.676337003707886,False,True,,False,True,True
+a0c5149088,Abhishek,4,Code refactoring,0,3,4,0,0,0,,,,,,,53.457902669906616,False,True,,False,True,True
+192bb40f03,Abhishek,4,Fixes a race condition by ensuring proper lock management,4,0,0,0,0,0,4.0,4.0,4.0,0.0,0.0,Race condition,85.55420994758606,False,True,,False,True,True
+71feb6f901,Abhishek,4,Fix a bug caused by previous commit.,4,0,0,0,0,0,4.0,0.0,,,,,100.6515781879425,False,True,,False,False,True
+b02ba9ed7c,Abhishek,4,Code improvement,0,0,4,0,0,0,,,,,,,53.60843515396118,False,True,,False,True,True
+95b39792c6,Abhishek,4,Code quality improvement,0,0,4,0,0,0,,,,,,,95.58739185333252,False,True,,False,True,True
+ce3a0a29fb,Abhishek,4,Enhances code by using helper function,0,0,4,0,0,0,,,,,,,118.45020008087158,False,True,,False,True,True
+2baad24963,Abhishek,4,Improves the code by adjusting log levels to provide a better user experience,0,0,4,0,0,0,,,,,,,50.77935004234314,False,True,,False,False,True
+1cec8bbc17,Abhishek,4,Fixes a bug where an incorrect enum was used to disable single-step debugging,4,0,0,0,0,0,4.0,0.0,,,,,90.49636507034302,False,True,,False,True,True
+0fa32dad1e,Abhishek,4,Renaming,0,0,4,0,0,0,,,,,,,20.517343997955322,False,True,,False,True,True
+228f324dc7,Abhishek,4,Introduces a new function virt_get_pte_hva() which is a new feature,0,0,0,4,0,0,,,,,,,51.78622627258301,False,True,,False,True,True
+b93d2ec34e,Abhishek,4,Documentation update,0,0,4,0,0,0,,,,,,,46.68294405937195,False,True,,False,True,True
+3256412fc5,Abhishek,4,New feature / functionality,0,0,4,4,0,0,,,,,,,86.18378496170044,False,True,,False,False,False
+ab3593eeef,Abhishek,4,Code quality improvement,0,0,4,0,0,0,,,,,,,63.60029697418213,False,True,,False,True,True
+f0052d7a1e,Abhishek,4,New feature by adding support for the Quectel EM05-G modem.,0,0,0,4,0,0,,,,,,,57.4976692199707,False,True,,False,True,True
+1a048cde49,Abhishek,4,Improves the code by replacing a driver-specific function with a standard one,0,0,4,0,0,0,,,,,,,59.680763959884644,False,True,,False,True,True
+17580de3e2,Abhishek,4,Code refactoring,0,0,4,0,0,0,,,,,,,35.70088028907776,False,True,,False,True,True
+fbfc4ca465,Abhishek,4,Code quality improvement by reorganizing,0,0,4,0,0,0,,,,,,,66.47412300109863,False,True,,False,True,True
+81188dd195,Abhishek,4,New feature,0,0,4,4,0,0,,,,,,,44.30559706687927,False,True,,False,True,True
+7198cf0f1c,Abhishek,4,Code refactoring,0,0,4,0,0,0,,,,,,,33.77380585670471,False,True,,False,True,True
+ed81d3de8e,Abhishek,4,Documentation update,0,0,4,0,0,0,,,,,,,46.91062593460083,False,True,,False,False,True
+4b2b4370a8,Abhishek,4,Code refactoring,0,0,4,0,0,0,,,,,,,45.062456130981445,False,True,,False,True,True
+3de8dd69fa,Abhishek,4,Code refactoring,0,0,4,0,0,0,,,,,,,51.75156879425049,False,True,,False,True,True
+1140f96cd4,Abhishek,4,Documentation update,0,0,4,0,0,0,,,,,,,25.336139917373657,False,True,,False,True,True
+a63de89bee,Abhishek,4,Improves the code,0,0,4,0,0,0,,,,,,,93.40562677383423,False,True,,False,True,True
+5f8981d699,Abhishek,4,Fix bugs in the print statements.,4,0,0,0,0,0,4.0,0.0,,,,,69.16271901130676,False,True,,False,True,True
+d4ad017d63,Abhishek,4,Code improvement,0,0,4,0,0,0,,,,,,,48.45600485801697,False,True,,False,True,True
+9d895e4684,Abhishek,4,New feature,0,0,0,4,0,0,,,,,,,51.208242893218994,False,True,,False,False,False
+0b8ff0ba27,Abhishek,4,Code simplification,0,0,4,0,0,0,,,,,,,51.86633920669556,False,True,,False,True,True
+7b7c22ccdf,Abhishek,4,Documentation update,0,0,4,0,0,0,,,,,,,56.213345766067505,False,True,,False,False,True
+5f334d88c2,Abhishek,4,Code improvement,0,0,4,0,0,0,,,,,,,66.03929781913757,False,True,,False,False,False
+97236ad5a6,Abhishek,4,Commit addresses a race condition in the GFS2 filesystem.,4,0,0,0,0,0,4.0,4.0,4.0,0.0,0.0,Race condition,92.07232594490051,False,True,,False,False,False
+571650b3a3,Abhishek,4,Fixes bug where the bq25890 driver probe fails due to duplicate registration.,4,0,0,0,0,0,4.0,0.0,,,,,105.06310319900513,False,True,,False,True,True
+3ffa9f713c,Abhishek,4, Fixes bug in the error handling logic of the ssi_init() function.,4,0,0,0,0,0,4.0,0.0,,,,,473.9113621711731,False,True,,False,True,True
+9102b78b6f,Abhishek,4,Documentation update,0,0,4,0,0,0,,,,,,,63.979005098342896,False,True,,False,False,True
+de3d098dd1,Abhishek,4,Adds a specific check for the ELF ABI version thus preventing future bugs.,0,4,0,0,0,0,,,,,,,725.019522190094,False,True,,False,True,True
+6076dc349b,Abhishek,4,Code refactoring,0,0,4,0,0,0,,,,,,,19.45678210258484,False,False,,False,False,False
+73ad6a9dd5,Abhishek,4, Adds checks to prevent future bugs.,0,4,0,0,0,0,,,,,,,72.68120908737183,False,True,,False,True,True
+0f60740652,Abhishek,4,New feature,0,0,0,4,0,0,,,,,,,97.2608368396759,False,True,,False,True,True
+0537692bbe,Abhishek,4,Code cleanup,0,0,4,0,0,0,,,,,,,25.478254079818726,False,True,,False,True,True
+4967a7803c,Abhishek,4,Spelling mistakes,0,0,4,0,0,0,,,,,,,27.41828989982605,False,True,,False,False,False
+e59b3c730b,Abhishek,4,Improves the code by including the correct header file,0,4,4,0,0,0,,,,,,,472.93450903892517,False,True,,False,False,True
+435beb4110,Abhishek,4,Documentation,0,0,4,0,0,0,,,,,,,39.3843719959259,False,True,,False,False,True
+1b0c84a32e,Abhishek,4,Fixes bug related to unaligned I/O read operations ,4,0,0,0,0,0,4.0,4.0,0.0,4.0,0.0,Issue related to unaligned memory access.,735.8472411632538,False,True,,False,False,False
+913c4a3e19,Abhishek,4,Code quality improvement,0,0,4,0,0,0,,,,,,,77.42400693893433,False,True,,False,True,True
+d0871b5a22,Abhishek,4,Code simplification,0,0,4,0,0,0,,,,,,,29.56109380722046,False,True,,False,False,True
+51e76a232f,Abhishek,4,Memory leak,4,0,0,0,0,0,4.0,4.0,0.0,4.0,0.0,Memory leak,40.08576488494873,False,True,,False,True,True
+1b929c02af,Abhishek,0,No data available,2,2,2,2,2,2,2.0,0.0,,,,,71.59133625030518,True,True,,False,False,False
+562f5bc48a,Abhishek,4,Remove duplicate,0,0,4,0,0,0,,,,,,,28.250643253326416,False,True,,False,False,True
+98047313cd,Abhishek,4,This fix involves saving the last parameter value before entering the loop.,4,0,0,0,0,0,4.0,4.0,4.0,0.0,0.0,Correct handling of parameters within a loop.,425.4181501865387,False,True,,False,True,True
+4a692ae360,Abhishek,0,Merge Commit,0,0,0,0,0,0,,,,,,,2.9360389709472656,False,False,,True,False,
+8a2094d679,Abhishek,0,Merge Commit,0,0,0,0,0,0,,,,,,,9.320481777191162,False,False,,True,False,False
+f692121142,Abhishek,0,Merge Commit,0,0,0,0,0,0,,,,,,,7.5412209033966064,False,False,,True,False,False
+3c8cef9f3d,Abhishek,0,Merge Commit,0,0,0,0,0,0,,,,,,,7.403652906417847,False,False,,True,False,False
+27a96c4feb,Abhishek,0,Merge Commit,0,0,0,0,0,0,,,,,,,7.72605299949646,False,False,,True,False,False
+0033fced48,Abhishek,0,Merge Commit,0,0,0,0,0,0,,,,,,,6.20331597328186,False,False,,True,False,False
+1136fa0c07,Abhishek,0,Merge Commit,0,0,0,0,0,0,,,,,,,7.368878126144409,False,False,,True,False,False
+ba6354f614,Abhishek,0,Merge Commit,0,0,0,0,0,0,,,,,,,7.0117151737213135,False,False,,True,False,False
+cd92fdfcfa,Abhishek,0,Merge Commit,0,0,0,0,0,0,,,,,,,7.8945441246032715,False,False,,True,False,False
+92877b9e74,Abhishek,0,Merge Commit,0,0,0,0,0,0,,,,,,,5.96549391746521,False,False,,True,False,False
+8a9bd50a9d,Abhishek,0,Merge Commit,0,0,0,0,0,0,,,,,,,7.596145153045654,False,False,,True,False,False
+d6ccf45113,Abhishek,0,Merge Commit,0,0,0,0,0,0,,,,,,,7.92824912071228,False,False,,True,False,False
+9fce18ab0b,Abhishek,0,Merge Commit,0,0,0,0,0,0,,,,,,,8.092227220535278,False,False,,True,False,False
+12a8f37fd2,Abhishek,0,Merge Commit,0,0,0,0,0,0,,,,,,,7.2159528732299805,False,False,,True,False,False
+6ce71687d4,Abhishek,0,Merge Commit,0,0,0,0,0,0,,,,,,,6.8195741176605225,False,False,,True,False,False
+ca0a53dcec,Abhishek,0,Merge Commit,0,0,0,0,0,0,,,,,,,7.721022129058838,False,False,,True,False,False
+0c634fcb98,Abhishek,0,Merge Commit,0,0,0,0,0,0,,,,,,,6.395450115203857,False,False,,True,False,False
+cf683abd39,Abhishek,0,Merge Commit,0,0,0,0,0,0,,,,,,,6.8783509731292725,False,False,,True,False,False
+f4f5d7cfb2,Abhishek,0,Merge Commit,0,0,0,0,0,0,,,,,,,6.968304872512817,False,False,,True,False,False
+7200095fea,Abhishek,0,Merge Commit,0,0,0,0,0,0,,,,,,,6.517545938491821,False,False,,True,False,False
+4fad37d595,Abhishek,0,Merge Commit,0,0,0,0,0,0,,,,,,,8.65899395942688,False,False,,True,False,False
+03498b7131,Abhishek,0,Merge Commit,0,0,0,0,0,0,,,,,,,9.890904903411865,False,False,,True,False,False
+d4af0c1723,Abhishek,0,Merge Commit,0,0,0,0,0,0,,,,,,,14.26577091217041,False,False,,True,False,False
+42d594357e,Abhishek,0,Merge Commit,0,0,0,0,0,0,,,,,,,6.667665243148804,False,False,,True,False,False
+beb21e3e8e,Abhishek,0,Merge Commit,0,0,0,0,0,0,,,,,,,10.564298868179321,False,False,,True,False,False
+7e4d1c2375,Abhishek,0,Merge Commit,0,0,0,0,0,0,,,,,,,9.16316270828247,False,False,,True,False,False
+e0e1d166b5,Abhishek,0,Merge Commit,0,0,0,0,0,0,,,,,,,7.644507884979248,False,False,,True,False,False
+5c5c69e943,Abhishek,0,Merge Commit,0,0,0,0,0,0,,,,,,,9.173694133758545,False,False,,True,False,False
+9a2c984189,Abhishek,0,Merge Commit,0,0,0,0,0,0,,,,,,,9.18246603012085,False,False,,True,False,False
+956f1b8f80,Abhishek,0,Merge Commit,0,0,0,0,0,0,,,,,,,8.893060684204102,False,False,,True,False,False
+6e4c9b1fc5,Abhishek,0,Merge Commit,0,0,0,0,0,0,,,,,,,12.564003944396973,False,False,,True,False,False
+eea502e3c5,Abhishek,0,Merge Commit,0,0,0,0,0,0,,,,,,,32.38743233680725,False,False,,True,False,False
+1c1d0e5dc4,Abhishek,0,Merge Commit,0,0,0,0,0,0,,,,,,,8.005090713500977,False,False,,True,False,False
+1758da7f31,Abhishek,0,Merge Commit,0,0,0,0,0,0,,,,,,,6.202989101409912,False,False,,True,False,False
+6b5e9bdce6,Abhishek,0,Merge Commit,0,0,0,0,0,0,,,,,,,12.071292877197266,False,False,,True,False,False
+7337342b35,Abhishek,0,Merge Commit,0,0,0,0,0,0,,,,,,,20.419897079467773,False,False,,True,False,False
+bc8e81a55f,Abhishek,0,Merge Commit,0,0,0,0,0,0,,,,,,,15.330869913101196,False,False,,True,False,False
+8ab2afa23b,Abhishek,0,Merge Commit,0,0,0,0,0,0,,,,,,,25.55141806602478,False,False,,True,False,False
+c034ff2b53,Abhishek,0,Merge Commit,0,0,0,0,0,0,,,,,,,7.082314968109131,False,False,,True,False,False
+34845d92bc,Abhishek,0,Merge Commit,0,0,0,0,0,0,,,,,,,8.146312952041626,False,False,,True,False,False
+34f4335c16,Abhishek,0,Merge Commit,0,0,0,0,0,0,,,,,,,9.582504272460938,False,False,,True,False,False
+2f90ec1271,Abhishek,0,Merge Commit,0,0,0,0,0,0,,,,,,,9.804502010345459,False,False,,True,False,False
+c0c6a7bd4c,Abhishek,0,Merge Commit,0,0,0,0,0,0,,,,,,,8.814868927001953,False,False,,True,False,False
+9fb3bb25d1,Abhishek,0,Merge Commit,0,0,0,0,0,0,,,,,,,7.178502082824707,False,False,,True,False,False
+f99d621133,Abhishek,0,Merge Commit,0,0,0,0,0,0,,,,,,,5.958639860153198,False,False,,True,False,False
+71560d98e7,Abhishek,0,Merge Commit,0,0,0,0,0,0,,,,,,,7.6424031257629395,False,False,,True,False,False
+32346491dd,Abhishek,0,Merge Commit,0,0,0,0,0,0,,,,,,,9.676825046539307,False,False,,False,False,False
+f41d5df5f1,Abhishek,0,Merge Commit,0,0,0,0,0,0,,,,,,,9.274061918258667,False,False,,True,False,False
+33ea1340ba,Abhishek,0,Merge Commit,0,0,0,0,0,0,,,,,,,17.70774507522583,False,False,,True,False,False
+e65c6a46df,Abhishek,0,Merge Commit,0,0,0,0,0,0,,,,,,,8.379140138626099,False,False,,True,False,False
+75fed76ebc,Abhishek,0,Merge Commit,0,0,0,0,0,0,,,,,,,9.262869834899902,False,False,,True,False,False
+30a32ee55f,Abhishek,0,Merge Commit,0,0,0,0,0,0,,,,,,,8.20478105545044,False,False,,True,False,False
+a595919877,Abhishek,0,Merge Commit,0,0,0,0,0,0,,,,,,,7.741494178771973,False,False,,True,False,False
+2e7a95156d,Abhishek,0,Merge Commit,0,0,0,0,0,0,,,,,,,7.269700765609741,False,False,,True,False,False
+e05d5b9c5b,Abhishek,0,Merge Commit,0,0,0,0,0,0,,,,,,,8.742459058761597,False,False,,True,False,False
+bb7a425789,Abhishek,0,Merge Commit,0,0,0,0,0,0,,,,,,,8.35657000541687,False,False,,True,False,False
+61aee772eb,Abhishek,0,Merge Commit,0,0,0,0,0,0,,,,,,,192.23694896697998,False,False,,True,False,False
+8db4a0291b,Abhishek,0,Merge Commit,0,0,0,0,0,0,,,,,,,27.32187294960022,False,False,,True,False,False
+74cae210a3,Abhishek,0,Merge Commit,0,0,0,0,0,0,,,,,,,12.316852807998657,False,False,,True,False,False
+9f2d5e1e5d,Abhishek,0,Merge Commit,0,0,0,0,0,0,,,,,,,12.166469812393188,False,False,,True,False,False
+7fb72b7bf1,Abhishek,0,Merge Commit,0,0,0,0,0,0,,,,,,,12.617555856704712,False,False,,True,False,False
+2f089a3846,Abhishek,0,Merge Commit,0,0,0,0,0,0,,,,,,,13.300534963607788,False,False,,True,False,False
+04131ae29b,Abhishek,0,Merge Commit,0,0,0,0,0,0,,,,,,,10.793022155761719,False,False,,True,False,False
+996237d9ba,Abhishek,0,Merge Commit,0,0,0,0,0,0,,,,,,,11.141156911849976,False,False,,True,False,False
+f0c5f7ea81,Abhishek,0,Merge Commit,0,0,0,0,0,0,,,,,,,12.011961221694946,False,False,,True,False,False
+60891ec99e,Abhishek,0,Merge Commit,0,0,0,0,0,0,,,,,,,12.531731843948364,False,False,,True,False,False
+c816f2e981,Abhishek,0,Merge Commit,0,0,0,0,0,0,,,,,,,11.006006002426147,False,False,,True,False,False
+c3188dbafa,Abhishek,0,Merge Commit,0,0,0,0,0,0,,,,,,,11.608528137207031,False,False,,True,False,False
+50c448bbc1,Abhishek,0,Merge Commit,0,0,0,0,0,0,,,,,,,10.82537317276001,False,False,,True,False,False
+08820902ef,Abhishek,0,Merge Commit,0,0,0,0,0,0,,,,,,,10.64834213256836,False,False,,True,False,False
+8de1037a96,Abhishek,0,Merge Commit,0,0,0,0,0,0,,,,,,,10.998347043991089,False,False,,True,False,False
+a185a09955,Abhishek,0,Merge Commit,0,0,0,0,0,0,,,,,,,11.247525215148926,False,False,,True,False,False
+bd8e963412,Abhishek,0,Merge Commit,0,0,0,0,0,0,,,,,,,10.080790042877197,False,False,,True,False,False
+7f9a7cd690,Abhishek,0,Merge Commit,0,0,0,0,0,0,,,,,,,12.82300066947937,False,False,,True,False,False
+fe1fd0ccd8,Abhishek,0,Merge Commit,0,0,0,0,0,0,,,,,,,13.029235124588013,False,False,,True,False,False
+83633ed70c,Abhishek,0,Merge Commit,0,0,0,0,0,0,,,,,,,12.01237177848816,False,False,,True,False,False
+882ad2a2a8,Abhishek,0,Merge Commit,0,0,0,0,0,0,,,,,,,10.809078931808472,False,False,,True,False,False
+63eec6f926,Abhishek,0,Merge Commit,0,0,0,0,0,0,,,,,,,11.353553295135498,False,False,,True,False,False
+ca66e58001,Abhishek,0,Merge Commit,0,0,0,0,0,0,,,,,,,11.569694995880127,False,False,,True,False,False
+b308570957,Abhishek,0,Merge Commit,0,0,0,0,0,0,,,,,,,11.909903764724731,False,False,,True,False,False
+0c3b5bcb48,Abhishek,0,Merge Commit,0,0,0,0,0,0,,,,,,,10.628803968429565,False,False,,True,False,False
+c4252650a8,Abhishek,0,Merge Commit,0,0,0,0,0,0,,,,,,,10.881497859954834,False,False,,True,False,False
+bcbc468528,Abhishek,0,Merge Commit,0,0,0,0,0,0,,,,,,,11.592207908630371,False,False,,True,False,False
+da060ab86e,Abhishek,0,Merge Commit,0,0,0,0,0,0,,,,,,,12.466475009918213,False,False,,True,False,False
+368c7f1f8a,Abhishek,0,Merge Commit,0,0,0,0,0,0,,,,,,,9.984975099563599,False,False,,True,False,False
+c609d73994,Abhishek,0,Merge Commit,0,0,0,0,0,0,,,,,,,9.86613392829895,False,False,,True,False,False
+1b1661f68b,Abhishek,0,Merge Commit,0,0,0,0,0,0,,,,,,,14.82980990409851,False,False,,True,False,False
+395f9d8975,Abhishek,0,Merge Commit,0,0,0,0,0,0,,,,,,,11.570056200027466,False,False,,True,False,False
+a0a6c76cf2,Abhishek,0,Merge Commit,0,0,0,0,0,0,,,,,,,11.770097970962524,False,False,,True,False,False
+03d84bd6d4,Abhishek,0,Merge Commit,0,0,0,0,0,0,,,,,,,11.010240077972412,False,False,,True,False,False
