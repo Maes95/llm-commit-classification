@@ -204,7 +204,8 @@ CRITICAL: Your response must be ONLY the raw JSON object. Do not wrap it in mark
             "summary": annotation.get("summary"),
             "usage_metadata": response.usage_metadata,
             "model": self.model,
-            "raw_response": response.content
+            "raw_response": response.content,
+            "prompt": prompt_text
         }
     
     def annotate_commit_from_file(self, commit_file: str) -> Dict[str, Any]:
