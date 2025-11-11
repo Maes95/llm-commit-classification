@@ -4,6 +4,12 @@ from datetime import datetime
 from langchain.chat_models import init_chat_model
 from typing import Dict, Any, Optional
 
+# Import specific chat models
+try:
+    from langchain_google_genai import ChatGoogleGenerativeAI
+except ImportError:
+    ChatGoogleGenerativeAI = None
+
 
 class LLMCommitAnnotator:
     """
@@ -23,23 +29,16 @@ class LLMCommitAnnotator:
         Initialize the LLM Commit Annotator.
         
         Args:
-            model: The model identifier to use (e.g., "meta-llama/llama-4-maverick:free")
-            definitions_file: Path to the file containing category definitions
+            model: The model identifier to use
+                   For OpenRouter: "meta-llama/llama-4-maverick:free"
+                   For Google: "gemini-2.0-flash-exp" or "gemini-1.5-pro"
+                   For OpenAI: "gpt-4", "gpt-3.5-turbo"
             temperature: LLM temperature for reproducibility (default: 0.0)
             max_tokens: Maximum tokens for LLM response (default: 3072)
         """
         self.model = model
-        self.api_key = os.getenv("OPENROUTER_API_KEY")
-        self.base_url = os.getenv("OPENROUTER_BASE_URL")
         self.temperature = temperature
         self.max_tokens = max_tokens
-        
-        if not self.api_key:
-            raise ValueError(
-                "OPENROUTER_API_KEY is not set.\n"
-                "Set it in your environment or pass it to the constructor.\n"
-                "You can get a key at https://openrouter.ai/"
-            )
         
         # Load definitions
         self.definitions_content = self._load_definitions()
@@ -56,19 +55,100 @@ class LLMCommitAnnotator:
             return f.read()
     
     def _initialize_llm(self):
-        """Initialize the LLM client."""
-        # Extract provider from model string (e.g., "meta-llama" -> "meta")
-        provider = self.model.split("/")[0].split("-")[0] if "/" in self.model else "meta"
+        """Initialize the LLM client based on model type."""
+        # Detect provider based on model name
+        if "gemini" in self.model.lower() or "gemma" in self.model.lower() or self.model.startswith("google/"):
+            # Google Generative AI - use direct API
+            api_key = os.getenv("GOOGLE_API_KEY")
+            if not api_key:
+                raise ValueError(
+                    "GOOGLE_API_KEY is not set.\n"
+                    "Set it in your environment for Google models.\n"
+                    "Get a key at https://aistudio.google.com/app/apikey"
+                )
+            
+            # Remove "google/" prefix and ":free" suffix if present
+            model_name = self.model.replace("google/", "").replace(":free", "")
+            
+            # Create a custom wrapper using google-generativeai directly
+            try:
+                from google import generativeai as genai
+            except ImportError:
+                raise ImportError(
+                    "google-generativeai is not installed.\n"
+                    "Install it with: pip install google-generativeai"
+                )
+            
+            class GoogleWrapper:
+                def __init__(self, model, api_key, temperature, max_tokens):
+                    genai.configure(api_key=api_key)
+                    self.model = genai.GenerativeModel(model)
+                    self.temperature = temperature
+                    self.max_tokens = max_tokens
+                
+                def invoke(self, prompt):
+                    generation_config = {
+                        "temperature": self.temperature,
+                        "max_output_tokens": self.max_tokens,
+                    }
+                    response = self.model.generate_content(
+                        prompt,
+                        generation_config=generation_config
+                    )
+                    
+                    # Create a response object similar to LangChain's
+                    class Response:
+                        def __init__(self, text):
+                            self.content = text
+                            self.usage_metadata = {
+                                "input_tokens": 0,  # Google API doesn't always provide this
+                                "output_tokens": 0
+                            }
+                    
+                    return Response(response.text)
+            
+            return GoogleWrapper(model_name, api_key, self.temperature, self.max_tokens)
         
-        return init_chat_model(
-            model_provider="openai",
-            model=self.model,
-            api_key=self.api_key,
-            base_url=self.base_url,
-            temperature=self.temperature,
-            max_tokens=self.max_tokens,
-            extra_body={"provider": {"require_parameters": True, "only": [provider]}}
-        )
+        elif "gpt" in self.model.lower() or self.model.startswith("openai/"):
+            # OpenAI
+            api_key = os.getenv("OPENAI_API_KEY")
+            if not api_key:
+                raise ValueError(
+                    "OPENAI_API_KEY is not set.\n"
+                    "Set it in your environment for OpenAI models.\n"
+                    "Get a key at https://platform.openai.com/api-keys"
+                )
+            
+            model_name = self.model.replace("openai/", "")
+            
+            return init_chat_model(
+                model_provider="openai",
+                model=model_name,
+                api_key=api_key,
+                temperature=self.temperature,
+                max_tokens=self.max_tokens
+            )
+        
+        else:
+            # Default to OpenRouter for other models
+            api_key = os.getenv("OPENROUTER_API_KEY")
+            base_url = os.getenv("OPENROUTER_BASE_URL")
+            
+            if not api_key:
+                raise ValueError(
+                    "OPENROUTER_API_KEY is not set.\n"
+                    "Set it in your environment or pass it to the constructor.\n"
+                    "You can get a key at https://openrouter.ai/"
+                )
+            
+            return init_chat_model(
+                model_provider="openai",
+                model=self.model,
+                api_key=api_key,
+                base_url=base_url,
+                temperature=self.temperature,
+                max_tokens=self.max_tokens
+            )
     
     def _build_prompt(self, commit_message: str) -> str:
         """

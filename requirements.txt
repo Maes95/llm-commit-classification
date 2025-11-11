@@ -2,6 +2,7 @@ perceval
 python-dotenv
 openai
 langchain[openai]
+google-generativeai
 jupyter
 pandas
 matplotlib

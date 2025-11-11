@@ -26,7 +26,7 @@ except json.JSONDecodeError as e:
 
 # Initialize the annotator
 try:
-  annotator = LLMCommitAnnotator(model="meta-llama/llama-4-maverick:free")
+  annotator = LLMCommitAnnotator(model="google/gemma-3-27b-it:free")
 except ValueError as e:
   print(f"ERROR: {e}", file=sys.stderr)
   sys.exit(1)
