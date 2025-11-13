@@ -1,3 +1,8 @@
 # OpenRouter
 OPENROUTER_API_KEY="..."
 OPENROUTER_BASE_URL="https://openrouter.ai/api/v1"
+
+# Ollama (for local models)
+# Default: http://localhost:11434
+# For SSH tunnel on port 1995: http://localhost:1995
+OLLAMA_BASE_URL="http://localhost:1995"

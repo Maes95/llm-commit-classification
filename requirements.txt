@@ -3,6 +3,7 @@ python-dotenv
 openai
 langchain[openai]
 google-generativeai
+ollama
 jupyter
 pandas
 matplotlib
