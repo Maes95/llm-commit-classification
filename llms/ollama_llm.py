@@ -11,12 +11,8 @@ class OllamaLLM:
     @staticmethod
     def is_supported(model_name: str) -> bool:
         """Check if this provider supports the given model."""
-        # Support models with ollama/ prefix or known Ollama models
-        return (
-            model_name.startswith("ollama/") or
-            "gpt-oss" in model_name.lower() or
-            "gtp-oss" in model_name.lower()  # Common typo
-        )
+        # Support models with ollama/ prefix
+        return model_name.startswith("ollama/")
     
     @staticmethod
     def initialize(model: str, temperature: float, max_tokens: int):

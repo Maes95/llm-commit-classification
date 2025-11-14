@@ -26,7 +26,7 @@ except json.JSONDecodeError as e:
 
 # Initialize the annotator
 try:
-  annotator = LLMCommitAnnotator(model="ollama/gpt-oss:20b", temperature=0.0, max_tokens=3072)
+  annotator = LLMCommitAnnotator(model="ollama/deepseek-r1:14b", temperature=0.0, max_tokens=3072)
 except ValueError as e:
   print(f"ERROR: {e}", file=sys.stderr)
   sys.exit(1)
