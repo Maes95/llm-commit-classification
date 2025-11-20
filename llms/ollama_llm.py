@@ -3,6 +3,29 @@ Ollama LLM wrapper.
 """
 
 import os
+from pydantic import BaseModel
+
+
+class CategoryScore(BaseModel):
+    """Score and reasoning for a single category."""
+    score: int
+    reasoning: str
+
+
+class Understanding(BaseModel):
+    """Understanding assessment of the commit."""
+    score: int
+    description: str
+
+
+class CommitAnnotation(BaseModel):
+    """Structured output model for commit annotation."""
+    understanding: Understanding
+    bfc: CategoryScore
+    bpc: CategoryScore
+    prc: CategoryScore
+    nfc: CategoryScore
+    summary: str
 
 
 class OllamaLLM:
@@ -19,7 +42,7 @@ class OllamaLLM:
         """Initialize Ollama client."""
         # Import ollama library
         try:
-            import ollama
+            from ollama import Client
         except ImportError:
             raise ImportError(
                 "ollama is not installed.\n"
@@ -36,18 +59,20 @@ class OllamaLLM:
         class OllamaWrapper:
             def __init__(self, model, host, temperature, max_tokens):
                 self.model = model
-                self.client = ollama.Client(host=host)
+                self.host = host
                 self.temperature = temperature
                 self.max_tokens = max_tokens
+                self.client = Client(host=host)
             
             def invoke(self, prompt):
                 """
-                Call Ollama API to generate a response.
+                Call Ollama API to generate a structured response.
                 """
                 try:
-                    response = self.client.generate(
+                    response = self.client.chat(
                         model=self.model,
-                        prompt=prompt,
+                        messages=[{'role': 'user', 'content': prompt}],
+                        format=CommitAnnotation.model_json_schema(),
                         options={
                             "temperature": self.temperature,
                             "num_predict": self.max_tokens
@@ -65,15 +90,15 @@ class OllamaLLM:
                             }
                     
                     # Extract response and token counts
-                    response_text = response.get("response", "")
-                    prompt_tokens = response.get("prompt_eval_count", 0)
-                    response_tokens = response.get("eval_count", 0)
+                    response_text = response.message.content
+                    prompt_tokens = response.prompt_eval_count if hasattr(response, 'prompt_eval_count') else 0
+                    response_tokens = response.eval_count if hasattr(response, 'eval_count') else 0
                     
                     return Response(response_text, prompt_tokens, response_tokens)
                     
                 except Exception as e:
                     raise RuntimeError(
-                        f"Failed to connect to Ollama at {host}.\n"
+                        f"Failed to connect to Ollama at {self.host}.\n"
                         f"Make sure Ollama is running and accessible.\n"
                         f"Error: {str(e)}"
                     )

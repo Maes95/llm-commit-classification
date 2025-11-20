@@ -4,6 +4,7 @@ openai
 langchain[openai]
 google-generativeai
 ollama
+pydantic
 jupyter
 pandas
 matplotlib
