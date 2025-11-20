@@ -74,7 +74,9 @@ class LLMCommitAnnotator:
         Returns:
             The formatted prompt string
         """
+        # Remove 'Fixes:' lines from commit message
         commit_message = re.sub(r'^Fixes:.*\n', '', commit_message, flags=re.M)
+        
         template = """[SYSTEM INSTRUCTION]
 You are an expert software engineering analyst specializing in commit annotation.
 Your task is to evaluate commits across multiple dimensions simultaneously.

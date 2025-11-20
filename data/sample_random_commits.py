@@ -17,12 +17,15 @@ def main():
     random.seed(RANDOM_SEED)
     
     # Read all commits from the input file
+    # Filter out commits that have the 'Merge' field
     commits = []
     with open(INPUT_FILE, "r", encoding="utf-8") as f:
         for line in f:
-            commits.append(json.loads(line.strip()))
+            commit = json.loads(line.strip())
+            if 'Merge' not in commit.get('data', {}):
+                commits.append(commit)
     
-    print(f"Total commits in dataset: {len(commits)}")
+    print(f"Total commits in dataset (excluding merge commits): {len(commits)}")
     
     # Randomly sample 50 commits
     sampled_commits = random.sample(commits, SAMPLE_SIZE)
