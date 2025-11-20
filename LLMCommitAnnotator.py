@@ -1,5 +1,6 @@
 import os
 import json
+import re
 import time
 from datetime import datetime
 from typing import Dict, Any, Optional
@@ -73,6 +74,7 @@ class LLMCommitAnnotator:
         Returns:
             The formatted prompt string
         """
+        commit_message = re.sub(r'^Fixes:.*\n', '', commit_message, flags=re.M)
         template = """[SYSTEM INSTRUCTION]
 You are an expert software engineering analyst specializing in commit annotation.
 Your task is to evaluate commits across multiple dimensions simultaneously.

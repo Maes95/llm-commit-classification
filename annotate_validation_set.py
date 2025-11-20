@@ -18,8 +18,19 @@ import json
 import time
 from pathlib import Path
 from concurrent.futures import ThreadPoolExecutor, as_completed
+from threading import Lock
 from dotenv import load_dotenv
 from LLMCommitAnnotator import LLMCommitAnnotator
+
+# ANSI color codes
+COLOR_ORANGE = "\033[38;5;214m"
+COLOR_GREEN = "\033[32m"
+COLOR_RED = "\033[31m"
+COLOR_GRAY = "\033[90m"
+COLOR_RESET = "\033[0m"
+
+# Global lock for thread-safe printing
+print_lock = Lock()
 
 # Configuration
 INPUT_FILE = "data/50-random-commits-validation.jsonl"
@@ -91,7 +102,8 @@ def annotate_commit_with_retry(commit_data: dict, annotator: LLMCommitAnnotator,
     if check_annotation_exists(commit_hash, annotator.model):
         model_folder = annotator.model.replace("/", "_").replace(":", "_")
         output_file = str(Path("output") / model_folder / f"{commit_hash}.json")
-        print(f"[{commit_index}/{total_commits}] ⊙ Skipped {commit_hash[:8]} (already exists)")
+        with print_lock:
+            print(f"{COLOR_GRAY}[{commit_index}/{total_commits}] ⊙ Skipped {commit_hash[:8]} (already exists){COLOR_RESET}")
         
         return {
             "status": "skipped",
@@ -102,15 +114,15 @@ def annotate_commit_with_retry(commit_data: dict, annotator: LLMCommitAnnotator,
     
     for attempt in range(1, MAX_RETRIES + 1):
         try:
-            print(f"[{commit_index}/{total_commits}] Annotating {commit_hash[:8]}... (attempt {attempt})")
-            
-            # Annotate the commit
+            # Annotate the commit (silently)
             result = annotator.annotate_commit(commit_data)
             
             # Save the result
             output_file = save_annotation(result, annotator.model)
             
-            print(f"[{commit_index}/{total_commits}] ✓ Saved to {output_file}")
+            # Print success in green
+            with print_lock:
+                print(f"{COLOR_GREEN}[{commit_index}/{total_commits}] ✓ Saved to {output_file}{COLOR_RESET}")
             
             return {
                 "status": "success",
@@ -127,13 +139,16 @@ def annotate_commit_with_retry(commit_data: dict, annotator: LLMCommitAnnotator,
                                for keyword in ["rate limit", "too many requests", "429"])
             
             if is_rate_limit and attempt < MAX_RETRIES:
-                print(f"[{commit_index}/{total_commits}] ⚠ Rate limit hit for {commit_hash[:8]}, "
-                      f"waiting {RETRY_DELAY}s before retry {attempt + 1}/{MAX_RETRIES}...")
+                # Print warning in orange
+                with print_lock:
+                    print(f"{COLOR_ORANGE}[{commit_index}/{total_commits}] ⚠ Rate limit hit for {commit_hash[:8]}, "
+                          f"waiting {RETRY_DELAY}s before retry {attempt + 1}/{MAX_RETRIES}...{COLOR_RESET}")
                 time.sleep(RETRY_DELAY)
                 continue
             
-            # If not rate limit or max retries reached, return error
-            print(f"[{commit_index}/{total_commits}] ✗ Failed {commit_hash[:8]}: {error_msg}")
+            # If not rate limit or max retries reached, print error in red
+            with print_lock:
+                print(f"{COLOR_RED}[{commit_index}/{total_commits}] ✗ Failed {commit_hash[:8]}: {error_msg}{COLOR_RESET}")
             
             return {
                 "status": "error",
