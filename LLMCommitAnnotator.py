@@ -1,5 +1,6 @@
 import os
 import json
+import time
 from datetime import datetime
 from typing import Dict, Any, Optional
 from llms import GoogleLLM, OpenAILLM, OpenRouterLLM, OllamaLLM
@@ -173,7 +174,9 @@ CRITICAL: Your response must be ONLY the raw JSON object. Do not wrap it in mark
         
         # Invoke LLM and capture timestamp
         timestamp = datetime.utcnow().isoformat() + "Z"
+        start_time = time.time()
         response = self.llm.invoke(prompt_text)
+        elapsed_time = time.time() - start_time
         
         # Parse JSON response
         try:
@@ -188,6 +191,7 @@ CRITICAL: Your response must be ONLY the raw JSON object. Do not wrap it in mark
         return {
             "commit_hash": commit_hash,
             "timestamp": timestamp,
+            "elapsed_time_seconds": round(elapsed_time, 3),
             "understanding": annotation.get("understanding"),
             "bfc": annotation.get("bfc"),
             "bpc": annotation.get("bpc"),

@@ -26,7 +26,7 @@ INPUT_FILE = "data/50-random-commits-validation.jsonl"
 MAX_WORKERS = 10  # Maximum parallel annotations
 RETRY_DELAY = 90  # Seconds to wait on rate limit error
 MAX_RETRIES = 3   # Maximum number of retries per commit
-DEFAULT_MODEL = "meta-llama/llama-4-maverick:free"
+DEFAULT_MODEL = "ollama/gpt-oss:20b"
 
 load_dotenv()
 
