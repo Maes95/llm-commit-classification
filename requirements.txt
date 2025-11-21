@@ -9,4 +9,6 @@ jupyter
 pandas
 matplotlib
 seaborn
-
+gradio
+scikit-learn
+krippendorff
