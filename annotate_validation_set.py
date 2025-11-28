@@ -1,21 +1,26 @@
-"""
-Script to annotate all commits in the validation set using LLMCommitAnnotator.
+"""Script to annotate all commits in the validation set using LLMCommitAnnotator.
 Supports parallel processing and handles rate limit errors with retries.
 
 Usage:
-    python annotate_validation_set.py [model_name]
+    python annotate_validation_set.py [options]
     
-    model_name: Optional. LLM model to use (default: meta-llama/llama-4-maverick:free)
-                Examples:
-                - meta-llama/llama-4-maverick:free
-                - deepseek/deepseek-chat-v3.1:free
-                - google/gemini-2.0-flash-exp:free
+Options:
+    --input FILE          Input JSONL file with commits (default: data/50-random-commits-validation.jsonl)
+    --output DIR          Output directory for annotation results (default: output/)
+    --model MODEL         LLM model to use (default: ollama/gpt-oss:20b)
+    --temperature FLOAT   Sampling temperature (default: 0.0)
+    --context-mode MODE   Context to include: message, message+diff, full (default: message)
+    --max-tokens INT      Maximum response tokens (default: 3072)
+    --workers INT         Number of parallel workers (default: 10)
+    --retry-delay INT     Seconds to wait on rate limit (default: 90)
+    --max-retries INT     Maximum retries per commit (default: 3)
 """
 
 import os
 import sys
 import json
 import time
+import argparse
 from pathlib import Path
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from threading import Lock
@@ -32,30 +37,35 @@ COLOR_RESET = "\033[0m"
 # Global lock for thread-safe printing
 print_lock = Lock()
 
-# Configuration
-INPUT_FILE = "data/50-random-commits-validation.jsonl"
-MAX_WORKERS = 10  # Maximum parallel annotations
-RETRY_DELAY = 90  # Seconds to wait on rate limit error
-MAX_RETRIES = 3   # Maximum number of retries per commit
+# Default configuration
+DEFAULT_INPUT_FILE = "data/50-random-commits-validation.jsonl"
+DEFAULT_OUTPUT_DIR = "output/"
 DEFAULT_MODEL = "ollama/gpt-oss:20b"
+DEFAULT_TEMPERATURE = 0.0
+DEFAULT_CONTEXT_MODE = "message"
+DEFAULT_MAX_TOKENS = 3072
+DEFAULT_MAX_WORKERS = 10
+DEFAULT_RETRY_DELAY = 90
+DEFAULT_MAX_RETRIES = 3
 
 load_dotenv()
 
 
-def save_annotation(result: dict, model: str) -> str:
+def save_annotation(result: dict, model: str, output_base_dir: str) -> str:
     """
     Save annotation result to JSON file.
     
     Args:
         result: Annotation result dictionary
         model: Model name used for annotation
+        output_base_dir: Base output directory
         
     Returns:
         Path to the saved file
     """
     # Create output directory structure based on model name
     model_folder = model.replace("/", "_").replace(":", "_")
-    output_dir = Path("output") / model_folder
+    output_dir = Path(output_base_dir) / model_folder
     output_dir.mkdir(parents=True, exist_ok=True)
     
     # Save result as JSON file named {commit_hash}.json
@@ -66,24 +76,27 @@ def save_annotation(result: dict, model: str) -> str:
     return str(output_file)
 
 
-def check_annotation_exists(commit_hash: str, model: str) -> bool:
+def check_annotation_exists(commit_hash: str, model: str, output_base_dir: str) -> bool:
     """
     Check if annotation already exists for a commit and model.
     
     Args:
         commit_hash: The commit SHA hash
         model: Model name used for annotation
+        output_base_dir: Base output directory
         
     Returns:
         True if annotation file exists, False otherwise
     """
     model_folder = model.replace("/", "_").replace(":", "_")
-    output_file = Path("output") / model_folder / f"{commit_hash}.json"
+    output_file = Path(output_base_dir) / model_folder / f"{commit_hash}.json"
     return output_file.exists()
 
 
 def annotate_commit_with_retry(commit_data: dict, annotator: LLMCommitAnnotator, 
-                                commit_index: int, total_commits: int) -> dict:
+                                commit_index: int, total_commits: int,
+                                output_base_dir: str, max_retries: int, 
+                                retry_delay: int) -> dict:
     """
     Annotate a single commit with retry logic for rate limits.
     
@@ -92,6 +105,9 @@ def annotate_commit_with_retry(commit_data: dict, annotator: LLMCommitAnnotator,
         annotator: LLMCommitAnnotator instance
         commit_index: Index of current commit (for logging)
         total_commits: Total number of commits (for logging)
+        output_base_dir: Base output directory
+        max_retries: Maximum number of retries per commit
+        retry_delay: Seconds to wait on rate limit error
         
     Returns:
         Dictionary with status and result/error information
@@ -99,9 +115,9 @@ def annotate_commit_with_retry(commit_data: dict, annotator: LLMCommitAnnotator,
     commit_hash = commit_data["data"]["commit"]
     
     # Check if annotation already exists
-    if check_annotation_exists(commit_hash, annotator.model):
+    if check_annotation_exists(commit_hash, annotator.model, output_base_dir):
         model_folder = annotator.model.replace("/", "_").replace(":", "_")
-        output_file = str(Path("output") / model_folder / f"{commit_hash}.json")
+        output_file = str(Path(output_base_dir) / model_folder / f"{commit_hash}.json")
         with print_lock:
             print(f"{COLOR_GRAY}[{commit_index}/{total_commits}] ⊙ Skipped {commit_hash[:8]} (already exists){COLOR_RESET}")
         
@@ -112,13 +128,13 @@ def annotate_commit_with_retry(commit_data: dict, annotator: LLMCommitAnnotator,
             "reason": "Annotation already exists"
         }
     
-    for attempt in range(1, MAX_RETRIES + 1):
+    for attempt in range(1, max_retries + 1):
         try:
             # Annotate the commit (silently)
             result = annotator.annotate_commit(commit_data)
             
             # Save the result
-            output_file = save_annotation(result, annotator.model)
+            output_file = save_annotation(result, annotator.model, output_base_dir)
             
             # Print success in green
             with print_lock:
@@ -138,12 +154,12 @@ def annotate_commit_with_retry(commit_data: dict, annotator: LLMCommitAnnotator,
             is_rate_limit = any(keyword in error_msg.lower() 
                                for keyword in ["rate limit", "too many requests", "429"])
             
-            if is_rate_limit and attempt < MAX_RETRIES:
+            if is_rate_limit and attempt < max_retries:
                 # Print warning in orange
                 with print_lock:
                     print(f"{COLOR_ORANGE}[{commit_index}/{total_commits}] ⚠ Rate limit hit for {commit_hash[:8]}, "
-                          f"waiting {RETRY_DELAY}s before retry {attempt + 1}/{MAX_RETRIES}...{COLOR_RESET}")
-                time.sleep(RETRY_DELAY)
+                          f"waiting {retry_delay}s before retry {attempt + 1}/{max_retries}...{COLOR_RESET}")
+                time.sleep(retry_delay)
                 continue
             
             # If not rate limit or max retries reached, print error in red
@@ -162,7 +178,7 @@ def annotate_commit_with_retry(commit_data: dict, annotator: LLMCommitAnnotator,
         "status": "error",
         "commit_hash": commit_hash,
         "error": "Max retries exceeded",
-        "attempts": MAX_RETRIES
+        "attempts": max_retries
     }
 
 
@@ -170,22 +186,100 @@ def main():
     """Main execution function."""
     
     # Parse command line arguments
-    if len(sys.argv) > 2:
-        print("Usage: python annotate_validation_set.py [model_name]", file=sys.stderr)
-        print(f"  model_name: Optional. Default is '{DEFAULT_MODEL}'", file=sys.stderr)
-        sys.exit(1)
+    parser = argparse.ArgumentParser(
+        description="Annotate commits using LLMs with parallel processing",
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+        epilog="""
+Examples:
+  # Basic usage with defaults
+  python annotate_validation_set.py
+  
+  # Custom model and input file
+  python annotate_validation_set.py --model "google/gemini-2.0-flash-exp" --input data/my-commits.jsonl
+  
+  # With diff context
+  python annotate_validation_set.py --context-mode message+diff --input data/commits-with-diff.jsonl
+  
+  # Custom output directory
+  python annotate_validation_set.py --output results/my-experiment/
+"""
+    )
     
-    model = sys.argv[1] if len(sys.argv) == 2 else DEFAULT_MODEL
+    parser.add_argument(
+        "--input",
+        type=str,
+        default=DEFAULT_INPUT_FILE,
+        help=f"Input JSONL file with commits (default: {DEFAULT_INPUT_FILE})"
+    )
+    
+    parser.add_argument(
+        "--output",
+        type=str,
+        default=DEFAULT_OUTPUT_DIR,
+        help=f"Output directory for annotation results (default: {DEFAULT_OUTPUT_DIR})"
+    )
+    
+    parser.add_argument(
+        "--model",
+        type=str,
+        default=DEFAULT_MODEL,
+        help=f"LLM model to use (default: {DEFAULT_MODEL})"
+    )
+    
+    parser.add_argument(
+        "--temperature",
+        type=float,
+        default=DEFAULT_TEMPERATURE,
+        help=f"Sampling temperature (default: {DEFAULT_TEMPERATURE})"
+    )
+    
+    parser.add_argument(
+        "--context-mode",
+        type=str,
+        choices=["message", "message+diff", "full"],
+        default=DEFAULT_CONTEXT_MODE,
+        help=f"Context to include in prompts (default: {DEFAULT_CONTEXT_MODE})"
+    )
+    
+    parser.add_argument(
+        "--max-tokens",
+        type=int,
+        default=DEFAULT_MAX_TOKENS,
+        help=f"Maximum response tokens (default: {DEFAULT_MAX_TOKENS})"
+    )
+    
+    parser.add_argument(
+        "--workers",
+        type=int,
+        default=DEFAULT_MAX_WORKERS,
+        help=f"Number of parallel workers (default: {DEFAULT_MAX_WORKERS})"
+    )
+    
+    parser.add_argument(
+        "--retry-delay",
+        type=int,
+        default=DEFAULT_RETRY_DELAY,
+        help=f"Seconds to wait on rate limit (default: {DEFAULT_RETRY_DELAY})"
+    )
+    
+    parser.add_argument(
+        "--max-retries",
+        type=int,
+        default=DEFAULT_MAX_RETRIES,
+        help=f"Maximum retries per commit (default: {DEFAULT_MAX_RETRIES})"
+    )
+    
+    args = parser.parse_args()
     
     # Check if input file exists
-    if not os.path.exists(INPUT_FILE):
-        print(f"ERROR: Input file not found: {INPUT_FILE}", file=sys.stderr)
+    if not os.path.exists(args.input):
+        print(f"ERROR: Input file not found: {args.input}", file=sys.stderr)
         sys.exit(1)
     
     # Read all commits from the validation set
-    print(f"Reading commits from {INPUT_FILE}...")
+    print(f"Reading commits from {args.input}...")
     commits = []
-    with open(INPUT_FILE, "r", encoding="utf-8") as f:
+    with open(args.input, "r", encoding="utf-8") as f:
         for line in f:
             commits.append(json.loads(line.strip()))
     
@@ -193,8 +287,13 @@ def main():
     
     # Initialize the annotator
     try:
-        print(f"Initializing annotator with model: {model}")
-        annotator = LLMCommitAnnotator(model=model)
+        print(f"Initializing annotator with model: {args.model}")
+        annotator = LLMCommitAnnotator(
+            model=args.model,
+            temperature=args.temperature,
+            context_mode=args.context_mode,
+            max_tokens=args.max_tokens
+        )
     except ValueError as e:
         print(f"ERROR: {e}", file=sys.stderr)
         sys.exit(1)
@@ -202,15 +301,24 @@ def main():
         print(f"ERROR: {e}", file=sys.stderr)
         sys.exit(1)
     
+    # Create output directory
+    Path(args.output).mkdir(parents=True, exist_ok=True)
+    
     # Process commits in parallel
-    print(f"\nStarting annotation with {MAX_WORKERS} parallel workers...")
-    print(f"Rate limit retry delay: {RETRY_DELAY}s")
-    print(f"Max retries per commit: {MAX_RETRIES}\n")
+    print(f"\nConfiguration:")
+    print(f"  Model: {args.model}")
+    print(f"  Temperature: {args.temperature}")
+    print(f"  Context mode: {args.context_mode}")
+    print(f"  Max tokens: {args.max_tokens}")
+    print(f"  Output directory: {args.output}")
+    print(f"  Parallel workers: {args.workers}")
+    print(f"  Rate limit retry delay: {args.retry_delay}s")
+    print(f"  Max retries per commit: {args.max_retries}\n")
     
     results = []
     start_time = time.time()
     
-    with ThreadPoolExecutor(max_workers=MAX_WORKERS) as executor:
+    with ThreadPoolExecutor(max_workers=args.workers) as executor:
         # Submit all tasks
         futures = {
             executor.submit(
@@ -218,7 +326,10 @@ def main():
                 commit, 
                 annotator, 
                 idx + 1, 
-                len(commits)
+                len(commits),
+                args.output,
+                args.max_retries,
+                args.retry_delay
             ): commit 
             for idx, commit in enumerate(commits)
         }

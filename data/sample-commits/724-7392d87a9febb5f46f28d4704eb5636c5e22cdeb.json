@@ -1,0 +1,77 @@
+{
+  "backend_name": "Git",
+  "backend_version": "0.13.0",
+  "category": "commit",
+  "classified_fields_filtered": null,
+  "data": {
+    "Author": "Hans Verkuil <hverkuil-cisco@xs4all.nl>",
+    "AuthorDate": "Mon Jul 11 12:21:08 2022 +0200",
+    "Commit": "Mauro Carvalho Chehab <mchehab@kernel.org>",
+    "CommitDate": "Fri Aug 19 13:47:00 2022 +0200",
+    "Signed-off-by": [
+      "Hans Verkuil <hverkuil-cisco@xs4all.nl>",
+      "Mauro Carvalho Chehab <mchehab@kernel.org>"
+    ],
+    "commit": "7392d87a9febb5f46f28d4704eb5636c5e22cdeb",
+    "files": [
+      {
+        "action": "M",
+        "added": "1",
+        "file": "drivers/media/v4l2-core/v4l2-ctrls-api.c",
+        "indexes": [
+          "1b90bd7c4010",
+          "6f1b72c59e8e"
+        ],
+        "modes": [
+          "100644",
+          "100644"
+        ],
+        "removed": "1"
+      },
+      {
+        "action": "M",
+        "added": "19",
+        "file": "drivers/media/v4l2-core/v4l2-ctrls-core.c",
+        "indexes": [
+          "9871c77f559b",
+          "a004fea10da2"
+        ],
+        "modes": [
+          "100644",
+          "100644"
+        ],
+        "removed": "12"
+      },
+      {
+        "action": "M",
+        "added": "8",
+        "file": "include/media/v4l2-ctrls.h",
+        "indexes": [
+          "5ddd506ae7b9",
+          "c7a082c319d4"
+        ],
+        "modes": [
+          "100644",
+          "100644"
+        ],
+        "removed": "8"
+      }
+    ],
+    "message": "media: v4l2-ctrls: alloc arrays in ctrl_ref\n\nAlso allocate space for arrays in struct ctrl_ref.\n\nThis is in preparation for allowing to change the array size from\na driver.\n\nSigned-off-by: Hans Verkuil <hverkuil-cisco@xs4all.nl>\nReviewed-by: Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>\nSigned-off-by: Mauro Carvalho Chehab <mchehab@kernel.org>",
+    "parents": [
+      "5f2c5c69a61dc5411d436c1a422f8a1ee195a924"
+    ],
+    "refs": [],
+    "diff": "diff --git a/drivers/media/v4l2-core/v4l2-ctrls-api.c b/drivers/media/v4l2-core/v4l2-ctrls-api.c\nindex 1b90bd7c4010..6f1b72c59e8e 100644\n--- a/drivers/media/v4l2-core/v4l2-ctrls-api.c\n+++ b/drivers/media/v4l2-core/v4l2-ctrls-api.c\n@@ -467,7 +467,7 @@ int v4l2_g_ext_ctrls_common(struct v4l2_ctrl_handler *hdl,\n \n \t\t\tif (is_default)\n \t\t\t\tret = def_to_user(cs->controls + idx, ref->ctrl);\n-\t\t\telse if (is_request && ref->p_req_dyn_enomem)\n+\t\t\telse if (is_request && ref->p_req_array_enomem)\n \t\t\t\tret = -ENOMEM;\n \t\t\telse if (is_request && ref->p_req_valid)\n \t\t\t\tret = req_to_user(cs->controls + idx, ref);\ndiff --git a/drivers/media/v4l2-core/v4l2-ctrls-core.c b/drivers/media/v4l2-core/v4l2-ctrls-core.c\nindex 9871c77f559b..a004fea10da2 100644\n--- a/drivers/media/v4l2-core/v4l2-ctrls-core.c\n+++ b/drivers/media/v4l2-core/v4l2-ctrls-core.c\n@@ -1048,23 +1048,26 @@ void cur_to_new(struct v4l2_ctrl *ctrl)\n \tptr_to_ptr(ctrl, ctrl->p_cur, ctrl->p_new, ctrl->new_elems);\n }\n \n-static bool req_alloc_dyn_array(struct v4l2_ctrl_ref *ref, u32 elems)\n+static bool req_alloc_array(struct v4l2_ctrl_ref *ref, u32 elems)\n {\n \tvoid *tmp;\n \n-\tif (elems < ref->p_req_dyn_alloc_elems)\n+\tif (elems == ref->p_req_array_alloc_elems)\n+\t\treturn true;\n+\tif (ref->ctrl->is_dyn_array &&\n+\t    elems < ref->p_req_array_alloc_elems)\n \t\treturn true;\n \n \ttmp = kvmalloc(elems * ref->ctrl->elem_size, GFP_KERNEL);\n \n \tif (!tmp) {\n-\t\tref->p_req_dyn_enomem = true;\n+\t\tref->p_req_array_enomem = true;\n \t\treturn false;\n \t}\n-\tref->p_req_dyn_enomem = false;\n+\tref->p_req_array_enomem = false;\n \tkvfree(ref->p_req.p);\n \tref->p_req.p = tmp;\n-\tref->p_req_dyn_alloc_elems = elems;\n+\tref->p_req_array_alloc_elems = elems;\n \treturn true;\n }\n \n@@ -1077,7 +1080,7 @@ void new_to_req(struct v4l2_ctrl_ref *ref)\n \t\treturn;\n \n \tctrl = ref->ctrl;\n-\tif (ctrl->is_dyn_array && !req_alloc_dyn_array(ref, ctrl->new_elems))\n+\tif (ctrl->is_array && !req_alloc_array(ref, ctrl->new_elems))\n \t\treturn;\n \n \tref->p_req_elems = ctrl->new_elems;\n@@ -1094,7 +1097,7 @@ void cur_to_req(struct v4l2_ctrl_ref *ref)\n \t\treturn;\n \n \tctrl = ref->ctrl;\n-\tif (ctrl->is_dyn_array && !req_alloc_dyn_array(ref, ctrl->elems))\n+\tif (ctrl->is_array && !req_alloc_array(ref, ctrl->elems))\n \t\treturn;\n \n \tref->p_req_elems = ctrl->elems;\n@@ -1123,14 +1126,18 @@ int req_to_new(struct v4l2_ctrl_ref *ref)\n \t\treturn 0;\n \t}\n \n-\t/* Not a dynamic array, so just copy the request value */\n-\tif (!ctrl->is_dyn_array) {\n+\t/* Not an array, so just copy the request value */\n+\tif (!ctrl->is_array) {\n \t\tptr_to_ptr(ctrl, ref->p_req, ctrl->p_new, ctrl->new_elems);\n \t\treturn 0;\n \t}\n \n \t/* Sanity check, should never happen */\n-\tif (WARN_ON(!ref->p_req_dyn_alloc_elems))\n+\tif (WARN_ON(!ref->p_req_array_alloc_elems))\n+\t\treturn -ENOMEM;\n+\n+\tif (!ctrl->is_dyn_array &&\n+\t    ref->p_req_elems != ctrl->p_array_alloc_elems)\n \t\treturn -ENOMEM;\n \n \t/*\n@@ -1243,7 +1250,7 @@ void v4l2_ctrl_handler_free(struct v4l2_ctrl_handler *hdl)\n \t/* Free all nodes */\n \tlist_for_each_entry_safe(ref, next_ref, &hdl->ctrl_refs, node) {\n \t\tlist_del(&ref->node);\n-\t\tif (ref->p_req_dyn_alloc_elems)\n+\t\tif (ref->p_req_array_alloc_elems)\n \t\t\tkvfree(ref->p_req.p);\n \t\tkfree(ref);\n \t}\n@@ -1368,7 +1375,7 @@ int handler_new_ref(struct v4l2_ctrl_handler *hdl,\n \tif (hdl->error)\n \t\treturn hdl->error;\n \n-\tif (allocate_req && !ctrl->is_dyn_array)\n+\tif (allocate_req && !ctrl->is_array)\n \t\tsize_extra_req = ctrl->elems * ctrl->elem_size;\n \tnew_ref = kzalloc(sizeof(*new_ref) + size_extra_req, GFP_KERNEL);\n \tif (!new_ref)\ndiff --git a/include/media/v4l2-ctrls.h b/include/media/v4l2-ctrls.h\nindex 5ddd506ae7b9..c7a082c319d4 100644\n--- a/include/media/v4l2-ctrls.h\n+++ b/include/media/v4l2-ctrls.h\n@@ -318,15 +318,15 @@ struct v4l2_ctrl {\n  *\t\tfrom a cluster with multiple controls twice (when the first\n  *\t\tcontrol of a cluster is applied, they all are).\n  * @p_req_valid: If set, then p_req contains the control value for the request.\n- * @p_req_dyn_enomem: If set, then p_req is invalid since allocating space for\n- *\t\ta dynamic array failed. Attempting to read this value shall\n- *\t\tresult in ENOMEM. Only valid if ctrl->is_dyn_array is true.\n- * @p_req_dyn_alloc_elems: The number of elements allocated for the dynamic\n- *\t\tarray. Only valid if @p_req_valid and ctrl->is_dyn_array are\n+ * @p_req_array_enomem: If set, then p_req is invalid since allocating space for\n+ *\t\tan array failed. Attempting to read this value shall\n+ *\t\tresult in ENOMEM. Only valid if ctrl->is_array is true.\n+ * @p_req_array_alloc_elems: The number of elements allocated for the\n+ *\t\tarray. Only valid if @p_req_valid and ctrl->is_array are\n  *\t\ttrue.\n  * @p_req_elems: The number of elements in @p_req. This is the same as\n  *\t\tctrl->elems, except for dynamic arrays. In that case it is in\n- *\t\tthe range of 1 to @p_req_dyn_alloc_elems. Only valid if\n+ *\t\tthe range of 1 to @p_req_array_alloc_elems. Only valid if\n  *\t\t@p_req_valid is true.\n  * @p_req:\tIf the control handler containing this control reference\n  *\t\tis bound to a media request, then this points to the\n@@ -348,8 +348,8 @@ struct v4l2_ctrl_ref {\n \tbool from_other_dev;\n \tbool req_done;\n \tbool p_req_valid;\n-\tbool p_req_dyn_enomem;\n-\tu32 p_req_dyn_alloc_elems;\n+\tbool p_req_array_enomem;\n+\tu32 p_req_array_alloc_elems;\n \tu32 p_req_elems;\n \tunion v4l2_ctrl_ptr p_req;\n };\n",
+    "stats": " drivers/media/v4l2-core/v4l2-ctrls-api.c  |  2 +-\n drivers/media/v4l2-core/v4l2-ctrls-core.c | 31 +++++++++++++++++++------------\n include/media/v4l2-ctrls.h                | 16 ++++++++--------\n 3 files changed, 28 insertions(+), 21 deletions(-)\n"
+  },
+  "origin": "linux",
+  "perceval_version": "0.23.1",
+  "search_fields": {
+    "item_id": "7392d87a9febb5f46f28d4704eb5636c5e22cdeb"
+  },
+  "tag": "linux",
+  "timestamp": 1699830728.693828,
+  "updated_on": 1660909620.0,
+  "uuid": "704446a9ee30425860d355d50f6d8dd9813c57b8"
+}

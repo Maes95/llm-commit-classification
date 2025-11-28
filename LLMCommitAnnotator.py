@@ -19,7 +19,8 @@ class LLMCommitAnnotator:
         self,
         model: str = "meta-llama/llama-4-maverick:free",
         temperature: float = 0.0,
-        max_tokens: int = 3072
+        max_tokens: int = 3072,
+        context_mode: str = "message"
     ):
         """
         Initialize the LLM Commit Annotator.
@@ -32,10 +33,21 @@ class LLMCommitAnnotator:
                    For Ollama: "gpt-oss:20b" or "ollama/gpt-oss:20b"
             temperature: LLM temperature for reproducibility (default: 0.0)
             max_tokens: Maximum tokens for LLM response (default: 3072)
+            context_mode: Type of context to include in the prompt (default: "message")
+                         Options:
+                         - "message": Only commit message
+                         - "message+diff": Commit message and diff
+                         - "full": All available context (message, diff, stats, etc.)
         """
         self.model = model
         self.temperature = temperature
         self.max_tokens = max_tokens
+        self.context_mode = context_mode
+        
+        # Validate context_mode
+        valid_modes = ["message", "message+diff", "full"]
+        if context_mode not in valid_modes:
+            raise ValueError(f"Invalid context_mode: {context_mode}. Must be one of {valid_modes}")
         
         # Load definitions
         self.definitions_content = self._load_definitions()
@@ -64,18 +76,53 @@ class LLMCommitAnnotator:
         # Should never reach here due to OpenRouterLLM being a catch-all
         raise ValueError(f"No provider found for model: {self.model}")
     
-    def _build_prompt(self, commit_message: str) -> str:
+    def _build_commit_context(self, commit_data: Dict[str, Any]) -> str:
+        """
+        Build the commit context section based on context_mode.
+        
+        Args:
+            commit_data: Dictionary containing commit information
+            
+        Returns:
+            Formatted context string
+        """
+        data = commit_data["data"]
+        commit_message = data["message"]
+        
+        # Remove 'Fixes:' lines from commit message
+        commit_message = re.sub(r'^Fixes:.*\n', '', commit_message, flags=re.M)
+        
+        context_parts = []
+        
+        # Always include commit message
+        context_parts.append(f"COMMIT MESSAGE:\n{commit_message}")
+        
+        # Add diff if requested
+        if self.context_mode in ["message+diff", "full"]:
+            if "diff" in data and data["diff"]:
+                context_parts.append(f"\nCOMMIT DIFF:\n{data['diff']}")
+        
+        # Add additional context for full mode
+        if self.context_mode == "full":
+            if "stats" in data and data["stats"]:
+                context_parts.append(f"\nCOMMIT STATS:\n{data['stats']}")
+            if "files" in data and data["files"]:
+                files_list = "\n".join([f"  - {f}" for f in data["files"]])
+                context_parts.append(f"\nMODIFIED FILES:\n{files_list}")
+        
+        return "\n".join(context_parts)
+    
+    def _build_prompt(self, commit_data: Dict[str, Any]) -> str:
         """
         Build the annotation prompt for a commit.
         
         Args:
-            commit_message: The commit message to annotate
+            commit_data: Dictionary containing commit information
             
         Returns:
             The formatted prompt string
         """
-        # Remove 'Fixes:' lines from commit message
-        commit_message = re.sub(r'^Fixes:.*\n', '', commit_message, flags=re.M)
+        commit_context = self._build_commit_context(commit_data)
         
         template = """[SYSTEM INSTRUCTION]
 You are an expert software engineering analyst specializing in commit annotation.
@@ -146,7 +193,7 @@ CRITICAL: Your response must be ONLY the raw JSON object. Do not wrap it in mark
         
         return template.format(
             definitions=self.definitions_content,
-            commit_message=commit_message
+            commit_message=commit_context
         )
     
     def annotate_commit(self, commit_data: Dict[str, Any]) -> Dict[str, Any]:
@@ -155,6 +202,7 @@ CRITICAL: Your response must be ONLY the raw JSON object. Do not wrap it in mark
         
         Args:
             commit_data: Dictionary containing commit information with 'data.message' field
+                        and optionally 'data.diff', 'data.stats', 'data.files'
             
         Returns:
             Dictionary containing:
@@ -168,13 +216,13 @@ CRITICAL: Your response must be ONLY the raw JSON object. Do not wrap it in mark
                 - summary: Brief synthesis of the commit's primary purposes
                 - usage_metadata: Token usage information
                 - model: Model used for annotation
+                - context_mode: The context mode used for annotation
                 - raw_response: Original LLM response text (for debugging)
         """
-        commit_message = commit_data["data"]["message"]
         commit_hash = commit_data["data"]["commit"]
         
         # Build prompt
-        prompt_text = self._build_prompt(commit_message)
+        prompt_text = self._build_prompt(commit_data)
         
         # Invoke LLM and capture timestamp
         timestamp = datetime.utcnow().isoformat() + "Z"
@@ -190,7 +238,6 @@ CRITICAL: Your response must be ONLY the raw JSON object. Do not wrap it in mark
                 f"Failed to parse LLM response as JSON: {e}\n"
                 f"Raw response: {response.content}"
             )
-        
         # Return structured result with metadata
         return {
             "commit_hash": commit_hash,
@@ -204,6 +251,7 @@ CRITICAL: Your response must be ONLY the raw JSON object. Do not wrap it in mark
             "summary": annotation.get("summary"),
             "usage_metadata": response.usage_metadata,
             "model": self.model,
+            "context_mode": self.context_mode,
             "raw_response": response.content,
             "prompt": prompt_text
         }

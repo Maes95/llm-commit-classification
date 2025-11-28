@@ -6,3 +6,4 @@ output/
 .vscode/
 data/*.csv
 __pycache__/
+linux/
