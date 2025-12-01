@@ -12,20 +12,21 @@ from typing import Optional, Callable
 import sys
 
 
-def get_diff_via_git(commit_hash: str, repo_path: str) -> Optional[str]:
+def get_diff_via_git(commit_hash: str, repo_path: str, context_lines: int = 3) -> Optional[str]:
     """
     Get diff using git subprocess.
     
     Args:
         commit_hash: The SHA hash of the commit
         repo_path: Path to the git repository
+        context_lines: Number of context lines to show (default: 3)
         
     Returns:
         The commit diff or None if error occurs
     """
     try:
         result = subprocess.run(
-            ["git", "show", "--no-color", "--format=", commit_hash],
+            ["git", "show", "--no-color", "--format=", f"-U{context_lines}", commit_hash],
             cwd=repo_path,
             capture_output=True,
             text=True,
@@ -70,6 +71,7 @@ def enrich_jsonl_with_diffs(
     repo_path: str,
     include_diff: bool = True,
     include_stats: bool = True,
+    context_lines: int = 3,
     diff_retriever: Optional[Callable] = None,
     verbose: bool = True
 ) -> dict:
@@ -82,6 +84,7 @@ def enrich_jsonl_with_diffs(
         repo_path: Path to git repository
         include_diff: Whether to include full diff (default: True)
         include_stats: Whether to include commit stats (default: True)
+        context_lines: Number of context lines to show in diff (default: 3)
         diff_retriever: Custom function to retrieve diffs (optional)
         verbose: Print progress (default: True)
         
@@ -129,7 +132,7 @@ def enrich_jsonl_with_diffs(
                     if diff_retriever:
                         diff = diff_retriever(commit_hash, repo_path)
                     else:
-                        diff = get_diff_via_git(commit_hash, repo_path)
+                        diff = get_diff_via_git(commit_hash, repo_path, context_lines)
                     
                     if diff is not None:
                         data['data']['diff'] = diff
@@ -177,6 +180,7 @@ if __name__ == "__main__":
     parser.add_argument("--repo", required=True, help="Path to git repository")
     parser.add_argument("--no-diff", action="store_true", help="Don't include diff")
     parser.add_argument("--no-stats", action="store_true", help="Don't include stats")
+    parser.add_argument("--context-lines", type=int, default=3, help="Number of context lines in diff (default: 3)")
     parser.add_argument("--quiet", action="store_true", help="Suppress progress output")
     
     args = parser.parse_args()
@@ -187,6 +191,7 @@ if __name__ == "__main__":
         repo_path=args.repo,
         include_diff=not args.no_diff,
         include_stats=not args.no_stats,
+        context_lines=args.context_lines,
         verbose=not args.quiet
     )
     
