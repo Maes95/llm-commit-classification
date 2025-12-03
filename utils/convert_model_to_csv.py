@@ -1,18 +1,20 @@
-"""
-Script to convert LLM model annotation results from JSON files to CSV format.
+"""Script to convert LLM model annotation results from JSON files to CSV format.
 Transforms the output folder structure (output/model_name/) into a CSV file
 compatible with the annotator results format.
 
 Usage:
-    python convert_model_to_csv.py <model_folder>
+    python convert_model_to_csv.py --input <model_folder> [--output <csv_file>]
+    python convert_model_to_csv.py -i <model_folder> [-o <csv_file>]
     
-    model_folder: Path to the model output folder (e.g., output/ollama_deepseek-r1_14b)
+    --input, -i:  Path to the model output folder (e.g., output/ollama_deepseek-r1_14b)
+    --output, -o: Optional path for output CSV file
 """
 
 import os
 import sys
 import json
 import csv
+import argparse
 from pathlib import Path
 
 # Hash length for commit identifiers
@@ -148,13 +150,34 @@ def convert_model_folder_to_csv(model_folder: str, output_csv: str = None) -> No
 
 def main():
     """Main execution function."""
-    if len(sys.argv) != 2:
-        print("Usage: python convert_model_to_csv.py <model_folder>", file=sys.stderr)
-        print("  Example: python convert_model_to_csv.py output/ollama_deepseek-r1_14b", file=sys.stderr)
-        sys.exit(1)
+    parser = argparse.ArgumentParser(
+        description="Convert LLM model annotation results from JSON files to CSV format",
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+        epilog="""
+Examples:
+  # Basic usage with auto-generated output path
+  python convert_model_to_csv.py --input output/ollama_deepseek-r1_14b
+  
+  # Specify custom output file
+  python convert_model_to_csv.py -i output/ollama_gpt-oss_20b -o results/my_annotations.csv
+"""
+    )
     
-    model_folder = sys.argv[1]
-    convert_model_folder_to_csv(model_folder)
+    parser.add_argument(
+        "--input", "-i",
+        required=True,
+        help="Path to the model output folder containing JSON annotation files"
+    )
+    
+    parser.add_argument(
+        "--output", "-o",
+        default=None,
+        help="Path for output CSV file (default: data/annotator-results/annotations_{model_name}.csv)"
+    )
+    
+    args = parser.parse_args()
+    
+    convert_model_folder_to_csv(args.input, args.output)
 
 
 if __name__ == "__main__":

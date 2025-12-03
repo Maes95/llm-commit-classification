@@ -1,4 +1,8 @@
 LLM,Category,Krippendorff_Alpha
+inter-human-it1,BFC,0.842359954598873
+inter-human-it1,BPC,0.44816172022998446
+inter-human-it1,PRC,0.7230929923893172
+inter-human-it1,NFC,0.7981331024989619
 deepseek-r1_14b,BFC,0.7496604302916168
 deepseek-r1_14b,BPC,0.35581575709137436
 deepseek-r1_14b,PRC,0.6504817801863824

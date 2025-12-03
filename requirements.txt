@@ -12,3 +12,4 @@ seaborn
 gradio
 scikit-learn
 krippendorff
+statsmodels
