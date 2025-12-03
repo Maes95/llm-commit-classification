@@ -7,3 +7,4 @@ output/
 data/*.csv
 __pycache__/
 linux/
+analysis/.ipynb_checkpoints
