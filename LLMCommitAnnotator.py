@@ -37,8 +37,7 @@ class LLMCommitAnnotator:
             context_mode: Type of context to include in the prompt (default: "message")
                          Options:
                          - "message": Only commit message
-                         - "message+diff": Commit message and diff
-                         - "full": All available context (message, diff, stats, etc.)
+                         - "message+diff": Commit message, diff, stats, and modified files
         """
         self.model = model
         self.temperature = temperature
@@ -46,7 +45,7 @@ class LLMCommitAnnotator:
         self.context_mode = context_mode
         
         # Validate context_mode
-        valid_modes = ["message", "message+diff", "full"]
+        valid_modes = ["message", "message+diff"]
         if context_mode not in valid_modes:
             raise ValueError(f"Invalid context_mode: {context_mode}. Must be one of {valid_modes}")
         
@@ -107,13 +106,10 @@ class LLMCommitAnnotator:
         # Always include commit message
         context_parts.append(f"COMMIT MESSAGE:\n{commit_message}")
         
-        # Add diff if requested
-        if self.context_mode in ["message+diff", "full"]:
+        # Add diff, stats, and files if message+diff mode
+        if self.context_mode == "message+diff":
             if "diff" in data and data["diff"]:
                 context_parts.append(f"\nCOMMIT DIFF:\n{data['diff']}")
-        
-        # Add additional context for full mode
-        if self.context_mode == "full":
             if "stats" in data and data["stats"]:
                 context_parts.append(f"\nCOMMIT STATS:\n{data['stats']}")
             if "files" in data and data["files"]:
@@ -230,8 +226,11 @@ CRITICAL: Your response must be ONLY the raw JSON object. Do not wrap it in mark
                 - summary: Brief synthesis of the commit's primary purposes
                 - usage_metadata: Token usage information
                 - model: Model used for annotation
+                - temperature: Temperature parameter used
+                - max_tokens: Maximum tokens parameter used
                 - context_mode: The context mode used for annotation
                 - raw_response: Original LLM response text (for debugging)
+                - prompt: The full prompt sent to the LLM
         """
         commit_hash = commit_data["data"]["commit"]
         
@@ -265,6 +264,8 @@ CRITICAL: Your response must be ONLY the raw JSON object. Do not wrap it in mark
             "summary": annotation.get("summary"),
             "usage_metadata": response.usage_metadata,
             "model": self.model,
+            "temperature": self.temperature,
+            "max_tokens": self.max_tokens,
             "context_mode": self.context_mode,
             "raw_response": response.content,
             "prompt": prompt_text
