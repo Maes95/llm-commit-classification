@@ -9,7 +9,7 @@ Options:
     --output DIR          Output directory for annotation results (default: output/)
     --model MODEL         LLM model to use (default: ollama/gpt-oss:20b)
     --temperature FLOAT   Sampling temperature (default: 0.0)
-    --context-mode MODE   Context to include: message, message+diff, full (default: message)
+    --context-mode MODE   Context to include: message, message+diff (default: message)
     --max-tokens INT      Maximum response tokens (default: 3072)
     --workers INT         Number of parallel workers (default: 10)
     --retry-delay INT     Seconds to wait on rate limit (default: 90)
@@ -236,9 +236,9 @@ Examples:
     parser.add_argument(
         "--context-mode",
         type=str,
-        choices=["message", "message+diff", "full"],
+        choices=["message", "message+diff"],
         default=DEFAULT_CONTEXT_MODE,
-        help=f"Context to include in prompts (default: {DEFAULT_CONTEXT_MODE})"
+        help=f"Context to include in prompts (default: {DEFAULT_CONTEXT_MODE}). message+diff includes diff, stats, and modified files."
     )
     
     parser.add_argument(

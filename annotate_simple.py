@@ -43,9 +43,9 @@ parser.add_argument(
 )
 parser.add_argument(
     "--context-mode",
-    choices=["message", "message+diff", "full"],
+    choices=["message", "message+diff"],
     default="message",
-    help="Context to include in annotation (default: message)"
+    help="Context to include in annotation (default: message). message+diff includes diff, stats, and modified files."
 )
 
 args = parser.parse_args()
