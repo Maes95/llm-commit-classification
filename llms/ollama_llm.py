@@ -75,6 +75,7 @@ class OllamaLLM:
                         format=CommitAnnotation.model_json_schema(),
                         options={
                             "temperature": self.temperature,
+                            "num_ctx": 32768,
                             "num_predict": self.max_tokens
                         }
                     )
