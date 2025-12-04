@@ -14,6 +14,7 @@ class LLMCommitAnnotator:
     """
 
     DEFINITIONS = "documentation/definitions.md"
+    CONTEXT_FOR_ANNOTATORS = "documentation/context.md"
 
     def __init__(
         self,
@@ -49,8 +50,9 @@ class LLMCommitAnnotator:
         if context_mode not in valid_modes:
             raise ValueError(f"Invalid context_mode: {context_mode}. Must be one of {valid_modes}")
         
-        # Load definitions
+        # Load definitions and context
         self.definitions_content = self._load_definitions()
+        self.context_for_annotators = self._load_context_for_annotators()
         
         # Initialize LLM
         self.llm = self._initialize_llm()
@@ -61,6 +63,14 @@ class LLMCommitAnnotator:
             raise FileNotFoundError(f"Definitions file not found: {self.DEFINITIONS}")
 
         with open(self.DEFINITIONS, "r") as f:
+            return f.read()
+    
+    def _load_context_for_annotators(self) -> str:
+        """Load context for annotators from file."""
+        if not os.path.exists(self.CONTEXT_FOR_ANNOTATORS):
+            raise FileNotFoundError(f"Context file not found: {self.CONTEXT_FOR_ANNOTATORS}")
+
+        with open(self.CONTEXT_FOR_ANNOTATORS, "r") as f:
             return f.read()
     
     def _initialize_llm(self):
@@ -128,6 +138,9 @@ class LLMCommitAnnotator:
 You are an expert software engineering analyst specializing in commit annotation.
 Your task is to evaluate commits across multiple dimensions simultaneously.
 
+[CONTEXT FOR ANNOTATORS]
+{context_for_annotators}
+
 [TAXONOMY DEFINITIONS]
 Below are the definitions and categories you must use for annotation:
 {definitions}
@@ -192,6 +205,7 @@ CRITICAL: Your response must be ONLY the raw JSON object. Do not wrap it in mark
 """
         
         return template.format(
+            context_for_annotators=self.context_for_annotators,
             definitions=self.definitions_content,
             commit_message=commit_context
         )
