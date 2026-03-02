@@ -8,3 +8,4 @@ data/*.csv
 __pycache__/
 linux/
 analysis/.ipynb_checkpoints
+analysis/figures/*.png
