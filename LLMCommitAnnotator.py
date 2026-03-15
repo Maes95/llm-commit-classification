@@ -38,6 +38,9 @@ class LLMCommitAnnotator:
                          Options:
                          - "message": Only commit message
                          - "message+diff": Commit message, diff, stats, and modified files
+                                                 - "single-label": Same context as message+diff, but
+                                                     prompt instructions bias toward a single positive category
+                                                     (>0) unless there is considerable doubt
         """
         self.model = model
         self.temperature = temperature
@@ -45,7 +48,7 @@ class LLMCommitAnnotator:
         self.context_mode = context_mode
         
         # Validate context_mode
-        valid_modes = ["message", "message+diff"]
+        valid_modes = ["message", "message+diff", "single-label"]
         if context_mode not in valid_modes:
             raise ValueError(f"Invalid context_mode: {context_mode}. Must be one of {valid_modes}")
         
@@ -106,8 +109,8 @@ class LLMCommitAnnotator:
         # Always include commit message
         context_parts.append(f"COMMIT MESSAGE:\n{commit_message}")
         
-        # Add diff, stats, and files if message+diff mode
-        if self.context_mode == "message+diff":
+        # Add diff, stats, and files when using rich context modes.
+        if self.context_mode in ["message+diff", "single-label"]:
             if "diff" in data and data["diff"]:
                 context_parts.append(f"\nCOMMIT DIFF:\n{data['diff']}")
             if "stats" in data and data["stats"]:
@@ -129,6 +132,20 @@ class LLMCommitAnnotator:
             The formatted prompt string
         """
         commit_context = self._build_commit_context(commit_data)
+        policy_section = ""
+
+        if self.context_mode == "single-label":
+            policy_section = """
+[SINGLE-LABEL POLICY]
+Apply a conservative single-label policy across BFC/BPC/PRC/NFC:
+1) By default, exactly one category may have score > 0. All others must be 0.
+2) Exception allowed ONLY under considerable doubt:
+   - understanding.score <= 2, OR
+   - explicit, independent, and comparably strong evidence of two different purposes.
+3) If understanding.score >= 3 and secondary evidence is weak/tangential,
+   collapse to single-label: keep one dominant category > 0 and set all others to 0.
+4) Avoid residual positives: do not assign 1 to a secondary category unless rule (2) is met.
+"""
         
         template = """[SYSTEM INSTRUCTION]
 You are an expert software engineering analyst specializing in commit annotation.
@@ -168,6 +185,8 @@ Use chain-of-thought reasoning for each dimension:
 2. Evaluate the strength and significance of this evidence
 3. Assign an appropriate score based on the rubric
 
+{policy_section}
+
 [COMMIT CONTEXT]
 {commit_message}
 
@@ -203,6 +222,7 @@ CRITICAL: Your response must be ONLY the raw JSON object. Do not wrap it in mark
         return template.format(
             context_for_annotators=self.context_for_annotators,
             definitions=self.definitions_content,
+            policy_section=policy_section,
             commit_message=commit_context
         )
     

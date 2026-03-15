@@ -43,9 +43,14 @@ parser.add_argument(
 )
 parser.add_argument(
     "--context-mode",
-    choices=["message", "message+diff"],
+  choices=["message", "message+diff", "single-label"],
     default="message",
-    help="Context to include in annotation (default: message). message+diff includes diff, stats, and modified files."
+  help=(
+    "Context/policy mode (default: message). "
+    "message+diff includes diff, stats, and modified files. "
+    "single-label uses rich context and biases toward a single category "
+    "with score > 0 unless there is considerable doubt."
+  )
 )
 
 args = parser.parse_args()

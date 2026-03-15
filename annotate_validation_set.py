@@ -9,7 +9,7 @@ Options:
     --output DIR          Output directory for annotation results (default: output/)
     --model MODEL         LLM model to use (default: ollama/gpt-oss:20b)
     --temperature FLOAT   Sampling temperature (default: 0.0)
-    --context-mode MODE   Context to include: message, message+diff (default: message)
+    --context-mode MODE   Context/policy mode: message, message+diff, single-label (default: message)
     --max-tokens INT      Maximum response tokens (default: 3072)
     --workers INT         Number of parallel workers (default: 10)
     --retry-delay INT     Seconds to wait on rate limit (default: 90)
@@ -44,7 +44,7 @@ DEFAULT_MODEL = "ollama/gpt-oss:20b"
 DEFAULT_TEMPERATURE = 0.0
 DEFAULT_CONTEXT_MODE = "message"
 DEFAULT_MAX_TOKENS = 3072
-DEFAULT_MAX_WORKERS = 10
+DEFAULT_WORKERS = 1
 DEFAULT_RETRY_DELAY = 90
 DEFAULT_MAX_RETRIES = 3
 
@@ -236,9 +236,14 @@ Examples:
     parser.add_argument(
         "--context-mode",
         type=str,
-        choices=["message", "message+diff"],
+        choices=["message", "message+diff", "single-label"],
         default=DEFAULT_CONTEXT_MODE,
-        help=f"Context to include in prompts (default: {DEFAULT_CONTEXT_MODE}). message+diff includes diff, stats, and modified files."
+        help=(
+            f"Context/policy mode (default: {DEFAULT_CONTEXT_MODE}). "
+            "message+diff includes diff, stats, and modified files. "
+            "single-label uses rich context and biases toward a single "
+            "category with score > 0 unless there is considerable doubt."
+        )
     )
     
     parser.add_argument(
@@ -251,8 +256,8 @@ Examples:
     parser.add_argument(
         "--workers",
         type=int,
-        default=DEFAULT_MAX_WORKERS,
-        help=f"Number of parallel workers (default: {DEFAULT_MAX_WORKERS})"
+        default=DEFAULT_WORKERS,
+        help=f"Number of parallel workers (default: {DEFAULT_WORKERS})"
     )
     
     parser.add_argument(

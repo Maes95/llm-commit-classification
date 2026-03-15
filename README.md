@@ -134,7 +134,10 @@ python annotate_validation_set.py \
 - `--output`: Output directory for results (default: `output/`)
 - `--model`: LLM model identifier (default: `ollama/gpt-oss:20b`)
 - `--temperature`: Sampling temperature (default: 0.0)
-- `--context-mode`: Context to include: `message`, `message+diff`, `full` (default: `message`)
+- `--context-mode`: Mode to use: `message`, `message+diff`, `single-label` (default: `message`)
+  - `message`: Use only commit message
+  - `message+diff`: Use commit message + diff + stats + modified files
+  - `single-label`: Uses the same rich context as `message+diff`, but biases scoring toward a single category with score `> 0`; more than one positive category is allowed only under considerable doubt
 - `--max-tokens`: Maximum response tokens (default: 3072)
 - `--workers`: Number of parallel workers (default: 10)
 - `--retry-delay`: Seconds to wait on rate limit (default: 90)
