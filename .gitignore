@@ -1,6 +1,5 @@
 .venv/
 .env
-data/1000-linux-commits*
 notes/
 output/
 .vscode/
