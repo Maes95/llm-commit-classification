@@ -15,6 +15,7 @@ class LLMCommitAnnotator:
 
     DEFINITIONS = "documentation/definitions.md"
     CONTEXT_FOR_ANNOTATORS = "documentation/context.md"
+    FEW_SHOT_EXAMPLES = "documentation/few-shot-examples.md"
 
     def __init__(
         self,
@@ -34,13 +35,16 @@ class LLMCommitAnnotator:
                    For Ollama: "gpt-oss:20b" or "ollama/gpt-oss:20b"
             temperature: LLM temperature for reproducibility (default: 0.0)
             max_tokens: Maximum tokens for LLM response (default: 3072)
-            context_mode: Context/policy mode string (default: "message")
-                         Flags can be combined with '+':
-                         - "message": Only commit message (base context)
-                         - "diff": Adds diff, stats, and modified files
-                         - "single-label": Adds single-label scoring policy
-                         - "diff+single-label": Enables both diff context and
-                           single-label scoring policy
+                        context_mode: Context/policy mode string (default: "message")
+                                                 Flags can be combined with '+':
+                                                 - "message": Only commit message (base context)
+                                                 - "diff": Adds diff, stats, and modified files
+                                                 - "single-label": Adds single-label scoring policy
+                                                 - "few-shot": Adds human annotation examples from
+                                                     documentation/few-shot-examples.md
+                                                 - "diff+single-label": Enables both diff context and
+                                                     single-label scoring policy
+                                                 - "diff+single-label+few-shot": Enables all behaviors
         """
         self.model = model
         self.temperature = temperature
@@ -51,13 +55,14 @@ class LLMCommitAnnotator:
         # Load definitions and context
         self.definitions_content = self._load_definitions()
         self.context_for_annotators = self._load_context_for_annotators()
+        self.few_shot_examples = self._load_few_shot_examples()
 
         # Initialize LLM
         self.llm = self._initialize_llm()
 
     def _parse_context_mode(self, context_mode: str) -> Set[str]:
         """Parse context_mode into composable flags."""
-        valid_flags = {"message", "diff", "single-label"}
+        valid_flags = {"message", "diff", "single-label", "few-shot"}
 
         if not isinstance(context_mode, str) or not context_mode.strip():
             raise ValueError("context_mode must be a non-empty string")
@@ -66,7 +71,7 @@ class LLMCommitAnnotator:
         if any(not part for part in parts):
             raise ValueError(
                 "Invalid context_mode format. Use 'message', 'diff', 'single-label', "
-                "or combinations like 'diff+single-label'."
+                "'few-shot', or combinations like 'diff+single-label+few-shot'."
             )
 
         mode_flags = set(parts)
@@ -75,7 +80,8 @@ class LLMCommitAnnotator:
             raise ValueError(
                 "Invalid context_mode flag(s): "
                 f"{sorted(unknown)}. Valid flags: {sorted(valid_flags)}. "
-                "Supported examples: 'message', 'diff', 'single-label', 'diff+single-label'."
+                "Supported examples: 'message', 'diff', 'single-label', 'few-shot', "
+                "'diff+single-label', 'diff+single-label+few-shot'."
             )
 
         return mode_flags
@@ -94,8 +100,22 @@ class LLMCommitAnnotator:
         if effective == {"message"}:
             return "message"
 
-        ordered = [name for name in ["diff", "single-label"] if name in effective]
+        ordered = [name for name in ["diff", "single-label", "few-shot"] if name in effective]
         return "+".join(ordered)
+
+    def _load_few_shot_examples(self) -> str:
+        """Load few-shot examples when few-shot mode is active."""
+        if "few-shot" not in self.mode_flags:
+            return ""
+
+        if not os.path.exists(self.FEW_SHOT_EXAMPLES):
+            raise FileNotFoundError(
+                f"Few-shot examples file not found: {self.FEW_SHOT_EXAMPLES}. "
+                "Create and fill this template when using context_mode with 'few-shot'."
+            )
+
+        with open(self.FEW_SHOT_EXAMPLES, "r") as f:
+            return f.read()
     
     def _load_definitions(self) -> str:
         """Load category definitions from file."""
@@ -171,6 +191,7 @@ class LLMCommitAnnotator:
         """
         commit_context = self._build_commit_context(commit_data)
         policy_section = ""
+        few_shot_section = ""
 
         if "single-label" in self.mode_flags:
             policy_section = """
@@ -183,6 +204,15 @@ Apply a conservative single-label policy across BFC/BPC/PRC/NFC:
 3) If understanding.score >= 3 and secondary evidence is weak/tangential,
    collapse to single-label: keep one dominant category > 0 and set all others to 0.
 4) Avoid residual positives: do not assign 1 to a secondary category unless rule (2) is met.
+"""
+
+        if "few-shot" in self.mode_flags:
+            few_shot_section = f"""
+[FEW-SHOT HUMAN EXAMPLES]
+Use these human-annotated examples as calibration references.
+Do not copy text verbatim; use them to calibrate scoring decisions.
+
+{self.few_shot_examples}
 """
         
         template = """[SYSTEM INSTRUCTION]
@@ -225,6 +255,8 @@ Use chain-of-thought reasoning for each dimension:
 
 {policy_section}
 
+{few_shot_section}
+
 [COMMIT CONTEXT]
 {commit_message}
 
@@ -261,6 +293,7 @@ CRITICAL: Your response must be ONLY the raw JSON object. Do not wrap it in mark
             context_for_annotators=self.context_for_annotators,
             definitions=self.definitions_content,
             policy_section=policy_section,
+            few_shot_section=few_shot_section,
             commit_message=commit_context
         )
     

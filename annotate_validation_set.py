@@ -9,7 +9,7 @@ Options:
     --output DIR          Output directory for annotation results (default: output/)
     --model MODEL         LLM model to use (default: ollama/gpt-oss:20b)
     --temperature FLOAT   Sampling temperature (default: 0.0)
-    --context-mode MODE   Context/policy mode flags joined by '+': message, diff, single-label (default: message)
+    --context-mode MODE   Context/policy mode flags joined by '+': message, diff, single-label, few-shot (default: message)
     --max-tokens INT      Maximum response tokens (default: 3072)
     --workers INT         Number of parallel workers (default: 10)
     --retry-delay INT     Seconds to wait on rate limit (default: 90)
@@ -200,8 +200,14 @@ Examples:
   # With diff context
   python annotate_validation_set.py --context-mode diff --input data/commits-with-diff.jsonl
 
-  # With combined mode
-  python annotate_validation_set.py --context-mode diff+single-label --input data/commits-with-diff.jsonl
+    # With combined mode
+    python annotate_validation_set.py --context-mode diff+single-label --input data/commits-with-diff.jsonl
+
+    # With few-shot examples
+    python annotate_validation_set.py --context-mode few-shot --input data/commits-with-diff.jsonl
+
+    # With all combined
+    python annotate_validation_set.py --context-mode diff+single-label+few-shot --input data/commits-with-diff.jsonl
 
   # Custom output directory
   python annotate_validation_set.py --output results/my-experiment/
@@ -242,8 +248,8 @@ Examples:
         default=DEFAULT_CONTEXT_MODE,
         help=(
             f"Context/policy mode (default: {DEFAULT_CONTEXT_MODE}). "
-            "Use one or more flags joined by '+': message, diff, single-label. "
-            "Examples: diff, single-label, diff+single-label."
+            "Use one or more flags joined by '+': message, diff, single-label, few-shot. "
+            "Examples: diff, single-label, few-shot, diff+single-label+few-shot."
         )
     )
     

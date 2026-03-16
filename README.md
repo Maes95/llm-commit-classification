@@ -138,7 +138,9 @@ python annotate_validation_set.py \
   - `message`: Base mode (commit message)
   - `diff`: Adds diff + stats + modified files
   - `single-label`: Adds single-label scoring policy
+  - `few-shot`: Adds human-annotated examples from `documentation/few-shot-examples.md`
   - `diff+single-label`: Enables both `diff` and `single-label`
+  - `diff+single-label+few-shot`: Enables all three behaviors
 - `--max-tokens`: Maximum response tokens (default: 3072)
 - `--workers`: Number of parallel workers (default: 10)
 - `--retry-delay`: Seconds to wait on rate limit (default: 90)
@@ -205,6 +207,22 @@ python annotate_validation_set.py \
     --input data/50-random-commits-validation-with-diff.jsonl \
     --output output/with-diff-single-label/ \
     --context-mode diff+single-label
+```
+
+Or use few-shot examples (fill `documentation/few-shot-examples.md` first):
+```bash
+python annotate_validation_set.py \
+  --input data/50-random-commits-validation-with-diff.jsonl \
+  --output output/with-few-shot/ \
+  --context-mode few-shot
+```
+
+Or combine all modes:
+```bash
+python annotate_validation_set.py \
+  --input data/50-random-commits-validation-with-diff.jsonl \
+  --output output/with-all-modes/ \
+  --context-mode diff+single-label+few-shot
 ```
 
 See `diffs/README.md` for more diff retrieval options (GitHub API, GitPython, etc.).

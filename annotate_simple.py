@@ -18,6 +18,8 @@ Examples:
   python annotate_simple.py data/sample-commits/commit.json --model "gemini-2.0-flash-exp" --temperature 0.2
   python annotate_simple.py data/sample-commits/commit.json --context-mode diff
   python annotate_simple.py data/sample-commits/commit.json --context-mode diff+single-label
+  python annotate_simple.py data/sample-commits/commit.json --context-mode few-shot
+  python annotate_simple.py data/sample-commits/commit.json --context-mode diff+single-label+few-shot
 """
 )
 
@@ -47,8 +49,8 @@ parser.add_argument(
     default="message",
     help=(
         "Context/policy mode (default: message). "
-        "Use one or more flags joined by '+': message, diff, single-label. "
-        "Examples: diff, single-label, diff+single-label."
+        "Use one or more flags joined by '+': message, diff, single-label, few-shot. "
+        "Examples: diff, single-label, few-shot, diff+single-label+few-shot."
     )
 )
 
