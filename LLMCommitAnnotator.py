@@ -3,7 +3,7 @@ import json
 import re
 import time
 from datetime import datetime
-from typing import Dict, Any, Optional
+from typing import Dict, Any, Optional, Set
 from llms import GoogleLLM, OpenAILLM, OpenRouterLLM, OllamaLLM
 
 
@@ -34,30 +34,68 @@ class LLMCommitAnnotator:
                    For Ollama: "gpt-oss:20b" or "ollama/gpt-oss:20b"
             temperature: LLM temperature for reproducibility (default: 0.0)
             max_tokens: Maximum tokens for LLM response (default: 3072)
-            context_mode: Type of context to include in the prompt (default: "message")
-                         Options:
-                         - "message": Only commit message
-                         - "message+diff": Commit message, diff, stats, and modified files
-                                                 - "single-label": Same context as message+diff, but
-                                                     prompt instructions bias toward a single positive category
-                                                     (>0) unless there is considerable doubt
+            context_mode: Context/policy mode string (default: "message")
+                         Flags can be combined with '+':
+                         - "message": Only commit message (base context)
+                         - "diff": Adds diff, stats, and modified files
+                         - "single-label": Adds single-label scoring policy
+                         - "diff+single-label": Enables both diff context and
+                           single-label scoring policy
         """
         self.model = model
         self.temperature = temperature
         self.max_tokens = max_tokens
-        self.context_mode = context_mode
-        
-        # Validate context_mode
-        valid_modes = ["message", "message+diff", "single-label"]
-        if context_mode not in valid_modes:
-            raise ValueError(f"Invalid context_mode: {context_mode}. Must be one of {valid_modes}")
-        
+        self.mode_flags = self._parse_context_mode(context_mode)
+        self.context_mode = self._normalize_context_mode(self.mode_flags)
+
         # Load definitions and context
         self.definitions_content = self._load_definitions()
         self.context_for_annotators = self._load_context_for_annotators()
-        
+
         # Initialize LLM
         self.llm = self._initialize_llm()
+
+    def _parse_context_mode(self, context_mode: str) -> Set[str]:
+        """Parse context_mode into composable flags."""
+        valid_flags = {"message", "diff", "single-label"}
+
+        if not isinstance(context_mode, str) or not context_mode.strip():
+            raise ValueError("context_mode must be a non-empty string")
+
+        parts = [part.strip() for part in context_mode.split("+")]
+        if any(not part for part in parts):
+            raise ValueError(
+                "Invalid context_mode format. Use 'message', 'diff', 'single-label', "
+                "or combinations like 'diff+single-label'."
+            )
+
+        mode_flags = set(parts)
+        unknown = mode_flags - valid_flags
+        if unknown:
+            raise ValueError(
+                "Invalid context_mode flag(s): "
+                f"{sorted(unknown)}. Valid flags: {sorted(valid_flags)}. "
+                "Supported examples: 'message', 'diff', 'single-label', 'diff+single-label'."
+            )
+
+        return mode_flags
+
+    def _normalize_context_mode(self, mode_flags: Set[str]) -> str:
+        """Return canonical mode name for output metadata consistency."""
+        effective = set(mode_flags)
+
+        # message is implicit base context; remove it in combined canonical names.
+        if "message" in effective and len(effective) > 1:
+            effective.remove("message")
+
+        if not effective:
+            return "message"
+
+        if effective == {"message"}:
+            return "message"
+
+        ordered = [name for name in ["diff", "single-label"] if name in effective]
+        return "+".join(ordered)
     
     def _load_definitions(self) -> str:
         """Load category definitions from file."""
@@ -109,8 +147,8 @@ class LLMCommitAnnotator:
         # Always include commit message
         context_parts.append(f"COMMIT MESSAGE:\n{commit_message}")
         
-        # Add diff, stats, and files when using rich context modes.
-        if self.context_mode in ["message+diff", "single-label"]:
+        # Add diff, stats, and files when diff mode is active.
+        if "diff" in self.mode_flags:
             if "diff" in data and data["diff"]:
                 context_parts.append(f"\nCOMMIT DIFF:\n{data['diff']}")
             if "stats" in data and data["stats"]:
@@ -134,7 +172,7 @@ class LLMCommitAnnotator:
         commit_context = self._build_commit_context(commit_data)
         policy_section = ""
 
-        if self.context_mode == "single-label":
+        if "single-label" in self.mode_flags:
             policy_section = """
 [SINGLE-LABEL POLICY]
 Apply a conservative single-label policy across BFC/BPC/PRC/NFC:

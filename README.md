@@ -134,10 +134,11 @@ python annotate_validation_set.py \
 - `--output`: Output directory for results (default: `output/`)
 - `--model`: LLM model identifier (default: `ollama/gpt-oss:20b`)
 - `--temperature`: Sampling temperature (default: 0.0)
-- `--context-mode`: Mode to use: `message`, `message+diff`, `single-label` (default: `message`)
-  - `message`: Use only commit message
-  - `message+diff`: Use commit message + diff + stats + modified files
-  - `single-label`: Uses the same rich context as `message+diff`, but biases scoring toward a single category with score `> 0`; more than one positive category is allowed only under considerable doubt
+- `--context-mode`: Mode flags joined by `+` (default: `message`)
+  - `message`: Base mode (commit message)
+  - `diff`: Adds diff + stats + modified files
+  - `single-label`: Adds single-label scoring policy
+  - `diff+single-label`: Enables both `diff` and `single-label`
 - `--max-tokens`: Maximum response tokens (default: 3072)
 - `--workers`: Number of parallel workers (default: 10)
 - `--retry-delay`: Seconds to wait on rate limit (default: 90)
@@ -152,7 +153,7 @@ python annotate_validation_set.py \
     "commit": "abc123...",
     "message": "Fix memory leak in driver",
     "files": [...],
-    "diff": "..." // Optional, for context_mode="message+diff"
+    "diff": "..." // Optional, for context_mode="diff"
   }
 }
 ```
@@ -195,7 +196,15 @@ Then annotate with diff context:
 python annotate_validation_set.py \
     --input data/50-random-commits-validation-with-diff.jsonl \
     --output output/with-diff-experiment/ \
-    --context-mode message+diff
+    --context-mode diff
+```
+
+Or combine diff with single-label policy:
+```bash
+python annotate_validation_set.py \
+    --input data/50-random-commits-validation-with-diff.jsonl \
+    --output output/with-diff-single-label/ \
+    --context-mode diff+single-label
 ```
 
 See `diffs/README.md` for more diff retrieval options (GitHub API, GitPython, etc.).

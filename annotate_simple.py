@@ -16,7 +16,8 @@ Examples:
   python annotate_simple.py data/sample-commits/commit.json
   python annotate_simple.py data/sample-commits/commit.json --model "openai/gpt-4"
   python annotate_simple.py data/sample-commits/commit.json --model "gemini-2.0-flash-exp" --temperature 0.2
-  python annotate_simple.py data/sample-commits/commit.json --context-mode message+diff
+  python annotate_simple.py data/sample-commits/commit.json --context-mode diff
+  python annotate_simple.py data/sample-commits/commit.json --context-mode diff+single-label
 """
 )
 
@@ -43,14 +44,12 @@ parser.add_argument(
 )
 parser.add_argument(
     "--context-mode",
-  choices=["message", "message+diff", "single-label"],
     default="message",
-  help=(
-    "Context/policy mode (default: message). "
-    "message+diff includes diff, stats, and modified files. "
-    "single-label uses rich context and biases toward a single category "
-    "with score > 0 unless there is considerable doubt."
-  )
+    help=(
+        "Context/policy mode (default: message). "
+        "Use one or more flags joined by '+': message, diff, single-label. "
+        "Examples: diff, single-label, diff+single-label."
+    )
 )
 
 args = parser.parse_args()
