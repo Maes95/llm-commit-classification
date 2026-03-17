@@ -41,8 +41,8 @@ parser.add_argument(
 parser.add_argument(
     "--max-tokens",
     type=int,
-    default=3072,
-    help="Maximum tokens for LLM response (default: 3072)"
+    default=10000,
+    help="Maximum tokens for LLM response (default: 10000)"
 )
 parser.add_argument(
     "--context-mode",

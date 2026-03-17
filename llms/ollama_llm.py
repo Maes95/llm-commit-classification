@@ -69,14 +69,17 @@ class OllamaLLM:
                 Call Ollama API to generate a structured response.
                 """
                 try:
+                    # Use -1 for num_predict to let Ollama generate unlimited tokens
+                    # (it will stop naturally when the response is complete).
+                    # This prevents premature truncation of JSON responses.
                     response = self.client.chat(
                         model=self.model,
                         messages=[{'role': 'user', 'content': prompt}],
                         format=CommitAnnotation.model_json_schema(),
                         options={
                             "temperature": self.temperature,
-                            "num_ctx": 32768,
-                            "num_predict": self.max_tokens
+                            "num_ctx": 32768,  # Max context window
+                            "num_predict": self.max_tokens  # -1 = unlimited, let model decide when to stop
                         }
                     )
                     

@@ -297,56 +297,6 @@ CRITICAL: Your response must be ONLY the raw JSON object. Do not wrap it in mark
             commit_message=commit_context
         )
     
-    def _repair_truncated_json(self, raw_response: str) -> str:
-        """
-        Attempt to repair JSON that was truncated due to token limits.
-        
-        Common issue: response ends with incomplete field like "summary": "}
-        This function closes open structures gracefully.
-        
-        Args:
-            raw_response: The potentially truncated JSON string from LLM
-            
-        Returns:
-            Repaired JSON string that can be parsed
-        """
-        # If already valid JSON, return as-is
-        try:
-            json.loads(raw_response)
-            return raw_response
-        except json.JSONDecodeError:
-            pass
-        
-        # Strategy: count open/close braces and quotes to close gracefully
-        response = raw_response.rstrip()
-        
-        # Remove incomplete trailing content (e.g., `"summary": "}` → `"summary": ""`)
-        # Look for patterns like `"field": "` followed by non-escaped chars but no closing quote
-        response = re.sub(r'(":\s*"[^"]*)\s*$', r'\1"', response)
-        
-        # Count open structures
-        open_braces = response.count('{') - response.count('}')
-        open_brackets = response.count('[') - response.count(']')
-        
-        # Close structures in reverse order
-        if open_braces > 0:
-            response += '}' * open_braces
-        if open_brackets > 0:
-            response += ']' * open_brackets
-        
-        # One more attempt: if still invalid, try removing trailing junk after last }
-        try:
-            json.loads(response)
-            return response
-        except json.JSONDecodeError:
-            # Last resort: find last closing brace and truncate there
-            last_brace = response.rfind('}')
-            if last_brace > 0:
-                return response[:last_brace + 1]
-            
-            # If we can't repair it, return original for better error message
-            return raw_response
-    
     def annotate_commit(self, commit_data: Dict[str, Any]) -> Dict[str, Any]:
         """
         Annotate a single commit.
@@ -384,34 +334,14 @@ CRITICAL: Your response must be ONLY the raw JSON object. Do not wrap it in mark
         response = self.llm.invoke(prompt_text)
         elapsed_time = time.time() - start_time
         
-        # Parse JSON response with repair/retry logic
-        raw_response = response.content
-        annotation = None
-        parse_error = None
-        
-        # Attempt 1: Try parsing directly
+        # Parse JSON response
         try:
-            annotation = json.loads(raw_response)
+            annotation = json.loads(response.content)
         except json.JSONDecodeError as e:
-            parse_error = e
-            # Attempt 2: Try repairing truncated JSON
-            repaired_response = self._repair_truncated_json(raw_response)
-            if repaired_response != raw_response:
-                try:
-                    annotation = json.loads(repaired_response)
-                    # Log successful repair
-                    print(f"[JSON Repair] Successfully repaired truncated response for {commit_hash}")
-                except json.JSONDecodeError as e2:
-                    parse_error = e2
-        
-        if annotation is None:
             raise ValueError(
-                f"Failed to parse LLM response as JSON (even after repair attempt): {parse_error}\n"
-                f"Model: {self.model}, max_tokens: {self.max_tokens}\n"
-                f"Raw response length: {len(raw_response)} chars\n"
-                f"Raw response: {raw_response[:500]}..." if len(raw_response) > 500 else f"Raw response: {raw_response}"
+                f"Failed to parse LLM response as JSON: {e}\n"
+                f"Raw response: {response.content}"
             )
-        
         # Return structured result with metadata
         return {
             "commit_hash": commit_hash,
