@@ -1,12 +1,5 @@
 # Few-Shot Human Annotation Examples
 
-Use this file to provide 2-3 human-annotated examples for `context_mode` values that include `few-shot`.
-
-Notes:
-- Fill the placeholders below with real examples.
-- Keep the structure so the content can be injected directly into the prompt.
-- Include the full commit message (or a faithful summary if too long).
-
 ## Example 1 - Total Agreement
 - Commit hash: `d11a327ed95dbec756b99cbfef2a7fd85c9eeb09`
 - Commit message:

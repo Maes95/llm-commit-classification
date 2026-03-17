@@ -192,6 +192,14 @@ class LLMCommitAnnotator:
         commit_context = self._build_commit_context(commit_data)
         policy_section = ""
         few_shot_section = ""
+        compact_output_section = """
+    [OUTPUT BUDGET]
+    Keep output compact to avoid malformed/truncated JSON:
+    - understanding.description: max 80 words
+    - each reasoning field (bfc/bpc/prc/nfc): max 60 words
+    - summary: max 40 words
+    Use concise, evidence-based statements. Avoid long quotations from the commit.
+    """
 
         if "single-label" in self.mode_flags:
             policy_section = """
@@ -248,14 +256,18 @@ Scoring rubric:
 3 = Strong - The commit clearly exhibits characteristics of this category
 4 = Primary - This is a primary or dominant characteristic of the commit
 
-Use chain-of-thought reasoning for each dimension:
+Use concise reasoning for each dimension:
 1. Identify evidence in the commit relevant to this dimension
 2. Evaluate the strength and significance of this evidence
 3. Assign an appropriate score based on the rubric
 
+IMPORTANT: Provide only short final justifications, not long internal deliberations.
+
 {policy_section}
 
 {few_shot_section}
+
+{compact_output_section}
 
 [COMMIT CONTEXT]
 {commit_message}
@@ -294,6 +306,7 @@ CRITICAL: Your response must be ONLY the raw JSON object. Do not wrap it in mark
             definitions=self.definitions_content,
             policy_section=policy_section,
             few_shot_section=few_shot_section,
+            compact_output_section=compact_output_section,
             commit_message=commit_context
         )
     
