@@ -36,6 +36,11 @@ COLOR_RESET = "\033[0m"
 
 # Global lock for thread-safe printing
 print_lock = Lock()
+NO_COLORS = False  # Global flag for color output
+
+def get_color(color_code: str) -> str:
+    """Return color code or empty string based on NO_COLORS flag."""
+    return "" if NO_COLORS else color_code
 
 # Default configuration
 DEFAULT_INPUT_FILE = "data/50-random-commits-validation.jsonl"
@@ -119,7 +124,7 @@ def annotate_commit_with_retry(commit_data: dict, annotator: LLMCommitAnnotator,
         model_folder = annotator.model.replace("/", "_").replace(":", "_")
         output_file = str(Path(output_base_dir) / model_folder / f"{commit_hash}.json")
         with print_lock:
-            print(f"{COLOR_GRAY}[{commit_index}/{total_commits}] ⊙ Skipped {commit_hash[:8]} (already exists){COLOR_RESET}")
+            print(f"{get_color(COLOR_GRAY)}[{commit_index}/{total_commits}] ⊙ Skipped {commit_hash[:8]} (already exists){get_color(COLOR_RESET)}")
         
         return {
             "status": "skipped",
@@ -138,7 +143,7 @@ def annotate_commit_with_retry(commit_data: dict, annotator: LLMCommitAnnotator,
             
             # Print success in green
             with print_lock:
-                print(f"{COLOR_GREEN}[{commit_index}/{total_commits}] ✓ Saved to {output_file}{COLOR_RESET}")
+                print(f"{get_color(COLOR_GREEN)}[{commit_index}/{total_commits}] ✓ Saved to {output_file}{get_color(COLOR_RESET)}")
             
             return {
                 "status": "success",
@@ -157,14 +162,14 @@ def annotate_commit_with_retry(commit_data: dict, annotator: LLMCommitAnnotator,
             if is_rate_limit and attempt < max_retries:
                 # Print warning in orange
                 with print_lock:
-                    print(f"{COLOR_ORANGE}[{commit_index}/{total_commits}] ⚠ Rate limit hit for {commit_hash[:8]}, "
-                          f"waiting {retry_delay}s before retry {attempt + 1}/{max_retries}...{COLOR_RESET}")
+                    print(f"{get_color(COLOR_ORANGE)}[{commit_index}/{total_commits}] ⚠ Rate limit hit for {commit_hash[:8]}, "
+                          f"waiting {retry_delay}s before retry {attempt + 1}/{max_retries}...{get_color(COLOR_RESET)}")
                 time.sleep(retry_delay)
                 continue
             
             # If not rate limit or max retries reached, print error in red
             with print_lock:
-                print(f"{COLOR_RED}[{commit_index}/{total_commits}] ✗ Failed {commit_hash[:8]}: {error_msg}{COLOR_RESET}")
+                print(f"{get_color(COLOR_RED)}[{commit_index}/{total_commits}] ✗ Failed {commit_hash[:8]}: {error_msg}{get_color(COLOR_RESET)}")
             
             return {
                 "status": "error",
@@ -281,7 +286,17 @@ Examples:
         help=f"Maximum retries per commit (default: {DEFAULT_MAX_RETRIES})"
     )
     
+    parser.add_argument(
+        "--no-colors",
+        action="store_true",
+        help="Disable colored output for better log readability"
+    )
+    
     args = parser.parse_args()
+    
+    # Set global NO_COLORS flag
+    global NO_COLORS
+    NO_COLORS = args.no_colors
     
     # Check if input file exists
     if not os.path.exists(args.input):
