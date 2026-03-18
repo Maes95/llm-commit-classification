@@ -6,5 +6,6 @@ from .google_llm import GoogleLLM
 from .openai_llm import OpenAILLM
 from .openrouter_llm import OpenRouterLLM
 from .ollama_llm import OllamaLLM
+from .copilot_llm import CopilotLLM
 
-__all__ = ['GoogleLLM', 'OpenAILLM', 'OpenRouterLLM', 'OllamaLLM']
+__all__ = ['GoogleLLM', 'OpenAILLM', 'OpenRouterLLM', 'OllamaLLM', 'CopilotLLM']

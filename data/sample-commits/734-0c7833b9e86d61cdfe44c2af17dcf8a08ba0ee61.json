@@ -1,0 +1,47 @@
+{
+    "backend_name": "Git",
+    "backend_version": "0.13.0",
+    "category": "commit",
+    "classified_fields_filtered": null,
+    "data": {
+        "Author": "Al Viro <viro@zeniv.linux.org.uk>",
+        "AuthorDate": "Sun Aug 21 02:02:33 2022 +0100",
+        "Commit": "Greg Kroah-Hartman <gregkh@linuxfoundation.org>",
+        "CommitDate": "Tue Aug 30 14:25:02 2022 +0200",
+        "Signed-off-by": [
+            "Al Viro <viro@zeniv.linux.org.uk>",
+            "Greg Kroah-Hartman <gregkh@linuxfoundation.org>"
+        ],
+        "commit": "0c7833b9e86d61cdfe44c2af17dcf8a08ba0ee61",
+        "files": [
+            {
+                "action": "M",
+                "added": "0",
+                "file": "drivers/tty/n_hdlc.c",
+                "indexes": [
+                    "94c1ec2dd754",
+                    "5540d9be65ea"
+                ],
+                "modes": [
+                    "100644",
+                    "100644"
+                ],
+                "removed": "1"
+            }
+        ],
+        "message": "termios: get rid of stray asm/termios.h include in n_hdlc.c\n\nthat's the only one outside of include/uapi/linux/termios.h and it's\nnot even needed there - we have linux/tty.h already pulled and that\npulls linux/termios.h\n\nNormally I would not consider that a sufficient reason, but there's a\nplenty of linux/tty.h users, and this is the only one that follows that\nwith asm/termios.h.  The situation with termios.h is genuinely convoluted,\nand this complicates it for no good reason.\n\nSigned-off-by: Al Viro <viro@zeniv.linux.org.uk>\nLink: https://lore.kernel.org/r/20220821010239.1554132-2-viro@zeniv.linux.org.uk\nSigned-off-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>",
+        "parents": [
+            "6f418aeaadb78bd820f74961df48876ab194cd7a"
+        ],
+        "refs": []
+    },
+    "origin": "linux",
+    "perceval_version": "0.23.1",
+    "search_fields": {
+        "item_id": "0c7833b9e86d61cdfe44c2af17dcf8a08ba0ee61"
+    },
+    "tag": "linux",
+    "timestamp": 1699830733.511542,
+    "updated_on": 1661862302.0,
+    "uuid": "0017f000571c7caff08b4a227e1dc9e390bc92e9"
+}

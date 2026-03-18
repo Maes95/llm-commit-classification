@@ -4,7 +4,7 @@ import re
 import time
 from datetime import datetime
 from typing import Dict, Any, Optional, Set
-from llms import GoogleLLM, OpenAILLM, OpenRouterLLM, OllamaLLM
+from llms import GoogleLLM, OpenAILLM, OpenRouterLLM, OllamaLLM, CopilotLLM
 
 
 class LLMCommitAnnotator:
@@ -33,6 +33,7 @@ class LLMCommitAnnotator:
                    For Google: "gemini-2.0-flash-exp" or "gemini-1.5-pro"
                    For OpenAI: "gpt-4", "gpt-3.5-turbo"
                    For Ollama: "gpt-oss:20b" or "ollama/gpt-oss:20b"
+                   For Copilot: "copilot/gpt-5-mini"
             temperature: LLM temperature for reproducibility (default: 0.0)
             max_tokens: Maximum tokens for LLM response (default: 10000)
             context_mode: Context/policy mode string (default: "message")
@@ -136,7 +137,7 @@ class LLMCommitAnnotator:
     def _initialize_llm(self):
         """Initialize the LLM client based on model type."""
         # List of providers to check (order matters - more specific first)
-        providers = [OllamaLLM, OpenRouterLLM, GoogleLLM, OpenAILLM]
+        providers = [OllamaLLM, CopilotLLM, OpenRouterLLM, GoogleLLM, OpenAILLM]
         
         # Find the appropriate provider
         for provider in providers:

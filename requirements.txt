@@ -13,3 +13,5 @@ gradio
 scikit-learn
 krippendorff
 statsmodels
+github-copilot-sdk
+tenacity
