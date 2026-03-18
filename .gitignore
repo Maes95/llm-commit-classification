@@ -9,3 +9,4 @@ linux/
 analysis/.ipynb_checkpoints
 analysis/figures/*.png
 OLD/
+experiments/logs/*
