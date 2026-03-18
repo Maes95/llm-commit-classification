@@ -6,6 +6,12 @@ import asyncio
 from typing import Any, Dict, Optional
 
 from copilot import CopilotClient, PermissionHandler
+from tenacity import (
+    retry,
+    wait_exponential,
+    stop_after_attempt,
+    retry_if_exception_type,
+)
 
 
 class CopilotLLM:
@@ -48,36 +54,28 @@ class CopilotLLM:
                         "on_permission_request": PermissionHandler.approve_all,
                     })
 
+            @retry(
+                wait=wait_exponential(multiplier=1, min=20, max=60),
+                stop=stop_after_attempt(5),
+                retry=retry_if_exception_type(Exception),
+                reraise=True,
+            )
             async def _ainvoke(self, prompt: str):
+                """Single-attempt send; tenacity will retry on exceptions/empty responses.
+
+                This avoids hammering the API and uses exponential backoff for 429s.
+                """
                 await self._ensure_session()
 
-                timeout_seconds = 120.0
-                poll_interval_seconds = 0.35
-                deadline = asyncio.get_running_loop().time() + timeout_seconds
-                last_error: Optional[Exception] = None
+                # Perform one request per attempt. If the SDK raises (e.g. 429),
+                # tenacity will catch and retry according to the decorator.
+                response = await self.session.send_and_wait({"prompt": prompt})
+                content = self._extract_content(response)
+                if not content:
+                    # Trigger a retry when Copilot returns an empty/transient payload
+                    raise RuntimeError("Empty response from Copilot; retrying")
 
-                # Some SDK responses can arrive as transient/empty payloads.
-                # Keep polling until valid text content is available.
-                while asyncio.get_running_loop().time() < deadline:
-                    try:
-                        response = await self.session.send_and_wait({"prompt": prompt})
-                        content = self._extract_content(response)
-                        if content:
-                            return response
-                    except Exception as exc:
-                        last_error = exc
-
-                    await asyncio.sleep(poll_interval_seconds)
-
-                if last_error:
-                    raise RuntimeError(
-                        f"Copilot request timed out after {timeout_seconds}s. "
-                        f"Last error: {last_error}"
-                    ) from last_error
-
-                raise RuntimeError(
-                    f"Copilot request timed out after {timeout_seconds}s with empty response."
-                )
+                return response
 
             @staticmethod
             def _extract_content(response: Any) -> str:
