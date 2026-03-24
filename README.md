@@ -23,18 +23,15 @@ llm-commit-classification/
 ├── annotate_simple.py          # Annotate a single commit
 ├── annotate_validation_set.py  # Annotate multiple commits (batch)
 ├── llms/                       # LLM provider wrappers
+│   ├── copilot_llm.py         # GitHub Copilot models
 │   ├── google_llm.py          # Google Gemini models
 │   ├── openai_llm.py          # OpenAI GPT models
 │   ├── openrouter_llm.py      # OpenRouter API
 │   └── ollama_llm.py          # Local Ollama models
-├── diffs/                      # Diff retrieval utilities
-│   ├── git_subprocess.py      # Git via subprocess
-│   ├── gitpython_diff.py      # Git via GitPython
-│   ├── github_api.py          # GitHub API retrieval
-│   └── enrich_jsonl.py        # Pre-process JSONL with diffs
 ├── utils/                      # Utility scripts
-│   ├── convert_model_to_csv.py # Convert annotations to CSV
-│   └── add_diff_to_jsonl.py   # Add diff context to data
+│   ├── convert_model_to_csv.py        # Convert one model's annotations to CSV
+│   ├── batch_convert_models_to_csv.py # Batch-convert all model folders to CSV
+│   └── add_diff_to_jsonl.py           # Add diff context to JSONL data
 ├── data/                       # Commit data and annotations
 └── documentation/              # Category definitions and methodology
 ```
@@ -95,6 +92,11 @@ The tool supports multiple LLM providers. Configure at least one:
 2. Pull models: `ollama pull llama3.1:8b`
 3. No API key needed - runs locally
 
+#### GitHub Copilot
+1. Requires an active GitHub Copilot subscription
+2. No API key in `.env` needed — uses your existing Copilot authentication
+3. Use model identifiers with the `copilot/` prefix (e.g., `copilot/gpt-5-mini`)
+
 **Security**: Never commit `.env` to version control.
 
 ## Usage
@@ -141,10 +143,11 @@ python annotate_validation_set.py \
   - `few-shot`: Adds human-annotated examples from `documentation/few-shot-examples.md`
   - `diff+single-label`: Enables both `diff` and `single-label`
   - `diff+single-label+few-shot`: Enables all three behaviors
-- `--max-tokens`: Maximum response tokens (default: 3072)
-- `--workers`: Number of parallel workers (default: 10)
+- `--max-tokens`: Maximum response tokens (default: 10000)
+- `--workers`: Number of parallel workers (default: 1)
 - `--retry-delay`: Seconds to wait on rate limit (default: 90)
 - `--max-retries`: Maximum retries per commit (default: 3)
+- `--no-colors`: Disable colored output for better log readability
 
 ### Data Format
 
@@ -187,7 +190,7 @@ python annotate_validation_set.py \
 To include commit diffs in annotations, first enrich your JSONL file:
 
 ```bash
-python diffs/enrich_jsonl.py \
+python utils/add_diff_to_jsonl.py \
     data/50-random-commits-validation.jsonl \
     data/50-random-commits-validation-with-diff.jsonl \
     --repo /path/to/linux
@@ -225,7 +228,7 @@ python annotate_validation_set.py \
   --context-mode diff+single-label+few-shot
 ```
 
-See `diffs/README.md` for more diff retrieval options (GitHub API, GitPython, etc.).
+Options for `add_diff_to_jsonl.py`: `--no-diff`, `--no-stats`, `--context-lines N`, `--quiet`.
 
 ### Convert Annotations to CSV
 
@@ -233,16 +236,26 @@ To convert all JSON annotations from a model's output directory to a single CSV:
 
 ```bash
 python utils/convert_model_to_csv.py \
-    output/my-experiment/openai_gpt-4/ \
-    output/annotations_gpt4.csv
+    --input output/my-experiment/openai_gpt-4/ \
+    --output output/annotations_gpt4.csv
 ```
 
-Or use the model folder name pattern:
+The `--output` / `-o` flag is optional; if omitted the CSV is saved to `data/annotator-results/annotations_{model_name}.csv`:
 ```bash
-python utils/convert_model_to_csv.py \
-    output/openai_gpt-4/ \
-    output/annotations_gpt4.csv
+python utils/convert_model_to_csv.py --input output/openai_gpt-4/
 ```
+
+### Batch Convert All Models to CSV
+
+To convert every model folder under `output/` (organised into round sub-folders `r1/`, `r2/`, …) in one pass:
+
+```bash
+python utils/batch_convert_models_to_csv.py
+```
+
+**Options:**
+- `--output-base DIR`: Base directory for CSV output (default: `data/llm-annotator-results`)
+- `--force`: Overwrite existing CSV files (by default already-converted files are skipped)
 
 ### Using the Annotation Class Programmatically
 
@@ -293,7 +306,7 @@ The tool automatically detects and routes to the appropriate provider:
 ## Research Workflow
 
 1. **Prepare data**: Collect commits in JSONL format
-2. **Optional**: Enrich with diffs using `diffs/enrich_jsonl.py`
+2. **Optional**: Enrich with diffs using `utils/add_diff_to_jsonl.py`
 3. **Annotate**: Run batch annotations with different models
 4. **Convert**: Transform to CSV for analysis
 5. **Analyze**: Use `analysis/disagreement_analysis.ipynb` for inter-annotator agreement
@@ -302,7 +315,6 @@ The tool automatically detects and routes to the appropriate provider:
 
 - `documentation/definitions.md` - Detailed category definitions
 - `documentation/METHOD.md` - Research methodology
-- `diffs/README.md` - Diff retrieval methods
 - `analysis/disagreement_analysis.ipynb` - Statistical analysis
 
 ## Contributing
