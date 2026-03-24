@@ -28,6 +28,15 @@ echo ""
 # Lanzar sbatch con el modelo y GPU como parámetros
 JOB_ID=$(sbatch --parsable --gpus="$GPU_TYPE" "$SCRIPT_DIR/slurm_run_experiment.sh" "$MODEL_NAME" "$GPU_TYPE")
 
+PROJECT_DIR="$HOME/llm-commit-classification"
+JOB_DIR="$PROJECT_DIR/experiments/logs/$JOB_ID"
+MODEL_CLEAN="${MODEL_NAME//:/}"
+GPU_CLEAN="${GPU_TYPE//:/}"
+EXPERIMENT_FILE="$JOB_DIR/${MODEL_CLEAN}_${GPU_CLEAN}.experiment"
+# Crear archivo de identificación del experimento
+mkdir -p "$JOB_DIR"
+touch "$EXPERIMENT_FILE"
+
 echo "Job enviado exitosamente"
 echo "Job ID: $JOB_ID"
 echo ""

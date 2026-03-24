@@ -15,16 +15,18 @@
 set -e  # Exit on any error
 
 PROJECT_DIR="$HOME/llm-commit-classification"
-OLLAMA_HOST="127.0.0.1:1995"
-OLLAMA_PORT="1995"
 MODEL_NAME="${1:-gpt-oss:20b}"  # Parámetro 1 o valor por defecto
 GPU_TYPE="${2:-L40S:1}"          # Parámetro 2 o valor por defecto
+
+# Generar puerto único por job (basado en JOB_ID)
+# Rango: 11434-12433 (1000 puertos disponibles)
+OLLAMA_PORT=$((11434 + (SLURM_JOB_ID % 1000)))
+OLLAMA_HOST="127.0.0.1:$OLLAMA_PORT"
 
 # Limpiar nombres para archivo de identificación (reemplazar : con -)
 MODEL_CLEAN="${MODEL_NAME//:/}"
 GPU_CLEAN="${GPU_TYPE//:/}"
 SLURM_LOG_DIR="$PROJECT_DIR/experiments/logs/$SLURM_JOB_ID"
-EXPERIMENT_FILE="$SLURM_LOG_DIR/${MODEL_CLEAN}_${GPU_CLEAN}.experiment"
 
 echo "========================================"
 echo "LLM Commit Classification Experiment"
@@ -36,23 +38,29 @@ echo "Nodos: $SLURM_NODELIST"
 echo "Project Dir: $PROJECT_DIR"
 echo ""
 
-# Crear archivo de identificación del experimento
-touch "$EXPERIMENT_FILE"
-
 cd "$PROJECT_DIR"
 source .venv/bin/activate
 
-# Kill any existing ollama processes on this node
-echo "[1/4] Limpiando procesos anteriores..."
-pkill -f "ollama serve" || true
-sleep 2
+# Crear directorio de logs si no existe
+mkdir -p "$SLURM_LOG_DIR"
+
+# Verificar si el puerto está disponible, si no esperar un poco
+echo "Verificando disponibilidad del puerto $OLLAMA_PORT..."
+max_wait=10
+wait_count=0
+while lsof -i :$OLLAMA_PORT >/dev/null 2>&1 && [ $wait_count -lt $max_wait ]; do
+    echo "Puerto $OLLAMA_PORT en uso, esperando..."
+    sleep 1
+    wait_count=$((wait_count + 1))
+done
 
 # Start Ollama in background
-echo "[2/4] Iniciando Ollama..."
-export OLLAMA_HOST="127.0.0.1:$OLLAMA_PORT"
+echo "[2/4] Iniciando Ollama en puerto $OLLAMA_PORT..."
+export OLLAMA_HOST="$OLLAMA_HOST"
+export OLLAMA_BASE_URL="http://localhost:$OLLAMA_PORT"
 ollama serve > "$SLURM_LOG_DIR/ollama.log" 2>&1 &
 OLLAMA_PID=$!
-echo "Ollama PID: $OLLAMA_PID"
+echo "Ollama PID: $OLLAMA_PID (Puerto: $OLLAMA_PORT)"
 
 # Wait for Ollama to start
 max_retries=30
@@ -107,5 +115,5 @@ kill $OLLAMA_PID || true
 sleep 2
 
 echo "Logs del experimento: $SLURM_LOG_DIR/"
-echo "Archivo de identificación: $EXPERIMENT_FILE"
+echo "Ollama corrió en puerto: $OLLAMA_PORT"
 exit $EXIT_CODE
