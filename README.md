@@ -109,6 +109,12 @@ Use `annotate_simple.py` to annotate one commit:
 python annotate_simple.py data/sample-commits/724-7392d87a9febb5f46f28d4704eb5636c5e22cdeb.json
 ```
 
+Options:
+- `--model`: LLM model to use (default: openai/gpt-oss-20b:free)
+- `--temperature`: Sampling temperature (default: 0.0)
+- `--max-tokens`: Maximum tokens for LLM response (default: 10000)
+- `--context-mode`: Context/policy mode (default: message). Use one or more flags joined by '+': `message`, `diff`, `single-label`, `few-shot`.
+
 **With custom model:**
 ```bash
 python annotate_simple.py \
@@ -169,6 +175,9 @@ python annotate_validation_set.py \
   "commit_hash": "abc123...",
   "timestamp": "2025-11-28T10:30:00Z",
   "model": "openai/gpt-4",
+  "elapsed_time_seconds": 1.234,
+  "temperature": 0.0,
+  "max_tokens": 10000,
   "context_mode": "message",
   "understanding": {
     "score": 3,

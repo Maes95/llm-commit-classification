@@ -1,6 +1,7 @@
 ---
 description: Updates README.md when Python files change in the project root or in the llms/ and utils/ folders
 applyTo: "*.py,llms/**,utils/**"
+defaultPrompt: "Update README.md: scan the project's Python files (root, llms/, utils/) for CLI or interface changes and apply the necessary edits to README.md; then output a concise summary of the edits made."
 ---
 
 # README Update Agent
