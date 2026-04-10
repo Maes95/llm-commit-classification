@@ -6,154 +6,98 @@ The aim will be to link this study with the guidelines proposed by Baltes et al.
 - Declare LLM Usage and Role
 - Report Model Version, Configuration, and Customizations
 - Report Tool Architecture beyond Models
-- Report Prompts, their Development, and Interaction Logs
-- Use Human Validation for LLM Outputs
-- Use an Open LLM as a Baseline
-- Use Suitable Baselines, Benchmarks, and Metrics
-- Report Limitations and Mitigations
+# Methodology (updated to reflect actual experiment and analysis)
 
-Below, we detail the objectives, materials, procedures, and data analysis used in this experiment.
+This document describes what was actually implemented and executed in this repository. It is organized into two main phases:
 
-## Objective
+- **Experimentation phase** — running automated annotations with multiple LLMs, controlling context modes, and persisting results.
+- **Analysis phase** — evaluating agreement between LLMs and human annotators using reproducible metrics.
 
-The primary objective of this experimental study is to evaluate the capability of Large Language Models (LLMs) to annotate software commits from the Linux Kernel repository across four distinct dimensions: Bug-Fixing Commits (BFC), Bug-Preventing Commits (BPC), Perfective Commits (PRC), and New Feature Commits (NFC). 
-Unlike traditional single-label classification approaches, this research employs a multi-dimensional annotation scheme where each commit receives a score from 0 to 4 for each category, reflecting the degree to which the commit exhibits characteristics of that category. 
-This approach acknowledges the reality that commits often serve multiple purposes simultaneously—for example, a commit might both fix a bug and improve code quality, or introduce a new feature while preventing potential future bugs. 
-The study aims to assess whether LLMs can replicate expert human judgment in producing nuanced, multi-dimensional commit annotations that capture this complexity. We seek to determine the inter-rater reliability between LLM annotations and expert human annotations, measured through correlation coefficients and mean absolute error for each dimension. 
-Furthermore, we aim to identify which contextual elements (commit message alone, commit message with diff, or commit message with full metadata including email discussions) contribute most significantly to annotation accuracy and consistency. 
-The experimental results will provide insights into the viability of using LLMs for large-scale repository mining tasks requiring nuanced understanding of commit semantics, and will establish baseline performance metrics for future comparative studies in automated software evolution analysis.
+## Executive summary
 
-## Materials
+A set of Linux Kernel commits was annotated using a multi-dimensional prompt template (BFC, BPC, PRC, NFC). Results were produced per model and per "round" (context configuration). Execution is orchestrated by `annotate_validation_set.py`; prompt construction and LLM calls are implemented in `LLMCommitAnnotator.py`. The disagreement analysis and metrics are implemented in `analysis/disagreement_analysis.ipynb`.
 
-The experimental dataset consists of 1,000 commits randomly sampled from the Linux Kernel repository, stored in JSONL (JSON Lines) format in the file `data/1000-linux-commits.jsonl`. 
-> **Note**: Actually, nearly 5-10% are merge commits that we should discard.
-Each commit record contains comprehensive metadata including commit hash, author information, commit date, commit message, list of modified files with their change statistics (additions/deletions), parent commit references, and signed-off-by information extracted using the Perceval tool. 
-The annotation taxonomy is defined in `documentation/definitions.md`, which provides detailed definitions for the four commit dimensions based on software engineering principles and failure/fault theory. 
-Each dimension represents a distinct aspect of commit purpose: 
-- BFC captures bug-fixing intent
-- BPC captures preventive maintenance
-- PRC captures quality improvements without behavioral changes
-- NFC captures functionality additions
+## Experimentation phase
 
-For the LLM infrastructure, we utilize the LangChain library (Python) to interface with multiple language models through OpenRouter as the API gateway provider. The models selected for evaluation include: 
+- Main driver: `annotate_validation_set.py`
+  - Reads a validation set of commits (default: `data/50-random-commits-validation.jsonl`).
+  - Initializes `LLMCommitAnnotator` with flags: `--model`, `--context-mode`, `--temperature`, `--max-tokens`, and parallelism options.
+  - Persists annotations under `data/llm-annotator-results/rX/` (one folder per run `r1..r5`).
 
-- meta-llama/llama-4-maverick:free
-- deepseek/deepseek-chat-v3.1:free 
-- meituan/longcat-flash-chat:free 
-- openai/gpt-oss-20b:free 
-- qwen/qwen3-coder:free 
-- moonshotai/kimi-k2:free 
-- google/gemma-3n-e2b-it:free 
-- tngtech/deepseek-r1t2-chimera:free 
-- mistralai/mistral-small-3.2-24b-instruct:free 
-- google/gemini-2.0-flash-exp:free 
-- nvidia/nemotron-nano-9b-v2:free
-- minimax/minimax-m2:free
+- Prompt generation and LLM calls: `LLMCommitAnnotator.py`
+  - Loads `documentation/definitions.md`, `documentation/context.md`, and optionally `documentation/few-shot-examples.md`.
+  - Builds prompts according to `context_mode` flags: `message`, `diff`, `single-label`, `few-shot`, and their combinations.
+  - Delegates model initialization and invocation to provider adapters implemented in the `llms/` package (Ollama, Copilot, OpenRouter, Google, OpenAI).
+  - Expects each model response to be a JSON object containing `understanding`, `bfc`, `bpc`, `prc`, `nfc`, and `summary` fields.
 
-> **Note**: I have selected some of the most relevant "free" models I have found, but I am unable to define a selection criterion that makes sense
+- Provider adapters: `llms/` contains backend adapters (`ollama_llm.py`, `copilot_llm.py`, `openrouter_llm.py`, `google_llm.py`, `openai_llm.py`).
 
-These models represent diverse architectural approaches and training paradigms, enabling comprehensive performance comparison. The selection criteria prioritize models with proven reasoning capabilities, sufficient context window sizes (minimum 32K tokens) to accommodate complete commit information including extensive code diffs, and demonstrated proficiency in multi-aspect analysis tasks.
+- Models executed (inferred from `data/llm-annotator-results` filenames):
+  - `copilot/gpt-5-mini` (files labeled `annotations_copilot_gpt-5-mini.csv`)
+  - CodeLlama variants: `codellama_34b`, `codellama_70b`
+  - DeepSeek variants: `deepseek-coder-33b`, `deepseek-r1-32b`, `deepseek-r1-70b`
+  - `gpt-oss` variants: `gpt-oss_20b`, `gpt-oss_120b`
+  - `llama4_16x17b`
+  - `qwen3-coder-30b`
 
-> **Note**: Baltes et al. guidelines states that research should use open-source LLMs model as baselines. Definition: “[...] according to OSI, open-source AI means that one has access to everything needed to use the AI, which includes that it is possible to understand, modify, share, retrain, and recreate it.”
+  Results per model and per round are stored in `data/llm-annotator-results/r1..r5/` as CSV/JSON files.
 
-## Procedure
+- Rounds / context-mode configurations used in experiments:
+  - `r1`: `message` (commit message only)
+  - `r2`: `single-label`
+  - `r3`: `single-label+few-shot`
+  - `r4`: `diff+single-label`
+  - `r5`: `diff+single-label+few-shot`
 
-The experimental procedure is structured as a five-phase pipeline executed sequentially to ensure systematic and reproducible commit annotation:
+- Reproducibility and configuration practices:
+  - Default `temperature=0.0` for determinism where supported.
+  - `max_tokens` increased to 10000 in the driver script to reduce truncated JSON outputs for verbose models.
+  - The prompt enforces a compact output budget to reduce malformed JSON responses.
 
-### Phase 1: Data Preparation
+## Analysis phase
 
-The dataset undergoes preprocessing to structure commit information at three granularity levels. For each commit in `1000-linux-commits.jsonl`, we extract:
+- Primary analysis notebook: `analysis/disagreement_analysis.ipynb`
+  - Purpose: quantify agreement between LLM annotators and human annotators (A, B, C) using robust metrics.
+  - Metrics used:
+    - Krippendorff's Alpha (kA) — suitable for ordinal scores.
+    - Cohen's Kappa (cK, quadratic) — pairwise agreement.
+    - Alt-Test (aT) — probability that the LLM is closer to human consensus than a held-out human annotator.
+  - Analysis flow (per LLM × round):
+    1. Restrict to commits annotated by the three humans and the LLM.
+    2. Compute the human baseline (kA, cK, aT) on the shared subset.
+    3. Compute LLM metrics using leave-one-out permutations and averages as implemented in the notebook.
+    4. Report Mean and Diff (Mean minus human baseline) for each metric.
+    5. Repeat per label (`bfc`, `bpc`, `prc`, `nfc`) and aggregate into combined views.
 
-- **Level 1 (Minimal)**: Commit message text only from the `data.message` field
-- **Level 2 (Standard)**: Commit message plus file modification statistics (files added/modified/deleted, lines changed) extracted from the `data.files` array, including file paths and change counts
-- **Level 3 (Full)**: Complete context including commit message, full code diff reconstructed from file changes and associated email thread discussions when available
+- Supporting utilities:
+  - `analysis/alt_test/alt_test.py` contains the Alt-Test routines used by the notebook.
+  - The notebook relies on `pandas`, `seaborn`, `sklearn.metrics.cohen_kappa_score`, `krippendorff`, and helper functions to standardize CSVs.
 
-Code diffs are reconstructed by parsing the `files` array, which contains per-file change information including `added` and `removed` line counts, file paths, and action types (Modified, Added, Deleted). For commits with email references (extracted from `Link:` tags in commit messages using regex pattern `Link: https://lore.kernel.org/r/([^\s]+)`), we fetch HTML content from the Linux Kernel Mailing List archives (lore.kernel.org) using HTTP requests, convert to plain text using BeautifulSoup, and preserve threading structure by parsing `In-Reply-To` and `References` headers.
+## Artifacts and quick reproduction
 
-### Phase 2: Prompt Engineering
+- Annotation results by model and round: `data/llm-annotator-results/r1..r5/`.
+- Human annotations: `data/human-annotator-results/annotations_A.csv`, `annotations_B.csv`, `annotations_C.csv`.
+- Quick example to run a small experiment (r1) on the validation set:
 
-We design a structured prompt template that combines the annotation taxonomy with commit context and implements a multi-dimensional scoring system. The template follows this architecture:
-
-```
-[SYSTEM INSTRUCTION]
-You are an expert software engineering analyst specializing in commit annotation.
-Your task is to evaluate commits across multiple dimensions simultaneously.
-
-[TAXONOMY DEFINITIONS]
-Below are the definitions and categories you must use for annotation:
-{definitions.md}
-
-[TASK INSTRUCTION]
-Annotate the following commit by assigning a score from 0 to 4 for EACH of the four categories:
-- Bug-Fixing Commit (BFC)
-- Bug-Preventing Commit (BPC)
-- Perfective Commit (PRC)
-- New Feature Commit (NFC)
-
-Scoring rubric:
-0 = Not applicable - The commit shows no characteristics of this category
-1 = Minimal - The commit shows very slight or tangential characteristics
-2 = Moderate - The commit partially exhibits characteristics of this category
-3 = Strong - The commit clearly exhibits characteristics of this category
-4 = Primary - This is a primary or dominant characteristic of the commit
-
-Use chain-of-thought reasoning for each dimension:
-1. Identify evidence in the commit relevant to this dimension
-2. Evaluate the strength and significance of this evidence
-3. Assign an appropriate score based on the rubric
-
-[COMMIT CONTEXT]
-{context_at_specified_granularity_level}
-
-[UNDERSTANDING ASSESSMENT]
-Before annotating, assess your comprehension of the commit using this rubric:
-0 = No comprehension - Cannot determine what the commit does
-1 = Minimal comprehension - Only vague understanding of general area
-2 = Partial comprehension - Understand some aspects but missing key details
-3 = Good comprehension - Understand the main changes and their purpose
-4 = Complete comprehension - Full understanding of all technical changes and context
-
-[OUTPUT FORMAT]
-Provide your annotation as a valid JSON object with the following structure:
-{
-  "understanding": {
-    "score": [0-4],
-    "description": "Clear description of what the commit does and its technical changes"
-  },
-  "bfc": {
-    "score": [0-4],
-    "reasoning": "Detailed explanation of BFC score"
-  },
-  "bpc": {
-    "score": [0-4],
-    "reasoning": "Detailed explanation of BPC score"
-  },
-  "prc": {
-    "score": [0-4],
-    "reasoning": "Detailed explanation of PRC score"
-  },
-  "nfc": {
-    "score": [0-4],
-    "reasoning": "Detailed explanation of NFC score"
-  },
-  "summary": "Brief synthesis of the commit's primary purposes"
-}
-
-Ensure your response is ONLY the JSON object, with no additional text before or after.
+```bash
+python annotate_validation_set.py --input data/50-random-commits-validation.jsonl \
+  --model "copilot/gpt-5-mini" --context-mode message --output output/
 ```
 
-For each context level, the `{context_at_specified_granularity_level}` placeholder is populated with the corresponding preprocessed data. 
+## Traceability and limitations
 
-### Phase 3: LLM Configuration
+- The prompt template and single-label policy are defined in `LLMCommitAnnotator.py`.
+- The experiment used multiple LLM backends; results depend on the adapter implementations in `llms/` and on local credentials or runtime configuration, which are not stored in the repository.
+- Known issues to consider: malformed JSON responses from verbose models, calibration bias introduced by `few-shot` examples, and commit selection biases (merge commits were filtered when necessary).
 
-Each model is configured with deterministic parameters to maximize reproducibility (if supported by the model):
+## Suggested next steps
 
-```python
-llm_config = {
-    "temperature": 0.0,        # Eliminate randomness in token selection
-    "top_p": 1.0,              # Consider full probability distribution
-    "max_tokens": 3072,        # Allow detailed reasoning per dimension
-    "frequency_penalty": 0.0,  # No penalty for token repetition
+- Record exact commit hashes used in each run for absolute reproducibility.
+- Archive full prompts and raw responses (the `raw_response` field is already saved in per-commit outputs) in a separate audit artifact.
+- Add automation to extract the notebook metrics into machine-readable CSV/JSON files for publication.
+
+---
+Updated based on repository code and data (scripts `annotate_validation_set.py`, `LLMCommitAnnotator.py`, adapters in `llms/`, files under `data/llm-annotator-results/`, and `analysis/disagreement_analysis.ipynb`).
     "presence_penalty": 0.0,   # No penalty for topic repetition
 }
 ```
