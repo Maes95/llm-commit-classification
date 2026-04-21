@@ -62,3 +62,12 @@ En el prompt se incluyó:
 Tras realizar la experimentación, se obtuvo un conjunto de anotaciones en bruto por modelo y configuración, almacenadas en `output/rX/` como archivos JSON (uno por cada commit/modelo/round). Estos archivos contienen la respuesta completa del modelo, incluyendo el razonamiento y la evaluación de comprensión.
 
 Para poder comparar las anotaciones de los modelos con las de los humanos, se procesaron estos archivos JSON para extraer únicamente las puntuaciones asignadas a cada dimensión (BFC, BPC, PRC, NFC) y se consolidaron en archivos CSV por modelo y round. Estos CSVs contienen una fila por commit con las puntuaciones asignadas por el modelo, facilitando así su análisis posterior en la fase de análisis. El script `batch_convert_models_to_csv.py` se encargó de esta tarea de procesamiento y consolidación, generando los archivos CSV finales que se encuentran en `data/llm-annotator-results/rX/` para cada modelo y round.
+
+
+### 3. Fase de análisis
+
+En esta fase se compararán las anotaciones de los modelos con las anotaciones humanas utilizando métricas de acuerdo como Cohen's Kappa, Krippendorff's Alpha y alt-test.
+
+La fase de análisis se documenta por completo en el Notebook `analysis/discussion.ipynb`, donde se presentan los resultados de las métricas de acuerdo para cada modelo y configuración.
+
+PONER CONLUSIONEAS -> GPT-OSS
