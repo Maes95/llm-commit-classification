@@ -1,0 +1,52 @@
+name: Deploy notebook to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+    paths: ["analysis/disagreement_analysis.ipynb"]
+  
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install nbconvert
+        run: pip install nbconvert
+
+      - name: Convert notebook to HTML
+        run: |
+          jupyter nbconvert --to html \
+            --no-input \
+            --output-dir _site \
+            --output index \
+            analysis/disagreement_analysis.ipynb
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
