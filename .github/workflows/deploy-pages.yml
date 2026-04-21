@@ -26,16 +26,49 @@ jobs:
         with:
           python-version: "3.11"
 
-      - name: Install nbconvert
-        run: pip install nbconvert
+      - name: Install dependencies
+        run: pip install nbconvert beautifulsoup4
 
       - name: Convert notebook to HTML
         run: |
           jupyter nbconvert --to html \
+            --template lab \
             --no-input \
             --output-dir _site \
             --output index \
             analysis/disagreement_analysis.ipynb
+
+      - name: Fix heading anchor IDs
+        run: |
+          python3 - <<'EOF'
+          import re
+          from pathlib import Path
+          from bs4 import BeautifulSoup
+
+          def github_anchor(text):
+              """Replicate GitHub's heading anchor algorithm."""
+              text = text.lower()
+              text = re.sub(r'[^a-z0-9 -]', '', text)
+              text = re.sub(r' +', '-', text.strip())
+              return text
+
+          html = Path('_site/index.html').read_text(encoding='utf-8')
+          soup = BeautifulSoup(html, 'html.parser')
+
+          seen = {}
+          for tag in soup.find_all(['h1', 'h2', 'h3', 'h4', 'h5', 'h6']):
+              plain = tag.get_text()
+              anchor = github_anchor(plain)
+              # Handle duplicate headings
+              count = seen.get(anchor, 0)
+              seen[anchor] = count + 1
+              if count:
+                  anchor = f'{anchor}-{count}'
+              tag['id'] = anchor
+
+          Path('_site/index.html').write_text(str(soup), encoding='utf-8')
+          print("Heading anchors patched OK")
+          EOF
 
       - uses: actions/upload-pages-artifact@v3
         with:
