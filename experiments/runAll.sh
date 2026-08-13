@@ -14,7 +14,7 @@
 # Ejemplo: ./runAll.sh "ollama/gpt-oss:20b"
 
 MODEL="${1:-ollama/gpt-oss:20b}"  # Parámetro 1 o valor por defecto
-INPUT_FILE="data/50-random-commits-validation-with-diff.jsonl"
+INPUT_FILE="data/858-linux-commits-with-diff.jsonl"
 WORKERS=10
 
 source .venv/bin/activate
